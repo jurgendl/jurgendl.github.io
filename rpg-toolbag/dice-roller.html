@@ -1,217 +1,209 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>W40K</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-	integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-<script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
-<style>
-input.form-control {
-	display: inline-block;
-}
-
-.list-group-item:first-child {
-	z-index: 2;
-	color: #fff;
-	background-color: rgba(0, 123, 255, .5);
-	border-color: rgba(0, 123, 255, .5);
-}
-
-#FULL_HISTORY, #LAST_HISTORY {
-	font-family: monospace;
-}
-
-#FULL_HISTORY .list-group-item {
-	padding: .5rem .75rem;
-}
-
-.fas {
-	display: inline-block;
-}
-
-.nav-link {
-	padding: .25em .5em !important;
-}
-
-.tabsviewoff .nav {
-	display: none;
-}
-
-.tabsviewoff #firsttablog {
-	display: none;
-}
-
-.tabsviewoff .fade:not(.show) {
-	opacity: inherit;
-}
-
-.tabsviewoff .tab-content>.tab-pane {
-	display: inherit;
-}
-
-.w40kmode .hide-in-40k-mode {
-	display: none;
-}
-
-.only-in-40k-mode {
-	display: none;
-}
-
-.w40kmode .only-in-40k-mode {
-	display: inherit;
-}
-
-body {
-	font-family: "Bree Serif";
-}
-
-.nav-link.active {
-	background-color: var(- -primary) !important;
-	color: white !important;
-}
-
-.strike {
-	position: relative;
-	display: inline-block;
-}
-
-.strike::before {
-	content: '';
-	border-bottom: 2px solid red;
-	width: 100%;
-	position: absolute;
-	right: 0;
-	top: 50%;
-}
-
-.cross {
-	position: relative;
-	display: inline-block;
-}
-
-.cross::before, .cross::after {
-	content: '';
-	width: 100%;
-	position: absolute;
-	right: 0;
-	top: 50%;
-}
-
-.cross::before {
-	border-bottom: 2px solid red;
-	-webkit-transform: skewY(-35deg);
-	transform: skewY(-35deg);
-}
-
-.cross::after {
-	border-bottom: 2px solid red;
-	-webkit-transform: skewY(35deg);
-	transform: skewY(35deg);
-}
-</style>
+    <title>W40K</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/css/sb-admin-2.css" integrity="sha512-gOfBez3ehpchNxj4TfBZfX1MDLKLRif67tFJNLQSpF13lXM1t9ffMNCbZfZNBfcN2/SaWvOf+7CvIHtQ0Nci2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/js/sb-admin-2.js" integrity="sha512-M82XdXhPLLSki+Ld1MsafNzOgHQB3txZr8+SQlGXSwn6veeqtYhPLbQeAfk9Y/Q9/gXcfa1jWT4YYUeoei6Uow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>-->
+    <!-- https://bootstrap-confirmation.js.org/ -->
+    <!-- https://github.com/mistic100/Bootstrap-Confirmation -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2@4.1.0/dist/bootstrap-confirmation.min.js"></script>
+    <!-- https://clipboardjs.com/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <style>
+        input.form-control {
+            display: inline-block;
+        }
+        
+        .list-group-item:first-child {
+            z-index: 2;
+            color: #fff;
+            background-color: rgba(0, 123, 255, .5);
+            border-color: rgba(0, 123, 255, .5);
+        }
+        
+        #FULL_HISTORY,
+        #LAST_HISTORY {
+            font-family: monospace;
+        }
+        
+        #FULL_HISTORY .list-group-item {
+            padding: .5rem .75rem;
+        }
+        
+        .fas {
+            display: inline-block;
+        }
+        
+        .nav-link {
+            padding: .25em .5em !important;
+        }
+        
+        .tabsviewoff .nav {
+            display: none;
+        }
+        
+        .tabsviewoff #firsttablog {
+            display: none;
+        }
+        
+        .tabsviewoff .fade:not(.show) {
+            opacity: inherit;
+        }
+        
+        .tabsviewoff .tab-content>.tab-pane {
+            display: inherit;
+        }
+        
+        .w40kmode .hide-in-40k-mode {
+            display: none;
+        }
+        
+        .only-in-40k-mode {
+            display: none;
+        }
+        
+        .w40kmode .only-in-40k-mode {
+            display: inherit;
+        }
+        
+        body {
+            font-family: "Bree Serif";
+        }
+        
+        .nav-link.active {
+            background-color: var(- -primary) !important;
+            color: white !important;
+        }
+        
+        .strike {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .strike::before {
+            content: '';
+            border-bottom: 2px solid red;
+            width: 100%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+        }
+        
+        .cross {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .cross::before,
+        .cross::after {
+            content: '';
+            width: 100%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+        }
+        
+        .cross::before {
+            border-bottom: 2px solid red;
+            -webkit-transform: skewY(-35deg);
+            transform: skewY(-35deg);
+        }
+        
+        .cross::after {
+            border-bottom: 2px solid red;
+            -webkit-transform: skewY(35deg);
+            transform: skewY(35deg);
+        }
+    </style>
 </head>
+
 <body>
-
-
-
-	<div style="position: absolute; right: 0px; top: 0px;">
-		<div style="display: inline-block;" class="custom-control custom-switch mr-2">
-			<input type="checkbox" class="custom-control-input" id="TABSVIEW"> <label class="custom-control-label" for="TABSVIEW">Tabs</label> <sup class="mr-2"> <a
+    <div style="position: absolute; right: 0px; top: 0px;">
+        <div style="display: inline-block;" class="custom-control custom-switch mr-2">
+            <input type="checkbox" class="custom-control-input" id="TABSVIEW">
+            <label class="custom-control-label" for="TABSVIEW">Tabs</label> <sup class="mr-2"> <a
 				style="cursor: help;" tabindex="0" data-toggle="popover" data-placement="bottom" data-content="Overzicht in tabs."> <i class="text-info fas fa-info"></i>
 			</a>
-			</sup>
-		</div>
-		<div style="display: inline-block;" class="custom-control custom-switch mr-2">
-			<input type="checkbox" class="custom-control-input" id="SHOWFORMULA"> <label class="custom-control-label" for="SHOWFORMULA">Formule</label> <sup class="mr-2"> <a
+			</sup> </div>
+        <div style="display: inline-block;" class="custom-control custom-switch mr-2">
+            <input type="checkbox" class="custom-control-input" id="SHOWFORMULA">
+            <label class="custom-control-label" for="SHOWFORMULA">Formule</label> <sup class="mr-2"> <a
 				style="cursor: help;" tabindex="0" data-toggle="popover" data-placement="bottom" data-content="Toon formule invoer."> <i class="text-info fas fa-info"></i>
 			</a>
-			</sup>
-		</div>
-		<div style="display: inline-block;" class="custom-control custom-switch mr-2">
-			<input type="checkbox" class="custom-control-input" id="W40MODE"> <label class="custom-control-label" for="W40MODE">W40K mode</label> <sup class="mr-2"> <a
+			</sup> </div>
+        <div style="display: inline-block;" class="custom-control custom-switch mr-2">
+            <input type="checkbox" class="custom-control-input" id="W40MODE">
+            <label class="custom-control-label" for="W40MODE">W40K mode</label> <sup class="mr-2"> <a
 				style="cursor: help;" tabindex="0" data-toggle="popover" data-placement="bottom" data-content="Toon W40K-only deel."> <i class="text-info fas fa-info"></i>
 			</a>
-			</sup>
-		</div>
-	</div>
-	<br>
-
-	<div id="TABSVIEW_PARENT" class="pl-2 pr-2 w40kmode">
-		<ul style="border-bottom: 0px;" class="nav nav-tabs" id="pills-tab" role="tablist">
-			<li class="nav-item" role="presentation"><a class="nav-link active" id="pills-rolls-tab" data-toggle="pill" href="#pills-rolls" role="tab" aria-controls="pills-rolls"
-				aria-selected="true">Rolls</a></li>
-			<li class="nav-item" role="presentation"><a class="nav-link" id="pills-history-tab" data-toggle="pill" href="#pills-history" role="tab" aria-controls="pills-history"
-				aria-selected="false">Historiek</a></li>
-			<li class="nav-item" role="presentation"><a class="nav-link" id="pills-links-tab" data-toggle="pill" href="#pills-links" role="tab" aria-controls="pills-links"
-				aria-selected="false">...</a></li>
-		</ul>
-		<div class="border border-primary tab-content tabsview" id="pills-tabContent">
-			<div class="tab-pane fade show active" id="pills-rolls" role="tabpanel" aria-labelledby="pills-rolls-tab">
-				<div class="p-2 row">
-					<div id="FORMULAPARENT" style="display: none;" class="col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<span style="width: 8em;" class="input-group-text">Formule</span>
-						</div>
-						<input class="form-control form-control-sm" id="FORMULA" type="text">
-						<div class="input-group-append">
-							<span style="width: 8em;" class="input-group-text"> = <span id="FORMULA_RESULT"></span> &nbsp; <sup class="only-in-40k-mode"> <!-- <a style="cursor: crosshair;" class="clipboard" data-toggle="tooltip" title="kopieer naar clipboard" data-clipboard-target="#FORMULA_RESULT" data-clipboard-action="copy">
+			</sup> </div>
+    </div>
+    <br>
+    <div id="TABSVIEW_PARENT" class="pl-2 pr-2 w40kmode">
+        <ul style="border-bottom: 0px;" class="nav nav-tabs" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation"><a class="nav-link active" id="pills-rolls-tab" data-toggle="pill" href="#pills-rolls" role="tab" aria-controls="pills-rolls" aria-selected="true">Rolls</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" id="pills-history-tab" data-toggle="pill" href="#pills-history" role="tab" aria-controls="pills-history" aria-selected="false">Historiek</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" id="pills-links-tab" data-toggle="pill" href="#pills-links" role="tab" aria-controls="pills-links" aria-selected="false">...</a></li>
+        </ul>
+        <div class="border border-primary tab-content tabsview" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-rolls" role="tabpanel" aria-labelledby="pills-rolls-tab">
+                <div class="p-2 row">
+                    <div id="FORMULAPARENT" style="display: none;" class="col-12 input-group input-group-sm mb-2">
+                        <div class="input-group-prepend"> <span style="width: 8em;" class="input-group-text">Formule</span> </div>
+                        <input class="form-control form-control-sm" id="FORMULA" type="text">
+                        <div class="input-group-append"> <span style="width: 8em;" class="input-group-text"> = <span id="FORMULA_RESULT"></span> &nbsp; <sup class="only-in-40k-mode"> <!-- <a style="cursor: crosshair;" class="clipboard" data-toggle="tooltip" title="kopieer naar clipboard" data-clipboard-target="#FORMULA_RESULT" data-clipboard-action="copy">
 										<i class="fas fa-clipboard"></i>
 									</a> --> <span onclick="saveFormulaResult()" style="cursor: crosshair;" data-toggle="tooltip" title="kopieer naar skill"> <i class="fas fa-save"></i>
 								</span>
-							</sup>
-							</span>
-						</div>
-					</div>
-					<div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
-						<div class="input-group-prepend">
-							<span style="width: 8em;" class="input-group-text">BS/WS/skill&nbsp; <sup> <a style="cursor: help;" tabindex="0" data-toggle="popover"
+							</sup> </span>
+                        </div>
+                    </div>
+                    <div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
+                        <div class="input-group-prepend"> <span style="width: 8em;" class="input-group-text">BS/WS/skill&nbsp; <sup> <a style="cursor: help;" tabindex="0" data-toggle="popover"
 									data-content="<b>Warhammer</b>: skill value.<br>Waarde wordt bewaard in browser voor volgende keer."> <i class="text-info fas fa-info"></i>
 								</a>
 							</sup>
-							</span>
-						</div>
-						<input id="SKILL" min="1" max="160" type="text" class="form-control form-control-sm">
-					</div>
-					<div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
-						<div class="input-group-prepend">
-							<span style="width: 8em;" class="input-group-text">Success?</span>
-						</div>
-						<input readonly class="form-control form-control-sm" size="4" id="RESULT" type="text" min="1" max="100">
-					</div>
-					<div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" min="0" max="100" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom100(event);">D100</button>
-						</div>
-						<input class="form-control form-control-sm" size="4" id="ROLL" type="text" min="1" max="100">
-					</div>
-					<div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
-						<div class="input-group-prepend">
-							<span style="width: 8em;" class="input-group-text">Degrees&nbsp;<sup> <a style="cursor: help;" tabindex="0" data-toggle="popover"
+							</span> </div>
+                        <input id="SKILL" min="1" max="160" type="text" class="form-control form-control-sm"> </div>
+                    <div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
+                        <div class="input-group-prepend"> <span style="width: 8em;" class="input-group-text">Success?</span> </div>
+                        <input readonly class="form-control form-control-sm" size="4" id="RESULT" type="text" min="1" max="100"> </div>
+                    <div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
+                        <div class="input-group-prepend">
+                            <button style="width: 8em;" min="0" max="100" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom100(event);">D100</button>
+                        </div>
+                        <input class="form-control form-control-sm" size="4" id="ROLL" type="text" min="1" max="100"> </div>
+                    <div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
+                        <div class="input-group-prepend"> <span style="width: 8em;" class="input-group-text">Degrees&nbsp;<sup> <a style="cursor: help;" tabindex="0" data-toggle="popover"
 									data-content="<b>Warhammer</b>: During an ONLY WAR game, knowing whether a Test has succeeded or failed is typically sufficient. There are times, however, when it is helpful to know just how well a character has succeeded at a given task, or just how badly he has failed. This is of particular importance with social skills, such as Charm and Inquiry, as well as during some combat situations such as when firing an automatic weapon.<br>Measuring a character’s Degrees of Success or Failure is a rather straightforward process. Once the percentage roll for the Test is made, compare the outcome of the roll with the modified Characteristic score. If the roll is equal to or lower than the Characteristic, the character has gained one Degree of Success. Furthermore, every 10 points by which the Test succeeds grants yet another Degree of Success. Conversely, if the roll is higher than the Characteristic, the character has gained one Degree of Failure, and gains an additional Degree of Failure for every additional 10 points rolled over the Characteristic.">
 										<i class="text-info fas fa-info"></i>
 								</a>
 							</sup>
-							</span>
-						</div>
-						<input readonly class="form-control form-control-sm" size="4" id="DEGREES" type="text" min="1" max="100">
-					</div>
-					<div class="col-md-6 col-12 mb-2">
-						<div style="display: inline-block;" class="custom-control custom-switch mr-2">
-							<input type="checkbox" class="custom-control-input" id="SUM"> <label class="custom-control-label" for="SUM">Someer</label> <sup> <a style="cursor: help;"
+							</span> </div>
+                        <input readonly class="form-control form-control-sm" size="4" id="DEGREESV" type="text" min="1" max="100"> </div>
+                    <div class="col-md-6 col-12 mb-2">
+                        <div style="display: inline-block;" class="custom-control custom-switch mr-2">
+                            <input type="checkbox" class="custom-control-input" id="SUM">
+                            <label class="custom-control-label" for="SUM">Someer</label> <sup> <a style="cursor: help;"
 								tabindex="0" data-toggle="popover" data-content="Someer all rolls startend op het moment dat dit aangevinkt wordt.<br>Klik op som legen of vink uit om opnieuw te beginnen.">
 									<i class="text-info fas fa-info"></i>
 							</a>
-							</sup>
-						</div>
-						<span class="only-in-40k-mode">
+							</sup> </div> <span class="only-in-40k-mode">
 							<div style="display: inline-block;" class="custom-control custom-switch mr-2">
-								<input type="checkbox" class="custom-control-input" id="DEGREES_MIN"> <label class="custom-control-label" for="DEGREES_MIN">Degrees = min</label> <sup> <a
+								<input type="checkbox" class="custom-control-input" id="DEGREESV_MIN"> <label class="custom-control-label" for="DEGREESV_MIN">Degrees = min</label> <sup> <a
 									style="cursor: help;" tabindex="0" data-toggle="popover"
 									data-content="<b>Warhammer</b>: neem aantal successen als vervanging wanneer je minder rolt op D10.<br>Wordt genegeerd als er geen success gerolled is.<br>Werkt in beide gevallen als someren uit en aan staat.">
 										<i class="text-info fas fa-info"></i>
@@ -225,21 +217,18 @@ body {
 										data-content="<b>Warhammer</b>: Tearing weapons are vicious devices, often using multitudes of fast-moving jagged teeth to rip into flesh and bone. These weapons roll one extra die for Damage, and the lowest result is discarded.">
 											<i class="text-info fas fa-info"></i>
 									</a>
-								</sup></span>
-							</div>
-						</span> <span class="only-in-40k-mode">
+								</sup></span> </div>
+                    </span> <span class="only-in-40k-mode">
 							<div style="display: inline-block;" class="custom-control custom-switch mr-2">
 								<input type="checkbox" class="custom-control-input" id="LASMASTERY"> <label class="custom-control-label" for="LASMASTERY">Las Weapon Mastery</label> <span
 									class="only-in-40k-mode"><sup> <a style="cursor: help;" tabindex="0" data-toggle="popover"
 										data-content="<b>Warhammer</b>: Whenever this character makes an attack with a las weapon (such as a lasgun, lascarbine, laspistol, or lascannon), he deals +1 additional Damage for every two Degrees of Success he scores on the Ballistic Skill Test beyond the first.">
 											<i class="text-info fas fa-info"></i>
 									</a>
-								</sup></span>
-							</div>
-						</span>
-					</div>
-					<div class="col-md-6 col-12 mb-2">
-						<span class="">
+								</sup></span> </div>
+                </span>
+            </div>
+            <div class="col-md-6 col-12 mb-2"> <span class="">
 							<div class="input-group input-group-sm">
 								<div class="input-group-prepend only-in-40k-mode">
 									<span style="width: 8em;" class="input-group-text">Proven&nbsp; <sup> <a style="cursor: help;" tabindex="0" data-toggle="popover"
@@ -247,659 +236,636 @@ body {
 												<i class="text-info fas fa-info"></i>
 										</a>
 									</sup>
-									</span>
-								</div>
-								<select class="form-control form-control-sm" id="MINIMUM">
-									<option value="0">No minimum</option>
-									<option value="2">Minimum 2</option>
-									<option value="3">Minimum 3</option>
-									<option value="4">Minimum 4</option>
-									<option value="5">Minimum 5</option>
-									<option value="6">Minimum 6</option>
-									<option value="7">Minimum 7</option>
-									<option value="8">Minimum 8</option>
-									<option value="9">Minimum 9</option>
-									<option value="10">Minimum 10</option>
-								</select>
-							</div>
-						</span>
-					</div>
-					<div class="col-md-6 col-12 mb-2">
-						<span class="">
+									</span> </div>
+            <select class="form-control form-control-sm" id="MINIMUM">
+                <option value="0">No minimum</option>
+                <option value="2">Minimum 2</option>
+                <option value="3">Minimum 3</option>
+                <option value="4">Minimum 4</option>
+                <option value="5">Minimum 5</option>
+                <option value="6">Minimum 6</option>
+                <option value="7">Minimum 7</option>
+                <option value="8">Minimum 8</option>
+                <option value="9">Minimum 9</option>
+                <option value="10">Minimum 10</option>
+            </select>
+        </div>
+        </span>
+    </div>
+    <div class="col-md-6 col-12 mb-2"> <span class="">
 							<div class="input-group input-group-sm">
 								<div class="input-group-prepend">
-									<span style="width: 8em;" class="input-group-text">Flat bonus</span>
-								</div>
-								<input class="form-control form-control-sm" id="FLAT" type="text" value="0">
-							</div>
-						</span>
-					</div>
-					<div class="col-12"></div>
-					<div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,100,'i100')">D100</button>
-						</div>
-						<input readonly="readonly" class="form-control form-control-sm" size="4" id="i100" type="text">
-					</div>
-					<div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,20,'i20')">D20</button>
-						</div>
-						<input readonly="readonly" class="form-control form-control-sm" size="4" id="i20" type="text">
-					</div>
-					<div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,12,'i12')">D12</button>
-						</div>
-						<input readonly="readonly" class="form-control form-control-sm" size="4" id="i12" type="text">
-					</div>
-					<div class="col-md-6 col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,10,'i10')">D10</button>
-						</div>
-						<input readonly="readonly" class="form-control form-control-sm" size="4" id="i10" type="text">
-						<div class="input-group-append only-in-40k-mode">
-							<span style="width: 8em;" class="input-group-text">Accurate&nbsp;<sup style="display: inline-block;" class=""> <a style="cursor: help;" tabindex="0"
+									<span style="width: 8em;" class="input-group-text">Flat bonus</span> </div>
+    <input class="form-control form-control-sm" id="FLAT" type="text" value="0"> </div>
+    </span>
+    </div>
+    <div class="col-12"></div>
+    <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,100,'i100')">D100</button>
+        </div>
+        <input readonly="readonly" class="form-control form-control-sm" size="4" id="i100" type="text"> </div>
+    <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,20,'i20')">D20</button>
+        </div>
+        <input readonly="readonly" class="form-control form-control-sm" size="4" id="i20" type="text"> </div>
+    <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,12,'i12')">D12</button>
+        </div>
+        <input readonly="readonly" class="form-control form-control-sm" size="4" id="i12" type="text"> </div>
+    <div class="col-md-6 col-12 input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,10,'i10')">D10</button>
+        </div>
+        <input readonly="readonly" class="form-control form-control-sm" size="4" id="i10" type="text">
+        <div class="input-group-append only-in-40k-mode"> <span style="width: 8em;" class="input-group-text">Accurate&nbsp;<sup style="display: inline-block;" class=""> <a style="cursor: help;" tabindex="0"
 									data-toggle="popover"
 									data-content="<b>Warhammer</b>: Accurate: When firing a single shot from a single Basic weapon with the Accurate Quality and benefiting from the Aim Action, the attack inflicts an extra 1d10 of Damage for every two Degrees of Success, to a maximum of an extra 2d10.">
 										<i class="text-info fas fa-info"></i>
 								</a>
-							</sup>&nbsp;:&nbsp;<span id="ACCURATE">-</span>
-							</span>
-						</div>
-					</div>
-					<div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,8,'i8')">D8</button>
-						</div>
-						<input readonly="readonly" class="form-control form-control-sm" size="4" id="i8" type="text">
-					</div>
-					<div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,6,'i6')">D6</button>
-						</div>
-						<input readonly="readonly" class="form-control form-control-sm" size="4" id="i6" type="text">
-					</div>
-					<div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,5,'i5')">D5</button>
-						</div>
-						<input readonly="readonly" class="form-control form-control-sm" size="4" id="i5" type="text">
-					</div>
-					<div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,4,'i4')">D4</button>
-						</div>
-						<input readonly="readonly" class="form-control form-control-sm" size="4" id="i4" type="text">
-					</div>
-					<div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,3,'i3')">D3</button>
-						</div>
-						<input readonly="readonly" class="form-control form-control-sm" size="4" id="i3" type="text">
-					</div>
-					<div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
-						<div class="input-group-prepend">
-							<button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,2,'i2')">D2</button>
-						</div>
-						<input readonly="readonly" class="form-control form-control-sm" size="4" id="i2" type="text">
-					</div>
-					<div id="firsttablog" class="col-12">
-						<ul style="display: inline;" id="history" class="list-group mt-2">
-							<li class='list-group-item'><span id="LAST_HISTORY"></span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
-				<div class="p-2 row">
-					<div class="col-12 mt-1">
-						<button class="btn btn-sm btn-outline-danger" type="button" id="clearHistory" onconfirm="clearHistory()" x-data-toggle="confirmation" data-title="Historiek legen?">
-							<i class="fas fa-list"></i>&nbsp;<i class="fas fa-trash"></i>
-						</button>
-						<button class="btn btn-sm btn-outline-danger" type="button" id="clearSum" onconfirm="clearSum()" x-data-toggle="confirmation" data-title="Some legen?">
-							&Sigma; &nbsp;<i class="fas fa-trash"></i>
-						</button>
-						<button class="btn btn-sm btn-outline-danger" type="button" id="clearLatest" onconfirm="clearLatest()" x-data-toggle="confirmation" data-title="Laatste ongedaan maken?">
-							<i class="fas fa-undo"></i>
-						</button>
-					</div>
-					<div class="col-12 mt-2">
-						<ul style="display: inline;" id="FULL_HISTORY" class="list-group mt-2">
-						</ul>
-					</div>
-				</div>
+							</sup>&nbsp;:&nbsp;<span id="ACCURATE">-</span> </span>
+        </div>
+    </div>
+    <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,8,'i8')">D8</button>
+        </div>
+        <input readonly="readonly" class="form-control form-control-sm" size="4" id="i8" type="text"> </div>
+    <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,6,'i6')">D6</button>
+        </div>
+        <input readonly="readonly" class="form-control form-control-sm" size="4" id="i6" type="text"> </div>
+    <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,5,'i5')">D5</button>
+        </div>
+        <input readonly="readonly" class="form-control form-control-sm" size="4" id="i5" type="text"> </div>
+    <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,4,'i4')">D4</button>
+        </div>
+        <input readonly="readonly" class="form-control form-control-sm" size="4" id="i4" type="text"> </div>
+    <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,3,'i3')">D3</button>
+        </div>
+        <input readonly="readonly" class="form-control form-control-sm" size="4" id="i3" type="text"> </div>
+    <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,2,'i2')">D2</button>
+        </div>
+        <input readonly="readonly" class="form-control form-control-sm" size="4" id="i2" type="text"> </div>
+    <div id="firsttablog" class="col-12">
+        <ul style="display: inline;" id="history" class="list-group mt-2">
+            <li class='list-group-item'><span id="LAST_HISTORY"></span></li>
+        </ul>
+    </div>
+    </div>
+    </div>
+    <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
+        <div class="p-2 row">
+            <div class="col-12 mt-1">
+                <button class="btn btn-sm btn-outline-danger" type="button" id="clearHistory" onconfirm="clearHistory()" x-data-toggle="confirmation" data-title="Historiek legen?"> <i class="fas fa-list"></i>&nbsp;<i class="fas fa-trash"></i> </button>
+                <button class="btn btn-sm btn-outline-danger" type="button" id="clearSum" onconfirm="clearSum()" x-data-toggle="confirmation" data-title="Some legen?"> &Sigma; &nbsp;<i class="fas fa-trash"></i> </button>
+                <button class="btn btn-sm btn-outline-danger" type="button" id="clearLatest" onconfirm="clearLatest()" x-data-toggle="confirmation" data-title="Laatste ongedaan maken?"> <i class="fas fa-undo"></i> </button>
+            </div>
+            <div class="col-12 mt-2">
+                <ul style="display: inline;" id="FULL_HISTORY" class="list-group mt-2"> </ul>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-links" role="tabpanel" aria-labelledby="pills-links-tab">
+        <div class="p-2 row">
+            <div class="col-12"> gebruik Shift om 5x, Ctrl om 10x, Shift+Ctrl om 20x te klikken
+                <br> <a target="_blank" href="https://jurgendl.github.io/rpg-toolbag/dice-roller.html">live versie van deze pagina</a> </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        /*<![CDATA[*/
+        // https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
+        $(document).ready(function () {
+            {
+                let SKILL = window.localStorage.getItem("SKILL");
+                if (SKILL != null) {
+                    document.getElementById("SKILL").value = SKILL;
+                    console.log("restoreSkill:" + SKILL);
+                }
+            } {
+                let TABSVIEW = window.localStorage.getItem("TABSVIEW");
+                if (TABSVIEW != null && TABSVIEW == "true") {
+                    console.log("restore TABSVIEW: TRUE");
+                    $("#TABSVIEW").prop("checked", true);
+                    $("#TABSVIEW_PARENT").removeClass("tabsviewoff");
+                }
+                else {
+                    console.log("restore TABSVIEW: FALSE");
+                    $("#TABSVIEW").prop("checked", false);
+                    $("#TABSVIEW_PARENT").addClass("tabsviewoff");
+                }
+            } {
+                let W40MODE = window.localStorage.getItem("W40MODE");
+                if (W40MODE != null && W40MODE == "true") {
+                    $("#W40MODE").prop("checked", true);
+                    $("#TABSVIEW_PARENT").addClass("w40kmode");
+                }
+                else {
+                    $("#W40MODE").prop("checked", false);
+                    $("#TABSVIEW_PARENT").removeClass("w40kmode");
+                }
+            } {
+                let SUM = window.localStorage.getItem("SUM");
+                if (SUM != null && SUM == "true") {
+                    $("#SUM").prop("checked", true);
+                }
+                else {
+                    $("#SUM").prop("checked", false);
+                }
+            } {
+                let DEGREESV_MIN = window.localStorage.getItem("DEGREESV_MIN");
+                if (DEGREESV_MIN != null && DEGREESV_MIN == "true") {
+                    $("#DEGREESV_MIN").prop("checked", true);
+                }
+                else {
+                    $("#DEGREESV_MIN").prop("checked", false);
+                }
+            } {
+                let REROLLLOWEST = window.localStorage.getItem("REROLLLOWEST");
+                if (REROLLLOWEST != null && REROLLLOWEST == "true") {
+                    $("#REROLLLOWEST").prop("checked", true);
+                }
+                else {
+                    $("#REROLLLOWEST").prop("checked", false);
+                }
+            } {
+                let MINIMUM = window.localStorage.getItem("MINIMUM");
+                if (MINIMUM != null && MINIMUM > 0) {
+                    $("#MINIMUM").val(MINIMUM);
+                }
+            } {
+                let FLAT = window.localStorage.getItem("FLAT");
+                if (FLAT != null && FLAT > 0) {
+                    $("#FLAT").val(FLAT);
+                }
+            } {
+                let SHOWFORMULA = window.localStorage.getItem("SHOWFORMULA");
+                if (SHOWFORMULA != null && SHOWFORMULA == "true") {
+                    $("#SHOWFORMULA").prop("checked", true);
+                    $("#FORMULAPARENT").css({
+                        "display": "inherit"
+                    });
+                }
+                else {
+                    $("#SHOWFORMULA").prop("checked", false);
+                    $("#FORMULAPARENT").css({
+                        "display": "none"
+                    });
+                }
+            } {
+                let LASMASTERY = window.localStorage.getItem("LASMASTERY");
+                if (LASMASTERY != null && LASMASTERY == "true") {
+                    $("#LASMASTERY").prop("checked", true);
+                }
+                else {
+                    $("#LASMASTERY").prop("checked", false);
+                }
+            }
+        });
+        $("#SHOWFORMULA").change(function (ev) {
+            window.localStorage.setItem("SHOWFORMULA", $("#SHOWFORMULA").prop("checked") ? "true" : "false");
+            let SHOWFORMULA = window.localStorage.getItem("SHOWFORMULA");
+            if ($("#SHOWFORMULA").prop("checked")) {
+                console.log("set SHOWFORMULA: TRUE");
+                $("#FORMULAPARENT").css({
+                    "display": "inherit"
+                });
+            }
+            else {
+                console.log("set SHOWFORMULA: FALSE");
+                $("#FORMULAPARENT").css({
+                    "display": "none"
+                });
+            }
+        });
+        $("#FLAT").change(function (ev) {
+            window.localStorage.setItem("FLAT", $("#FLAT").val());
+            let FLAT = window.localStorage.getItem("FLAT");
+            console.log("set FLAT:" + FLAT);
+        });
+        $("#MINIMUM").change(function (ev) {
+            window.localStorage.setItem("MINIMUM", $("#MINIMUM").val());
+            let MINIMUM = window.localStorage.getItem("MINIMUM");
+            console.log("set MINIMUM:" + MINIMUM);
+        });
+        $("#REROLLLOWEST").change(function (ev) {
+            window.localStorage.setItem("REROLLLOWEST", $("#REROLLLOWEST").prop("checked") ? "true" : "false");
+            let REROLLLOWEST = window.localStorage.getItem("REROLLLOWEST");
+            console.log("set REROLLLOWEST:" + REROLLLOWEST);
+        });
+        $("#LASMASTERY").change(function (ev) {
+            window.localStorage.setItem("LASMASTERY", $("#LASMASTERY").prop("checked") ? "true" : "false");
+            let LASMASTERY = window.localStorage.getItem("LASMASTERY");
+            console.log("set LASMASTERY:" + LASMASTERY);
+        });
+        $("#SUM").change(function (ev) {
+            window.localStorage.setItem("SUM", $("#SUM").prop("checked") ? "true" : "false");
+            let SUM = window.localStorage.getItem("SUM");
+            console.log("set SUM:" + SUM);
+        });
+        $("#DEGREESV_MIN").change(function (ev) {
+            window.localStorage.setItem("DEGREESV_MIN", $("#DEGREESV_MIN").prop("checked") ? "true" : "false");
+            let DEGREESV_MIN = window.localStorage.getItem("DEGREESV_MIN");
+            console.log("set DEGREESV_MIN:" + DEGREESV_MIN);
+        });
+        $("#TABSVIEW").change(function (ev) {
+            $("#TABSVIEW_PARENT").toggleClass("tabsviewoff");
+            window.localStorage.setItem("TABSVIEW", $("#TABSVIEW").prop("checked") ? "true" : "false");
+            let TABSVIEW = window.localStorage.getItem("TABSVIEW");
+            console.log("set TABSVIEW:" + TABSVIEW);
+        });
+        $("#W40MODE").change(function (ev) {
+            $("#TABSVIEW_PARENT").toggleClass("w40kmode");
+            window.localStorage.setItem("W40MODE", $("#W40MODE").prop("checked") ? "true" : "false");
+            let W40MODE = window.localStorage.getItem("W40MODE");
+            console.log("set W40MODE:" + W40MODE);
+        });
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+                "trigger": "focus"
+                , "html": true
+            });
+        });
+        $("[data-toggle=confirmation]").confirmation({
+            rootSelector: "[data-toggle=confirmation]"
+        , });
+        $('#clearLatest').confirmation({
+            rootSelector: '#clearLatest'
+            , onConfirm: clearLatest
+        });
+        $('#clearSum').confirmation({
+            rootSelector: '#clearSum'
+            , onConfirm: clearSum
+        });
+        $('#clearHistory').confirmation({
+            rootSelector: '#clearHistory'
+            , onConfirm: clearHistory
+        });
 
-			</div>
-			<div class="tab-pane fade" id="pills-links" role="tabpanel" aria-labelledby="pills-links-tab">
-				<div class="p-2 row">
-					<div class="col-12">
-						gebruik Shift om 5x, Ctrl om 10x, Shift+Ctrl om 20x te klikken
-						<br>
-						<a target="_blank"
-							href="https://jurgendl.github.io/rpg-toolbag/dice-roller.html">live versie van deze pagina</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        function saveSkill() {
+            let SKILL = $("#SKILL").val();
+            window.localStorage.setItem("SKILL", SKILL);
+            console.log("saveSkill:" + SKILL);
+        }
+        $("#SKILL").change(function (ev) {
+            change();
+            saveSkill();
+        });
+        $("#SKILL").keyup(function (ev) {
+            change();
+            saveSkill();
+        });
+        $("#ROLL").change(function (ev) {
+            rollSet100($("#ROLL").val());
+        });
+        $("#ROLL").keyup(function (ev) {
+            if (typeof myVar !== 'undefined' && e != null && (e.key === "Enter" || e.keyCode === 13)) {
+                rollSet100($("#ROLL").val());
+            }
+            else {
+                change();
+            }
+        });
+        $("#FORMULA").change(function (ev) {
+            calcFormula();
+        });
+        $("#FORMULA").keyup(function (ev) {
+            calcFormula();
+        });
 
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>-->
-	<!-- https://bootstrap-confirmation.js.org/ -->
-	<!-- https://github.com/mistic100/Bootstrap-Confirmation -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2@4.1.0/dist/bootstrap-confirmation.min.js"></script>
-	<!-- https://clipboardjs.com/ -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
-	<script type="text/javascript">
-		/*<![CDATA[*/
-		// https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
-		$(document).ready(function() {
-			{
-				let SKILL = window.localStorage.getItem("SKILL");
-				if (SKILL != null) {
-					document.getElementById("SKILL").value = SKILL;
-					console.log("restoreSkill:" + SKILL);
-				}
-			}
-			{
-				let TABSVIEW = window.localStorage.getItem("TABSVIEW");
-				if (TABSVIEW != null && TABSVIEW == "true") {
-					console.log("restore TABSVIEW: TRUE");
-					$("#TABSVIEW").prop("checked", true);
-					$("#TABSVIEW_PARENT").removeClass("tabsviewoff");
-				} else {
-					console.log("restore TABSVIEW: FALSE");
-					$("#TABSVIEW").prop("checked", false);
-					$("#TABSVIEW_PARENT").addClass("tabsviewoff");
-				}
-			}
-			{
-				let W40MODE = window.localStorage.getItem("W40MODE");
-				if (W40MODE != null && W40MODE == "true") {
-					$("#W40MODE").prop("checked", true);
-					$("#TABSVIEW_PARENT").addClass("w40kmode");
-				} else {
-					$("#W40MODE").prop("checked", false);
-					$("#TABSVIEW_PARENT").removeClass("w40kmode");
-				}
-			}
-			{
-				let SUM = window.localStorage.getItem("SUM");
-				if (SUM != null && SUM == "true") {
-					$("#SUM").prop("checked", true);
-				} else {
-					$("#SUM").prop("checked", false);
-				}
-			}
-			{
-				let DEGREES_MIN = window.localStorage.getItem("DEGREES_MIN");
-				if (DEGREES_MIN != null && DEGREES_MIN == "true") {
-					$("#DEGREES_MIN").prop("checked", true);
-				} else {
-					$("#DEGREES_MIN").prop("checked", false);
-				}
-			}
-			{
-				let REROLLLOWEST = window.localStorage.getItem("REROLLLOWEST");
-				if (REROLLLOWEST != null && REROLLLOWEST == "true") {
-					$("#REROLLLOWEST").prop("checked", true);
-				} else {
-					$("#REROLLLOWEST").prop("checked", false);
-				}
-			}
-			{
-				let MINIMUM = window.localStorage.getItem("MINIMUM");
-				if (MINIMUM != null && MINIMUM > 0) {
-					$("#MINIMUM").val(MINIMUM);
-				}
-			}
-			{
-				let FLAT = window.localStorage.getItem("FLAT");
-				if (FLAT != null && FLAT > 0) {
-					$("#FLAT").val(FLAT);
-				}
-			}
-			{
-				let SHOWFORMULA = window.localStorage.getItem("SHOWFORMULA");
-				if (SHOWFORMULA != null && SHOWFORMULA == "true") {
-					$("#SHOWFORMULA").prop("checked", true);
-					$("#FORMULAPARENT").css({"display":"inherit"});
-				} else {
-					$("#SHOWFORMULA").prop("checked", false);
-					$("#FORMULAPARENT").css({"display":"none"});
-				}
-			}
-			{
-				let LASMASTERY = window.localStorage.getItem("LASMASTERY");
-				if (LASMASTERY != null && LASMASTERY == "true") {
-					$("#LASMASTERY").prop("checked", true);
-				} else {
-					$("#LASMASTERY").prop("checked", false);
-				}
-			}
-		});
+        function calcFormula() {
+            try {
+                let FORMULA = $("#FORMULA").val();
+                console.log(FORMULA);
+                FORMULA = FORMULA.replace("x", "*").replace(":", "/").replace("×", "*").replace("÷", "/").replace("+", "+").replace(",", ".");
+                console.log(FORMULAv);
+                let FORMULA_EVAL = eval(FORMULA);
+                console.log(FORMULA_EVAL);
+                $("#FORMULA_RESULT").text(FORMULA_EVAL);
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
 
-		$("#SHOWFORMULA").change(function(ev) {
-			window.localStorage.setItem("SHOWFORMULA", $("#SHOWFORMULA").prop("checked") ? "true" : "false");
-			let SHOWFORMULA = window.localStorage.getItem("SHOWFORMULA");
-			if($("#SHOWFORMULA").prop("checked")) {
-				console.log("set SHOWFORMULA: TRUE");
-				$("#FORMULAPARENT").css({"display":"inherit"});
-			} else {
-				console.log("set SHOWFORMULA: FALSE");
-				$("#FORMULAPARENT").css({"display":"none"});
-			}
-		});
+        function string_as_unicode_escape(input) {
+            function pad_four(input) {
+                let l = input.length;
+                if (l == 0) return "0000";
+                if (l == 1) return "000" + input;
+                if (l == 2) return "00" + input;
+                if (l == 3) return "0" + input;
+                return input;
+            }
+            let output = "";
+            for (let i = 0, l = input.length; i < l; i++) output += "\\u" + pad_four(input.charCodeAt(i).toString(16));
+            return output;
+        }
 
-		$("#FLAT").change(function(ev) {
-			window.localStorage.setItem("FLAT", $("#FLAT").val());
-			let FLAT = window.localStorage.getItem("FLAT");
-			console.log("set FLAT:" + FLAT);
-		});
+        function saveFormulaResult() {
+            $("#SKILL").val($("#FORMULA_RESULT").text());
+            saveSkill();
+        }
+        let SUM_LIST = [];
+        let D_LIST = [];
 
-		$("#MINIMUM").change(function(ev) {
-			window.localStorage.setItem("MINIMUM", $("#MINIMUM").val());
-			let MINIMUM = window.localStorage.getItem("MINIMUM");
-			console.log("set MINIMUM:" + MINIMUM);
-		});
+        function clearSum() {
+            SUM_LIST = [];
+            D_LIST = [];
+        }
 
-		$("#REROLLLOWEST").change(function(ev) {
-			window.localStorage.setItem("REROLLLOWEST", $("#REROLLLOWEST").prop("checked") ? "true" : "false");
-			let REROLLLOWEST = window.localStorage.getItem("REROLLLOWEST");
-			console.log("set REROLLLOWEST:" + REROLLLOWEST);
-		});
+        function clearHistory() {
+            $("#FULL_HISTORY").html("<!-- -->");
+            clearSum();
+        }
 
-		$("#LASMASTERY").change(function(ev) {
-			window.localStorage.setItem("LASMASTERY", $("#LASMASTERY").prop("checked") ? "true" : "false");
-			let LASMASTERY = window.localStorage.getItem("LASMASTERY");
-			console.log("set LASMASTERY:" + LASMASTERY);
-		});
+        function clearLatest() {
+            console.log($("#FULL_HISTORY li:first-of-type").attr('data-type'));
+            if ($("#FULL_HISTORY li:first-of-type").attr('data-type') == 'array-item') {
+                console.log('last array item removed');
+                SUM_LIST.pop();
+                D_LIST.pop();
+            }
+            $("#FULL_HISTORY li:first-of-type").remove();
+        }
 
-		$("#SUM").change(function(ev) {
-			window.localStorage.setItem("SUM", $("#SUM").prop("checked") ? "true" : "false");
-			let SUM = window.localStorage.getItem("SUM");
-			console.log("set SUM:" + SUM);
-		});
+        function rollRandom(event, max, input) {
+            console.log("SHIFT:" + event.shiftKey);
+            console.log("CTRL:" + event.ctrlKey);
+            let iii;
+            if (event.ctrlKey && event.shiftKey) {
+                for (iii = 0; iii < 20; iii++) {
+                    _rollRandom(max, input);
+                }
+            }
+            else if (event.ctrlKey) {
+                for (iii = 0; iii < 10; iii++) {
+                    _rollRandom(max, input);
+                }
+            }
+            else if (event.shiftKey) {
+                for (iii = 0; iii < 5; iii++) {
+                    _rollRandom(max, input);
+                }
+            }
+            else {
+                _rollRandom(max, input);
+            }
+        }
 
-		$("#DEGREES_MIN").change(function(ev) {
-			window.localStorage.setItem("DEGREES_MIN", $("#DEGREES_MIN").prop("checked") ? "true" : "false");
-			let DEGREES_MIN = window.localStorage.getItem("DEGREES_MIN");
-			console.log("set DEGREES_MIN:" + DEGREES_MIN);
-		});
+        function _rollRandom(max, input) {
+            let rnd = getRandomInt(max) + 1;
+            document.getElementById(input).value = rnd;
+            let isSUM = $("#SUM").prop("checked");
+            if (!isSUM) {
+                clearSum();
+            }
+            SUM_LIST.push(rnd);
+            D_LIST.push(max);
+            let ARR_ALL_EQ = checkSameValues(D_LIST);
+            let tmpW = ARR_ALL_EQ && D_LIST[0] == 10 && $("#RESULT").val() == "ja" && $("#W40MODE").prop("checked");
+            let withDEGREESV_MIN = tmpW && $("#DEGREESV_MIN").prop("checked");
+            let withREROLLLOWEST = $("#REROLLLOWEST").prop("checked");
+            let withLASMASTERY = tmpW && $("#LASMASTERY").prop("checked");
+            let withMINIMUM = Number($("#MINIMUM").val()) > 0;
+            let withFLAT = Number($("#FLAT").val()) > 0;
+            console.log("SUM_LIST: " + SUM_LIST);
+            console.log("D_LIST: " + D_LIST);
+            let SUM_VALUE = 0;
+            let SUM_TEXT = "";
+            let CONVERTED_LIST = [...SUM_LIST];
+            if (withREROLLLOWEST) {
+                let LIST_MIN_VALUE = 9999999;
+                let LIST_MIN_VALUE_I = 9999999;
+                CONVERTED_LIST.forEach(function (item, index, array) {
+                    if (item < LIST_MIN_VALUE) {
+                        LIST_MIN_VALUE = item;
+                        LIST_MIN_VALUE_I = index;
+                    }
+                });
+                CONVERTED_LIST[LIST_MIN_VALUE_I] = -1;
+                console.log("withREROLLLOWEST: " + CONVERTED_LIST);
+            }
+            if (withMINIMUM) {
+                let MINIMUM = Number($("#MINIMUM").val());
+                CONVERTED_LIST.forEach(function (item, index, array) {
+                    if (item < MINIMUM && item != -1) {
+                        CONVERTED_LIST[index] = MINIMUM;
+                    }
+                });
+                console.log("withMINIMUM: " + CONVERTED_LIST);
+            }
+            if (withDEGREESV_MIN) {
+                let LIST_MIN_VALUE = 9999999;
+                let LIST_MIN_VALUE_I = 9999999;
+                CONVERTED_LIST.forEach(function (item, index, array) {
+                    if (item < LIST_MIN_VALUE && item != -1) {
+                        LIST_MIN_VALUE = item;
+                        LIST_MIN_VALUE_I = index;
+                    }
+                });
+                let MIN_VALUE = Math.min(10, Number($("#DEGREESV").val()));
+                if (LIST_MIN_VALUE < MIN_VALUE) {
+                    CONVERTED_LIST[LIST_MIN_VALUE_I] = MIN_VALUE;
+                }
+                console.log("withDEGREESV_MIN: " + CONVERTED_LIST);
+            }
+            SUM_TEXT = "";
+            SUM_VALUE = 0;
+            CONVERTED_LIST.forEach(function (item, index, array) {
+                if (index > 0) {
+                    SUM_TEXT = SUM_TEXT + " + ";
+                }
+                if (item == -1) {
+                    if (ARR_ALL_EQ) {
+                        SUM_TEXT = SUM_TEXT + "<span class='cross'>" + SUM_LIST[index] + "</span>";
+                    }
+                    else {
+                        SUM_TEXT = SUM_TEXT + "<span class='cross'>" + SUM_LIST[index] + "/[D" + D_LIST[index] + "]</span>";
+                    }
+                }
+                else {
+                    if (SUM_LIST[index] != item) {
+                        if (ARR_ALL_EQ) {
+                            SUM_TEXT = SUM_TEXT + SUM_LIST[index] + "&#x21E8;" + item + "";
+                        }
+                        else {
+                            SUM_TEXT = SUM_TEXT + SUM_LIST[index] + "&#x21E8;" + item + "/[D" + D_LIST[index] + "]";
+                        }
+                    }
+                    else {
+                        if (ARR_ALL_EQ) {
+                            SUM_TEXT = SUM_TEXT + item;
+                        }
+                        else {
+                            SUM_TEXT = SUM_TEXT + item + "/[D" + D_LIST[index] + "]";
+                        }
+                    }
+                    SUM_VALUE += item;
+                }
+            });
+            if (withLASMASTERY) {
+                let LASMASTERYVAL = Math.floor((Number($("#DEGREESV").val()) - 1) / 2);
+                if (LASMASTERYVAL > 0) {
+                    SUM_VALUE += LASMASTERYVAL;
+                }
+            }
+            if (withFLAT) {
+                SUM_VALUE += Number($("#FLAT").val());
+            }
+            SUM_TEXT = "<span style='width:30px;' class='badge badge-pill badge-info'>" + SUM_VALUE + "</span>" + " = &Sigma;[#" + SUM_LIST.length + "](" + SUM_TEXT + ")";
+            if (ARR_ALL_EQ) {
+                SUM_TEXT = SUM_TEXT + "/[D" + D_LIST[0] + "]";
+            }
+            if (withFLAT) {
+                SUM_TEXT = SUM_TEXT + " + " + Number($("#FLAT").val()) + " (Flat Bonus)";
+            }
+            if (withLASMASTERY) {
+                let LASMASTERYVAL = Math.floor((Number($("#DEGREESV").val()) - 1) / 2);
+                if (LASMASTERYVAL > 0) {
+                    SUM_TEXT = SUM_TEXT + " + " + LASMASTERYVAL + " (Las Mastery)";
+                }
+            }
+            let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
+            let historyLine = new Date().toLocaleTimeString("nl-BE") //
+                + " &#8669; roll " //
+                + prepre //
+                + "<span style='width:30px;' class='badge badge-pill badge-primary'>" + ("" + rnd).padStart(3, " ") + "</span>" //
+                + "</span>" //
+                + " " //
+                + prepre //
+                + (" op D" + max).padStart(6, " ") //
+                + " &#8669; </span> " //
+                + SUM_TEXT;
+            $("#LAST_HISTORY").html(historyLine);
+            $("#FULL_HISTORY").prepend("<li class='list-group-item' data-type='array-item'>" + historyLine + "</li>");
+        }
 
-		$("#TABSVIEW").change(function(ev) {
-			$("#TABSVIEW_PARENT").toggleClass("tabsviewoff");
-			window.localStorage.setItem("TABSVIEW", $("#TABSVIEW").prop("checked") ? "true" : "false");
-			let TABSVIEW = window.localStorage.getItem("TABSVIEW");
-			console.log("set TABSVIEW:" + TABSVIEW);
-		});
+        function checkSameValues(array) {
+            return new Set(array).size == 1;
+        }
 
-		$("#W40MODE").change(function(ev) {
-			$("#TABSVIEW_PARENT").toggleClass("w40kmode");
-			window.localStorage.setItem("W40MODE", $("#W40MODE").prop("checked") ? "true" : "false");
-			let W40MODE = window.localStorage.getItem("W40MODE");
-			console.log("set W40MODE:" + W40MODE);
-		});
+        function rollRandom100(event) {
+            console.log("SHIFT:" + event.shiftKey);
+            console.log("CTRL:" + event.ctrlKey);
+            let iii;
+            if (event.ctrlKey && event.shiftKey) {
+                for (iii = 0; iii < 20; iii++) {
+                    _rollRandom100();
+                }
+            }
+            else if (event.ctrlKey) {
+                for (iii = 0; iii < 10; iii++) {
+                    _rollRandom100();
+                }
+            }
+            else if (event.shiftKey) {
+                for (iii = 0; iii < 5; iii++) {
+                    _rollRandom100();
+                }
+            }
+            else {
+                _rollRandom100();
+            }
+        }
 
-		$(function() {
-			$('[data-toggle="popover"]').popover({
-				"trigger" : "focus",
-				"html" : true
-			});
-		});
-		$("[data-toggle=confirmation]").confirmation({
-			rootSelector : "[data-toggle=confirmation]",
-		});
-		$('#clearLatest').confirmation({
-			rootSelector: '#clearLatest',
-			onConfirm: clearLatest
-		});
-		$('#clearSum').confirmation({
-			rootSelector: '#clearSum',
-			onConfirm: clearSum
-		});
-		$('#clearHistory').confirmation({
-			rootSelector: '#clearHistory',
-			onConfirm: clearHistory
-		});
+        function _rollRandom100() {
+            let rnd = getRandomInt(100) + 1;
+            $("#ROLL").val(rnd);
+            rollSet100(rnd);
+        }
 
-		function saveSkill() {
-			let SKILL = $("#SKILL").val();
-			window.localStorage.setItem("SKILL", SKILL);
-			console.log("saveSkill:" + SKILL);
-		}
+        function rollSet100(rnd) {
+            clearSum();
+            change();
+            let SKILL = Number($("#SKILL").val());
+            let SUCCESS = $("#RESULT").val() == "ja";
+            let DEGREESV = $("#DEGREESV").val();
+            let d = new Date().toLocaleTimeString("nl-BE");
+            let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
+            let historyLine = d //
+                + " &#8669; roll " //
+                + "<span style='width:30px;' class='badge badge-pill badge-primary'>" + prepre + "</span>" //
+                + ("" + rnd).padStart(3, " ") //
+                + "</span>" //
+                + " op skill " //
+                + prepre + ("" + SKILL).padStart(3, " ") //
+                + "</span> &#8669; " //
+                + (SUCCESS ? //
+                    " <span style='width:60px;' class='badge badge-pill badge-success'>SUCCESS</span>" //
+                    : "<span style='width:60px;' class='badge badge-pill badge-warning'>FAIL</span>") //
+                + " met " //
+                + "<span style='width:30px;' class='badge badge-pill badge-dark'>" //
+                + DEGREESV //
+                + "</span> degrees" //
+            ;
+            $("#LAST_HISTORY").html(historyLine);
+            $("#FULL_HISTORY").prepend("<li class='list-group-item' data-type='roll-item'>" + historyLine + "</li>");
+        }
 
-		$("#SKILL").change(function(ev) {
-			change();
-			saveSkill();
-		});
-		$("#SKILL").keyup(function(ev) {
-			change();
-			saveSkill();
-		});
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
 
-		$("#ROLL").change(function(ev) {
-			rollSet100($("#ROLL").val());
-		});
-		$("#ROLL").keyup(function(ev) {
-			if (typeof myVar !== 'undefined' && e!=null && (e.key === "Enter" || e.keyCode === 13)) {
-				rollSet100($("#ROLL").val());
-			} else {
-				change();
-			}
-		});
-
-		$("#FORMULA").change(function(ev) {
-			calcFormula();
-		});
-		$("#FORMULA").keyup(function(ev) {
-			calcFormula();
-		});
-
-		function calcFormula() {
-			try {
-				let FORMULA = $("#FORMULA").val();
-				console.log(FORMULA);
-				FORMULA = FORMULA.replace("x", "*").replace(":", "/").replace("×", "*").replace("÷", "/").replace("+", "+").replace(",", ".");
-				console.log(FORMULAv);
-				let FORMULA_EVAL = eval(FORMULA);
-				console.log(FORMULA_EVAL);
-				$("#FORMULA_RESULT").text(FORMULA_EVAL);
-			} catch (err) {
-				console.log(err);
-			}
-		}
-		function string_as_unicode_escape(input) {
-			function pad_four(input) {
-				let l = input.length;
-				if (l == 0)
-					return "0000";
-				if (l == 1)
-					return "000" + input;
-				if (l == 2)
-					return "00" + input;
-				if (l == 3)
-					return "0" + input;
-				return input;
-			}
-			let output = "";
-			for (let i = 0, l = input.length; i < l; i++)
-				output += "\\u" + pad_four(input.charCodeAt(i).toString(16));
-			return output;
-		}
-
-		function saveFormulaResult() {
-			$("#SKILL").val($("#FORMULA_RESULT").text());
-			saveSkill();
-		}
-
-		let SUM_LIST = [];
-		let D_LIST = [];
-		function clearSum() {
-			SUM_LIST = [];
-			D_LIST = [];
-		}
-		function clearHistory() {
-			$("#FULL_HISTORY").html("<!-- -->");
-			clearSum();
-		}
-		function clearLatest() {
-			console.log($("#FULL_HISTORY li:first-of-type").attr('data-type'));
-			if( $("#FULL_HISTORY li:first-of-type").attr('data-type') == 'array-item' ) {
-				console.log('last array item removed');
-				SUM_LIST.pop();
-				D_LIST.pop();
-			}
-			$("#FULL_HISTORY li:first-of-type").remove();
-		}
-		function rollRandom(event, max, input) {
-			console.log("SHIFT:"+event.shiftKey);
-			console.log("CTRL:"+event.ctrlKey);
-			let iii;
-			if(event.ctrlKey && event.shiftKey) {
-				for(iii = 0; iii < 20; iii++) {
-					_rollRandom(max, input);
-				}
-			} else if(event.ctrlKey) {
-				for(iii = 0; iii < 10; iii++) {
-					_rollRandom(max, input);
-				}
-			} else if(event.shiftKey) {
-				for(iii = 0; iii < 5; iii++) {
-					_rollRandom(max, input);
-				}
-			} else {
-				_rollRandom(max, input);
-			}
-		}
-		function _rollRandom(max, input) {
-			let rnd = getRandomInt(max) + 1;
-			document.getElementById(input).value = rnd;
-			let isSUM = $("#SUM").prop("checked");
-			if (!isSUM) {
-				clearSum();
-			}
-			SUM_LIST.push(rnd);
-			D_LIST.push(max);
-			let ARR_ALL_EQ = checkSameValues(D_LIST);
-			let tmpW = ARR_ALL_EQ && D_LIST[0]==10 && $("#RESULT").val() == "ja" && $("#W40MODE").prop("checked");
-			let withDEGREES_MIN = tmpW && $("#DEGREES_MIN").prop("checked");
-			let withREROLLLOWEST = $("#REROLLLOWEST").prop("checked");
-			let withLASMASTERY = tmpW && $("#LASMASTERY").prop("checked");
-			let withMINIMUM = Number($("#MINIMUM").val())>0;
-			let withFLAT = Number($("#FLAT").val())>0;
-			console.log("SUM_LIST: "+SUM_LIST);
-			console.log("D_LIST: "+D_LIST);
-			let SUM_VALUE = 0;
-			let SUM_TEXT = "";
-			let CONVERTED_LIST = [...SUM_LIST];
-			if(withREROLLLOWEST){
-				let LIST_MIN_VALUE = 9999999;
-				let LIST_MIN_VALUE_I = 9999999;
-				CONVERTED_LIST.forEach(function(item, index, array) {
-					if (item < LIST_MIN_VALUE) {
-						LIST_MIN_VALUE = item;
-						LIST_MIN_VALUE_I = index;
-					}
-				});
-				CONVERTED_LIST[LIST_MIN_VALUE_I] = -1;
-				console.log("withREROLLLOWEST: "+CONVERTED_LIST);
-			}
-			if(withMINIMUM){
-				let MINIMUM = Number($("#MINIMUM").val());
-				CONVERTED_LIST.forEach(function(item, index, array) {
-					if (item < MINIMUM && item!=-1) {
-						CONVERTED_LIST[index] = MINIMUM;
-					}
-				});
-				console.log("withMINIMUM: "+CONVERTED_LIST);
-			}
-			if(withDEGREES_MIN) {
-				let LIST_MIN_VALUE = 9999999;
-				let LIST_MIN_VALUE_I = 9999999;
-				CONVERTED_LIST.forEach(function(item, index, array) {
-					if (item < LIST_MIN_VALUE && item!=-1) {
-						LIST_MIN_VALUE = item;
-						LIST_MIN_VALUE_I = index;
-					}
-				});
-				let MIN_VALUE = Math.min(10, Number($("#DEGREES").val()));
-				if(LIST_MIN_VALUE<MIN_VALUE){
-					CONVERTED_LIST[LIST_MIN_VALUE_I] = MIN_VALUE;
-				}
-				console.log("withDEGREES_MIN: "+CONVERTED_LIST);
-			}
-			SUM_TEXT = "";
-			SUM_VALUE = 0;
-			CONVERTED_LIST.forEach(function(item, index, array) {
-				if(index>0){
-					SUM_TEXT = SUM_TEXT + " + ";
-				}
-				if (item == -1) {
-					if(ARR_ALL_EQ) {
-						SUM_TEXT = SUM_TEXT + "<span class='cross'>" + SUM_LIST[index] + "</span>";
-					} else {
-						SUM_TEXT = SUM_TEXT + "<span class='cross'>" + SUM_LIST[index] + "/[D" + D_LIST[index] + "]</span>";
-					}
-				} else {
-					if(SUM_LIST[index]!=item){
-						if(ARR_ALL_EQ) {
-							SUM_TEXT = SUM_TEXT + SUM_LIST[index] + "&#x21E8;" + item + "";
-						} else {
-							SUM_TEXT = SUM_TEXT + SUM_LIST[index] + "&#x21E8;" + item + "/[D" + D_LIST[index] + "]";
-						}
-					} else {
-						if(ARR_ALL_EQ) {
-							SUM_TEXT = SUM_TEXT + item;
-						} else {
-							SUM_TEXT = SUM_TEXT + item + "/[D" + D_LIST[index] + "]";
-						}
-					}
-					SUM_VALUE+=item;
-				}
-			});
-			if(withLASMASTERY) {
-				let LASMASTERYVAL = Math.floor((Number($("#DEGREES").val())-1)/2);
-				if(LASMASTERYVAL>0) {
-					SUM_VALUE+=LASMASTERYVAL;
-				}
-			}
-			if(withFLAT) {
-				SUM_VALUE+=Number($("#FLAT").val());
-			}
-			SUM_TEXT = "<span style='width:30px;' class='badge badge-pill badge-info'>" + SUM_VALUE + "</span>" + " = &Sigma;[#" + SUM_LIST.length + "](" + SUM_TEXT + ")";
-			if(ARR_ALL_EQ) {
-				SUM_TEXT = SUM_TEXT + "/[D" + D_LIST[0] + "]";
-			}
-			if(withFLAT) {
-				SUM_TEXT = SUM_TEXT + " + " + Number($("#FLAT").val()) + " (Flat Bonus)";
-			}
-			if(withLASMASTERY) {
-				let LASMASTERYVAL = Math.floor((Number($("#DEGREES").val())-1)/2);
-				if(LASMASTERYVAL>0) {
-					SUM_TEXT = SUM_TEXT + " + " + LASMASTERYVAL + " (Las Mastery)";
-				}
-			}
-			let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
-			let historyLine = new Date().toLocaleTimeString("nl-BE")//
-					+ " &#8669; roll " //
-					+ prepre//
-					+ "<span style='width:30px;' class='badge badge-pill badge-primary'>" + ("" + rnd).padStart(3, " ") + "</span>" //
-					+ "</span>"//
-					+ " "//
-					+ prepre//
-					+ (" op D" + max).padStart(6, " ") //
-					+ " &#8669; </span> " //
-					+ SUM_TEXT;
-			$("#LAST_HISTORY").html(historyLine);
-			$("#FULL_HISTORY").prepend("<li class='list-group-item' data-type='array-item'>" + historyLine + "</li>");
-		}
-		function checkSameValues(array) {
-			return new Set(array).size==1;
-		}
-		function rollRandom100(event) {
-			console.log("SHIFT:"+event.shiftKey);
-			console.log("CTRL:"+event.ctrlKey);
-			let iii;
-			if(event.ctrlKey && event.shiftKey) {
-				for(iii = 0; iii < 20; iii++) {
-					_rollRandom100();
-				}
-			} else if(event.ctrlKey) {
-				for(iii = 0; iii < 10; iii++) {
-					_rollRandom100();
-				}
-			} else if(event.shiftKey) {
-				for(iii = 0; iii < 5; iii++) {
-					_rollRandom100();
-				}
-			} else {
-				_rollRandom100();
-			}
-		}
-		function _rollRandom100() {
-			let rnd = getRandomInt(100) + 1;
-			$("#ROLL").val(rnd);
-			rollSet100(rnd);
-		}
-		function rollSet100(rnd) {
-			clearSum();
-			change();
-			let SKILL = Number($("#SKILL").val());
-			let SUCCESS = $("#RESULT").val() == "ja";
-			let DEGREES = $("#DEGREES").val();
-			let d = new Date().toLocaleTimeString("nl-BE");
-			let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
-			let historyLine = d//
-					+ " &#8669; roll "//
-					+ "<span style='width:30px;' class='badge badge-pill badge-primary'>" + prepre + "</span>"//
-					+ ("" + rnd).padStart(3, " ")//
-					+ "</span>"//
-					+ " op skill "//
-					+ prepre + ("" + SKILL).padStart(3, " ")//
-					+ "</span> &#8669; "//
-					+ (SUCCESS ? //
-					" <span style='width:60px;' class='badge badge-pill badge-success'>SUCCESS</span>"//
-					: "<span style='width:60px;' class='badge badge-pill badge-warning'>FAIL</span>")//
-					+ " met "//
-					+ "<span style='width:30px;' class='badge badge-pill badge-dark'>"//
-					+ DEGREES//
-					+ "</span> degrees"//
-			;
-			$("#LAST_HISTORY").html(historyLine);
-			$("#FULL_HISTORY").prepend("<li class='list-group-item' data-type='roll-item'>" + historyLine + "</li>");
-		}
-		function getRandomInt(max) {
-			return Math.floor(Math.random() * Math.floor(max));
-		}
-		function change() {
-			let SKILL = Number($("#SKILL").val());
-			let ROLL = Number($("#ROLL").val());
-			console.log("ROLL<=SKILL :: " + ROLL + "<=" + SKILL + " :: " + (ROLL <= SKILL));
-			let DEGREES;
-			let SUCCESS;
-			if (ROLL <= SKILL) {
-				let diff = (SKILL - ROLL) / 10.0;
-				console.log("diff=" + diff);
-				DEGREES = 1 + Math.floor(diff);
-				SUCCESS = true;
-				console.log("SUCCESS +" + DEGREES + " DEGREES");
-			} else {
-				let diff = (ROLL - SKILL - 1) / 10.0;
-				console.log("diff=" + diff);
-				DEGREES = 1 + Math.floor(diff);
-				SUCCESS = false;
-				console.log("FAIL -" + DEGREES + " DEGREES");
-			}
-			$("#RESULT").val(SUCCESS ? "ja" : "nee");
-			if(SUCCESS) {
-				$("#RESULT").addClass("bg-success");
-				$("#RESULT").removeClass("bg-warning");
-				$("#RESULT").addClass("text-white");
-				let ACCURATE = Math.min(2,Math.floor(DEGREES/2));
-				console.log("ACCURATE="+ACCURATE)
-				$("#ACCURATE").html("+"+ACCURATE+"D");
-			} else {
-				$("#RESULT").removeClass("bg-success");
-				$("#RESULT").addClass("bg-warning");
-				$("#RESULT").removeClass("text-white");
-				$("#ACCURATE").html("-");
-			}
-			$("#DEGREES").val(DEGREES);
-		}
-		{
-			let tt = 0;
-			let ttt = 0;
-			for(tt = 0; tt < 10000; tt++) {
-				ttt += getRandomInt(100) + 1;
-			}
-			console.log("test "+(ttt/10000));
-		}
-		/*]]>*/
-	</script>
-
+        function change() {
+            let SKILL = Number($("#SKILL").val());
+            let ROLL = Number($("#ROLL").val());
+            console.log("ROLL<=SKILL :: " + ROLL + "<=" + SKILL + " :: " + (ROLL <= SKILL));
+            let DEGREESV;
+            let SUCCESS;
+            if (ROLL <= SKILL) {
+                let diff = (SKILL - ROLL) / 10.0;
+                console.log("diff=" + diff);
+                DEGREESV = 1 + Math.floor(diff);
+                SUCCESS = true;
+                console.log("SUCCESS +" + DEGREESV + " DEGREESV");
+            }
+            else {
+                let diff = (ROLL - SKILL - 1) / 10.0;
+                console.log("diff=" + diff);
+                DEGREESV = 1 + Math.floor(diff);
+                SUCCESS = false;
+                console.log("FAIL -" + DEGREESV + " DEGREESV");
+            }
+            $("#RESULT").val(SUCCESS ? "ja" : "nee");
+            if (SUCCESS) {
+                $("#RESULT").addClass("bg-success");
+                $("#RESULT").removeClass("bg-warning");
+                $("#RESULT").addClass("text-white");
+                let ACCURATE = Math.min(2, Math.floor(DEGREESV / 2));
+                console.log("ACCURATE=" + ACCURATE)
+                $("#ACCURATE").html("+" + ACCURATE + "D");
+            }
+            else {
+                $("#RESULT").removeClass("bg-success");
+                $("#RESULT").addClass("bg-warning");
+                $("#RESULT").removeClass("text-white");
+                $("#ACCURATE").html("-");
+            }
+            $("#DEGREESV").val(DEGREESV);
+        } {
+            let tt = 0;
+            let ttt = 0;
+            for (tt = 0; tt < 10000; tt++) {
+                ttt += getRandomInt(100) + 1;
+            }
+            console.log("test " + (ttt / 10000));
+        }
+        /*]]>*/
+    </script>
 </body>
+
 </html>
