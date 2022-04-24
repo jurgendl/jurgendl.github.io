@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
 	integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
 <style>
 input.form-control {
 	display: inline-block;
@@ -377,18 +377,17 @@ body {
 						gebruik Shift om 5x, Ctrl om 10x, Shift+Ctrl om 20x te klikken
 						<br>
 						<a target="_blank" href="https://drive.google.com/uc?export=view&id=1YhqUNH0emtj_YsX0AEnLvujNvVGrxSrm">deze pagina op drive</a> & <a target="_blank"
-							href="http://users.telenet.be/birdofprey/w40k.html">deze pagina op telenet</a>
+							href="https://jurgendl.github.io/rpg-toolbag/dice-roller.html">live versie van deze pagina</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>-->
 	<!-- https://bootstrap-confirmation.js.org/ -->
 	<!-- https://github.com/mistic100/Bootstrap-Confirmation -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2@4.1.0/dist/bootstrap-confirmation.min.js"></script>
@@ -399,14 +398,14 @@ body {
 		// https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
 		$(document).ready(function() {
 			{
-				var SKILL = window.localStorage.getItem("SKILL");
+				let SKILL = window.localStorage.getItem("SKILL");
 				if (SKILL != null) {
 					document.getElementById("SKILL").value = SKILL;
 					console.log("restoreSkill:" + SKILL);
 				}
 			}
 			{
-				var TABSVIEW = window.localStorage.getItem("TABSVIEW");
+				let TABSVIEW = window.localStorage.getItem("TABSVIEW");
 				if (TABSVIEW != null && TABSVIEW == "true") {
 					console.log("restore TABSVIEW: TRUE");
 					$("#TABSVIEW").prop("checked", true);
@@ -418,7 +417,7 @@ body {
 				}
 			}
 			{
-				var W40MODE = window.localStorage.getItem("W40MODE");
+				let W40MODE = window.localStorage.getItem("W40MODE");
 				if (W40MODE != null && W40MODE == "true") {
 					$("#W40MODE").prop("checked", true);
 					$("#TABSVIEW_PARENT").addClass("w40kmode");
@@ -428,7 +427,7 @@ body {
 				}
 			}
 			{
-				var SUM = window.localStorage.getItem("SUM");
+				let SUM = window.localStorage.getItem("SUM");
 				if (SUM != null && SUM == "true") {
 					$("#SUM").prop("checked", true);
 				} else {
@@ -436,7 +435,7 @@ body {
 				}
 			}
 			{
-				var DEGREES_MIN = window.localStorage.getItem("DEGREES_MIN");
+				let DEGREES_MIN = window.localStorage.getItem("DEGREES_MIN");
 				if (DEGREES_MIN != null && DEGREES_MIN == "true") {
 					$("#DEGREES_MIN").prop("checked", true);
 				} else {
@@ -444,7 +443,7 @@ body {
 				}
 			}
 			{
-				var REROLLLOWEST = window.localStorage.getItem("REROLLLOWEST");
+				let REROLLLOWEST = window.localStorage.getItem("REROLLLOWEST");
 				if (REROLLLOWEST != null && REROLLLOWEST == "true") {
 					$("#REROLLLOWEST").prop("checked", true);
 				} else {
@@ -452,19 +451,19 @@ body {
 				}
 			}
 			{
-				var MINIMUM = window.localStorage.getItem("MINIMUM");
+				let MINIMUM = window.localStorage.getItem("MINIMUM");
 				if (MINIMUM != null && MINIMUM > 0) {
 					$("#MINIMUM").val(MINIMUM);
 				}
 			}
 			{
-				var FLAT = window.localStorage.getItem("FLAT");
+				let FLAT = window.localStorage.getItem("FLAT");
 				if (FLAT != null && FLAT > 0) {
 					$("#FLAT").val(FLAT);
 				}
 			}
 			{
-				var SHOWFORMULA = window.localStorage.getItem("SHOWFORMULA");
+				let SHOWFORMULA = window.localStorage.getItem("SHOWFORMULA");
 				if (SHOWFORMULA != null && SHOWFORMULA == "true") {
 					$("#SHOWFORMULA").prop("checked", true);
 					$("#FORMULAPARENT").css({"display":"inherit"});
@@ -474,7 +473,7 @@ body {
 				}
 			}
 			{
-				var LASMASTERY = window.localStorage.getItem("LASMASTERY");
+				let LASMASTERY = window.localStorage.getItem("LASMASTERY");
 				if (LASMASTERY != null && LASMASTERY == "true") {
 					$("#LASMASTERY").prop("checked", true);
 				} else {
@@ -485,7 +484,7 @@ body {
 
 		$("#SHOWFORMULA").change(function(ev) {
 			window.localStorage.setItem("SHOWFORMULA", $("#SHOWFORMULA").prop("checked") ? "true" : "false");
-			var SHOWFORMULA = window.localStorage.getItem("SHOWFORMULA");
+			let SHOWFORMULA = window.localStorage.getItem("SHOWFORMULA");
 			if($("#SHOWFORMULA").prop("checked")) {
 				console.log("set SHOWFORMULA: TRUE");
 				$("#FORMULAPARENT").css({"display":"inherit"});
@@ -497,51 +496,51 @@ body {
 
 		$("#FLAT").change(function(ev) {
 			window.localStorage.setItem("FLAT", $("#FLAT").val());
-			var FLAT = window.localStorage.getItem("FLAT");
+			let FLAT = window.localStorage.getItem("FLAT");
 			console.log("set FLAT:" + FLAT);
 		});
 
 		$("#MINIMUM").change(function(ev) {
 			window.localStorage.setItem("MINIMUM", $("#MINIMUM").val());
-			var MINIMUM = window.localStorage.getItem("MINIMUM");
+			let MINIMUM = window.localStorage.getItem("MINIMUM");
 			console.log("set MINIMUM:" + MINIMUM);
 		});
 
 		$("#REROLLLOWEST").change(function(ev) {
 			window.localStorage.setItem("REROLLLOWEST", $("#REROLLLOWEST").prop("checked") ? "true" : "false");
-			var REROLLLOWEST = window.localStorage.getItem("REROLLLOWEST");
+			let REROLLLOWEST = window.localStorage.getItem("REROLLLOWEST");
 			console.log("set REROLLLOWEST:" + REROLLLOWEST);
 		});
 
 		$("#LASMASTERY").change(function(ev) {
 			window.localStorage.setItem("LASMASTERY", $("#LASMASTERY").prop("checked") ? "true" : "false");
-			var LASMASTERY = window.localStorage.getItem("LASMASTERY");
+			let LASMASTERY = window.localStorage.getItem("LASMASTERY");
 			console.log("set LASMASTERY:" + LASMASTERY);
 		});
 
 		$("#SUM").change(function(ev) {
 			window.localStorage.setItem("SUM", $("#SUM").prop("checked") ? "true" : "false");
-			var SUM = window.localStorage.getItem("SUM");
+			let SUM = window.localStorage.getItem("SUM");
 			console.log("set SUM:" + SUM);
 		});
 
 		$("#DEGREES_MIN").change(function(ev) {
 			window.localStorage.setItem("DEGREES_MIN", $("#DEGREES_MIN").prop("checked") ? "true" : "false");
-			var DEGREES_MIN = window.localStorage.getItem("DEGREES_MIN");
+			let DEGREES_MIN = window.localStorage.getItem("DEGREES_MIN");
 			console.log("set DEGREES_MIN:" + DEGREES_MIN);
 		});
 
 		$("#TABSVIEW").change(function(ev) {
 			$("#TABSVIEW_PARENT").toggleClass("tabsviewoff");
 			window.localStorage.setItem("TABSVIEW", $("#TABSVIEW").prop("checked") ? "true" : "false");
-			var TABSVIEW = window.localStorage.getItem("TABSVIEW");
+			let TABSVIEW = window.localStorage.getItem("TABSVIEW");
 			console.log("set TABSVIEW:" + TABSVIEW);
 		});
 
 		$("#W40MODE").change(function(ev) {
 			$("#TABSVIEW_PARENT").toggleClass("w40kmode");
 			window.localStorage.setItem("W40MODE", $("#W40MODE").prop("checked") ? "true" : "false");
-			var W40MODE = window.localStorage.getItem("W40MODE");
+			let W40MODE = window.localStorage.getItem("W40MODE");
 			console.log("set W40MODE:" + W40MODE);
 		});
 
@@ -568,7 +567,7 @@ body {
 		});
 
 		function saveSkill() {
-			var SKILL = $("#SKILL").val();
+			let SKILL = $("#SKILL").val();
 			window.localStorage.setItem("SKILL", SKILL);
 			console.log("saveSkill:" + SKILL);
 		}
@@ -602,11 +601,11 @@ body {
 
 		function calcFormula() {
 			try {
-				var FORMULA = $("#FORMULA").val();
+				let FORMULA = $("#FORMULA").val();
 				console.log(FORMULA);
 				FORMULA = FORMULA.replace("x", "*").replace(":", "/").replace("×", "*").replace("÷", "/").replace("+", "+").replace(",", ".");
 				console.log(FORMULAv);
-				var FORMULA_EVAL = eval(FORMULA);
+				let FORMULA_EVAL = eval(FORMULA);
 				console.log(FORMULA_EVAL);
 				$("#FORMULA_RESULT").text(FORMULA_EVAL);
 			} catch (err) {
@@ -615,7 +614,7 @@ body {
 		}
 		function string_as_unicode_escape(input) {
 			function pad_four(input) {
-				var l = input.length;
+				let l = input.length;
 				if (l == 0)
 					return "0000";
 				if (l == 1)
@@ -626,8 +625,8 @@ body {
 					return "0" + input;
 				return input;
 			}
-			var output = "";
-			for (var i = 0, l = input.length; i < l; i++)
+			let output = "";
+			for (let i = 0, l = input.length; i < l; i++)
 				output += "\\u" + pad_four(input.charCodeAt(i).toString(16));
 			return output;
 		}
@@ -659,7 +658,7 @@ body {
 		function rollRandom(event, max, input) {
 			console.log("SHIFT:"+event.shiftKey);
 			console.log("CTRL:"+event.ctrlKey);
-			var iii;
+			let iii;
 			if(event.ctrlKey && event.shiftKey) {
 				for(iii = 0; iii < 20; iii++) {
 					_rollRandom(max, input);
@@ -677,29 +676,29 @@ body {
 			}
 		}
 		function _rollRandom(max, input) {
-			var rnd = getRandomInt(max) + 1;
+			let rnd = getRandomInt(max) + 1;
 			document.getElementById(input).value = rnd;
-			var isSUM = $("#SUM").prop("checked");
+			let isSUM = $("#SUM").prop("checked");
 			if (!isSUM) {
 				clearSum();
 			}
 			SUM_LIST.push(rnd);
 			D_LIST.push(max);
-			var ARR_ALL_EQ = checkSameValues(D_LIST);
-			var tmpW = ARR_ALL_EQ && D_LIST[0]==10 && $("#RESULT").val() == "ja" && $("#W40MODE").prop("checked");
-			var withDEGREES_MIN = tmpW && $("#DEGREES_MIN").prop("checked");
-			var withREROLLLOWEST = $("#REROLLLOWEST").prop("checked");
-			var withLASMASTERY = tmpW && $("#LASMASTERY").prop("checked");
-			var withMINIMUM = Number($("#MINIMUM").val())>0;
-			var withFLAT = Number($("#FLAT").val())>0;
+			let ARR_ALL_EQ = checkSameValues(D_LIST);
+			let tmpW = ARR_ALL_EQ && D_LIST[0]==10 && $("#RESULT").val() == "ja" && $("#W40MODE").prop("checked");
+			let withDEGREES_MIN = tmpW && $("#DEGREES_MIN").prop("checked");
+			let withREROLLLOWEST = $("#REROLLLOWEST").prop("checked");
+			let withLASMASTERY = tmpW && $("#LASMASTERY").prop("checked");
+			let withMINIMUM = Number($("#MINIMUM").val())>0;
+			let withFLAT = Number($("#FLAT").val())>0;
 			console.log("SUM_LIST: "+SUM_LIST);
 			console.log("D_LIST: "+D_LIST);
-			var SUM_VALUE = 0;
-			var SUM_TEXT = "";
-			var CONVERTED_LIST = [...SUM_LIST];
+			let SUM_VALUE = 0;
+			let SUM_TEXT = "";
+			let CONVERTED_LIST = [...SUM_LIST];
 			if(withREROLLLOWEST){
-				var LIST_MIN_VALUE = 9999999;
-				var LIST_MIN_VALUE_I = 9999999;
+				let LIST_MIN_VALUE = 9999999;
+				let LIST_MIN_VALUE_I = 9999999;
 				CONVERTED_LIST.forEach(function(item, index, array) {
 					if (item < LIST_MIN_VALUE) {
 						LIST_MIN_VALUE = item;
@@ -710,7 +709,7 @@ body {
 				console.log("withREROLLLOWEST: "+CONVERTED_LIST);
 			}
 			if(withMINIMUM){
-				var MINIMUM = Number($("#MINIMUM").val());
+				let MINIMUM = Number($("#MINIMUM").val());
 				CONVERTED_LIST.forEach(function(item, index, array) {
 					if (item < MINIMUM && item!=-1) {
 						CONVERTED_LIST[index] = MINIMUM;
@@ -719,22 +718,22 @@ body {
 				console.log("withMINIMUM: "+CONVERTED_LIST);
 			}
 			if(withDEGREES_MIN) {
-				var LIST_MIN_VALUE = 9999999;
-				var LIST_MIN_VALUE_I = 9999999;
+				let LIST_MIN_VALUE = 9999999;
+				let LIST_MIN_VALUE_I = 9999999;
 				CONVERTED_LIST.forEach(function(item, index, array) {
 					if (item < LIST_MIN_VALUE && item!=-1) {
 						LIST_MIN_VALUE = item;
 						LIST_MIN_VALUE_I = index;
 					}
 				});
-				var MIN_VALUE = Math.min(10, Number($("#DEGREES").val()));
+				let MIN_VALUE = Math.min(10, Number($("#DEGREES").val()));
 				if(LIST_MIN_VALUE<MIN_VALUE){
 					CONVERTED_LIST[LIST_MIN_VALUE_I] = MIN_VALUE;
 				}
 				console.log("withDEGREES_MIN: "+CONVERTED_LIST);
 			}
-			var SUM_TEXT = "";
-			var SUM_VALUE = 0;
+			SUM_TEXT = "";
+			SUM_VALUE = 0;
 			CONVERTED_LIST.forEach(function(item, index, array) {
 				if(index>0){
 					SUM_TEXT = SUM_TEXT + " + ";
@@ -763,7 +762,7 @@ body {
 				}
 			});
 			if(withLASMASTERY) {
-				var LASMASTERYVAL = Math.floor((Number($("#DEGREES").val())-1)/2);
+				let LASMASTERYVAL = Math.floor((Number($("#DEGREES").val())-1)/2);
 				if(LASMASTERYVAL>0) {
 					SUM_VALUE+=LASMASTERYVAL;
 				}
@@ -779,13 +778,13 @@ body {
 				SUM_TEXT = SUM_TEXT + " + " + Number($("#FLAT").val()) + " (Flat Bonus)";
 			}
 			if(withLASMASTERY) {
-				var LASMASTERYVAL = Math.floor((Number($("#DEGREES").val())-1)/2);
+				let LASMASTERYVAL = Math.floor((Number($("#DEGREES").val())-1)/2);
 				if(LASMASTERYVAL>0) {
 					SUM_TEXT = SUM_TEXT + " + " + LASMASTERYVAL + " (Las Mastery)";
 				}
 			}
-			var prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
-			var historyLine = new Date().toLocaleTimeString("nl-BE")//
+			let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
+			let historyLine = new Date().toLocaleTimeString("nl-BE")//
 					+ " &#8669; roll " //
 					+ prepre//
 					+ "<span style='width:30px;' class='badge badge-pill badge-primary'>" + ("" + rnd).padStart(3, " ") + "</span>" //
@@ -804,7 +803,7 @@ body {
 		function rollRandom100(event) {
 			console.log("SHIFT:"+event.shiftKey);
 			console.log("CTRL:"+event.ctrlKey);
-			var iii;
+			let iii;
 			if(event.ctrlKey && event.shiftKey) {
 				for(iii = 0; iii < 20; iii++) {
 					_rollRandom100();
@@ -822,19 +821,19 @@ body {
 			}
 		}
 		function _rollRandom100() {
-			var rnd = getRandomInt(100) + 1;
+			let rnd = getRandomInt(100) + 1;
 			$("#ROLL").val(rnd);
 			rollSet100(rnd);
 		}
 		function rollSet100(rnd) {
 			clearSum();
 			change();
-			var SKILL = Number($("#SKILL").val());
-			var SUCCESS = $("#RESULT").val() == "ja";
-			var DEGREES = $("#DEGREES").val();
-			var d = new Date().toLocaleTimeString("nl-BE");
-			var prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
-			var historyLine = d//
+			let SKILL = Number($("#SKILL").val());
+			let SUCCESS = $("#RESULT").val() == "ja";
+			let DEGREES = $("#DEGREES").val();
+			let d = new Date().toLocaleTimeString("nl-BE");
+			let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
+			let historyLine = d//
 					+ " &#8669; roll "//
 					+ "<span style='width:30px;' class='badge badge-pill badge-primary'>" + prepre + "</span>"//
 					+ ("" + rnd).padStart(3, " ")//
@@ -857,19 +856,19 @@ body {
 			return Math.floor(Math.random() * Math.floor(max));
 		}
 		function change() {
-			var SKILL = Number($("#SKILL").val());
-			var ROLL = Number($("#ROLL").val());
+			let SKILL = Number($("#SKILL").val());
+			let ROLL = Number($("#ROLL").val());
 			console.log("ROLL<=SKILL :: " + ROLL + "<=" + SKILL + " :: " + (ROLL <= SKILL));
-			var DEGREES;
-			var SUCCESS;
+			let DEGREES;
+			let SUCCESS;
 			if (ROLL <= SKILL) {
-				var diff = (SKILL - ROLL) / 10.0;
+				let diff = (SKILL - ROLL) / 10.0;
 				console.log("diff=" + diff);
 				DEGREES = 1 + Math.floor(diff);
 				SUCCESS = true;
 				console.log("SUCCESS +" + DEGREES + " DEGREES");
 			} else {
-				var diff = (ROLL - SKILL - 1) / 10.0;
+				let diff = (ROLL - SKILL - 1) / 10.0;
 				console.log("diff=" + diff);
 				DEGREES = 1 + Math.floor(diff);
 				SUCCESS = false;
@@ -880,7 +879,7 @@ body {
 				$("#RESULT").addClass("bg-success");
 				$("#RESULT").removeClass("bg-warning");
 				$("#RESULT").addClass("text-white");
-				var ACCURATE = Math.min(2,Math.floor(DEGREES/2));
+				let ACCURATE = Math.min(2,Math.floor(DEGREES/2));
 				console.log("ACCURATE="+ACCURATE)
 				$("#ACCURATE").html("+"+ACCURATE+"D");
 			} else {
@@ -892,8 +891,8 @@ body {
 			$("#DEGREES").val(DEGREES);
 		}
 		{
-			var tt = 0;
-			var ttt = 0;
+			let tt = 0;
+			let ttt = 0;
 			for(tt = 0; tt < 10000; tt++) {
 				ttt += getRandomInt(100) + 1;
 			}
