@@ -551,7 +551,7 @@
                 let FORMULA = $("#FORMULA").val();
                 console.log(FORMULA);
                 FORMULA = FORMULA.replace("x", "*").replace(":", "/").replace("×", "*").replace("÷", "/").replace("+", "+").replace(",", ".");
-                console.log(FORMULAv);
+                console.log(FORMULA);
                 let FORMULA_EVAL = eval(FORMULA);
                 console.log(FORMULA_EVAL);
                 $("#FORMULA_RESULT").text(FORMULA_EVAL);
