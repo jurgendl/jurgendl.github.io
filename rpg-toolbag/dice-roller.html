@@ -732,7 +732,7 @@
             if (withFLAT) {
                 SUM_VALUE += Number($("#FLAT").val());
             }
-            SUM_TEXT = "<span style='width:30px;' class='badge badge-pill badge-info'>" + SUM_VALUE + "</span>" + " = &Sigma;[#" + SUM_LIST.length + "](" + SUM_TEXT + ")";
+            SUM_TEXT = "<span style='width:35px;' class='badge badge-pill badge-info'>" + SUM_VALUE + "</span>" + " = &Sigma;[#" + SUM_LIST.length + "](" + SUM_TEXT + ")";
             if (ARR_ALL_EQ) {
                 SUM_TEXT = SUM_TEXT + "/[D" + D_LIST[0] + "]";
             }
@@ -749,7 +749,7 @@
             let historyLine = new Date().toLocaleTimeString("nl-BE") //
                 + " &#8669; roll " //
                 + prepre //
-                + "<span style='width:30px;' class='badge badge-pill badge-primary'>" + ("" + rnd).padStart(3, " ") + "</span>" //
+                + "<span style='width:35px;' class='badge badge-pill badge-primary'>" + ("" + rnd).padStart(3, " ") + "</span>" //
                 + "</span>" //
                 + " " //
                 + prepre //
@@ -804,7 +804,7 @@
             let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
             let historyLine = d //
                 + " &#8669; roll " //
-                + "<span style='width:30px;' class='badge badge-pill badge-primary'>" + prepre + "</span>" //
+                + "<span style='width:35px;' class='badge badge-pill badge-primary'>" + prepre + "</span>" //
                 + ("" + rnd).padStart(3, " ") //
                 + "</span>" //
                 + " op skill " //
@@ -814,7 +814,7 @@
                     " <span style='width:60px;' class='badge badge-pill badge-success'>SUCCESS</span>" //
                     : "<span style='width:60px;' class='badge badge-pill badge-warning'>FAIL</span>") //
                 + " met " //
-                + "<span style='width:30px;' class='badge badge-pill badge-dark'>" //
+                + "<span style='width:35px;' class='badge badge-pill badge-dark'>" //
                 + DEGREESV //
                 + "</span> degrees" //
             ;
