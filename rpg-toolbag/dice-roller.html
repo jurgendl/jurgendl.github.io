@@ -37,7 +37,7 @@
         .list-group-item:first-child {
             z-index: 2;
             color: #fff;
-            background-color: var(--success);
+            background-color: var(--info);
             border-color: rgba(0, 123, 255, .5);
         }
         
@@ -355,6 +355,8 @@
     <script type="text/javascript">
         /*<![CDATA[*/
         // https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
+		const SUCCESSTEXT = "SUCCESS";
+		const FAILTEXT = "FAIL";
         $(document).ready(function () {
             {
                 let SKILL = window.localStorage.getItem("SKILL");
@@ -644,7 +646,7 @@
             SUM_LIST.push(rnd);
             D_LIST.push(max);
             let ARR_ALL_EQ = checkSameValues(D_LIST);
-            let tmpW = ARR_ALL_EQ && D_LIST[0] == 10 && $("#RESULT").val() == "ja" && $("#W40MODE").prop("checked");
+            let tmpW = ARR_ALL_EQ && D_LIST[0] == 10 && $("#RESULT").val() == SUCCESSTEXT && $("#W40MODE").prop("checked");
             let withDEGREESV_MIN = tmpW && $("#DEGREESV_MIN").prop("checked");
             let withREROLLLOWEST = $("#REROLLLOWEST").prop("checked");
             let withLASMASTERY = tmpW && $("#LASMASTERY").prop("checked");
@@ -800,7 +802,7 @@
             clearSum();
             change();
             let SKILL = Number($("#SKILL").val());
-            let SUCCESS = $("#RESULT").val() == "ja";
+            let SUCCESS = $("#RESULT").val() == SUCCESSTEXT;
             let DEGREESV = $("#DEGREESV").val();
             let d = new Date().toLocaleTimeString("nl-BE");
             let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
@@ -813,8 +815,8 @@
                 + prepre + ("" + SKILL).padStart(3, " ") //
                 + "</span> &#8669; " //
                 + (SUCCESS ? //
-                    " <span style='width:65px; border: 2px solid rgba(255,255,255,.5);' class='badge badge-pill badge-success'>SUCCESS</span>" //
-                    : "<span style='width:65px; border: 2px solid rgba(255,255,255,.5);' class='badge badge-pill badge-warning'>FAIL</span>") //
+                    " <span style='width:65px; border: 2px solid rgba(255,255,255,.5);' class='badge badge-pill badge-success'>"+SUCCESSTEXT+"</span>" //
+                    : "<span style='width:65px; border: 2px solid rgba(255,255,255,.5);' class='badge badge-pill badge-warning'>"+FAILTEXT+"</span>") //
                 + " met " //
                 + "<span style='width:35px;' class='badge badge-pill badge-dark'>" //
                 + DEGREESV //
@@ -839,16 +841,16 @@
                 console.log("diff=" + diff);
                 DEGREESV = 1 + Math.floor(diff);
                 SUCCESS = true;
-                console.log("SUCCESS +" + DEGREESV + " DEGREESV");
+                console.log(SUCCESSTEXT+" +" + DEGREESV + " DEGREESV");
             }
             else {
                 let diff = (ROLL - SKILL - 1) / 10.0;
                 console.log("diff=" + diff);
                 DEGREESV = 1 + Math.floor(diff);
                 SUCCESS = false;
-                console.log("FAIL -" + DEGREESV + " DEGREESV");
+                console.log(FAILTEXT+" -" + DEGREESV + " DEGREESV");
             }
-            $("#RESULT").val(SUCCESS ? "SUCCESS" : "FAIL");
+            $("#RESULT").val(SUCCESS ? SUCCESSTEXT : FAILTEXT);
             if (SUCCESS) {
                 $("#RESULT").addClass("bg-success");
                 $("#RESULT").removeClass("bg-warning");
@@ -860,7 +862,7 @@
             else {
                 $("#RESULT").removeClass("bg-success");
                 $("#RESULT").addClass("bg-warning");
-                $("#RESULT").removeClass("text-white");
+                $("#RESULT").addClass("text-white");
                 $("#ACCURATE").html("-");
             }
             $("#DEGREESV").val(DEGREESV);
