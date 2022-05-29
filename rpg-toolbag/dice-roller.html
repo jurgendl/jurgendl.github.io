@@ -33,12 +33,18 @@
             display: inline-block;
         }
 
-        .list-group-item:hover,
         .list-group-item:first-child {
             z-index: 2;
             color: #fff;
-            background-color: var(--info);
-            border-color: var(--info);
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .list-group-item:hover {
+            z-index: 2;
+            color: #fff;
+            background-color: var(--secondary);
+            border-color: var(--secondary);
         }
 
         #FULL_HISTORY,
@@ -767,7 +773,7 @@
             let historyLine = new Date().toLocaleTimeString("nl-BE") //
                 + " &#8669; roll " //
                 + prepre //
-                + "<span style='width:35px;' class='badge badge-pill badge-primary'>" + ("" + rnd).padStart(3, " ") + "</span>" //
+                + "<span style='width:35px;' class='badge badge-pill badge-info'>" + ("" + rnd).padStart(3, " ") + "</span>" //
                 + "</span>" //
                 + " " //
                 + prepre //
@@ -822,7 +828,7 @@
             let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
             let historyLine = d //
                 + " &#8669; roll " //
-                + "<span style='width:35px;' class='badge badge-pill badge-primary'>" + prepre + "</span>" //
+                + "<span style='width:35px;' class='badge badge-pill badge-info'>" + prepre + "</span>" //
                 + ("" + rnd).padStart(3, " ") //
                 + "</span>" //
                 + " op skill " //
