@@ -8,7 +8,7 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Open dice-roller.html",
-            "file": "..\\rpg-toolbag\\dice-roller.html"
+            "file": "rpg-toolbag\\dice-roller.html"
         }
     ]
 }
