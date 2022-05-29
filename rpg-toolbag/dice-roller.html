@@ -13,31 +13,19 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">-->
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">-->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/css/sb-admin-2.css"
-        integrity="sha512-gOfBez3ehpchNxj4TfBZfX1MDLKLRif67tFJNLQSpF13lXM1t9ffMNCbZfZNBfcN2/SaWvOf+7CvIHtQ0Nci2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/css/sb-admin-2.css" integrity="sha512-gOfBez3ehpchNxj4TfBZfX1MDLKLRif67tFJNLQSpF13lXM1t9ffMNCbZfZNBfcN2/SaWvOf+7CvIHtQ0Nci2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/js/sb-admin-2.js"
-        integrity="sha512-M82XdXhPLLSki+Ld1MsafNzOgHQB3txZr8+SQlGXSwn6veeqtYhPLbQeAfk9Y/Q9/gXcfa1jWT4YYUeoei6Uow=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/js/sb-admin-2.js" integrity="sha512-M82XdXhPLLSki+Ld1MsafNzOgHQB3txZr8+SQlGXSwn6veeqtYhPLbQeAfk9Y/Q9/gXcfa1jWT4YYUeoei6Uow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
 		crossorigin="anonymous"></script>-->
     <!-- https://bootstrap-confirmation.js.org/ -->
     <!-- https://github.com/mistic100/Bootstrap-Confirmation -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2@4.1.0/dist/bootstrap-confirmation.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2@4.1.0/dist/bootstrap-confirmation.min.js"></script>
     <!-- https://clipboardjs.com/ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
     <style>
@@ -153,25 +141,19 @@
     <div style="position: absolute; right: 0px; top: 0px;">
         <div style="display: inline-block;" class="custom-control custom-switch mr-2">
             <input type="checkbox" class="custom-control-input" id="TABSVIEW">
-            <label class="custom-control-label" for="TABSVIEW">Tabs</label> <sup class="mr-2"> <a style="cursor: help;"
-                    tabindex="0" data-toggle="popover" data-placement="bottom" data-content="Overzicht in tabs."> <i
-                        class="text-info fas fa-info"></i>
+            <label class="custom-control-label" for="TABSVIEW">Tabs</label> <sup class="mr-2"> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-placement="bottom" data-content="Overzicht in tabs."> <i class="text-info fas fa-info"></i>
                 </a>
             </sup>
         </div>
         <div style="display: inline-block;" class="custom-control custom-switch mr-2">
             <input type="checkbox" class="custom-control-input" id="SHOWFORMULA">
-            <label class="custom-control-label" for="SHOWFORMULA">Formule</label> <sup class="mr-2"> <a
-                    style="cursor: help;" tabindex="0" data-toggle="popover" data-placement="bottom"
-                    data-content="Toon formule invoer."> <i class="text-info fas fa-info"></i>
+            <label class="custom-control-label" for="SHOWFORMULA">Formule</label> <sup class="mr-2"> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-placement="bottom" data-content="Toon formule invoer."> <i class="text-info fas fa-info"></i>
                 </a>
             </sup>
         </div>
         <div style="display: inline-block;" class="custom-control custom-switch mr-2">
             <input type="checkbox" class="custom-control-input" id="W40MODE">
-            <label class="custom-control-label" for="W40MODE">W40K mode</label> <sup class="mr-2"> <a
-                    style="cursor: help;" tabindex="0" data-toggle="popover" data-placement="bottom"
-                    data-content="Toon W40K-only deel."> <i class="text-info fas fa-info"></i>
+            <label class="custom-control-label" for="W40MODE">W40K mode</label> <sup class="mr-2"> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-placement="bottom" data-content="Toon W40K-only deel."> <i class="text-info fas fa-info"></i>
                 </a>
             </sup>
         </div>
@@ -179,36 +161,27 @@
     <br>
     <div id="TABSVIEW_PARENT" class="pl-2 pr-2 w40kmode">
         <ul style="border-bottom: 0px;" class="nav nav-tabs" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation"><a class="nav-link active" id="pills-rolls-tab" data-toggle="pill"
-                    href="#pills-rolls" role="tab" aria-controls="pills-rolls" aria-selected="true">Rolls</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" id="pills-history-tab" data-toggle="pill"
-                    href="#pills-history" role="tab" aria-controls="pills-history" aria-selected="false">Historiek</a>
+            <li class="nav-item" role="presentation"><a class="nav-link active" id="pills-rolls-tab" data-toggle="pill" href="#pills-rolls" role="tab" aria-controls="pills-rolls" aria-selected="true">Rolls</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" id="pills-history-tab" data-toggle="pill" href="#pills-history" role="tab" aria-controls="pills-history" aria-selected="false">Historiek</a>
             </li>
-            <li class="nav-item" role="presentation"><a class="nav-link" id="pills-links-tab" data-toggle="pill"
-                    href="#pills-links" role="tab" aria-controls="pills-links" aria-selected="false">...</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" id="pills-links-tab" data-toggle="pill" href="#pills-links" role="tab" aria-controls="pills-links" aria-selected="false">...</a></li>
         </ul>
         <div class="border border-primary tab-content tabsview" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-rolls" role="tabpanel" aria-labelledby="pills-rolls-tab">
                 <div class="p-2 row">
                     <div id="FORMULAPARENT" style="display: none;" class="col-12 input-group input-group-sm mb-2">
-                        <div class="input-group-prepend"> <span style="width: 8em;"
-                                class="input-group-text">Formule</span> </div>
+                        <div class="input-group-prepend"> <span style="width: 8em;" class="input-group-text">Formule</span> </div>
                         <input class="form-control form-control-sm" id="FORMULA" type="text">
-                        <div class="input-group-append"> <span style="width: 8em;" class="input-group-text"> = <span
-                                    id="FORMULA_RESULT"></span> &nbsp; <sup class="only-in-40k-mode">
+                        <div class="input-group-append"> <span style="width: 8em;" class="input-group-text"> = <span id="FORMULA_RESULT"></span> &nbsp; <sup class="only-in-40k-mode">
                                     <!-- <a style="cursor: crosshair;" class="clipboard" data-toggle="tooltip" title="kopieer naar clipboard" data-clipboard-target="#FORMULA_RESULT" data-clipboard-action="copy">
 										<i class="fas fa-clipboard"></i>
-									</a> --> <span onclick="saveFormulaResult()" style="cursor: crosshair;" data-toggle="tooltip"
-                                        title="kopieer naar skill"> <i class="fas fa-save"></i>
+									</a> --> <span onclick="saveFormulaResult()" style="cursor: crosshair;" data-toggle="tooltip" title="kopieer naar skill"> <i class="fas fa-save"></i>
                                     </span>
                                 </sup> </span>
                         </div>
                     </div>
                     <div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
-                        <div class="input-group-prepend"> <span style="width: 8em;"
-                                class="input-group-text">BS/WS/skill&nbsp; <sup> <a style="cursor: help;" tabindex="0"
-                                        data-toggle="popover"
-                                        data-content="<b>Warhammer</b>: skill value.<br>Waarde wordt bewaard in browser voor volgende keer.">
+                        <div class="input-group-prepend"> <span style="width: 8em;" class="input-group-text">BS/WS/skill&nbsp; <sup> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-content="<b>Warhammer</b>: skill value.<br>Waarde wordt bewaard in browser voor volgende keer.">
                                         <i class="text-info fas fa-info"></i>
                                     </a>
                                 </sup>
@@ -216,68 +189,47 @@
                         <input id="SKILL" min="1" max="160" type="text" class="form-control form-control-sm">
                     </div>
                     <div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
-                        <div class="input-group-prepend"> <span style="width: 8em;"
-                                class="input-group-text">Success?</span> </div>
-                        <input readonly class="form-control form-control-sm" size="4" id="RESULT" type="text" min="1"
-                            max="100">
+                        <div class="input-group-prepend"> <span style="width: 8em;" class="input-group-text">Success?</span> </div>
+                        <input readonly class="form-control form-control-sm" size="4" id="RESULT" type="text" min="1" max="100">
                     </div>
                     <div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" min="0" max="100" class="btn btn-sm btn-outline-secondary"
-                                type="button" onclick="rollRandom100(event);">D100</button>
+                            <button style="width: 8em;" min="0" max="100" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom100(event);">D100</button>
                         </div>
                         <input class="form-control form-control-sm" size="4" id="ROLL" type="text" min="1" max="100">
                     </div>
                     <div class="only-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-1">
-                        <div class="input-group-prepend"> <span style="width: 8em;"
-                                class="input-group-text">Degrees&nbsp;<sup> <a style="cursor: help;" tabindex="0"
-                                        data-toggle="popover"
-                                        data-content="<b>Warhammer</b>: During an ONLY WAR game, knowing whether a Test has succeeded or failed is typically sufficient. There are times, however, when it is helpful to know just how well a character has succeeded at a given task, or just how badly he has failed. This is of particular importance with social skills, such as Charm and Inquiry, as well as during some combat situations such as when firing an automatic weapon.<br>Measuring a character’s Degrees of Success or Failure is a rather straightforward process. Once the percentage roll for the Test is made, compare the outcome of the roll with the modified Characteristic score. If the roll is equal to or lower than the Characteristic, the character has gained one Degree of Success. Furthermore, every 10 points by which the Test succeeds grants yet another Degree of Success. Conversely, if the roll is higher than the Characteristic, the character has gained one Degree of Failure, and gains an additional Degree of Failure for every additional 10 points rolled over the Characteristic.">
+                        <div class="input-group-prepend"> <span style="width: 8em;" class="input-group-text">Degrees&nbsp;<sup> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-content="<b>Warhammer</b>: During an ONLY WAR game, knowing whether a Test has succeeded or failed is typically sufficient. There are times, however, when it is helpful to know just how well a character has succeeded at a given task, or just how badly he has failed. This is of particular importance with social skills, such as Charm and Inquiry, as well as during some combat situations such as when firing an automatic weapon.<br>Measuring a character’s Degrees of Success or Failure is a rather straightforward process. Once the percentage roll for the Test is made, compare the outcome of the roll with the modified Characteristic score. If the roll is equal to or lower than the Characteristic, the character has gained one Degree of Success. Furthermore, every 10 points by which the Test succeeds grants yet another Degree of Success. Conversely, if the roll is higher than the Characteristic, the character has gained one Degree of Failure, and gains an additional Degree of Failure for every additional 10 points rolled over the Characteristic.">
                                         <i class="text-info fas fa-info"></i>
                                     </a>
                                 </sup>
                             </span> </div>
-                        <input readonly class="form-control form-control-sm" size="4" id="DEGREESV" type="text" min="1"
-                            max="100">
+                        <input readonly class="form-control form-control-sm" size="4" id="DEGREESV" type="text" min="1" max="100">
                     </div>
                     <div class="col-md-6 col-12 mb-2">
                         <div style="display: inline-block;" class="custom-control custom-switch mr-2">
                             <input type="checkbox" class="custom-control-input" id="SUM">
-                            <label class="custom-control-label" for="SUM">Someer</label> <sup> <a style="cursor: help;"
-                                    tabindex="0" data-toggle="popover"
-                                    data-content="Someer all rolls startend op het moment dat dit aangevinkt wordt.<br>Klik op som legen of vink uit om opnieuw te beginnen.">
+                            <label class="custom-control-label" for="SUM">Someer</label> <sup> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-content="Someer all rolls startend op het moment dat dit aangevinkt wordt.<br>Klik op som legen of vink uit om opnieuw te beginnen.">
                                     <i class="text-info fas fa-info"></i>
                                 </a>
                             </sup>
                         </div> <span class="only-in-40k-mode">
                             <div style="display: inline-block;" class="custom-control custom-switch mr-2">
-                                <input type="checkbox" class="custom-control-input" id="DEGREESV_MIN"> <label
-                                    class="custom-control-label" for="DEGREESV_MIN">Degrees = min</label> <sup> <a
-                                        style="cursor: help;" tabindex="0" data-toggle="popover"
-                                        data-content="<b>Warhammer</b>: neem aantal successen als vervanging wanneer je minder rolt op D10.<br>Wordt genegeerd als er geen success gerolled is.<br>Werkt in beide gevallen als someren uit en aan staat.">
+                                <input type="checkbox" class="custom-control-input" id="DEGREESV_MIN"> <label class="custom-control-label" for="DEGREESV_MIN">Degrees = min</label> <sup> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-content="<b>Warhammer</b>: neem aantal successen als vervanging wanneer je minder rolt op D10.<br>Wordt genegeerd als er geen success gerolled is.<br>Werkt in beide gevallen als someren uit en aan staat.">
                                         <i class="text-info fas fa-info"></i>
                                     </a>
                                 </sup>
                             </div>
                         </span> <span class="">
                             <div style="display: inline-block;" class="custom-control custom-switch mr-2">
-                                <input type="checkbox" class="custom-control-input" id="REROLLLOWEST"> <label
-                                    class="custom-control-label" for="REROLLLOWEST">Reroll lowest <span
-                                        class="only-in-40k-mode"> / tearing</span></label> <span
-                                    class="only-in-40k-mode"><sup> <a style="cursor: help;" tabindex="0"
-                                            data-toggle="popover"
-                                            data-content="<b>Warhammer</b>: Tearing weapons are vicious devices, often using multitudes of fast-moving jagged teeth to rip into flesh and bone. These weapons roll one extra die for Damage, and the lowest result is discarded.">
+                                <input type="checkbox" class="custom-control-input" id="REROLLLOWEST"> <label class="custom-control-label" for="REROLLLOWEST">Reroll lowest <span class="only-in-40k-mode"> / tearing</span></label> <span class="only-in-40k-mode"><sup> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-content="<b>Warhammer</b>: Tearing weapons are vicious devices, often using multitudes of fast-moving jagged teeth to rip into flesh and bone. These weapons roll one extra die for Damage, and the lowest result is discarded.">
                                             <i class="text-info fas fa-info"></i>
                                         </a>
                                     </sup></span>
                             </div>
                         </span> <span class="only-in-40k-mode">
                             <div style="display: inline-block;" class="custom-control custom-switch mr-2">
-                                <input type="checkbox" class="custom-control-input" id="LASMASTERY"> <label
-                                    class="custom-control-label" for="LASMASTERY">Las Weapon Mastery</label> <span
-                                    class="only-in-40k-mode"><sup> <a style="cursor: help;" tabindex="0"
-                                            data-toggle="popover"
-                                            data-content="<b>Warhammer</b>: Whenever this character makes an attack with a las weapon (such as a lasgun, lascarbine, laspistol, or lascannon), he deals +1 additional Damage for every two Degrees of Success he scores on the Ballistic Skill Test beyond the first.">
+                                <input type="checkbox" class="custom-control-input" id="LASMASTERY"> <label class="custom-control-label" for="LASMASTERY">Las Weapon Mastery</label> <span class="only-in-40k-mode"><sup> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-content="<b>Warhammer</b>: Whenever this character makes an attack with a las weapon (such as a lasgun, lascarbine, laspistol, or lascannon), he deals +1 additional Damage for every two Degrees of Success he scores on the Ballistic Skill Test beyond the first.">
                                             <i class="text-info fas fa-info"></i>
                                         </a>
                                     </sup></span>
@@ -287,9 +239,7 @@
                     <div class="col-md-6 col-12 mb-2"> <span class="">
                             <div class="input-group input-group-sm">
                                 <div class="input-group-prepend only-in-40k-mode">
-                                    <span style="width: 8em;" class="input-group-text">Proven&nbsp; <sup> <a
-                                                style="cursor: help;" tabindex="0" data-toggle="popover"
-                                                data-content="<b>Warhammer</b>: Weapons with a Proven Quality always inflict massive trauma and treat any dice roll for Damage lower than the Proven rating (as indicated by the number in parentheses) as if it were the Proven rating instead. Thus, a Proven (3) weapon would treat any die roll of 1 or 2 as a 3 for the purposes of calculating Damage.">
+                                    <span style="width: 8em;" class="input-group-text">Proven&nbsp; <sup> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-content="<b>Warhammer</b>: Weapons with a Proven Quality always inflict massive trauma and treat any dice roll for Damage lower than the Proven rating (as indicated by the number in parentheses) as if it were the Proven rating instead. Thus, a Proven (3) weapon would treat any die roll of 1 or 2 as a 3 for the purposes of calculating Damage.">
                                                 <i class="text-info fas fa-info"></i>
                                             </a>
                                         </sup>
@@ -322,35 +272,28 @@
                     <div class="col-12"></div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button"
-                                onclick="rollRandom(event,100,'i100')">D100</button>
+                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,100,'i100')">D100</button>
                         </div>
                         <input readonly="readonly" class="form-control form-control-sm" size="4" id="i100" type="text">
                     </div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button"
-                                onclick="rollRandom(event,20,'i20')">D20</button>
+                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,20,'i20')">D20</button>
                         </div>
                         <input readonly="readonly" class="form-control form-control-sm" size="4" id="i20" type="text">
                     </div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button"
-                                onclick="rollRandom(event,12,'i12')">D12</button>
+                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,12,'i12')">D12</button>
                         </div>
                         <input readonly="readonly" class="form-control form-control-sm" size="4" id="i12" type="text">
                     </div>
                     <div class="col-md-6 col-12 input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button"
-                                onclick="rollRandom(event,10,'i10')">D10</button>
+                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,10,'i10')">D10</button>
                         </div>
                         <input readonly="readonly" class="form-control form-control-sm" size="4" id="i10" type="text">
-                        <div class="input-group-append only-in-40k-mode"> <span style="width: 8em;"
-                                class="input-group-text">Accurate&nbsp;<sup style="display: inline-block;" class=""> <a
-                                        style="cursor: help;" tabindex="0" data-toggle="popover"
-                                        data-content="<b>Warhammer</b>: Accurate: When firing a single shot from a single Basic weapon with the Accurate Quality and benefiting from the Aim Action, the attack inflicts an extra 1d10 of Damage for every two Degrees of Success, to a maximum of an extra 2d10.">
+                        <div class="input-group-append only-in-40k-mode"> <span style="width: 8em;" class="input-group-text">Accurate&nbsp;<sup style="display: inline-block;" class=""> <a style="cursor: help;" tabindex="0" data-toggle="popover" data-content="<b>Warhammer</b>: Accurate: When firing a single shot from a single Basic weapon with the Accurate Quality and benefiting from the Aim Action, the attack inflicts an extra 1d10 of Damage for every two Degrees of Success, to a maximum of an extra 2d10.">
                                         <i class="text-info fas fa-info"></i>
                                     </a>
                                 </sup>&nbsp;:&nbsp;<span id="ACCURATE">-</span> </span>
@@ -358,43 +301,37 @@
                     </div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button"
-                                onclick="rollRandom(event,8,'i8')">D8</button>
+                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,8,'i8')">D8</button>
                         </div>
                         <input readonly="readonly" class="form-control form-control-sm" size="4" id="i8" type="text">
                     </div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button"
-                                onclick="rollRandom(event,6,'i6')">D6</button>
+                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,6,'i6')">D6</button>
                         </div>
                         <input readonly="readonly" class="form-control form-control-sm" size="4" id="i6" type="text">
                     </div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button"
-                                onclick="rollRandom(event,5,'i5')">D5</button>
+                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,5,'i5')">D5</button>
                         </div>
                         <input readonly="readonly" class="form-control form-control-sm" size="4" id="i5" type="text">
                     </div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button"
-                                onclick="rollRandom(event,4,'i4')">D4</button>
+                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,4,'i4')">D4</button>
                         </div>
                         <input readonly="readonly" class="form-control form-control-sm" size="4" id="i4" type="text">
                     </div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button"
-                                onclick="rollRandom(event,3,'i3')">D3</button>
+                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,3,'i3')">D3</button>
                         </div>
                         <input readonly="readonly" class="form-control form-control-sm" size="4" id="i3" type="text">
                     </div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
-                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button"
-                                onclick="rollRandom(event,2,'i2')">D2</button>
+                            <button style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandom(event,2,'i2')">D2</button>
                         </div>
                         <input readonly="readonly" class="form-control form-control-sm" size="4" id="i2" type="text">
                     </div>
@@ -408,14 +345,9 @@
             <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
                 <div class="p-2 row">
                     <div class="col-12 mt-1">
-                        <button class="btn btn-sm btn-outline-danger" type="button" id="clearHistory"
-                            onconfirm="clearHistory()" x-data-toggle="confirmation" data-title="Historiek legen?"> <i
-                                class="fas fa-list"></i>&nbsp;<i class="fas fa-trash"></i> </button>
-                        <button class="btn btn-sm btn-outline-danger" type="button" id="clearSum" onconfirm="clearSum()"
-                            x-data-toggle="confirmation" data-title="Some legen?"> &Sigma; &nbsp;<i
-                                class="fas fa-trash"></i> </button>
-                        <button class="btn btn-sm btn-outline-danger" type="button" id="clearLatest"
-                            onconfirm="clearLatest()" x-data-toggle="confirmation" data-title="Laatste ongedaan maken?">
+                        <button class="btn btn-sm btn-outline-danger" type="button" id="clearHistory" onconfirm="clearHistory()" x-data-toggle="confirmation" data-title="Historiek legen?"> <i class="fas fa-list"></i>&nbsp;<i class="fas fa-trash"></i> </button>
+                        <button class="btn btn-sm btn-outline-danger" type="button" id="clearSum" onconfirm="clearSum()" x-data-toggle="confirmation" data-title="Some legen?"> &Sigma; &nbsp;<i class="fas fa-trash"></i> </button>
+                        <button class="btn btn-sm btn-outline-danger" type="button" id="clearLatest" onconfirm="clearLatest()" x-data-toggle="confirmation" data-title="Laatste ongedaan maken?">
                             <i class="fas fa-undo"></i> </button>
                     </div>
                     <div class="col-12 mt-2">
