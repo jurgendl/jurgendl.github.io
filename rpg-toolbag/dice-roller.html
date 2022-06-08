@@ -286,7 +286,7 @@
                                 <span style="width: 8em;" class="input-group-text hide-in-40k-mode">Minimum</span>
                             </div>
                             <div style="padding: 3px 15px;" class="form-control form-control-sm">
-                                <input style="width: 100%;" id="MINIMUM" type="text" value="0" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0">
+                                <input style="width: 100%;" id="MINIMUM" type="text" value="0" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="0">
                             </div>
                             <div class="input-group-append">
                                 <span style="width: 8em;" class="input-group-text">
@@ -798,8 +798,15 @@
                             SUM_TEXT = SUM_TEXT + item + "/[D" + D_LIST[index] + "]";
                         }
                     }
-                    if (index == 0 && SUM_LIST[index] == 10) { // CRIT
-                        SUM_TEXT = SUM_TEXT + "<i style='margin-left:2px;' class='fas fa-meteor text-warning'></i>";
+                    // CRIT
+                    if($("#W40MODE").prop("checked")) {
+                        if (index == 0 && SUM_LIST[index] == 10) {
+                            SUM_TEXT = SUM_TEXT + "<i style='margin-left:2px;' class='fas fa-meteor text-warning'></i>";
+                        }
+                    } else {
+                        if (SUM_LIST[index] == 20 && D_LIST[index] == 20) {
+                            SUM_TEXT = SUM_TEXT + "<i style='margin-left:2px;' class='fas fa-meteor text-warning'></i>";
+                        }
                     }
                     SUM_VALUE += item;
                 }
