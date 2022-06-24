@@ -420,6 +420,14 @@
         // https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
         const SUCCESSTEXT = "SUCCESS";
         const FAILTEXT = "FAIL";
+        var getNavigatorLanguages = function() {
+            if (typeof navigator === 'object') {
+                var t = 'anguage', n = navigator, f;
+                f = n['l' + t + 's'];
+                return f && f.length ? f : (t = n['l' + t] || n['browserL' + t] || n['userL' + t]) ? [ t ] : t;
+            }
+        };
+        console.log(getNavigatorLanguages());
         $(document).ready(function () {
             {
                 let MINIMUM = window.localStorage.getItem("MINIMUM");
@@ -837,7 +845,7 @@
                 }
             }
             let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
-            let historyLine = new Date().toLocaleTimeString("nl-BE") //
+            let historyLine = new Date().toLocaleTimeString(getNavigatorLanguages()[0]) //
                 + " &#8669; roll " //
                 + prepre //
                 + "<span style='width:35px;' class='badge badge-pill badge-info'>" + ("" + rnd).padStart(3, " ") + "</span>" //
@@ -891,7 +899,7 @@
             let SKILL = Number($("#SKILL").val());
             let SUCCESS = $("#RESULT").val() == SUCCESSTEXT;
             let DEGREESV = $("#DEGREESV").val();
-            let d = new Date().toLocaleTimeString("nl-BE");
+            let d = new Date().toLocaleTimeString(getNavigatorLanguages()[0]);
             let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
             let historyLine = d //
                 + " &#8669; roll " //
