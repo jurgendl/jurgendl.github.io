@@ -161,7 +161,7 @@
         }
 
         .badge {
-            border: 1.5px solid rgba(255,255,255,.5);
+            border: 1.5px solid rgba(255, 255, 255, .5);
         }
 
         .fa-meteor {
@@ -420,11 +420,11 @@
         // https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
         const SUCCESSTEXT = "SUCCESS";
         const FAILTEXT = "FAIL";
-        var getNavigatorLanguages = function() {
+        var getNavigatorLanguages = function () {
             if (typeof navigator === 'object') {
                 var t = 'anguage', n = navigator, f;
                 f = n['l' + t + 's'];
-                return f && f.length ? f : (t = n['l' + t] || n['browserL' + t] || n['userL' + t]) ? [ t ] : t;
+                return f && f.length ? f : (t = n['l' + t] || n['browserL' + t] || n['userL' + t]) ? [t] : t;
             }
         };
         console.log(getNavigatorLanguages());
@@ -810,7 +810,7 @@
                         }
                     }
                     // CRIT
-                    if($("#W40MODE").prop("checked")) {
+                    if ($("#W40MODE").prop("checked")) {
                         if (index == 0 && SUM_LIST[index] == 10) {
                             SUM_TEXT = SUM_TEXT + "<i style='margin-left:2px;' class='fas fa-meteor text-warning'></i>";
                         }
