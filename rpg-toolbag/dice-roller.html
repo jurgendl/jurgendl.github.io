@@ -422,7 +422,9 @@
         const FAILTEXT = "FAIL";
         var getNavigatorLanguages = function () {
             if (typeof navigator === 'object') {
-                var t = 'anguage', n = navigator, f;
+                var t = 'anguage',
+                    n = navigator,
+                    f;
                 f = n['l' + t + 's'];
                 return f && f.length ? f : (t = n['l' + t] || n['browserL' + t] || n['userL' + t]) ? [t] : t;
             }
@@ -463,8 +465,7 @@
                     console.log("restore TABSVIEW: TRUE");
                     $("#TABSVIEW").prop("checked", true);
                     $("#TABSVIEW_PARENT").removeClass("tabsviewoff");
-                }
-                else {
+                } else {
                     console.log("restore TABSVIEW: FALSE");
                     $("#TABSVIEW").prop("checked", false);
                     $("#TABSVIEW_PARENT").addClass("tabsviewoff");
@@ -474,8 +475,7 @@
                 if (W40MODE != null && W40MODE == "true") {
                     $("#W40MODE").prop("checked", true);
                     $("#TABSVIEW_PARENT").addClass("w40kmode");
-                }
-                else {
+                } else {
                     $("#W40MODE").prop("checked", false);
                     $("#TABSVIEW_PARENT").removeClass("w40kmode");
                 }
@@ -483,24 +483,21 @@
                 let SUM = window.localStorage.getItem("SUM");
                 if (SUM != null && SUM == "true") {
                     $("#SUM").prop("checked", true);
-                }
-                else {
+                } else {
                     $("#SUM").prop("checked", false);
                 }
             } {
                 let DEGREESV_MIN = window.localStorage.getItem("DEGREESV_MIN");
                 if (DEGREESV_MIN != null && DEGREESV_MIN == "true") {
                     $("#DEGREESV_MIN").prop("checked", true);
-                }
-                else {
+                } else {
                     $("#DEGREESV_MIN").prop("checked", false);
                 }
             } {
                 let REROLLLOWEST = window.localStorage.getItem("REROLLLOWEST");
                 if (REROLLLOWEST != null && REROLLLOWEST == "true") {
                     $("#REROLLLOWEST").prop("checked", true);
-                }
-                else {
+                } else {
                     $("#REROLLLOWEST").prop("checked", false);
                 }
             } {
@@ -510,8 +507,7 @@
                     $("#FORMULAPARENT").css({
                         "display": "inherit"
                     });
-                }
-                else {
+                } else {
                     $("#SHOWFORMULA").prop("checked", false);
                     $("#FORMULAPARENT").css({
                         "display": "none"
@@ -521,8 +517,7 @@
                 let LASMASTERY = window.localStorage.getItem("LASMASTERY");
                 if (LASMASTERY != null && LASMASTERY == "true") {
                     $("#LASMASTERY").prop("checked", true);
-                }
-                else {
+                } else {
                     $("#LASMASTERY").prop("checked", false);
                 }
             }
@@ -535,8 +530,7 @@
                 $("#FORMULAPARENT").css({
                     "display": "inherit"
                 });
-            }
-            else {
+            } else {
                 console.log("set SHOWFORMULA: FALSE");
                 $("#FORMULAPARENT").css({
                     "display": "none"
@@ -587,25 +581,24 @@
         });
         $(function () {
             $('[data-toggle="popover"]').popover({
-                "trigger": "focus"
-                , "html": true
+                "trigger": "focus",
+                "html": true
             });
         });
         $("[data-toggle=confirmation]").confirmation({
-            rootSelector: "[data-toggle=confirmation]"
-            ,
+            rootSelector: "[data-toggle=confirmation]",
         });
         $('#clearLatest').confirmation({
-            rootSelector: '#clearLatest'
-            , onConfirm: clearLatest
+            rootSelector: '#clearLatest',
+            onConfirm: clearLatest
         });
         $('#clearSum').confirmation({
-            rootSelector: '#clearSum'
-            , onConfirm: clearSum
+            rootSelector: '#clearSum',
+            onConfirm: clearSum
         });
         $('#clearHistory').confirmation({
-            rootSelector: '#clearHistory'
-            , onConfirm: clearHistory
+            rootSelector: '#clearHistory',
+            onConfirm: clearHistory
         });
 
         function saveSkill() {
@@ -627,8 +620,7 @@
         $("#ROLL").keyup(function (ev) {
             if (typeof myVar !== 'undefined' && e != null && (e.key === "Enter" || e.keyCode === 13)) {
                 rollSet100($("#ROLL").val());
-            }
-            else {
+            } else {
                 change();
             }
         });
@@ -648,8 +640,7 @@
                 let FORMULA_EVAL = eval(FORMULA);
                 console.log(FORMULA_EVAL);
                 $("#FORMULA_RESULT").text(FORMULA_EVAL);
-            }
-            catch (err) {
+            } catch (err) {
                 console.log(err);
                 $("#FORMULA_RESULT").text('?');
             }
@@ -704,18 +695,15 @@
                 for (iii = 0; iii < 20; iii++) {
                     _rollRandom(max, input);
                 }
-            }
-            else if (event.ctrlKey) {
+            } else if (event.ctrlKey) {
                 for (iii = 0; iii < 10; iii++) {
                     _rollRandom(max, input);
                 }
-            }
-            else if (event.shiftKey) {
+            } else if (event.shiftKey) {
                 for (iii = 0; iii < 5; iii++) {
                     _rollRandom(max, input);
                 }
-            }
-            else {
+            } else {
                 _rollRandom(max, input);
             }
         }
@@ -787,25 +775,20 @@
                 if (item == -1) {
                     if (ARR_ALL_EQ) {
                         SUM_TEXT = SUM_TEXT + "<span class='cross'>" + SUM_LIST[index] + "</span>";
-                    }
-                    else {
+                    } else {
                         SUM_TEXT = SUM_TEXT + "<span class='cross'>" + SUM_LIST[index] + "/[D" + D_LIST[index] + "]</span>";
                     }
-                }
-                else {
+                } else {
                     if (SUM_LIST[index] != item) {
                         if (ARR_ALL_EQ) {
                             SUM_TEXT = SUM_TEXT + SUM_LIST[index] + "&#x21E8;" + item + "";
-                        }
-                        else {
+                        } else {
                             SUM_TEXT = SUM_TEXT + SUM_LIST[index] + "&#x21E8;" + item + "/[D" + D_LIST[index] + "]";
                         }
-                    }
-                    else {
+                    } else {
                         if (ARR_ALL_EQ) {
                             SUM_TEXT = SUM_TEXT + item;
-                        }
-                        else {
+                        } else {
                             SUM_TEXT = SUM_TEXT + item + "/[D" + D_LIST[index] + "]";
                         }
                     }
@@ -846,15 +829,24 @@
             }
             let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
             let historyLine = new Date().toLocaleTimeString(getNavigatorLanguages()[0]) //
-                + " &#8669; roll " //
-                + prepre //
-                + "<span style='width:35px;' class='badge badge-pill badge-info'>" + ("" + rnd).padStart(3, " ") + "</span>" //
-                + "</span>" //
-                + " " //
-                + prepre //
-                + (" op D" + max).padStart(6, " ") //
-                + " &#8669; </span> " //
-                + SUM_TEXT;
+                +
+                " &#8669; roll " //
+                +
+                prepre //
+                +
+                "<span style='width:35px;' class='badge badge-pill badge-info'>" + ("" + rnd).padStart(3, " ") + "</span>" //
+                +
+                "</span>" //
+                +
+                " " //
+                +
+                prepre //
+                +
+                (" op D" + max).padStart(6, " ") //
+                +
+                " &#8669; </span> " //
+                +
+                SUM_TEXT;
             $("#LAST_HISTORY").html(historyLine);
             $("#FULL_HISTORY").prepend("<li class='list-group-item' data-type='array-item'>" + historyLine + "</li>");
         }
@@ -871,18 +863,15 @@
                 for (iii = 0; iii < 20; iii++) {
                     _rollRandom100();
                 }
-            }
-            else if (event.ctrlKey) {
+            } else if (event.ctrlKey) {
                 for (iii = 0; iii < 10; iii++) {
                     _rollRandom100();
                 }
-            }
-            else if (event.shiftKey) {
+            } else if (event.shiftKey) {
                 for (iii = 0; iii < 5; iii++) {
                     _rollRandom100();
                 }
-            }
-            else {
+            } else {
                 _rollRandom100();
             }
         }
@@ -902,21 +891,34 @@
             let d = new Date().toLocaleTimeString(getNavigatorLanguages()[0]);
             let prepre = "<span style='display:inline;color:inherit;font-family:monospace;'>";
             let historyLine = d //
-                + " &#8669; roll " //
-                + "<span style='width:35px;' class='badge badge-pill badge-info'>" + prepre + "</span>" //
-                + ("" + rnd).padStart(3, " ") //
-                + "</span>" //
-                + " op skill " //
-                + prepre + ("" + SKILL).padStart(3, " ") //
-                + "</span> &#8669; " //
-                + (SUCCESS ? //
+                +
+                " &#8669; roll " //
+                +
+                "<span style='width:35px;' class='badge badge-pill badge-info'>" + prepre + "</span>" //
+                +
+                ("" + rnd).padStart(3, " ") //
+                +
+                "</span>" //
+                +
+                " op skill " //
+                +
+                prepre + ("" + SKILL).padStart(3, " ") //
+                +
+                "</span> &#8669; " //
+                +
+                (SUCCESS ? //
                     " <span style='width:65px;' class='badge badge-pill badge-success'>" + SUCCESSTEXT + "</span>" //
-                    : "<span style='width:65px;' class='badge badge-pill badge-warning'>" + FAILTEXT + "</span>") //
-                + " met " //
-                + "<span style='width:35px;' class='badge badge-pill badge-dark'>" //
-                + DEGREESV //
-                + "</span> degrees" //
-                ;
+                    :
+                    "<span style='width:65px;' class='badge badge-pill badge-warning'>" + FAILTEXT + "</span>") //
+                +
+                " met " //
+                +
+                "<span style='width:35px;' class='badge badge-pill badge-dark'>" //
+                +
+                DEGREESV //
+                +
+                "</span> degrees" //
+            ;
             $("#LAST_HISTORY").html(historyLine);
             $("#FULL_HISTORY").prepend("<li class='list-group-item' data-type='roll-item'>" + historyLine + "</li>");
         }
@@ -937,8 +939,7 @@
                 DEGREESV = 1 + Math.floor(diff);
                 SUCCESS = true;
                 console.log(SUCCESSTEXT + " +" + DEGREESV + " DEGREESV");
-            }
-            else {
+            } else {
                 let diff = (ROLL - SKILL - 1) / 10.0;
                 console.log("diff=" + diff);
                 DEGREESV = 1 + Math.floor(diff);
@@ -953,8 +954,7 @@
                 let ACCURATE = Math.min(2, Math.floor(DEGREESV / 2));
                 console.log("ACCURATE=" + ACCURATE)
                 $("#ACCURATE").html("+" + ACCURATE + "D");
-            }
-            else {
+            } else {
                 $("#RESULT").removeClass("bg-success");
                 $("#RESULT").addClass("bg-warning");
                 $("#RESULT").addClass("text-white");
