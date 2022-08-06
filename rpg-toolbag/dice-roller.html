@@ -342,7 +342,7 @@
                             </span>
                         </div>
                         <div class="input-group-append">
-                            <button id="ACCURATE_ROLL" style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandomAccurate(event,10,'i10')" accurate-dice="0">-</button>
+                            <button id="ACCURATE_ROLL" style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandomAccurate(10,'i10')" accurate-dice="0">-</button>
                         </div>
                     </div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
@@ -684,27 +684,29 @@
             $("#FULL_HISTORY li:first-of-type").remove();
         }
 
-        function rollRandomAccurate(event, max, input) {
+        function rollRandomAccurate(max, input) {
             var accurate_dice = $("#ACCURATE_ROLL").attr("accurate-dice");
             console.log('accurate-dice: '+accurate_dice);
             for (let i = 0; i < accurate_dice; i++) {
-                rollRandom(event, max, input);
+                rollRandom(null, max, input);
             }
         }
 
         function rollRandom(event, max, input) {
-            console.log("SHIFT:" + event.shiftKey);
-            console.log("CTRL:" + event.ctrlKey);
+            if(event) {
+                console.log("SHIFT:" + event.shiftKey);
+                console.log("CTRL:" + event.ctrlKey);
+            }
             let iii;
-            if (event.ctrlKey && event.shiftKey) {
+            if (event && event.ctrlKey && event.shiftKey) {
                 for (iii = 0; iii < 20; iii++) {
                     _rollRandom(max, input);
                 }
-            } else if (event.ctrlKey) {
+            } else if (event && event.ctrlKey) {
                 for (iii = 0; iii < 10; iii++) {
                     _rollRandom(max, input);
                 }
-            } else if (event.shiftKey) {
+            } else if (event && event.shiftKey) {
                 for (iii = 0; iii < 5; iii++) {
                     _rollRandom(max, input);
                 }
