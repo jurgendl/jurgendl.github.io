@@ -690,6 +690,7 @@
 
         function rollRandomAccurate(event, max, input) {
             var accurate_dice = $("#ACCURATE_ROLL").attr("accurate-dice");
+            console.log('accurate-dice: '+accurate-dice);
             for (let i = 0; i < accurate_dice; i++) {
                 rollRandom(event, max, input);
             }
