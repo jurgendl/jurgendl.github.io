@@ -343,9 +343,10 @@
                                         <span class="fa-stack" style="font-size:0.5em"><i style="color:var(--info)" class="fas fa-circle fa-stack-2x"></i><i class="fas fa-info fa-stack-1x fa-inverse"></i></span>
                                     </a>
                                 </sup>
-                                &nbsp;:&nbsp;
-                                <span id="ACCURATE">-</span>
                             </span>
+                        </div>
+                        <div class="input-group-append">
+                            <button id="ACCURATE_ROLL" style="width: 8em;" class="btn btn-sm btn-outline-secondary" type="button" onclick="rollRandomAccurate(event,10,'i10')" accurate-dice="0">-</button>
                         </div>
                     </div>
                     <div class="hide-in-40k-mode col-md-6 col-12 input-group input-group-sm mb-2">
@@ -687,6 +688,13 @@
             $("#FULL_HISTORY li:first-of-type").remove();
         }
 
+        function rollRandomAccurate(event, max, input) {
+            var accurate_dice = $("#ACCURATE_ROLL").attr("accurate-dice");
+            for (let i = 0; i < accurate_dice; i++) {
+                rollRandom(event, max, input);
+            }
+        }
+
         function rollRandom(event, max, input) {
             console.log("SHIFT:" + event.shiftKey);
             console.log("CTRL:" + event.ctrlKey);
@@ -953,12 +961,14 @@
                 $("#RESULT").addClass("text-white");
                 let ACCURATE = Math.min(2, Math.floor(DEGREESV / 2));
                 console.log("ACCURATE=" + ACCURATE)
-                $("#ACCURATE").html("+" + ACCURATE + "D");
+                $("#ACCURATE_ROLL").html("+" + ACCURATE + "D");
+                $("#ACCURATE_ROLL").attr("accurate-dice", 1 + ACCURATE);
             } else {
                 $("#RESULT").removeClass("bg-success");
                 $("#RESULT").addClass("bg-warning");
                 $("#RESULT").addClass("text-white");
-                $("#ACCURATE").html("-");
+                $("#ACCURATE_ROLL").html("-");
+                $("#ACCURATE_ROLL").attr("accurate-dice", 0);
             }
             $("#DEGREESV").val(DEGREESV);
         } {
