@@ -693,24 +693,19 @@
         }
 
         function rollRandom(event, max, input) {
+            let iii = 1;
             if(event) {
                 console.log("SHIFT:" + event.shiftKey);
                 console.log("CTRL:" + event.ctrlKey);
+                if (event.ctrlKey && event.shiftKey) {
+                    iii = 20;
+                } else if (event.ctrlKey) {
+                    iii = 10;
+                } else if (event.shiftKey) {
+                    iii = 5;
+                }
             }
-            let iii;
-            if (event && event.ctrlKey && event.shiftKey) {
-                for (iii = 0; iii < 20; iii++) {
-                    _rollRandom(max, input);
-                }
-            } else if (event && event.ctrlKey) {
-                for (iii = 0; iii < 10; iii++) {
-                    _rollRandom(max, input);
-                }
-            } else if (event && event.shiftKey) {
-                for (iii = 0; iii < 5; iii++) {
-                    _rollRandom(max, input);
-                }
-            } else {
+            for (let xi = 0; xi < iii; xi++) {
                 _rollRandom(max, input);
             }
         }
