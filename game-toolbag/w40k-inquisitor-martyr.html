@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/css/sb-admin-2.css" integrity="sha512-gOfBez3ehpchNxj4TfBZfX1MDLKLRif67tFJNLQSpF13lXM1t9ffMNCbZfZNBfcN2/SaWvOf+7CvIHtQ0Nci2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" integrity="sha512-3q8fi8M0VS+X/3n64Ndpp6Bit7oXSiyCnzmlx6IDBLGlY5euFySyJ46RUlqIVs0DPCGOypqP8IRk/EyPvU28mQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   <style>
     .Magic {
       color: rgb(61, 142, 185);
@@ -41,6 +42,10 @@
     .Archeotech {
       color: rgb(184, 49, 47);
     }
+
+    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+      width: 100% !important;
+    }
   </style>
 
 </head>
@@ -53,19 +58,25 @@
   <img id="p4" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
   <img id="p5" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
   <img id="p6" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
-  <div id="description1">&nbsp;</div>
-  <div id="description2">&nbsp;</div>
-  <div id="description3">&nbsp;</div>
-  <div id="description4">&nbsp;</div>
-  <div id="description5">&nbsp;</div>
-  <div id="description6">&nbsp;</div>
-  <div id="description">&nbsp;</div>
+  <div style="" id="description1">&nbsp;</div>
+  <div style="" id="description2">&nbsp;</div>
+  <div style="" id="description3">&nbsp;</div>
+  <div style="" id="description4">&nbsp;</div>
+  <div style="" id="description5">&nbsp;</div>
+  <div style="" id="description6">&nbsp;</div>
+  <div style="display:none" id="description">&nbsp;</div>
   <br>
   <br>
-  <select id="selectDoctrine" name="selectDoctrine" class="custom-select custom-select-sm">
-    <option></option>
-  </select>
-
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <select data-header="Select a Psalm Doctrine" style="width: 100%;" id="selectDoctrine" name="selectDoctrine" _class="custom-select custom-select-sm" class="selectpicker" data-style="btn-primary">
+          <option></option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!--https://developer.snapappointments.com/bootstrap-select/examples/-->
   <script src=" https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
@@ -80,6 +91,8 @@
   <!-- https://github.com/seiyria/bootstrap-slider -->
   <!-- https://seiyria.com/bootstrap-slider/ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>-->
   <script type="text/javascript">
     const gameDate = {
       "psalms": [{
@@ -287,7 +300,7 @@
       }, {
         "psalms": ["Phosphoenic Psalm", "Technomartyr Psalm", "Neuralis Psalm", "Binharic Psalm"],
         "description": "Creates a damaging aura dealing +100% Heat damage per second. 6m radius, ticks every .25 seconds",
-        "id": "Phosphoenic Psalm + Technomartyr Psalm + Neuralis Psalm + Binharic Psalm"
+        "id": ""
       }, {
         "psalms": ["Neuralis Psalm", "Transonic Psalm", "Terminus Psalm", "Shroud Psalm"],
         "description": "Combo attacks deal 300% increased Damage",
@@ -408,32 +421,62 @@
 
   <script>
 
-    $.each(gameDate.doctrines, function (key, value) {
-      $('#selectDoctrine')
-        .append($('<option>', { value: value.id })
-          .text(value.psalms.length + ": " + value.description));
+    $.each(gameDate.doctrines, function (key, doctrine) {
+      if (doctrine.id == 'Phosphoenic Psalm + Technomartyr Psalm + Neuralis Psalm + Binharic Psalm') {
+        $('#selectDoctrine')
+          .append($('<option>', { 'doctrine': doctrine.id, 'data-subtext': doctrine.id, 'selected': 'selected' })
+            .text(doctrine.description));
+      } else {
+        $('#selectDoctrine')
+          .append($('<option>', { 'doctrine': doctrine.id, 'data-subtext': doctrine.id })
+            .text(doctrine.description));
+      }
     });
+    $("#selectDoctrine option[doctrine='Phosphoenic Psalm + Technomartyr Psalm + Neuralis Psalm + Binharic Psalm']").attr('selected','selected');
+
 
     $("#selectDoctrine").change(function () {
-      let choice = ($("#selectDoctrine").val());
-      const doctrine = gameDate.doctrines.find(element => element.id = choice);
-      $("#description").html(doctrine.description);
-      $("#p4").attr("src", "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
-      $("#p5").attr("src", "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
-      $("#p6").attr("src", "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
-      $("#description4").text(" ");
-      $("#description5").text(" ");
-      $("#description6").text(" ");
-      $("#description4").attr("class", "");
-      $("#description5").attr("class", "");
-      $("#description6").attr("class", "");
-      doctrine.psalms.forEach((element, index) => {
-        console.log(index + ": " + element);
-        let psalm = gameDate.psalms.find(pe => pe.name == element);
-        console.log(psalm);
-        $("#p" + (index + 1)).attr("src", "data:image/png;base64," + psalm.image);
-        $("#description" + (index + 1)).text(psalm.description);
-        $("#description" + (index + 1)).attr("class", psalm.level);
+      let choiceDoctrine = $("#selectDoctrine").val();
+      console.log(choiceDoctrine);
+      $.each(gameDate.doctrines, function (key, doctrine) {
+        if (doctrine.id == choiceDoctrine) {
+          console.log(doctrine);
+          $("#description").html(doctrine.description);
+          $("#p1").attr("src", "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
+          $("#p2").attr("src", "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
+          $("#p3").attr("src", "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
+          $("#p4").attr("src", "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
+          $("#p5").attr("src", "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
+          $("#p6").attr("src", "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
+          $("#p1").attr("title", "");
+          $("#p2").attr("title", "");
+          $("#p3").attr("title", "");
+          $("#p4").attr("title", "");
+          $("#p5").attr("title", "");
+          $("#p6").attr("title", "");
+          $("#description1").text(" ");
+          $("#description2").text(" ");
+          $("#description3").text(" ");
+          $("#description4").text(" ");
+          $("#description5").text(" ");
+          $("#description6").text(" ");
+          $("#description1").attr("class", "");
+          $("#description2").attr("class", "");
+          $("#description3").attr("class", "");
+          $("#description4").attr("class", "");
+          $("#description5").attr("class", "");
+          $("#description6").attr("class", "");
+          doctrine.psalms.forEach((element, index) => {
+            console.log(index + ": " + element);
+            let psalm = gameDate.psalms.find(pe => pe.name == element);
+            console.log(psalm.name);
+            $("#p" + (index + 1)).attr("src", "data:image/png;base64," + psalm.image);
+            $("#p" + (index + 1)).attr("title", psalm.name);
+            $("#description" + (index + 1)).html('<u><b>' + psalm.name + '</b></u>: ' + psalm.description);
+            $("#description" + (index + 1)).attr("class", psalm.level);
+          });
+          console.log("---------------");
+        }
       });
     });
 
