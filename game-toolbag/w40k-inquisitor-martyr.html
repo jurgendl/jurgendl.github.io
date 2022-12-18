@@ -70,7 +70,7 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
-        <select data-header="Select a Psalm Doctrine" style="width: 100%;" id="selectDoctrine" name="selectDoctrine" _class="custom-select custom-select-sm" class="selectpicker" data-style="btn-primary">
+        <select _data-header="Select a Psalm Doctrine" style="width: 100%;" id="selectDoctrine" name="selectDoctrine" _class="custom-select custom-select-sm" class="selectpicker" data-style="btn-primary">
           <option></option>
         </select>
       </div>
@@ -424,11 +424,11 @@
     $.each(gameDate.doctrines, function (key, doctrine) {
       if (doctrine.id == 'Phosphoenic Psalm + Technomartyr Psalm + Neuralis Psalm + Binharic Psalm') {
         $('#selectDoctrine')
-          .append($('<option>', { 'doctrine': doctrine.id, 'data-subtext': doctrine.id, 'selected': 'selected' })
+          .append($('<option>', { 'value': doctrine.id, 'data-subtext': doctrine.id, 'selected': 'selected' })
             .text(doctrine.description));
       } else {
         $('#selectDoctrine')
-          .append($('<option>', { 'doctrine': doctrine.id, 'data-subtext': doctrine.id })
+          .append($('<option>', { 'value': doctrine.id, 'data-subtext': doctrine.id })
             .text(doctrine.description));
       }
     });
@@ -436,9 +436,10 @@
 
 
     $("#selectDoctrine").change(function () {
-      let choiceDoctrine = $("#selectDoctrine").val();
+      let choiceDoctrine = $("#selectDoctrine").find('option:selected').val();
       console.log(choiceDoctrine);
       $.each(gameDate.doctrines, function (key, doctrine) {
+        //console.log(doctrine.id);
         if (doctrine.id == choiceDoctrine) {
           console.log(doctrine);
           $("#description").html(doctrine.description);
