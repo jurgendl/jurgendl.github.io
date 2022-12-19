@@ -23,6 +23,67 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" integrity="sha512-3q8fi8M0VS+X/3n64Ndpp6Bit7oXSiyCnzmlx6IDBLGlY5euFySyJ46RUlqIVs0DPCGOypqP8IRk/EyPvU28mQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   <style>
+    :root {
+      --border-radius: 1px;
+    }
+
+    /* corners */
+    .btn,
+    .dropdown-menu,
+    .form-control,
+    .input-group-text,
+    .custom-select,
+    .toast,
+    .modal-content,
+    .bootstrap-tagsinput,
+    .card,
+    .alert,
+    .custom-file-label,
+    .collapse-item,
+    .popover,
+    .input-group-text,
+    .pagination,
+    .page-link,
+    .img-thumbnail {
+      border-radius: var(--border-radius) !important;
+    }
+
+    .custom-checkbox .custom-control-label::before {
+      border-radius: var(--border-radius) !important;
+    }
+
+    .collapse-inner {
+      border-radius: var(--border-radius) !important;
+    }
+
+    .badge {
+      border-radius: calc(3*var(--border-radius)) !important;
+    }
+
+    .list-group-horizontal .list-group-item:first-child {
+      border-top-left-radius: var(--border-radius) !important;
+      border-bottom-left-radius: var(--border-radius) !important;
+    }
+
+    .list-group-horizontal .list-group-item:last-child {
+      border-top-right-radius: var(--border-radius) !important;
+      border-bottom-right-radius: var(--border-radius) !important;
+    }
+
+    .list-group-item:first-child {
+      border-top-left-radius: var(--border-radius) !important;
+      border-top-right-radius: var(--border-radius) !important;
+    }
+
+    .list-group-item:last-child {
+      border-bottom-right-radius: var(--border-radius) !important;
+      border-bottom-left-radius: var(--border-radius) !important;
+    }
+
+    .custom-file-label::after {
+      border-radius: 0px var(--border-radius) var(--border-radius) 0px !important;
+    }
+
     .Magic {
       color: rgb(61, 142, 185);
     }
@@ -46,6 +107,14 @@
     .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
       width: 100% !important;
     }
+
+    .dropdown-menu li:nth-of-type(odd) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .bootstrap-select .dropdown-menu {
+      max-width: 95vw;
+    }
   </style>
 
 </head>
@@ -58,19 +127,19 @@
   <img id="p4" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
   <img id="p5" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
   <img id="p6" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
-  <div style="" id="description1">&nbsp;</div>
-  <div style="" id="description2">&nbsp;</div>
-  <div style="" id="description3">&nbsp;</div>
-  <div style="" id="description4">&nbsp;</div>
-  <div style="" id="description5">&nbsp;</div>
-  <div style="" id="description6">&nbsp;</div>
+  <div id="description1">&nbsp;</div>
+  <div id="description2">&nbsp;</div>
+  <div id="description3">&nbsp;</div>
+  <div id="description4">&nbsp;</div>
+  <div id="description5">&nbsp;</div>
+  <div id="description6">&nbsp;</div>
   <div style="display:none" id="description">&nbsp;</div>
   <br>
   <br>
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
-        <select _data-header="Select a Psalm Doctrine" style="width: 100%;" id="selectDoctrine" name="selectDoctrine" _class="custom-select custom-select-sm" _class="selectpicker" data-style="btn-primary">
+        <select data-live-search="true" _data-header="Select a Psalm Doctrine" style="width: 90%;" id="selectDoctrine" name="selectDoctrine" _class="custom-select custom-select-sm" _class="selectpicker" data-style="btn-primary">
           <option></option>
         </select>
       </div>
@@ -94,82 +163,77 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
   <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>-->
 
-
   <script>
-
-    function setupPage(gameDate) {
-      console.log('setupPage');
-      console.log(gameDate);
-
-      $.each(gameDate.doctrines, function (key, doctrine) {
-        console.log(doctrine.id);
-        console.log('    ' + doctrine.description);
-        $('#selectDoctrine')
-          .append($('<option>', { 'value': doctrine.id, 'data-subtext': doctrine.id })
-            .text(doctrine.description));
-      });
-      document.querySelector('#selectDoctrine').value = 'Phosphoenic Psalm + Technomartyr Psalm + Neuralis Psalm + Binharic Psalm';
-
-      // https://developer.snapappointments.com/bootstrap-select/
-      $('#selectDoctrine').selectpicker();
-
-      function selectDoctrineChange() {
-        let choiceDoctrine = $("#selectDoctrine").find('option:selected').val();
-        console.log(choiceDoctrine);
-        $.each(gameDate.doctrines, function (key, doctrine) {
-          //console.log(doctrine.id);
-          if (doctrine.id == choiceDoctrine) {
-            console.log(doctrine);
-            $("#description").html(doctrine.description);
-            var emptyImage = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-            $("#p1").attr("src", emptyImage);
-            $("#p2").attr("src", emptyImage);
-            $("#p3").attr("src", emptyImage);
-            $("#p4").attr("src", emptyImage);
-            $("#p5").attr("src", emptyImage);
-            $("#p6").attr("src", emptyImage);
-            $("#p1").attr("title", "");
-            $("#p2").attr("title", "");
-            $("#p3").attr("title", "");
-            $("#p4").attr("title", "");
-            $("#p5").attr("title", "");
-            $("#p6").attr("title", "");
-            $("#description1").text(" ");
-            $("#description2").text(" ");
-            $("#description3").text(" ");
-            $("#description4").text(" ");
-            $("#description5").text(" ");
-            $("#description6").text(" ");
-            $("#description1").attr("class", "");
-            $("#description2").attr("class", "");
-            $("#description3").attr("class", "");
-            $("#description4").attr("class", "");
-            $("#description5").attr("class", "");
-            $("#description6").attr("class", "");
-            doctrine.psalms.forEach((element, index) => {
-              console.log(index + ": " + element);
-              let psalm = gameDate.psalms.find(pe => pe.name == element);
-              console.log(psalm.name);
-              $("#p" + (index + 1)).attr("src", "data:image/png;base64," + psalm.image);
-              $("#p" + (index + 1)).attr("title", psalm.name);
-              $("#description" + (index + 1)).html('<u><b>' + psalm.name + '</b></u>: ' + psalm.description);
-              $("#description" + (index + 1)).attr("class", psalm.level);
-            });
-            console.log("---------------");
-          }
-        });
-      };
-      $("#selectDoctrine").change(selectDoctrineChange);
-      selectDoctrineChange();
-    }
-
     // https://developer.mozilla.org/en-US/docs/Web/API/Response/json
     (() => {
+
+      const emptyImage = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+      const defaultSelectedId = 'Phosphoenic Psalm + Technomartyr Psalm + Neuralis Psalm + Binharic Psalm';
+
+      function setupPageData(data) {
+        //console.log('setupPage');
+        //console.log(data);
+
+        $.each(data.doctrines, function (key, doctrine) {
+          //console.log(doctrine.id);
+          //console.log('    ' + doctrine.description);
+          $('#selectDoctrine')
+            .append($('<option>', {
+              'value': doctrine.id //
+              //, 'data-subtext': doctrine.id//
+              , 'data-content': //
+                '<div style="font-weight: bold;">' + doctrine.description + '</div>' +//
+                '<div style="font-size: smaller;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + doctrine.id + '</div>'
+            })
+              .text(doctrine.description));
+        });
+
+        document.querySelector('#selectDoctrine').value = defaultSelectedId;
+
+        // https://developer.snapappointments.com/bootstrap-select/
+        $('#selectDoctrine').selectpicker();
+
+        function selectDoctrineChange() {
+          let choiceDoctrine = $("#selectDoctrine").find('option:selected').val();
+          //console.log(choiceDoctrine);
+          $.each(data.doctrines, function (key, doctrine) {
+            //console.log(doctrine.id);
+            if (doctrine.id == choiceDoctrine) {
+              //console.log(doctrine);
+              $("#description").html(doctrine.description);
+              for (let i = 0; i < 6; i++) {
+                let pi = $("#p" + i);
+                pi.attr("src", emptyImage);
+                pi.attr("title", "");
+                let di = $("#description" + i);
+                di.text(" ");
+                di.attr("class", "");
+              }
+
+              doctrine.psalms.forEach((element, index) => {
+                //console.log(index + ": " + element);
+                let psalm = data.psalms.find(pe => pe.name == element);
+                //console.log(psalm.name);
+                $("#p" + (index + 1)).attr("src", "data:image/png;base64," + psalm.image);
+                $("#p" + (index + 1)).attr("title", psalm.name);
+                $("#description" + (index + 1)).html('<u><b>' + psalm.name + '</b></u>: ' + psalm.description);
+                $("#description" + (index + 1)).attr("class", psalm.level);
+              });
+              console.log("---------------");
+            }
+          });
+        };
+
+        $("#selectDoctrine").change(selectDoctrineChange);
+
+        selectDoctrineChange();
+      }
+
       fetch('https://jurgendl.github.io/game-toolbag/w40k-inquisitor-martyr-code.json')
         .then((response) => response.json())
-        .then((data) => setupPage(data));
-    })();
+        .then((data) => setupPageData(data));
 
+    })();
   </script>
 
 </body>
