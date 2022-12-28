@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
   <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/css/sb-admin-2.css" integrity="sha512-gOfBez3ehpchNxj4TfBZfX1MDLKLRif67tFJNLQSpF13lXM1t9ffMNCbZfZNBfcN2/SaWvOf+7CvIHtQ0Nci2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" integrity="sha512-3q8fi8M0VS+X/3n64Ndpp6Bit7oXSiyCnzmlx6IDBLGlY5euFySyJ46RUlqIVs0DPCGOypqP8IRk/EyPvU28mQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
@@ -116,36 +116,114 @@
     .bootstrap-select .dropdown-menu {
       max-width: 95vw;
     }
+
+    .imgcheck img {
+      border: 3px solid rgba(200, 100, 100, .75)
+    }
+
+    .imgcheck input[type=checkbox]:checked~img {
+      border: 3px solid rgba(100, 200, 100, .75)
+    }
   </style>
 
 </head>
 
 <body style="margin: 1em">
 
-  <img id="p1" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
-  <img id="p2" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
-  <img id="p3" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
-  <img id="p4" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
-  <img id="p5" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
-  <img id="p6" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
-  <div id="description1">&nbsp;</div>
-  <div id="description2">&nbsp;</div>
-  <div id="description3">&nbsp;</div>
-  <div id="description4">&nbsp;</div>
-  <div id="description5">&nbsp;</div>
-  <div id="description6">&nbsp;</div>
-  <div style="font-weight: bold;" id="description">&nbsp;</div>
+
+  <a href="https://neocoregames.com/en/community/warhammer-40k-inquisitor-martyr-compendium" target="_blank">Compendium</a>
+
   <br>
   <br>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <select data-live-search="true" _data-header="Select a Psalm Doctrine" style="width: 90%;" id="selectDoctrine" name="selectDoctrine" _class="custom-select custom-select-sm" _class="selectpicker" data-style="btn-primary">
-          <option></option>
-        </select>
+  <br>
+
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-settings-tab" data-toggle="pill" href="#pills-settings" role="tab" aria-controls="pills-settings" aria-selected="false">Settings</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+      <img id="p1" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+      <img id="p2" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+      <img id="p3" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+      <img id="p4" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+      <img id="p5" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+      <img id="p6" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+      <div id="description1">&nbsp;</div>
+      <div id="description2">&nbsp;</div>
+      <div id="description3">&nbsp;</div>
+      <div id="description4">&nbsp;</div>
+      <div id="description5">&nbsp;</div>
+      <div id="description6">&nbsp;</div>
+      <div style="font-weight: bold;" id="description">&nbsp;</div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <select data-live-search="true" _data-header="Select a Psalm Doctrine" style="width: 90%;" id="selectDoctrine" name="selectDoctrine" _class="custom-select custom-select-sm" _class="selectpicker" data-style="btn-primary">
+              <option></option>
+            </select>
+          </div>
+        </div>
       </div>
+
+    </div>
+    <div class="tab-pane fade" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab">
+
+
+      <div class="imgcheck input-group input-group-sm">
+        <label class="checkbox-inline" for="check1">
+          <input style="display: none;" type="checkbox" id="check1" value="" />
+          <img id="is1" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+          <span id="lbl1"></span>
+        </label>
+      </div>
+      <div class="imgcheck input-group input-group-sm">
+        <label class="checkbox-inline" for="check2">
+          <input style="display: none;" type="checkbox" id="check2" value="" />
+          <img id="is2" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+          <span id="lbl2"></span>
+        </label>
+      </div>
+      <div class="imgcheck input-group input-group-sm">
+        <label class="checkbox-inline" for="check3">
+          <input style="display: none;" type="checkbox" id="check3" value="" />
+          <img id="is3" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+          <span id="lbl3"></span>
+        </label>
+      </div>
+      <div class="imgcheck input-group input-group-sm">
+        <label class="checkbox-inline" for="check4">
+          <input style="display: none;" type="checkbox" id="check4" value="" />
+          <img id="is4" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+          <span id="lbl4"></span>
+        </label>
+      </div>
+      <div class="imgcheck input-group input-group-sm">
+        <label class="checkbox-inline" for="check5">
+          <input style="display: none;" type="checkbox" id="check5" value="" />
+          <img id="is5" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+          <span id="lbl5"></span>
+        </label>
+      </div>
+
     </div>
   </div>
+
+
+
+
+
+
+
+
+
   <!--https://developer.snapappointments.com/bootstrap-select/examples/-->
   <script src=" https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script> -->
@@ -153,14 +231,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/js/sb-admin-2.js" integrity="sha512-M82XdXhPLLSki+Ld1MsafNzOgHQB3txZr8+SQlGXSwn6veeqtYhPLbQeAfk9Y/Q9/gXcfa1jWT4YYUeoei6Uow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
 		crossorigin="anonymous"></script>-->
+  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>-->
   <!-- https://bootstrap-confirmation.js.org/ -->
   <!-- https://github.com/mistic100/Bootstrap-Confirmation -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2@4.1.0/dist/bootstrap-confirmation.min.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2@4.1.0/dist/bootstrap-confirmation.min.js"></script>-->
   <!-- https://clipboardjs.com/ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
   <!-- https://github.com/seiyria/bootstrap-slider -->
   <!-- https://seiyria.com/bootstrap-slider/ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- https://developer.snapappointments.com/bootstrap-select/ -->
+  <!-- https://github.com/snapappointments/bootstrap-select/ -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
   <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>-->
 
@@ -172,22 +253,84 @@
       const defaultSelectedId = 'Phosphoenic Psalm + Technomartyr Psalm + Neuralis Psalm + Binharic Psalm';
 
       function setupPageData(data) {
-        //console.log('setupPage');
-        //console.log(data);
 
         $.each(data.doctrines, function (key, doctrine) {
-          //console.log(doctrine.id);
-          //console.log('    ' + doctrine.description);
-          $('#selectDoctrine')
-            .append($('<option>', {
-              'value': doctrine.id //
-              //, 'data-subtext': doctrine.id//
-              , 'data-content': //
-                '<div style="font-weight: bold;">' + doctrine.description + '</div>' +//
-                '<div style="font-size: smaller;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + doctrine.id + '</div>'
-            })
-              .text(doctrine.description));
+
+          var canBeEnabled = true;
+
+          $.each(doctrine.psalms, function (key, psalm_name) {
+            $.each(data.psalms, function (key, psalm) {
+              if (psalm.name == psalm_name) {
+                if ('Archeotech' == psalm.level) {
+                  if (window.localStorage.getItem(psalm_name) == 'true') {
+                    console.log(doctrine.id + ' / ' + psalm_name + ' YES');
+                  } else {
+                    console.log(doctrine.id + ' / ' + psalm_name + ' NO');
+                    canBeEnabled = false;
+                  }
+                }
+              }
+            });
+          });
+
+          console.log('-- ' + doctrine.id + ' / ' + canBeEnabled);
+
+          if (canBeEnabled) {
+
+            $('#selectDoctrine')
+              .append($('<option>', {
+                //'disabled': 'disabled',
+                'value': doctrine.id //
+                //, 'data-subtext': doctrine.id//
+                , 'data-content': //
+                  '<div style="font-weight: bold;">' + doctrine.description + '</div>' +//
+                  '<div style="font-size: smaller;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + doctrine.id + '</div>'
+              })
+                .text(doctrine.description));
+
+          } else {
+
+            $('#selectDoctrine')
+              .append($('<option>', {
+                'value': doctrine.id //
+                //, 'data-subtext': doctrine.id//
+                , 'data-content': //
+                  '<div style="font-weight: bold;">' + doctrine.description + '</div>' +//
+                  '<div style="font-size: smaller;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + doctrine.id + '</div>'
+              })
+                .text(doctrine.description));
+
+          }
+
         });
+
+        let is_idx = 1;
+        $.each(data.psalms, function (key, psalm) {
+          if ('Archeotech' === psalm.level) {
+            //console.log(psalm);
+            let idddd = '#is' + is_idx;
+            $(idddd).attr('src', "data:image/png;base64," + psalm.image);
+            idddd = '#check' + is_idx;
+            $(idddd).attr('value', psalm.name);
+            if (window.localStorage.getItem(psalm.name) == true) {
+              $(idddd).attr('checked', 'checked');
+            }
+            idddd = '#lbl' + is_idx;
+            $(idddd).text(psalm.name);
+            is_idx++;
+          }
+        });
+
+        function checkChange(evt) {
+          // console.log(evt.target);
+          // console.log(evt.target.checked);
+          window.localStorage.setItem($(evt.target).attr('value'), evt.target.checked);
+        }
+        $("#check1").change(evt => checkChange(evt));
+        $("#check2").change(evt => checkChange(evt));
+        $("#check3").change(evt => checkChange(evt));
+        $("#check4").change(evt => checkChange(evt));
+        $("#check5").change(evt => checkChange(evt));
 
         document.querySelector('#selectDoctrine').value = defaultSelectedId;
 
@@ -220,7 +363,7 @@
                 $("#description" + (index + 1)).html('<u><b>' + psalm.name + '</b></u>: ' + psalm.description);
                 $("#description" + (index + 1)).attr("class", psalm.level);
               });
-              console.log("---------------");
+              //console.log("---------------");
             }
           });
         };
