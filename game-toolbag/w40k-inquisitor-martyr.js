@@ -134,7 +134,7 @@
       } else {
         styleThis = 'line-through';
       }
-      console.log('.' + $(evt.target).attr('_class'));
+      // console.log('.' + $(evt.target).attr('_class'));
       $('.' + $(evt.target).attr('_class')).css("text-decoration", styleThis);
     }
     $("#check1").change(evt => checkChange(evt));
@@ -182,6 +182,9 @@
     $("#selectDoctrine").change(selectDoctrineChange);
 
     selectDoctrineChange();
+
+    $('[data-id="selectDoctrine"]').click();
+    $('[data-id="selectDoctrine"]').click();
   }
 
   fetch('https://jurgendl.github.io/game-toolbag/w40k-inquisitor-martyr-code.json')
