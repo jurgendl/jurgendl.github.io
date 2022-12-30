@@ -6,6 +6,40 @@
 
   function setupPageData(data) {
 
+    function levelForPsalm(psalm_name) {
+      var lvl = '';
+      $.each(data.psalms, function (key, psalm) {
+        if (psalm.name == psalm_name) {
+          lvl = psalm.level;
+        }
+      });
+      return lvl;
+    }
+
+    function allPsalmsOfLevel(level) {
+      var allArcheotechPsalms = [];
+      $.each(data.psalms, function (key, psalm) {
+        if (level === psalm.level) {
+          allArcheotechPsalms.push(psalm);
+        }
+      });
+      return allArcheotechPsalms;
+    }
+
+    function allArcheotechPsalms() {
+      return allPsalmsOfLevel('Archeotech');
+    }
+
+    function psalmByname(psalm_name) {
+      var psalmByname;
+      $.each(data.psalms, function (key, psalm) {
+        if (psalm.name == psalm_name) {
+          psalmByname = psalm;
+        }
+      });
+      return psalmByname;
+    }
+
     /*
     <select data-live-search="true" _data-header="Select a Psalm Doctrine" style="width: 90%;" id="selectDoctrine" name="selectDoctrine" _class="custom-select custom-select-sm" _class="selectpicker" data-style="btn-primary">
     </select>
@@ -21,16 +55,6 @@
           .text(""))
     );
 
-    function levelForPsalm(psalm_name) {
-      var lvl = '';
-      $.each(data.psalms, function (key, psalm) {
-        if (psalm.name == psalm_name) {
-          lvl = psalm.level;
-        }
-      });
-      return lvl;
-    }
-
     $.each(data.doctrines, function (key, doctrine) {
 
       var canBeEnabled = true;
@@ -39,22 +63,18 @@
       $.each(doctrine.psalms, function (key, psalm_name) {
         psalmList += '<span class="psalm_list ' + psalm_name.replace(' ', '_') + ' ' + levelForPsalm(psalm_name) + '">' + psalm_name + '</span>';
 
-        $.each(data.psalms, function (key, psalm) {
-          if (psalm.name == psalm_name) {
-            if ('Archeotech' == psalm.level) {
-              if (window.localStorage.getItem(psalm_name) == 'true') {
-                console.log(doctrine.id + ' / ' + psalm_name + ' YES');
-              } else {
-                console.log(doctrine.id + ' / ' + psalm_name + ' NO');
-                canBeEnabled = false;
-              }
-            }
+        if ('Archeotech' == psalmByname(psalm_name).level) {
+          if (window.localStorage.getItem(psalm_name) == 'true') {
+            //console.log(doctrine.id + ' / ' + psalm_name + ' YES');
+          } else {
+            //console.log(doctrine.id + ' / ' + psalm_name + ' NO');
+            canBeEnabled = false;
           }
-        });
+        }
 
       });
 
-      console.log('-- ' + doctrine.id + ' / ' + canBeEnabled);
+      //console.log('-- ' + doctrine.id + ' / ' + canBeEnabled);
 
       if (canBeEnabled) {
 
@@ -85,27 +105,37 @@
 
     });
 
+
     let is_idx = 1;
-    $.each(data.psalms, function (key, psalm) {
-      if ('Archeotech' === psalm.level) {
-        //console.log(psalm);
-        let idddd = '#is' + is_idx;
-        $(idddd).attr('src', "data:image/png;base64," + psalm.image);
-        idddd = '#check' + is_idx;
-        $(idddd).attr('value', psalm.name);
-        if (window.localStorage.getItem(psalm.name) == true) {
-          $(idddd).attr('checked', 'checked');
-        }
-        idddd = '#lbl' + is_idx;
-        $(idddd).text(psalm.name);
-        is_idx++;
+    $.each(allArcheotechPsalms(), function (key, psalm) {
+      //console.log(psalm);
+      let idddd = '#is' + is_idx;
+      $(idddd).attr('src', "data:image/png;base64," + psalm.image);
+      idddd = '#check' + is_idx;
+      $(idddd).attr('value', psalm.name);
+      $(idddd).attr('_class', psalm.name.replace(' ', '_'));
+      if (window.localStorage.getItem(psalm.name) == true) {
+        $(idddd).attr('checked', 'checked');
       }
+      idddd = '#lbl' + is_idx;
+      $(idddd).text(psalm.name);
+      $(idddd).addClass(psalm.name.replace(' ', '_'));
+      is_idx++;
     });
 
     function checkChange(evt) {
       // console.log(evt.target);
+      // console.log($(evt.target));
+      // console.log($(evt.target).attr('_class'));
       // console.log(evt.target.checked);
       window.localStorage.setItem($(evt.target).attr('value'), evt.target.checked);
+      var styleThis = 'none';
+      if (evt.target.checked) {
+      } else {
+        styleThis = 'line-through';
+      }
+      console.log('.' + $(evt.target).attr('_class'));
+      $('.' + $(evt.target).attr('_class')).css("text-decoration", styleThis);
     }
     $("#check1").change(evt => checkChange(evt));
     $("#check2").change(evt => checkChange(evt));
