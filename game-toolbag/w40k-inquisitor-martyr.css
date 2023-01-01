@@ -101,4 +101,5 @@
 
 .psalm_list:not(:first-child)::before {
     content: ' + ';
+    text-decoration: none !important;
 }

@@ -79,35 +79,35 @@
       <!-- ============================================================================================================ -->
       <div class="imgcheck input-group input-group-sm">
         <label class="checkbox-inline" for="check1">
-          <input style="display: none;" type="checkbox" id="check1" value="" checked="checked" />
+          <input style="display: none;" type="checkbox" id="check1" />
           <img id="is1" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
           <span id="lbl1"></span>
         </label>
       </div>
       <div class="imgcheck input-group input-group-sm">
         <label class="checkbox-inline" for="check2">
-          <input style="display: none;" type="checkbox" id="check2" value="" checked="checked" />
+          <input style="display: none;" type="checkbox" id="check2" />
           <img id="is2" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
           <span id="lbl2"></span>
         </label>
       </div>
       <div class="imgcheck input-group input-group-sm">
         <label class="checkbox-inline" for="check3">
-          <input style="display: none;" type="checkbox" id="check3" value="" checked="checked" />
+          <input style="display: none;" type="checkbox" id="check3" />
           <img id="is3" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
           <span id="lbl3"></span>
         </label>
       </div>
       <div class="imgcheck input-group input-group-sm">
         <label class="checkbox-inline" for="check4">
-          <input style="display: none;" type="checkbox" id="check4" value="" checked="checked" />
+          <input style="display: none;" type="checkbox" id="check4" />
           <img id="is4" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
           <span id="lbl4"></span>
         </label>
       </div>
       <div class="imgcheck input-group input-group-sm">
         <label class="checkbox-inline" for="check5">
-          <input style="display: none;" type="checkbox" id="check5" value="" checked="checked" />
+          <input style="display: none;" type="checkbox" id="check5" />
           <img id="is5" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
           <span id="lbl5"></span>
         </label>
@@ -147,44 +147,42 @@
     // https://developer.mozilla.org/en-US/docs/Web/API/Response/json
     (() => {
 
-      const emptyImage = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-      const defaultSelectedId = 'Phosphoenic Psalm + Technomartyr Psalm + Neuralis Psalm + Binharic Psalm';
-
-      function setupPageData(data) {
+      function app(data) {
+        const emptyImage = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+        const defaultSelectedId = 'Phosphoenic Psalm + Technomartyr Psalm + Neuralis Psalm + Binharic Psalm';
 
         function levelForPsalm(psalm_name) {
-          var lvl = '';
-          $.each(data.psalms, function (key, psalm) {
-            if (psalm.name == psalm_name) {
-              lvl = psalm.level;
-            }
-          });
-          return lvl;
+          return psalmByname(psalm_name).level;
         }
-
-        function allPsalmsOfLevel(level) {
-          var allArcheotechPsalms = [];
-          $.each(data.psalms, function (key, psalm) {
-            if (level === psalm.level) {
-              allArcheotechPsalms.push(psalm);
-            }
-          });
-          return allArcheotechPsalms;
+        function allPsalmsOfLevel(psalm_level) {
+          return data.psalms.filter(psalm => psalm.level == psalm_level);
         }
-
         function allArcheotechPsalms() {
           return allPsalmsOfLevel('Archeotech');
         }
-
         function psalmByname(psalm_name) {
-          var psalmByname;
-          $.each(data.psalms, function (key, psalm) {
-            if (psalm.name == psalm_name) {
-              psalmByname = psalm;
-            }
-          });
-          return psalmByname;
+          return data.psalms.find(psalm => psalm.name == psalm_name);
         }
+        function checkDoctrineChange(evt) {
+          window.localStorage.setItem($(evt.target).attr('value'), evt.target.checked);
+          $('.' + $(evt.target).attr('_class')).css("text-decoration", evt.target.checked ? 'none' : 'line-through');
+        }
+        function doctrineById(doctrine_id) {
+          return data.doctrines.find(doctrine => doctrine.id == doctrine_id);
+        }
+        function selectDoctrineChange() {
+          let doctrine = doctrineById($("#selectDoctrine").find('option:selected').val());
+          $("#description").html(doctrine.description);
+          for (let i = 0; i < 6; i++) {
+            $("#p" + i).attr("src", emptyImage).attr("title", "");
+            $("#description" + i).attr("class", "").text(" ");
+          }
+          $.each(doctrine.psalms, (psalm_index, psalm_name) => {
+            let psalm = psalmByname(psalm_name);
+            $("#p" + (psalm_index + 1)).attr("src", "data:image/png;base64," + psalm.image).attr("title", psalm.name);
+            $("#description" + (psalm_index + 1)).attr("class", psalm.level).html('<u><b>' + psalm.name + '</b></u>: ' + psalm.description);
+          });
+        };
 
         /*
         <select data-live-search="true" _data-header="Select a Psalm Doctrine" style="width: 90%;" id="selectDoctrine" name="selectDoctrine" _class="custom-select custom-select-sm" _class="selectpicker" data-style="btn-primary">
@@ -201,143 +199,55 @@
               .text(""))
         );
 
-        $.each(data.doctrines, function (key, doctrine) {
-
-          var canBeEnabled = true;
+        $.each(data.doctrines, (doctrine_index, doctrine) => {
           var psalmList = '';
-
-          $.each(doctrine.psalms, function (key, psalm_name) {
-            psalmList += '<span class="psalm_list ' + psalm_name.replace(' ', '_') + ' ' + levelForPsalm(psalm_name) + '">' + psalm_name + '</span>';
-
-            if ('Archeotech' == psalmByname(psalm_name).level) {
-              if (window.localStorage.getItem(psalm_name) == 'true') {
-                //console.log(doctrine.id + ' / ' + psalm_name + ' YES');
-              } else {
-                //console.log(doctrine.id + ' / ' + psalm_name + ' NO');
-                canBeEnabled = false;
-              }
-            }
-
+          $.each(doctrine.psalms, (psalm_index, psalm_name) => {
+            psalmList += '<span class="psalm_list ' + psalm_name.replace(' ', '_') + ' ' + psalmByname(psalm_name).level + '">' + psalm_name + '</span>';
           });
-
-          //console.log('-- ' + doctrine.id + ' / ' + canBeEnabled);
-
-          if (canBeEnabled) {
-
-            $('#selectDoctrine')
-              .append($('<option>', {
-                //'disabled': 'disabled',
-                'value': doctrine.id //
-                //, 'data-subtext': doctrine.id//
-                , 'data-content': //
-                  '<div style="font-weight: bold;">' + doctrine.description + '</div>' +//
-                  '<div style="font-weight: bold; font-size: smaller;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + psalmList + '</div>'
-              })
-                .text(doctrine.description));
-
-          } else {
-
-            $('#selectDoctrine')
-              .append($('<option>', {
-                'value': doctrine.id //
-                //, 'data-subtext': doctrine.id//
-                , 'data-content': //
-                  '<div style="font-weight: bold;">' + doctrine.description + '</div>' +//
-                  '<div style="font-weight: bold; font-size: smaller;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + psalmList + '</div>'
-              })
-                .text(doctrine.description));
-
-          }
-
+          $('#selectDoctrine').append($('<option>', {
+            'value': doctrine.id //
+            //, 'data-subtext': doctrine.id//
+            , 'data-content': //
+              '<div style="font-weight: bold;">' + doctrine.description + '</div>' +//
+              '<div style="font-weight: bold; font-size: smaller;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + psalmList + '</div>'
+          }).text(doctrine.description));
         });
-
-
-        let is_idx = 1;
-        $.each(allArcheotechPsalms(), function (key, psalm) {
-          //console.log(psalm);
-          let idddd = '#is' + is_idx;
-          $(idddd).attr('src', "data:image/png;base64," + psalm.image);
-          idddd = '#check' + is_idx;
-          $(idddd).attr('value', psalm.name);
-          $(idddd).attr('_class', psalm.name.replace(' ', '_'));
-          if (window.localStorage.getItem(psalm.name) == true) {
-            $(idddd).attr('checked', 'checked');
-          }
-          idddd = '#lbl' + is_idx;
-          $(idddd).text(psalm.name);
-          $(idddd).addClass(psalm.name.replace(' ', '_'));
-          is_idx++;
-        });
-
-        function checkChange(evt) {
-          // console.log(evt.target);
-          // console.log($(evt.target));
-          // console.log($(evt.target).attr('_class'));
-          // console.log(evt.target.checked);
-          window.localStorage.setItem($(evt.target).attr('value'), evt.target.checked);
-          var styleThis = 'none';
-          if (evt.target.checked) {
-          } else {
-            styleThis = 'line-through';
-          }
-          // console.log('.' + $(evt.target).attr('_class'));
-          $('.' + $(evt.target).attr('_class')).css("text-decoration", styleThis);
-        }
-        $("#check1").change(evt => checkChange(evt));
-        $("#check2").change(evt => checkChange(evt));
-        $("#check3").change(evt => checkChange(evt));
-        $("#check4").change(evt => checkChange(evt));
-        $("#check5").change(evt => checkChange(evt));
 
         document.querySelector('#selectDoctrine').value = defaultSelectedId;
 
         // https://developer.snapappointments.com/bootstrap-select/
         $('#selectDoctrine').selectpicker();
 
-        setTimeout(() => {
-          $('[data-id="selectDoctrine"]').click();
-          setTimeout(() => { $('[data-id="selectDoctrine"]').click(); }, 250);
-        }, 250);
+        $.each(allArcheotechPsalms(), (psalm_index, psalm) => {
+          $('#is' + (psalm_index + 1)).attr('src', "data:image/png;base64," + psalm.image);
+          $('#check' + (psalm_index + 1)).attr('value', psalm.name).attr('_class', psalm.name.replace(' ', '_'));
+          $('#lbl' + (psalm_index + 1)).addClass(psalm.name.replace(' ', '_')).text(psalm.name);
+        });
 
-        function selectDoctrineChange() {
-          let choiceDoctrine = $("#selectDoctrine").find('option:selected').val();
-          //console.log(choiceDoctrine);
-          $.each(data.doctrines, function (key, doctrine) {
-            //console.log(doctrine.id);
-            if (doctrine.id == choiceDoctrine) {
-              //console.log(doctrine);
-              $("#description").html(doctrine.description);
-              for (let i = 0; i < 6; i++) {
-                let pi = $("#p" + i);
-                pi.attr("src", emptyImage);
-                pi.attr("title", "");
-                let di = $("#description" + i);
-                di.text(" ");
-                di.attr("class", "");
-              }
-
-              doctrine.psalms.forEach((element, index) => {
-                //console.log(index + ": " + element);
-                let psalm = data.psalms.find(pe => pe.name == element);
-                //console.log(psalm.name);
-                $("#p" + (index + 1)).attr("src", "data:image/png;base64," + psalm.image);
-                $("#p" + (index + 1)).attr("title", psalm.name);
-                $("#description" + (index + 1)).html('<u><b>' + psalm.name + '</b></u>: ' + psalm.description);
-                $("#description" + (index + 1)).attr("class", psalm.level);
-              });
-              //console.log("---------------");
-            }
-          });
-        };
+        $("#check1").change(evt => checkDoctrineChange(evt));
+        $("#check2").change(evt => checkDoctrineChange(evt));
+        $("#check3").change(evt => checkDoctrineChange(evt));
+        $("#check4").change(evt => checkDoctrineChange(evt));
+        $("#check5").change(evt => checkDoctrineChange(evt));
 
         $("#selectDoctrine").change(selectDoctrineChange);
 
         selectDoctrineChange();
+
+        setTimeout(() => {
+          $('[data-id="selectDoctrine"]').click();
+          setTimeout(() => {
+            $('[data-id="selectDoctrine"]').click();
+            $.each(allArcheotechPsalms(), (psalm_index, psalm) => {
+              $('.' + psalm.name.replace(' ', '_')).css("text-decoration", window.localStorage.getItem(psalm.name) == 'true' ? 'none' : 'line-through');
+            });
+          }, 100);
+        }, 250);
       }
 
       fetch('https://jurgendl.github.io/game-toolbag/w40k-inquisitor-martyr-code.json')
         .then((response) => response.json())
-        .then((data) => setupPageData(data));
+        .then((data) => app(data));
 
     })();
   </script>
