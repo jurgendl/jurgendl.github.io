@@ -99,7 +99,12 @@
     border: 3px solid rgba(100, 200, 100, .75)
 }
 
-.psalm_list:not(:first-child)::before {
+.psalm_list_parent :not(:first-child)::before {
     content: ' + ';
-    text-decoration: none !important;
+}
+
+.strikeme {
+    text-decoration: line-through;
+    text-decoration-color: rgba(0, 0, 0, 0.5);
+    text-decoration-thickness: 2px;
 }

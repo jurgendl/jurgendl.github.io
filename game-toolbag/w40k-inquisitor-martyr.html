@@ -112,6 +112,41 @@
           <span id="lbl5"></span>
         </label>
       </div>
+      <div class="imgcheck input-group input-group-sm">
+        <label class="checkbox-inline" for="check6">
+          <input style="display: none;" type="checkbox" id="check6" />
+          <img id="is6" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+          <span id="lbl6"></span>
+        </label>
+      </div>
+      <div class="imgcheck input-group input-group-sm">
+        <label class="checkbox-inline" for="check7">
+          <input style="display: none;" type="checkbox" id="check7" />
+          <img id="is7" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+          <span id="lbl7"></span>
+        </label>
+      </div>
+      <div class="imgcheck input-group input-group-sm">
+        <label class="checkbox-inline" for="check8">
+          <input style="display: none;" type="checkbox" id="check8" />
+          <img id="is8" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+          <span id="lbl8"></span>
+        </label>
+      </div>
+      <div class="imgcheck input-group input-group-sm">
+        <label class="checkbox-inline" for="check9">
+          <input style="display: none;" type="checkbox" id="check9" />
+          <img id="is9" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+          <span id="lbl9"></span>
+        </label>
+      </div>
+      <div class="imgcheck input-group input-group-sm">
+        <label class="checkbox-inline" for="check10">
+          <input style="display: none;" type="checkbox" id="check10" />
+          <img id="is10" width="60" height="60" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+          <span id="lbl10"></span>
+        </label>
+      </div>
       <!-- ============================================================================================================ -->
     </div>
   </div>
@@ -157,18 +192,20 @@
         function allPsalmsOfLevel(psalm_level) {
           return data.psalms.filter(psalm => psalm.level == psalm_level);
         }
-        function allArcheotechPsalms() {
-          return allPsalmsOfLevel('Archeotech');
+        function allPsalmsOfLevels(psalm_level1, psalm_level2) {
+          return data.psalms.filter(psalm => psalm.level == psalm_level1 || psalm.level == psalm_level2);
         }
         function psalmByname(psalm_name) {
           return data.psalms.find(psalm => psalm.name == psalm_name);
         }
-        function checkDoctrineChange(evt) {
-          window.localStorage.setItem($(evt.target).attr('value'), evt.target.checked);
-          $('.' + $(evt.target).attr('_class')).css("text-decoration", evt.target.checked ? 'none' : 'line-through');
-        }
         function doctrineById(doctrine_id) {
           return data.doctrines.find(doctrine => doctrine.id == doctrine_id);
+        }
+        function checkDoctrineChange(evt) {
+          let act = evt.target.checked;
+          window.localStorage.setItem($(evt.target).attr('value'), act);
+          if (act) $('.' + psalm.name.replace(' ', '_')).addClass("strikeme");
+          else $('.' + psalm.name.replace(' ', '_')).removeClass("strikeme");
         }
         function selectDoctrineChange() {
           let doctrine = doctrineById($("#selectDoctrine").find('option:selected').val());
@@ -193,7 +230,7 @@
           $('<select/>')
             .attr('id', 'selectDoctrine')
             .attr('name', 'selectDoctrine')
-            .attr('data-live-search', 'true')
+            //.attr('data-live-search', 'true')
             .attr('data-style', 'btn-light')
             .append($('<option>', {})
               .text(""))
@@ -202,14 +239,14 @@
         $.each(data.doctrines, (doctrine_index, doctrine) => {
           var psalmList = '';
           $.each(doctrine.psalms, (psalm_index, psalm_name) => {
-            psalmList += '<span class="psalm_list ' + psalm_name.replace(' ', '_') + ' ' + psalmByname(psalm_name).level + '">' + psalm_name + '</span>';
+            psalmList += '<span><span class="psalm_list ' + psalm_name.replace(' ', '_') + ' ' + psalmByname(psalm_name).level + '">' + psalm_name + '</span></span>';
           });
           $('#selectDoctrine').append($('<option>', {
             'value': doctrine.id //
             //, 'data-subtext': doctrine.id//
             , 'data-content': //
               '<div style="font-weight: bold;">' + doctrine.description + '</div>' +//
-              '<div style="font-weight: bold; font-size: smaller;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + psalmList + '</div>'
+              '<div class="psalm_list_parent" style="font-weight: bold; font-size: smaller;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + psalmList + '</div>'
           }).text(doctrine.description));
         });
 
@@ -218,17 +255,12 @@
         // https://developer.snapappointments.com/bootstrap-select/
         $('#selectDoctrine').selectpicker();
 
-        $.each(allArcheotechPsalms(), (psalm_index, psalm) => {
+        $.each(allPsalmsOfLevels('Relic', 'Archeotech'), (psalm_index, psalm) => {
           $('#is' + (psalm_index + 1)).attr('src', "data:image/png;base64," + psalm.image);
-          $('#check' + (psalm_index + 1)).attr('value', psalm.name).attr('_class', psalm.name.replace(' ', '_'));
           $('#lbl' + (psalm_index + 1)).addClass(psalm.name.replace(' ', '_')).text(psalm.name);
+          $('#check' + (psalm_index + 1)).attr('value', psalm.name).attr('_class', psalm.name.replace(' ', '_'));
+          $("#check" + (psalm_index + 1)).change(evt => checkDoctrineChange(evt));
         });
-
-        $("#check1").change(evt => checkDoctrineChange(evt));
-        $("#check2").change(evt => checkDoctrineChange(evt));
-        $("#check3").change(evt => checkDoctrineChange(evt));
-        $("#check4").change(evt => checkDoctrineChange(evt));
-        $("#check5").change(evt => checkDoctrineChange(evt));
 
         $("#selectDoctrine").change(selectDoctrineChange);
 
@@ -238,8 +270,10 @@
           $('[data-id="selectDoctrine"]').click();
           setTimeout(() => {
             $('[data-id="selectDoctrine"]').click();
-            $.each(allArcheotechPsalms(), (psalm_index, psalm) => {
-              $('.' + psalm.name.replace(' ', '_')).css("text-decoration", window.localStorage.getItem(psalm.name) == 'true' ? 'none' : 'line-through');
+            $.each(allPsalmsOfLevels('Relic', 'Archeotech'), (psalm_index, psalm) => {
+              let act = window.localStorage.getItem(psalm.name) == 'true';
+              if (act) $('.' + psalm.name.replace(' ', '_')).addClass("strikeme");
+              else $('.' + psalm.name.replace(' ', '_')).removeClass("strikeme");
             });
           }, 100);
         }, 250);
