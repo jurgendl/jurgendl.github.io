@@ -123,9 +123,10 @@
       }
       function checkDoctrineChange(evt) {
         let act = evt.target.checked;
+        let psalm_name = $(evt.target).attr('data-psalm-name');
         window.localStorage.setItem($(evt.target).attr('value'), act);
-        if (act) $('.' + psalm.name.replace(' ', '_')).addClass("strikeme");
-        else $('.' + psalm.name.replace(' ', '_')).removeClass("strikeme");
+        if (act) $('.' + psalm_name.replace(' ', '_')).addClass("strikeme");
+        else $('.' + psalm_name.replace(' ', '_')).removeClass("strikeme");
       }
       function selectDoctrineChange() {
         let doctrine = doctrineById($("#selectDoctrine").find('option:selected').val());
@@ -146,10 +147,6 @@
         $('#descriptioncontainer').append('<div id="description' + i + '">&nbsp;</div>');
       }
 
-      /*
-      <select data-live-search="true" _data-header="Select a Psalm Doctrine" style="width: 90%;" id="selectDoctrine" name="selectDoctrine" _class="custom-select custom-select-sm" _class="selectpicker" data-style="btn-primary">
-      </select>
-      */
       $('#selectDoctrineContainer').append(
         $('<select/>')
           .attr('id', 'selectDoctrine')
@@ -167,7 +164,6 @@
         });
         $('#selectDoctrine').append($('<option>', {
           'value': doctrine.id //
-          //, 'data-subtext': doctrine.id//
           , 'data-content': //
             '<div style="font-weight: bold;">' + doctrine.description + '</div>' +//
             '<div class="psalm_list_parent" style="font-weight: bold; font-size: smaller;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + psalmList + '</div>'
@@ -183,7 +179,7 @@
         $('#pills-settings').append(
           '<div class="imgcheck input-group input-group-sm">' +
           '<label class="checkbox-inline" for="check' + psalm_index + '">' +
-          '<input ' + (isPsalmChecked(psalm.name) ? ' checked' : '') + ' _class="' + psalm.name.replace(' ', '_') + '" value="' + psalm.name + '" style="display: none;" type="checkbox" id="check' + psalm_index + '" />' +
+          '<input ' + (isPsalmChecked(psalm.name) ? ' checked="checked"' : '') + ' data-psalm-name="' + psalm.name + '" value="' + psalm.name + '" style="display: none;" type="checkbox" id="check' + psalm_index + '" />' +
           '<img id="is' + psalm_index + '" width="60" height="60" src="data:image/png;base64, ' + psalm.image + '">' +
           '&nbsp;<span class="' + psalm.name.replace(' ', '_') + (isPsalmChecked(psalm.name) ? '' : ' strikeme') + '" id="lbl' + psalm_index + '">' + psalm.name + '</span>' +
           '</label>' +
