@@ -1,0 +1,4 @@
+vervang
+	if (/tinymce(\.full|\.jquery|)(\.min|\.dev|)\.js/.test(src)) {
+door
+	if (srcScript.indexOf('.tinymce') !== -1) {

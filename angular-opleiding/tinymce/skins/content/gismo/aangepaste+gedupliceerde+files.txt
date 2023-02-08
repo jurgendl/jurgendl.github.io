@@ -1,0 +1,5 @@
+gekopieerd van default folder
+
+body {
+	font-family: "UGent Panno Text","PannoText",helvetica,Arial,sans-serif;
+	line-height: 1.23529;
