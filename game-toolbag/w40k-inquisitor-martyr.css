@@ -1,5 +1,5 @@
 :root {
-    --border-radius: 1px;
+    --border-radius: 3px;
 }
 
 /* corners */
@@ -58,6 +58,19 @@
 .custom-file-label::after {
     border-radius: 0px var(--border-radius) var(--border-radius) 0px !important;
 }
+
+.nav-pills .nav-link {
+    border-radius: var(--border-radius) !important;
+}
+
+.nav-tabs .nav-link {
+    border-top-left-radius: var(--border-radius) !important;
+    border-top-right-radius: var(--border-radius) !important;
+}
+
+
+
+
 
 .Magic {
     color: rgb(61, 142, 185);
