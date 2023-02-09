@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- https://developer.snapappointments.com/bootstrap-select/ -->
 <head>
   <!--<link rel="preconnect" href="https://fonts.gstatic.com">-->
   <!--<link rel="preload" href="https://fonts.gstatic.com/s/breeserif/v17/4UaHrEJCrhhnVA3DgluA96Tp56N1.woff2" as="font" type="font/woff2" crossorigin>-->
@@ -90,6 +90,8 @@
   <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>-->
 
   <script>
+    $.fn.selectpicker.Constructor.DEFAULTS.multipleSeparator = ' | '
+    
     function app(data) {
       const emptyImage = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
       const defaultSelectedId = 'Phosphoenic Psalm + Technomartyr Psalm + Neuralis Psalm + Binharic Psalm';
@@ -138,11 +140,11 @@
       $('#selectDoctrineContainer').append(
         $('<select/>')
           .attr('id', 'selectDoctrine')
+          .attr('size', 'false')
           .attr('name', 'selectDoctrine')
           //.attr('data-live-search', 'true')
           .attr('data-style', 'btn-light')
-          .append($('<option>', {})
-            .text(""))
+          .append($('<option>', {}).text(""))
       );
 
       $.each(data.doctrines, (doctrine_index, doctrine) => {
