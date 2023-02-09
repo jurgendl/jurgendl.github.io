@@ -5,6 +5,7 @@
   "resources" : [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish", "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish", "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag", "onion", "wolf meat", "freeze gland", "cloudberries ", "lox meat", "barley", "egg", "magecap ", "jotun puffs ", "seeker meat ", "hare meat", "chicken meat", "blood clot", "sap", "royal yelly" ],
   "food" : {
     "raspberries" : {
+      "id" : 0,
       "name" : "raspberries",
       "tier" : 1,
       "starred" : false,
@@ -24,6 +25,7 @@
       "nrOfResources" : [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "honey" : {
+      "id" : 1,
       "name" : "honey",
       "tier" : 1,
       "starred" : true,
@@ -43,6 +45,7 @@
       "nrOfResources" : [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "grilled neck meat" : {
+      "id" : 2,
       "name" : "grilled neck meat",
       "tier" : 1,
       "starred" : false,
@@ -62,6 +65,7 @@
       "nrOfResources" : [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "cooked boar meat" : {
+      "id" : 3,
       "name" : "cooked boar meat",
       "tier" : 1,
       "starred" : true,
@@ -81,6 +85,7 @@
       "nrOfResources" : [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "cooked deer meat" : {
+      "id" : 4,
       "name" : "cooked deer meat",
       "tier" : 1,
       "starred" : false,
@@ -100,6 +105,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "boar jerky" : {
+      "id" : 5,
       "name" : "boar jerky",
       "tier" : 1,
       "starred" : true,
@@ -120,6 +126,7 @@
       "nrOfResources" : [ 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "cooked fish" : {
+      "id" : 6,
       "name" : "cooked fish",
       "tier" : 1,
       "starred" : false,
@@ -139,6 +146,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "mushroom" : {
+      "id" : 7,
       "name" : "mushroom",
       "tier" : 2,
       "starred" : false,
@@ -158,6 +166,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "blueberries" : {
+      "id" : 8,
       "name" : "blueberries",
       "tier" : 2,
       "starred" : false,
@@ -177,6 +186,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "carrot" : {
+      "id" : 9,
       "name" : "carrot",
       "tier" : 2,
       "starred" : false,
@@ -196,6 +206,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "carrot soup" : {
+      "id" : 10,
       "name" : "carrot soup",
       "tier" : 2,
       "starred" : true,
@@ -216,6 +227,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "queens jam" : {
+      "id" : 11,
       "name" : "queens jam",
       "tier" : 2,
       "starred" : true,
@@ -236,6 +248,7 @@
       "nrOfResources" : [ 8, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "deer stew" : {
+      "id" : 12,
       "name" : "deer stew",
       "tier" : 2,
       "starred" : true,
@@ -257,6 +270,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "minced meat sauce" : {
+      "id" : 13,
       "name" : "minced meat sauce",
       "tier" : 2,
       "starred" : false,
@@ -278,6 +292,7 @@
       "nrOfResources" : [ 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "cooked serpent meat" : {
+      "id" : 14,
       "name" : "cooked serpent meat",
       "tier" : 2,
       "starred" : false,
@@ -297,6 +312,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "serpent stew" : {
+      "id" : 15,
       "name" : "serpent stew",
       "tier" : 2,
       "starred" : false,
@@ -318,6 +334,7 @@
       "nrOfResources" : [ 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "turnip stew" : {
+      "id" : 16,
       "name" : "turnip stew",
       "tier" : 3,
       "starred" : true,
@@ -338,6 +355,7 @@
       "nrOfResources" : [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "yellow mushroom" : {
+      "id" : 17,
       "name" : "yellow mushroom",
       "tier" : 3,
       "starred" : false,
@@ -357,6 +375,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "muckshake" : {
+      "id" : 18,
       "name" : "muckshake",
       "tier" : 3,
       "starred" : false,
@@ -378,6 +397,7 @@
       "nrOfResources" : [ 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "sausages" : {
+      "id" : 19,
       "name" : "sausages",
       "tier" : 3,
       "starred" : true,
@@ -399,6 +419,7 @@
       "nrOfResources" : [ 0, 0, 0, 0.25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "black soup" : {
+      "id" : 20,
       "name" : "black soup",
       "tier" : 3,
       "starred" : false,
@@ -420,6 +441,7 @@
       "nrOfResources" : [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "onion" : {
+      "id" : 21,
       "name" : "onion",
       "tier" : 4,
       "starred" : false,
@@ -439,6 +461,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "onion soup" : {
+      "id" : 22,
       "name" : "onion soup",
       "tier" : 4,
       "starred" : true,
@@ -458,6 +481,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "cooked wolf meat" : {
+      "id" : 23,
       "name" : "cooked wolf meat",
       "tier" : 4,
       "starred" : false,
@@ -477,6 +501,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "wolf jerky" : {
+      "id" : 24,
       "name" : "wolf jerky",
       "tier" : 4,
       "starred" : false,
@@ -497,6 +522,7 @@
       "nrOfResources" : [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "wolf skewer" : {
+      "id" : 25,
       "name" : "wolf skewer",
       "tier" : 4,
       "starred" : true,
@@ -518,6 +544,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "eyescream" : {
+      "id" : 26,
       "name" : "eyescream",
       "tier" : 4,
       "starred" : false,
@@ -538,6 +565,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "cloudberries" : {
+      "id" : 27,
       "name" : "cloudberries",
       "tier" : 5,
       "starred" : false,
@@ -557,6 +585,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "cooked lox meat" : {
+      "id" : 28,
       "name" : "cooked lox meat",
       "tier" : 5,
       "starred" : false,
@@ -576,6 +605,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "fish wraps" : {
+      "id" : 29,
       "name" : "fish wraps",
       "tier" : 5,
       "starred" : true,
@@ -596,6 +626,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "lox meat pie" : {
+      "id" : 30,
       "name" : "lox meat pie",
       "tier" : 5,
       "starred" : true,
@@ -617,6 +648,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "blood pudding" : {
+      "id" : 31,
       "name" : "blood pudding",
       "tier" : 5,
       "starred" : false,
@@ -638,6 +670,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "bread" : {
+      "id" : 32,
       "name" : "bread",
       "tier" : 5,
       "starred" : true,
@@ -657,6 +690,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "cooked egg" : {
+      "id" : 33,
       "name" : "cooked egg",
       "tier" : 5,
       "starred" : false,
@@ -676,6 +710,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "cooked chicken meat" : {
+      "id" : 34,
       "name" : "cooked chicken meat",
       "tier" : 5,
       "starred" : true,
@@ -695,6 +730,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ]
     },
     "magecap" : {
+      "id" : 35,
       "name" : "magecap",
       "tier" : 6,
       "starred" : false,
@@ -714,6 +750,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "jotun puffs" : {
+      "id" : 36,
       "name" : "jotun puffs",
       "tier" : 6,
       "starred" : false,
@@ -733,6 +770,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ]
     },
     "cooked seeker meat" : {
+      "id" : 37,
       "name" : "cooked seeker meat",
       "tier" : 6,
       "starred" : false,
@@ -752,6 +790,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
     },
     "cooked hare meat" : {
+      "id" : 38,
       "name" : "cooked hare meat",
       "tier" : 6,
       "starred" : false,
@@ -771,6 +810,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 ]
     },
     "meat platter" : {
+      "id" : 39,
       "name" : "meat platter",
       "tier" : 6,
       "starred" : false,
@@ -792,6 +832,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0 ]
     },
     "honey glazed chicken" : {
+      "id" : 40,
       "name" : "honey glazed chicken",
       "tier" : 6,
       "starred" : false,
@@ -813,6 +854,7 @@
       "nrOfResources" : [ 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0 ]
     },
     "misthare supreme" : {
+      "id" : 41,
       "name" : "misthare supreme",
       "tier" : 6,
       "starred" : false,
@@ -834,6 +876,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0 ]
     },
     "salad" : {
+      "id" : 42,
       "name" : "salad",
       "tier" : 6,
       "starred" : false,
@@ -855,6 +898,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ]
     },
     "mushroom omelette" : {
+      "id" : 43,
       "name" : "mushroom omelette",
       "tier" : 6,
       "starred" : false,
@@ -875,6 +919,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0 ]
     },
     "fish and bread" : {
+      "id" : 44,
       "name" : "fish and bread",
       "tier" : 6,
       "starred" : false,
@@ -895,6 +940,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "stuffed mushroom" : {
+      "id" : 45,
       "name" : "stuffed mushroom",
       "tier" : 6,
       "starred" : false,
@@ -916,6 +962,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 0, 0 ]
     },
     "yggdrasil porridge" : {
+      "id" : 46,
       "name" : "yggdrasil porridge",
       "tier" : 6,
       "starred" : false,
@@ -937,6 +984,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4, 2 ]
     },
     "seeker aspic" : {
+      "id" : 47,
       "name" : "seeker aspic",
       "tier" : 6,
       "starred" : false,
