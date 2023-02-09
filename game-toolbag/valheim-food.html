@@ -68,6 +68,7 @@
   <!--https://tabulator.info/examples/5.4-->
   <script>
     function app(data) {
+      window.localStorage.setItem('valheim-food', JSON.stringify(data));
       console.log(data);
       var tabledata = [];
       for (let [name, food] of Object.entries(data.food)) {
@@ -125,10 +126,25 @@
       });
     }
     // https://developer.mozilla.org/en-US/docs/Web/API/Response/json
+    // https://blog.logrocket.com/storing-retrieving-javascript-objects-localstorage/
     (() => {
-      fetch('valheim-food.json')
-        .then((response) => response.json())
-        .then((data) => app(data));
+      try {
+        let valheimFood = window.localStorage.getItem('valheim-food');
+        if (valheimFood && valheimFood != undefined && valheimFood != null) {
+          let data = JSON.parse(valheimFood);
+          console.log(data.headers);
+          app(data);
+        } else {
+          fetch('valheim-food.json')
+            .then((response) => response.json())
+            .then((data) => app(data));
+        }
+      } catch (e) {
+        console.log(e);
+        fetch('valheim-food.json')
+            .then((response) => response.json())
+            .then((data) => app(data));
+      }
     })();
   </script>
 
