@@ -64,8 +64,9 @@
   <!--<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.4.3/dist/js/tabulator.min.js"></script>-->
   <script type="text/javascript" src="tabulator/js/tabulator.js"></script>
   <script type="text/javascript" src="tabulator/js/FrozenColumns/FrozenColumns.js"></script>
+  <script type="text/javascript" src="tabulator/js/Filter/Filter.js"></script>
   <script>
-    Tabulator.registerModule([FrozenColumns]);
+    Tabulator.registerModule([FrozenColumns, Filter]);
   </script>
 
   <style>
@@ -120,36 +121,36 @@
         // responsiveLayout:"collapse", // collapse columns that no longer fit on the table into a list under the row
         //resizableRows: true, // this option takes a boolean value (default = false)
         columns: [
-          { title: "Name", field: "name", headerVertical: true, frozen: true },
+          { title: "Name", field: "name", frozen: true, headerFilter: "input" },
           {//create column group
             title: "Info", frozen: true,
             columns: [
               {
-                title: "Tier", field: "tier", headerVertical: true, hozAlign: "center", formatter: function (cell, formatterParams) {
+                title: "Tier", field: "tier", headerVertical: true, hozAlign: "center", headerFilter: "number", formatter: function (cell, formatterParams) {
                   var value = cell.getValue();
                   if (value == 1) {
-                    return "<span style='background-color:#e8f2a1;display:block;width:100%;height:100%'>"+value+"</span>";
+                    return "<span style='background-color:#e8f2a1;display:block;width:100%;height:100%'>" + value + "</span>";
                   } else if (value == 2) {
-                    return "<span style='background-color:#bbe33d;display:block;width:100%;height:100%'>"+value+"</span>";
+                    return "<span style='background-color:#bbe33d;display:block;width:100%;height:100%'>" + value + "</span>";
                   } else if (value == 3) {
-                    return "<span style='background-color:#b4c7dc;display:block;width:100%;height:100%'>"+value+"</span>";
+                    return "<span style='background-color:#b4c7dc;display:block;width:100%;height:100%'>" + value + "</span>";
                   } else if (value == 4) {
-                    return "<span style='background-color:#b2b2b2;display:block;width:100%;height:100%'>"+value+"</span>";
+                    return "<span style='background-color:#b2b2b2;display:block;width:100%;height:100%'>" + value + "</span>";
                   } else if (value == 5) {
-                    return "<span style='background-color:#ffdbb6;display:block;width:100%;height:100%'>"+value+"</span>";
+                    return "<span style='background-color:#ffdbb6;display:block;width:100%;height:100%'>" + value + "</span>";
                   } else if (value == 6) {
-                    return "<span style='background-color:#ff6d6d;display:block;width:100%;height:100%'>"+value+"</span>";
+                    return "<span style='background-color:#ff6d6d;display:block;width:100%;height:100%'>" + value + "</span>";
                   } else {
                     return value;
                   }
                 }
               },
-              { title: "Starred", field: "starred", headerVertical: true, hozAlign: "center", formatter: "tickCross" },
-              { title: "HP", field: "hp", headerVertical: true, hozAlign: "center" },
-              { title: "Stamina", field: "stamina", headerVertical: true, hozAlign: "center" },
-              { title: "Eitr", field: "eitr", headerVertical: true, hozAlign: "center" },
+              { title: "Starred", field: "starred", headerVertical: true, hozAlign: "center", formatter: "tickCross", headerFilter: "tickCross", headerFilterParams: { "tristate": true } },
+              { title: "HP", field: "hp", headerVertical: true, hozAlign: "center", headerFilter: "number" },
+              { title: "Stamina", field: "stamina", headerVertical: true, hozAlign: "center", headerFilter: "number" },
+              { title: "Eitr", field: "eitr", headerVertical: true, hozAlign: "center", headerFilter: "number" },
               {
-                title: "Type", field: "type", headerVertical: true, hozAlign: "center", formatter: function (cell, formatterParams) {
+                title: "Type", field: "type", headerVertical: true, hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, formatter: function (cell, formatterParams) {
                   var value = cell.getValue();
                   if (value == "Y") {
                     return "<span style='background-color:#ffff84;display:block;width:100%;height:100%'>Y</span>";
@@ -164,8 +165,8 @@
                   }
                 }
               },
-              { title: "HP/s", field: "hpPerSecond", headerVertical: true, hozAlign: "center" },
-              { title: "Duration (m)", field: "durationInMinutes", headerVertical: true, hozAlign: "center" }
+              { title: "HP/s", field: "hpPerSecond", headerVertical: true, hozAlign: "center", headerFilter: "number" },
+              { title: "Duration (m)", field: "durationInMinutes", headerVertical: true, hozAlign: "center", headerFilter: "number" }
             ]
           },
           {//create column group
