@@ -121,7 +121,20 @@
         // responsiveLayout:"collapse", // collapse columns that no longer fit on the table into a list under the row
         //resizableRows: true, // this option takes a boolean value (default = false)
         columns: [
-          { title: "Name", field: "name", frozen: true, headerFilter: "input" },
+          {
+            title: "Name", field: "name", frozen: true, headerFilter: "input", formatter: function (cell, formatterParams) {
+              var value = cell.getValue();
+              var tt = "";
+              for (let [n, c] of Object.entries(data.food[value].resources)) {
+                if (tt == "") {
+                  tt = tt + c + " " + n;
+                } else {
+                  tt = tt + "\n" + c + " " + n;
+                }
+              }
+              return '<div style="cursor:crosshair" title="' + tt + '  ">' + value + '</div>';
+            }
+          },
           {//create column group
             title: "Info", frozen: true,
             columns: [
@@ -135,7 +148,7 @@
                   } else if (value == 3) {
                     return "<span style='background-color:#b4c7dc;display:block;width:100%;height:100%'>" + value + "</span>";
                   } else if (value == 4) {
-                    return "<span style='background-color:#b2b2b2;display:block;width:100%;height:100%'>" + value + "</span>";
+                    return "<span style='background-color:#ddd;display:block;width:100%;height:100%'>" + value + "</span>";
                   } else if (value == 5) {
                     return "<span style='background-color:#ffdbb6;display:block;width:100%;height:100%'>" + value + "</span>";
                   } else if (value == 6) {
@@ -175,6 +188,12 @@
           }
         ],
       });
+
+      $(function () {
+        setTimeout(() => {
+          $('[data-toggle="popover"]').popover({ trigger: 'focus' });
+        }, 10 * 1000);
+      })
     }
     // https://developer.mozilla.org/en-US/docs/Web/API/Response/json
     // https://blog.logrocket.com/storing-retrieving-javascript-objects-localstorage/

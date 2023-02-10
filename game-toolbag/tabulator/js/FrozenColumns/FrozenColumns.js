@@ -1,4 +1,4 @@
-import Module from '../../core/Module.js';
+//import Module from '../../core/Module.js';
 
 class FrozenColumns extends Module{
 	
@@ -297,4 +297,4 @@ class FrozenColumns extends Module{
 
 FrozenColumns.moduleName = "frozenColumns";
 
-export default FrozenColumns;
+//export default FrozenColumns;

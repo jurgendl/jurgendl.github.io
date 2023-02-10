@@ -1,6 +1,6 @@
-import Module from '../../core/Module.js';
+//import Module from '../../core/Module.js';
 
-import defaultFilters from './defaults/filters.js';
+//import defaultFilters from './defaults/filters.js';
 
 class Filter extends Module{
 
@@ -890,4 +890,4 @@ Filter.moduleName = "filter";
 //load defaults
 Filter.filters = defaultFilters;
 
-export default Filter;
+//export default Filter;
