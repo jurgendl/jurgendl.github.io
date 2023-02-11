@@ -1,4 +1,4 @@
-/* Tabulator v5.4.3 (c) Oliver Folkerd 2022 */
+/* Tabulator v5.4.3 (c) Oliver Folkerd 2023 */
 class CoreFeature{
 
 	constructor(table){
@@ -3360,7 +3360,7 @@ class Row extends CoreFeature{
 		
 		column = this.table.columnManager.findColumn(column);
 		
-		if(!this.initialized){
+		if(!this.initialized && this.cells.length === 0){
 			this.generateCells();
 		}
 		
@@ -3384,7 +3384,7 @@ class Row extends CoreFeature{
 	}
 	
 	getCells(){
-		if(!this.initialized){
+		if(!this.initialized && this.cells.length === 0){
 			this.generateCells();
 		}
 		
@@ -11143,7 +11143,7 @@ class GroupComponent {
 				if (typeof target[name] !== "undefined") {
 					return target[name];
 				}else {
-					return target._group.groupManager.table.componentFunctionBinder.handle("row", target._group, name);
+					return target._group.groupManager.table.componentFunctionBinder.handle("group", target._group, name);
 				}
 			}
 		});
@@ -22615,7 +22615,7 @@ class RowManager extends CoreFeature{
 			data.forEach((item, i) => {
 				var row = this.addRow(item, pos, index, true);
 				rows.push(row);
-				this.dispatch("row-added", row, data, pos, index);
+				this.dispatch("row-added", row, item, pos, index);
 			});
 
 			this.refreshActiveData(refreshDisplayOnly ? "displayPipeline" : false, false, true);
@@ -24396,7 +24396,7 @@ function fitDataStretch(columns, forced){
 
 //resize columns to fit
 function fitColumns(columns, forced){
-	var totalWidth = this.table.rowManager.element.getBoundingClientRect().width; //table element width
+	var totalWidth = this.table.rowManager.element.clientWidth; //table element width
 	var fixedWidth = 0; //total width of columns with a defined width
 	var flexWidth = 0; //total width available to flexible columns
 	var flexGrowUnits = 0; //total number of widthGrow blocks across all columns
@@ -24888,7 +24888,42 @@ var coreModules = /*#__PURE__*/Object.freeze({
 	__proto__: null,
 	LayoutModule: Layout,
 	LocalizeModule: Localize,
-	CommsModule: Comms
+	CommsModule: Comms,
+	AccessorModule: Accessor,
+	AjaxModule: Ajax,
+	ClipboardModule: Clipboard,
+	ColumnCalcsModule: ColumnCalcs,
+	DataTreeModule: DataTree,
+	DownloadModule: Download,
+	EditModule: Edit$1,
+	ExportModule: Export,
+	FilterModule: Filter,
+	FormatModule: Format,
+	FrozenColumnsModule: FrozenColumns,
+	FrozenRowsModule: FrozenRows,
+	GroupRowsModule: GroupRows,
+	HistoryModule: History,
+	HtmlTableImportModule: HtmlTableImport,
+	ImportModule: Import,
+	InteractionModule: Interaction,
+	KeybindingsModule: Keybindings,
+	MenuModule: Menu,
+	MoveColumnsModule: MoveColumns,
+	MoveRowsModule: MoveRows,
+	MutatorModule: Mutator,
+	PageModule: Page,
+	PersistenceModule: Persistence,
+	PopupModule: Popup$1,
+	PrintModule: Print,
+	ReactiveDataModule: ReactiveData,
+	ResizeColumnsModule: ResizeColumns,
+	ResizeRowsModule: ResizeRows,
+	ResizeTableModule: ResizeTable,
+	ResponsiveLayoutModule: ResponsiveLayout,
+	SelectRowModule: SelectRow,
+	SortModule: Sort,
+	TooltipModule: Tooltip,
+	ValidateModule: Validate
 });
 
 class ModuleBinder {
