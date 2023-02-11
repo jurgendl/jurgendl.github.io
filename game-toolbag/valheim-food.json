@@ -242,10 +242,10 @@
       "hpPerSecond" : 2,
       "durationInMinutes" : 20,
       "resources" : {
-        "raspberries" : 8,
-        "blueberries" : 6
+        "raspberries" : 2,
+        "blueberries" : 1.5
       },
-      "nrOfResources" : [ 8, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 2, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "deer stew" : {
       "id" : 12,
