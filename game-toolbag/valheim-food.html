@@ -26,19 +26,19 @@
   <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">-->
   <link href="tabulator/css/tabulator.min.css" rel="stylesheet">
   <link href="tabulator/css/tabulator_bootstrap4.min.css" rel="stylesheet">
-  <style>
+  <style id="internalcss">
     .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
       white-space: normal;
     }
 
-    .full {
+    /*.full {
       position: absolute;
       height: 100vh;
       width: 100vw;
       top: 0;
       left: 0;
-      padding: 20px 0 0 20px;
-    }
+      padding: 100px 0 0 20px;
+    }*/
   </style>
 </head>
 
@@ -46,10 +46,72 @@
 <!-- ============================================================================================================ -->
 
 <body style="margin: 1em">
-  <!--
+
   <a href="https://valheim.fandom.com/wiki/Food" target="_blank">Wiki</a>
   <br><br>
--->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <input class="form-control form-control-sm" id="filter-name" type="text" placeholder="name">
+      </div>
+      <div class="col-3">
+        <select class="form-control form-control-sm" id="filter-tier" placeholder="tier">
+          <option value="" selected>select tier</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <input class="form-control form-control-sm" id="filter-hp" type="number" min="0" max="100" placeholder="hp">
+      </div>
+      <div class="col-3">
+        <input class="form-control form-control-sm" id="filter-stamina" type="number" min="0" max="100" placeholder="sta">
+      </div>
+      <div class="col-3">
+        <input class="form-control form-control-sm" id="filter-eitr" type="number" min="0" max="100" placeholder="eitr">
+      </div>
+      <div class="col-3">
+        <select class="form-control form-control-sm" id="filter-type" placeholder="type">
+          <option value="" selected>select type</option>
+          <option value="W">white</option>
+          <option value="Y">yellow</option>
+          <option value="R">red</option>
+          <option value="R">blue</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <select class="form-control form-control-sm" id="filter-hps" placeholder="hps">
+          <option value="" selected>select hp/s</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <select class="form-control form-control-sm" id="filter-duration" placeholder="duration">
+          <option value="" selected>select duration in minutes</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+        </select>
+      </div>
+      <div class="col-12 pt-1">
+        <button class="btn btn-sm btn-primary" id="filter">Filter</button>
+        <button class="btn btn-sm btn-secondary" id="filter-clear">Clear Filter</button>
+      </div>
+    </div>
+  </div>
+  <br>
+
   <div class="full no-thead-dark no-table-dark table-striped table-bordered table-sm" id="valheim-food-table"></div>
 
   <!-- ============================================================================================================ -->
@@ -80,6 +142,7 @@
 
   <!--https://tabulator.info/docs/5.4/quickstart-->
   <!--https://tabulator.info/examples/5.4-->
+  <!--https://tabulator.info/docs/5.4/filter#header-filters-->
   <script>
     function app(data) {
       window.localStorage.setItem('valheim-food', JSON.stringify(data));
@@ -112,10 +175,68 @@
       console.table(tabledata);
       var resourceCols = [];
       for (let resource of data.resources) {
-        resourceCols.push({ title: resource, field: resource, headerVertical: true, hozAlign: "center" });
+        resourceCols.push({ title: resource, field: resource, sorter: "number", headerVertical: true, hozAlign: "center" });
       }
+
+      {
+        var nameFilter = document.getElementById("filter-name");
+        var tierFilter = document.getElementById("filter-tier");
+        var typeFilter = document.getElementById("filter-type");
+        var hpsFilter = document.getElementById("filter-hps");
+        var durationInMinutesFilter = document.getElementById("filter-duration");
+        var hpFilter = document.getElementById("filter-hp");
+        var staminaFilter = document.getElementById("filter-stamina");
+        var eitrFilter = document.getElementById("filter-eitr");
+        function updateFilter() {
+          table.clearFilter();
+          var f = [];
+          if (nameFilter.value) {
+            f.push({ field: "name", type: "like", value: nameFilter.value });
+          }
+          if (tierFilter.value) {
+            f.push({ field: "tier", type: "=", value: tierFilter.value });
+          }
+          if (typeFilter.value) {
+            f.push({ field: "type", type: "=", value: typeFilter.value });
+          }
+          if (hpsFilter.value) {
+            f.push({ field: "hpPerSecond", type: ">=", value: hpsFiles.value });
+          }
+          if (durationInMinutesFilter.value) {
+            f.push({ field: "durationInMinutes", type: ">=", value: durationInMinutesFilter.value });
+          }
+          if (hpFilter.value) {
+            f.push({ field: "hp", type: ">=", value: hpFilter.value });
+          }
+          if (staminaFilter.value) {
+            f.push({ field: "stamina", type: ">=", value: staminaFilter.value });
+          }
+          if (eitrFilter.value) {
+            f.push({ field: "eitr", type: ">=", value: eitrFilter.value });
+          }
+          if (f.length) {
+            table.setFilter(f);
+          }
+        }
+        document.getElementById("filter").addEventListener("click", function () {
+          updateFilter();
+        });
+        document.getElementById("filter-clear").addEventListener("click", function () {
+          nameFilter.value = "";
+          tierFilter.value = "";
+          typeFilter.value = "";
+          hpsFilter.value = "";
+          hpFilter.value = "";
+          staminaFilter.value = "";
+          eitrFilter.value = "";
+          durationInMinutesFilter.value = "";
+          table.clearFilter();
+        });
+      }
+
       var table = new Tabulator("#valheim-food-table", {
-        //height: 'auto', // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+        placeholder: "Awaiting Data",
+        height: '800', // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
         data: tabledata, //assign data to table
         //layout: "fitColumns", //fit columns to width of table (optional)
         //layout: "fitDataTable",
@@ -125,7 +246,7 @@
         //resizableRows: true, // this option takes a boolean value (default = false)
         columns: [
           {
-            title: "Name", field: "name", frozen: true, headerFilter: "input", formatter: function (cell, formatterParams) {
+            title: "Name", field: "name", frozen: true, /*headerFilter: "input",*/ formatter: function (cell, formatterParams) {
               var value = cell.getValue();
               var tt = "";
               for (let [n, c] of Object.entries(data.food[value].resources)) {
@@ -135,14 +256,14 @@
                   tt = tt + "\n" + c + " " + n;
                 }
               }
-              return '<div style="cursor:crosshair" title="' + tt + '  ">' + value + '</div>';
+              return '<div style="cursor:crosshair" title="' + tt + '">' + value + '</div>';
             }
           },
           {//create column group
             title: "Info", frozen: true,
             columns: [
               {
-                title: "Tier", field: "tier", headerVertical: true, hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, formatter: function (cell, formatterParams) {
+                title: "Tier", field: "tier", sorter: "number", headerVertical: true, hozAlign: "center" /*, headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }*/, formatter: function (cell, formatterParams) {
                   var value = cell.getValue();
                   if (value == 1) {
                     return "<span style='background-color:#e8f2a1;display:block;width:100%;height:100%'>" + value + "</span>";
@@ -161,12 +282,12 @@
                   }
                 }
               },
-              { title: "Starred", field: "starred", headerVertical: true, hozAlign: "center", formatter: "tickCross", headerFilter: "tickCross", headerFilterParams: { "tristate": true } },
-              { title: "HP", field: "hp", headerVertical: true, hozAlign: "center", headerFilter: "number" },
-              { title: "Stamina", field: "stamina", headerVertical: true, hozAlign: "center", headerFilter: "number" },
-              { title: "Eitr", field: "eitr", headerVertical: true, hozAlign: "center", headerFilter: "number" },
+              { title: "Starred", field: "starred", sorter: "boolean", headerVertical: true, hozAlign: "center", formatter: "tickCross"              /*, headerFilter: "tickCross", headerFilterParams: { "tristate": true }*/ },
+              { title: "HP", field: "hp", sorter: "number", headerVertical: true, hozAlign: "center"/*, headerFilter: "number" */ },
+              { title: "Stamina", field: "stamina", sorter: "number", headerVertical: true, hozAlign: "center"/*, headerFilter: "number"*/ },
+              { title: "Eitr", field: "eitr", sorter: "number", headerVertical: true, hozAlign: "center"/*, headerFilter: "number"*/ },
               {
-                title: "Type", field: "type", headerVertical: true, hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, formatter: function (cell, formatterParams) {
+                title: "Type", field: "type", headerVertical: true, hozAlign: "center"/*, headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }*/, formatter: function (cell, formatterParams) {
                   var value = cell.getValue();
                   if (value == "Y") {
                     return "<span style='background-color:#ffff84;display:block;width:100%;height:100%'>Y</span>";
@@ -181,8 +302,8 @@
                   }
                 }
               },
-              { title: "HP/s", field: "hpPerSecond", headerVertical: true, hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true } },
-              { title: "Duration (m)", field: "durationInMinutes", headerVertical: true, hozAlign: "center", headerFilter: "number" }
+              { title: "HP/s", field: "hpPerSecond", sorter: "number", headerVertical: true, hozAlign: "center", /*headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }*/ },
+              { title: "Duration (m)", field: "durationInMinutes", sorter: "number", headerVertical: true, hozAlign: "center"/*, headerFilter: "number"*/ }
             ]
           },
           {//create column group
@@ -194,8 +315,18 @@
 
       $(function () {
         setTimeout(() => {
+          console.log('POST');
           $('[data-toggle="popover"]').popover({ trigger: 'focus' });
-        }, 10 * 1000);
+
+          for (let resource of data.resources) {
+            var style = document.createElement("style");
+            style.id = "style-" + resource;
+            style.innerHTML = "[tabulator-field='" + resource + "'] { display: none !important; }";
+            console.log(style.id, style.innerHTML);
+            document.body.appendChild(style);
+            document.getElementById("style-" + resource).disabled = true;
+          }
+        }, 3 * 1000);
       })
     }
     // https://developer.mozilla.org/en-US/docs/Web/API/Response/json
