@@ -1007,7 +1007,7 @@
       "id" : 48,
       "name" : "seeker aspic",
       "tier" : 6,
-      "starred" : false,
+      "starred" : true,
       "hp" : 28,
       "hpScore" : 840.0,
       "stamina" : 14,
@@ -1019,11 +1019,11 @@
       "hpPerSecond" : 3,
       "durationInMinutes" : 30,
       "resources" : {
-        "magecap" : 2,
-        "seeker meat" : 2,
-        "royal jelly" : 2
+        "magecap" : 1,
+        "seeker meat" : 1,
+        "royal jelly" : 1
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 2 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1 ]
     }
   }
 }
