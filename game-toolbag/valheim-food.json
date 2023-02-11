@@ -713,7 +713,7 @@
       "id" : 34,
       "name" : "cooked chicken meat",
       "tier" : 6,
-      "starred" : true,
+      "starred" : false,
       "hp" : 60,
       "hpScore" : 1200.0,
       "stamina" : 20,
