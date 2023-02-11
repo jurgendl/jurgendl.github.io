@@ -921,7 +921,7 @@
       "id" : 44,
       "name" : "mushroom omelette",
       "tier" : 6,
-      "starred" : false,
+      "starred" : true,
       "hp" : 28,
       "hpScore" : 700.0,
       "stamina" : 85,
