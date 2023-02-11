@@ -963,7 +963,7 @@
       "id" : 46,
       "name" : "stuffed mushroom",
       "tier" : 6,
-      "starred" : false,
+      "starred" : true,
       "hp" : 25,
       "hpScore" : 625.0,
       "stamina" : 12,
