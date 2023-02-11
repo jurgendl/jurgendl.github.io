@@ -9,6 +9,7 @@
 <!--https://tabulator.info/docs/5.4/quickstart-->
 <!--https://tabulator.info/examples/5.4-->
 <!--https://tabulator.info/docs/5.4/filter#header-filters-->
+<!--https://github.com/olifolkerd/tabulator/issues/1266-->
 
 <head>
   <meta charset="UTF-8">
@@ -121,11 +122,16 @@
   <script type="text/javascript" src="tabulator/js/tabulator.js"></script>
 
   <script>
-    $(function () {
-      $('.selectpicker').selectpicker();
-    });
-
     function app(data) {
+      const tierColors = {
+        1: '#e8f2a1',
+        2: '#bbe33d',
+        3: '#b4c7dc',
+        4: '#dddddd',
+        5: '#ffdbb6',
+        6: '#ff6d6d',
+      };
+
       window.localStorage.setItem('valheim-food', JSON.stringify(data));
       console.log(data);
       var tabledata = [];
@@ -190,7 +196,7 @@
             });
           }
           if (starredFilter.val()) {
-            if ("starredFilter.val().length", starredFilter.val().length) {
+            if (starredFilter.val().length == 1) {
               if (starredFilter.val()[0] == "y") {
                 f.push({ field: "starred", type: "=", value: true });
               } else {
@@ -243,7 +249,6 @@
         location.reload();
       });
 
-
       var table = new Tabulator("#valheim-food-table", {
         //placeholder: "Awaiting Data",
         height: '700', // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
@@ -257,8 +262,11 @@
         columns: [
           {
             title: "Name", field: "name", frozen: true, /*headerFilter: "input",*/ formatter: function (cell, formatterParams) {
+              var dat = cell.getData();
               var value = cell.getValue();
+              var color = tierColors[dat.tier];
               var tt = "";
+              //console.log("data", dat, "value", value, "color", color);
               for (let [n, c] of Object.entries(data.food[value].resources)) {
                 if (tt == "") {
                   tt = tt + c + " " + n;
@@ -266,7 +274,7 @@
                   tt = tt + "\n" + c + " " + n;
                 }
               }
-              return '<div title="' + tt + '">' + value + '</div>';
+              return '<div style="background-color:' + color + '" title="' + tt + '">&nbsp;' + value + '</div>';
             }
           },
           {//create column group
@@ -274,22 +282,9 @@
             columns: [
               {
                 title: "Tier", field: "tier", sorter: "number", headerVertical: true, hozAlign: "center" /*, headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }*/, formatter: function (cell, formatterParams) {
+                  var dat = cell.getData();
                   var value = cell.getValue();
-                  if (value == 1) {
-                    return "<span style='background-color:#e8f2a1;display:block;width:100%;height:100%' title='meadows'>" + value + "</span>";
-                  } else if (value == 2) {
-                    return "<span style='background-color:#bbe33d;display:block;width:100%;height:100%' title='black forest'>" + value + "</span>";
-                  } else if (value == 3) {
-                    return "<span style='background-color:#b4c7dc;display:block;width:100%;height:100%' title='swamp'>" + value + "</span>";
-                  } else if (value == 4) {
-                    return "<span style='background-color:#ddd;display:block;width:100%;height:100%' title='mountain'>" + value + "</span>";
-                  } else if (value == 5) {
-                    return "<span style='background-color:#ffdbb6;display:block;width:100%;height:100%' title='plains'>" + value + "</span>";
-                  } else if (value == 6) {
-                    return "<span style='background-color:#ff6d6d;display:block;width:100%;height:100%' title='mistlands'>" + value + "</span>";
-                  } else {
-                    return value;
-                  }
+                  return "<span style='background-color:" + tierColors[dat.tier] + ";display:block;width:100%;height:100%' title='meadows'>" + value + "</span>";
                 }
               },
               { title: "Starred", field: "starred", sorter: "boolean", headerVertical: true, hozAlign: "center", formatter: "tickCross"              /*, headerFilter: "tickCross", headerFilterParams: { "tristate": true }*/ },
@@ -313,7 +308,14 @@
                 }
               },
               { title: "HP/s", field: "hpPerSecond", sorter: "number", headerVertical: true, hozAlign: "center", /*headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }*/ },
-              { title: "Duration (m)", field: "durationInMinutes", sorter: "number", headerVertical: true, hozAlign: "center"/*, headerFilter: "number"*/ }
+              { title: "Duration (m)", field: "durationInMinutes", sorter: "number", headerVertical: true, hozAlign: "center"/*, headerFilter: "number"*/ },
+              {
+                title: "Score", field: "score", sorter: "number", headerVertical: true, mutator: (value, data, type, params, component) => {
+                  var score = (data.hp + data.stamina + data.eitr) * data.durationInMinutes;
+                  //console.log("Score", data.hp, data.stamina, data.eitr, score);
+                  return score;
+                }
+              }
             ]
           },
           {//create column group
@@ -363,6 +365,7 @@
 
       $(function () {
         setTimeout(() => {
+
           //console.log('POST');
           $('[data-toggle="popover"]').popover({ trigger: 'focus' });
 
@@ -375,10 +378,14 @@
             document.getElementById("style-" + resource).disabled = true;
           }
         }, 3 * 1000);
+
       })
     }
 
     (() => {
+
+      $('.selectpicker').selectpicker();
+
       try {
         let valheimFood = window.localStorage.getItem('valheim-food');
         if (valheimFood && valheimFood != undefined && valheimFood != null) {
@@ -391,11 +398,12 @@
             .then((data) => app(data));
         }
       } catch (e) {
-        //console.log(e);
+        console.error(e);
         fetch('valheim-food.json')
           .then((response) => response.json())
           .then((data) => app(data));
       }
+
     })();
   </script>
 
