@@ -26,17 +26,31 @@
   <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">-->
   <link href="tabulator/css/tabulator.min.css" rel="stylesheet">
   <link href="tabulator/css/tabulator_bootstrap4.min.css" rel="stylesheet">
+  <style>
+    .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
+      white-space: normal;
+    }
+
+    .full {
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      top: 0;
+      left: 0;
+      padding: 20px 0 0 20px;
+    }
+  </style>
 </head>
 
 <!-- ============================================================================================================ -->
 <!-- ============================================================================================================ -->
 
 <body style="margin: 1em">
-
+  <!--
   <a href="https://valheim.fandom.com/wiki/Food" target="_blank">Wiki</a>
   <br><br>
-
-  <div class="no-thead-dark no-table-dark table-striped table-bordered table-sm" id="valheim-food-table"></div>
+-->
+  <div class="full no-thead-dark no-table-dark table-striped table-bordered table-sm" id="valheim-food-table"></div>
 
   <!-- ============================================================================================================ -->
   <!-- ============================================================================================================ -->
@@ -63,12 +77,6 @@
 
   <!--<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.4.3/dist/js/tabulator.min.js"></script>-->
   <script type="text/javascript" src="tabulator/js/tabulator.js"></script>
-
-  <style>
-    .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
-      white-space: normal;
-    }
-  </style>
 
   <!--https://tabulator.info/docs/5.4/quickstart-->
   <!--https://tabulator.info/examples/5.4-->
@@ -107,7 +115,7 @@
         resourceCols.push({ title: resource, field: resource, headerVertical: true, hozAlign: "center" });
       }
       var table = new Tabulator("#valheim-food-table", {
-        height: 800, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+        //height: 'auto', // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
         data: tabledata, //assign data to table
         //layout: "fitColumns", //fit columns to width of table (optional)
         //layout: "fitDataTable",
