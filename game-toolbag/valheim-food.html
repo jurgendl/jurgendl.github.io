@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- https://developer.snapappointments.com/bootstrap-select/ -->
+<!--https://developer.snapappointments.com/bootstrap-select/ -->
+<!--https://github.com/snapappointments/bootstrap-select/ -->
+<!--https://developer.snapappointments.com/bootstrap-select/examples/-->
+<!--https://developer.mozilla.org/en-US/docs/Web/API/Response/json -->
+<!--https://blog.logrocket.com/ storing-retrieving-javascript-objects-localstorage/ -->
+<!--https://tabulator.info/docs/5.4/quickstart-->
+<!--https://tabulator.info/examples/5.4-->
+<!--https://tabulator.info/docs/5.4/filter#header-filters-->
 
 <head>
-  <!--<link rel="preconnect" href="https://fonts.gstatic.com">-->
-  <!--<link rel="preload" href="https://fonts.gstatic.com/s/breeserif/v17/4UaHrEJCrhhnVA3DgluA96Tp56N1.woff2" as="font" type="font/woff2" crossorigin>-->
-  <!--<link rel="preload" href="https://fonts.gstatic.com/s/breeserif/v17/4UaHrEJCrhhnVA3DgluA96rp5w.woff2" as="font" type="font/woff2" crossorigin>-->
-  <!--<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>valheim-food</title>
   <meta http-equiv="Cache-Control" content="must-revalidate, max-age=86400" />
-  <!--<meta http-equiv="Pragma" content="no-cache" />
-	<meta http-equiv="Expires" content="0" />-->
-  <!--<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">-->
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <!--<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">-->
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">-->
-  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
-  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" integrity="sha512-3q8fi8M0VS+X/3n64Ndpp6Bit7oXSiyCnzmlx6IDBLGlY5euFySyJ46RUlqIVs0DPCGOypqP8IRk/EyPvU28mQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   <link href="tabulator/css/tabulator.min.css" rel="stylesheet">
   <link href="tabulator/css/tabulator_bootstrap4.min.css" rel="stylesheet">
   <style id="internalcss">
@@ -42,9 +36,6 @@
   </style>
 </head>
 
-<!-- ============================================================================================================ -->
-<!-- ============================================================================================================ -->
-
 <body style="margin: 1em">
 
   <a href="https://valheim.fandom.com/wiki/Food" target="_blank">Wiki</a>
@@ -52,61 +43,59 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-3">
-        <input class="form-control form-control-sm" id="filter-name" type="text" placeholder="name">
+      <div class="col-3 pt-1 pb-1">
+        <input class="form-control form-control-sm" id="filter-name" type="text" placeholder="Name">
       </div>
-      <div class="col-3">
-        <select class="form-control form-control-sm" id="filter-tier" placeholder="tier">
-          <option value="" selected>select tier</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
+      <div class="col-3 pt-1 pb-1">
+        <select class="selectpicker" multiple class="" id="filter-tier" title="Tier">
+          <option selected value="1">1</option>
+          <option selected value="2">2</option>
+          <option selected value="3">3</option>
+          <option selected value="4">4</option>
+          <option selected value="5">5</option>
+          <option selected value="6">6</option>
         </select>
       </div>
-      <div class="col-3">
-        <input class="form-control form-control-sm" id="filter-hp" type="number" min="0" max="100" placeholder="hp">
+      <div class="col-3 pt-1 pb-1">
+        <input class="form-control form-control-sm" id="filter-hp" type="number" min="0" max="100" placeholder="HP">
       </div>
-      <div class="col-3">
-        <input class="form-control form-control-sm" id="filter-stamina" type="number" min="0" max="100" placeholder="sta">
+      <div class="col-3 pt-1 pb-1">
+        <input class="form-control form-control-sm" id="filter-stamina" type="number" min="0" max="100" placeholder="Stamina">
       </div>
-      <div class="col-3">
-        <input class="form-control form-control-sm" id="filter-eitr" type="number" min="0" max="100" placeholder="eitr">
+      <div class="col-3 pt-1 pb-1">
+        <input class="form-control form-control-sm" id="filter-eitr" type="number" min="0" max="100" placeholder="Eitr">
       </div>
-      <div class="col-3">
-        <select class="form-control form-control-sm" id="filter-type" placeholder="type">
-          <option value="" selected>select type</option>
-          <option value="W">white</option>
-          <option value="Y">yellow</option>
-          <option value="R">red</option>
-          <option value="R">blue</option>
+      <div class="col-3 pt-1 pb-1">
+        <select class="selectpicker" multiple id="filter-type" title="Type">
+          <option selected value="W">white</option>
+          <option selected value="Y">yellow</option>
+          <option selected value="R">red</option>
+          <option selected value="B">blue</option>
         </select>
       </div>
-      <div class="col-3">
-        <select class="form-control form-control-sm" id="filter-hps" placeholder="hps">
-          <option value="" selected>select hp/s</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+      <div class="col-3 pt-1 pb-1">
+        <select class="selectpicker" id="filter-hps" title="HP/s">
+          <option value="" selected></option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+          <option value="5">5+</option>
         </select>
       </div>
-      <div class="col-3">
-        <select class="form-control form-control-sm" id="filter-duration" placeholder="duration">
-          <option value="" selected>select duration in minutes</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="20">20</option>
-          <option value="25">25</option>
-          <option value="30">30</option>
+      <div class="col-3 pt-1 pb-1">
+        <select class="selectpicker" class="" id="filter-duration" title="Duration (m)">
+          <option value="" selected></option>
+          <option value="10">10+</option>
+          <option value="15">15+</option>
+          <option value="20">20+</option>
+          <option value="25">25+</option>
+          <option value="30">30+</option>
         </select>
       </div>
-      <div class="col-12 pt-1">
+      <div class="col-3 pt-1 pb-1">
         <button class="btn btn-sm btn-primary" id="filter">Filter</button>
-        <button class="btn btn-sm btn-secondary" id="filter-clear">Clear Filter</button>
+        <button class="btn btn-sm btn-secondary" id="filter-clear">Clear</button>
       </div>
     </div>
   </div>
@@ -114,36 +103,18 @@
 
   <div class="full no-thead-dark no-table-dark table-striped table-bordered table-sm" id="valheim-food-table"></div>
 
-  <!-- ============================================================================================================ -->
-  <!-- ============================================================================================================ -->
-
-  <!--https://developer.snapappointments.com/bootstrap-select/examples/-->
   <script src=" https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>-->
-  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>-->
-  <!-- https://bootstrap-confirmation.js.org/ -->
-  <!-- https://github.com/mistic100/Bootstrap-Confirmation -->
-  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2@4.1.0/dist/bootstrap-confirmation.min.js"></script>-->
-  <!-- https://clipboardjs.com/ -->
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>-->
-  <!-- https://github.com/seiyria/bootstrap-slider -->
-  <!-- https://seiyria.com/bootstrap-slider/ -->
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
-  <!-- https://developer.snapappointments.com/bootstrap-select/ -->
-  <!-- https://github.com/snapappointments/bootstrap-select/ -->
-  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
   <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>-->
-
-  <!--<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.4.3/dist/js/tabulator.min.js"></script>-->
   <script type="text/javascript" src="tabulator/js/tabulator.js"></script>
 
-  <!--https://tabulator.info/docs/5.4/quickstart-->
-  <!--https://tabulator.info/examples/5.4-->
-  <!--https://tabulator.info/docs/5.4/filter#header-filters-->
   <script>
+    $(function () {
+      $('.selectpicker').selectpicker();
+    });
+
     function app(data) {
       window.localStorage.setItem('valheim-food', JSON.stringify(data));
       console.log(data);
@@ -179,42 +150,55 @@
       }
 
       {
-        var nameFilter = document.getElementById("filter-name");
-        var tierFilter = document.getElementById("filter-tier");
-        var typeFilter = document.getElementById("filter-type");
-        var hpsFilter = document.getElementById("filter-hps");
-        var durationInMinutesFilter = document.getElementById("filter-duration");
-        var hpFilter = document.getElementById("filter-hp");
-        var staminaFilter = document.getElementById("filter-stamina");
-        var eitrFilter = document.getElementById("filter-eitr");
+        var nameFilter = $('#filter-name');
+        var tierFilter = $('#filter-tier');
+        var typeFilter = $('#filter-type');
+        var hpFilter = $('#filter-hp');
+        var staminaFilter = $('#filter-stamina');
+        var eitrFilter = $('#filter-eitr');
+        var hpsFilter = $('#filter-hps');
+        var durationFilter = $('#filter-duration');
         function updateFilter() {
+          console.log("name", nameFilter.val());
+          console.log("tier", tierFilter.val());
+          console.log("type", typeFilter.val());
+          console.log("hp", hpFilter.val());
+          console.log("stamina", staminaFilter.val());
+          console.log("eitr", eitrFilter.val());
+          console.log("hp/s", hpsFilter.val());
+          console.log("duration", durationFilter.val());
           table.clearFilter();
           var f = [];
-          if (nameFilter.value) {
-            f.push({ field: "name", type: "like", value: nameFilter.value });
+          if (nameFilter.val()) {
+            f.push({ field: "name", type: "like", value: nameFilter.val() });
           }
-          if (tierFilter.value) {
-            f.push({ field: "tier", type: "=", value: tierFilter.value });
+          if (tierFilter.val()) {
+            f.push({
+              field: "tier", type: "in", value: tierFilter.val().map(function (str) {
+                return parseInt(str);
+              })
+            });
           }
-          if (typeFilter.value) {
-            f.push({ field: "type", type: "=", value: typeFilter.value });
+          if (hpFilter.val()) {
+            f.push({ field: "hp", type: ">=", value: hpFilter.val() });
           }
-          if (hpsFilter.value) {
-            f.push({ field: "hpPerSecond", type: ">=", value: hpsFiles.value });
+          if (staminaFilter.val()) {
+            f.push({ field: "stamina", type: ">=", value: staminaFilter.val() });
           }
-          if (durationInMinutesFilter.value) {
-            f.push({ field: "durationInMinutes", type: ">=", value: durationInMinutesFilter.value });
+          if (eitrFilter.val()) {
+            f.push({ field: "eitr", type: ">=", value: eitrFilter.val() });
           }
-          if (hpFilter.value) {
-            f.push({ field: "hp", type: ">=", value: hpFilter.value });
+          if (typeFilter.val()) {
+            f.push({ field: "type", type: "in", value: typeFilter.val() });
           }
-          if (staminaFilter.value) {
-            f.push({ field: "stamina", type: ">=", value: staminaFilter.value });
+          if (hpsFilter.val()) {
+            f.push({ field: "hpPerSecond", type: ">=", value: hpsFilter.val() });
           }
-          if (eitrFilter.value) {
-            f.push({ field: "eitr", type: ">=", value: eitrFilter.value });
+          if (durationFilter.val()) {
+            f.push({ field: "durationInMinutes", type: ">=", value: durationFilter.val() });
           }
           if (f.length) {
+            console.log(f);
             table.setFilter(f);
           }
         }
@@ -222,20 +206,20 @@
           updateFilter();
         });
         document.getElementById("filter-clear").addEventListener("click", function () {
-          nameFilter.value = "";
-          tierFilter.value = "";
-          typeFilter.value = "";
-          hpsFilter.value = "";
-          hpFilter.value = "";
-          staminaFilter.value = "";
-          eitrFilter.value = "";
-          durationInMinutesFilter.value = "";
+          nameFilter.val('');
+          tierFilter.selectpicker('val', ['1', '2', '3', '4', '5', '6']);
+          hpFilter.val('');
+          staminaFilter.val('');
+          eitrFilter.val('');
+          typeFilter.selectpicker('val', ['W', 'Y', 'R', 'B']);
+          hpsFilter.selectpicker('val', '');
+          durationFilter.selectpicker('val', '');
           table.clearFilter();
         });
       }
 
       var table = new Tabulator("#valheim-food-table", {
-        placeholder: "Awaiting Data",
+        //placeholder: "Awaiting Data",
         height: '800', // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
         data: tabledata, //assign data to table
         //layout: "fitColumns", //fit columns to width of table (optional)
@@ -329,8 +313,7 @@
         }, 3 * 1000);
       })
     }
-    // https://developer.mozilla.org/en-US/docs/Web/API/Response/json
-    // https://blog.logrocket.com/storing-retrieving-javascript-objects-localstorage/
+
     (() => {
       try {
         let valheimFood = window.localStorage.getItem('valheim-food');
