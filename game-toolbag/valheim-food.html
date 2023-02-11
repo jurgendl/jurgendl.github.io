@@ -179,9 +179,7 @@
           }
           if (tierFilter.val()) {
             f.push({
-              field: "tier", type: "in", value: tierFilter.val().map(function (str) {
-                return parseInt(str);
-              })
+              field: "tier", type: "in", value: tierFilter.val().map(str => parseInt(str))
             });
           }
           if (hpFilter.val()) {
@@ -313,26 +311,28 @@
           }
         }
         if (filters.length > 0) {
-          console.log("dataFiltered", filters, rows);
+          console.log("dataFiltered", "filters=", filters, "rows=", rows.map(r => r.getData()));
           var keep = [];
           for (let row of rows) {
-            let dat = rows[1].getData();
+            let dat = row.getData();
             for (let resource of data.resources) {
               if (dat[resource]) {
-                //console.log(resource, dat[resource]);
+                console.log(dat, resource, dat[resource]);
                 keep.push(resource);
               }
             }
           }
-          //debugger;
+          console.log("keep", keep);
           for (let resource of data.resources) {
             let styleTag = document.getElementById("style-" + resource);
-            if (keep.indexOf(resource) != -1) {
-              console.log("style-" + resource, "enabled");
-              styleTag.disabled = true;
-            } else {
-              console.log("style-" + resource, "disabled");
-              styleTag.disabled = false;
+            if (styleTag) {
+              if (keep.indexOf(resource) != -1) {
+                console.log("_", "style-" + resource);
+                styleTag.disabled = true;
+              } else {
+                console.log("X", "style-" + resource);
+                styleTag.disabled = false;
+              }
             }
           }
         }
