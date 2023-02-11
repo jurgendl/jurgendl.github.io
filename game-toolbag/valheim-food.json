@@ -120,10 +120,10 @@
       "hpPerSecond" : 2,
       "durationInMinutes" : 30,
       "resources" : {
-        "honey" : 1,
-        "boar meat" : 1
+        "honey" : 0.5,
+        "boar meat" : 0.5
       },
-      "nrOfResources" : [ 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0.5, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "cooked fish" : {
       "id" : 6,
@@ -516,10 +516,10 @@
       "hpPerSecond" : 3,
       "durationInMinutes" : 30,
       "resources" : {
-        "honey" : 1,
-        "wolf meat" : 1
+        "honey" : 0.5,
+        "wolf meat" : 0.5
       },
-      "nrOfResources" : [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "wolf skewer" : {
       "id" : 25,
