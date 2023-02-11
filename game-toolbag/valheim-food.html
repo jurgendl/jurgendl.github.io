@@ -31,6 +31,30 @@
       cursor: crosshair;
     }
 
+    .meadows {
+      background-color: #e8f2a1;
+    }
+
+    .black-forest {
+      background-color: #bbe33d;
+    }
+
+    .swamp {
+      background-color: #b4c7dc;
+    }
+
+    .mountain {
+      background-color: #dddddd;
+    }
+
+    .plains {
+      background-color: #ffdbb6;
+    }
+
+    .mistlands {
+      background-color: #ff6d6d;
+    }
+
     /*.full {
       position: absolute;
       height: 100vh;
@@ -161,8 +185,27 @@
       //console.log(tabledata);
       console.table(tabledata);
       var resourceCols = [];
+
       for (let resource of data.resources) {
-        resourceCols.push({ title: resource, field: resource, sorter: "number", headerVertical: true, hozAlign: "center" });
+        var colorClass = '';
+        data.resourceTiers.forEach(function (resourceTier, i) {
+          for (let rt of resourceTier) {
+            if (resource == rt) {
+              colorClass = data.tiers[i];
+            }
+          }
+        });
+        if (colorClass == '') {
+          data.resourceTiers.forEach(function (resourceTier, i) {
+            for (let rt of resourceTier) {
+              console.log(resource, rt, i, resource == rt);
+              if (resource == rt) {
+                colorClass = data.tiers[i];
+              }
+            }
+          });
+        }
+        resourceCols.push({ title: resource, field: resource, sorter: "number", headerVertical: true, hozAlign: "center", cssClass: colorClass.replace(' ', '-') });
       }
 
       {
@@ -310,9 +353,9 @@
               { title: "HP/s", field: "hpPerSecond", sorter: "number", headerVertical: true, hozAlign: "center", /*headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }*/ },
               { title: "Duration (m)", field: "durationInMinutes", sorter: "number", headerVertical: true, hozAlign: "center"/*, headerFilter: "number"*/ },
               {
-                title: "Score", field: "score", sorter: "number", headerVertical: true, mutator: (value, data, type, params, component) => {
-                  var score = (data.hp + data.stamina + data.eitr) * data.durationInMinutes;
-                  //console.log("Score", data.hp, data.stamina, data.eitr, score);
+                title: "Score", field: "score", sorter: "number", headerVertical: true, mutator: (value, dat, type, params, component) => {
+                  var score = (dat.hp + dat.stamina + dat.eitr) * dat.durationInMinutes;
+                  //console.log("Score", dat.hp, dat.stamina, dat.eitr, score);
                   return score;
                 }
               }

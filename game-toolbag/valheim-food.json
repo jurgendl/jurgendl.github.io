@@ -1,8 +1,8 @@
 {
   "headers" : [ "name", "tier", "starred", "hp", "hpScore", "stamina", "staminaScore", "eitr", "eitrScore", "score", "type", "hpPerSecond", "durationInMinutes" ],
   "tiers" : [ "meadows", "black forest", "swamp", "mountain", "plains", "mistlands" ],
-  "resourceTiers" : [ [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish" ], [ "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish" ], [ "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley", "egg" ], [ "magecap", "jotun puffs", "seeker meat", "hare meat", "chicken meat", "blood clot", "sap", "royal yelly" ] ],
-  "resources" : [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish", "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish", "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag", "onion", "wolf meat", "freeze gland", "cloudberries ", "lox meat", "barley", "egg", "chicken meat", "magecap ", "jotun puffs ", "seeker meat ", "hare meat", "blood clot", "sap", "royal yelly" ],
+  "resourceTiers" : [ [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish" ], [ "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish" ], [ "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "magecap", "jotun puffs", "seeker meat", "hare meat", "chicken meat", "blood clot", "sap", "royal yelly" ] ],
+  "resources" : [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish", "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish", "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag", "onion", "wolf meat", "freeze gland", "cloudberries", "lox meat", "barley", "egg", "chicken meat", "magecap", "jotun puffs", "seeker meat", "hare meat", "blood clot", "sap", "royal yelly" ],
   "food" : {
     "raspberries" : {
       "id" : 0,
@@ -580,7 +580,7 @@
       "hpPerSecond" : 1,
       "durationInMinutes" : 15,
       "resources" : {
-        "cloudberries " : 1
+        "cloudberries" : 1
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
@@ -641,7 +641,7 @@
       "hpPerSecond" : 4,
       "durationInMinutes" : 30,
       "resources" : {
-        "cloudberries " : 2,
+        "cloudberries" : 2,
         "lox meat" : 2,
         "barley" : 4
       },
@@ -745,7 +745,7 @@
       "hpPerSecond" : 1,
       "durationInMinutes" : 15,
       "resources" : {
-        "magecap " : 1
+        "magecap" : 1
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ]
     },
@@ -765,7 +765,7 @@
       "hpPerSecond" : 1,
       "durationInMinutes" : 15,
       "resources" : {
-        "jotun puffs " : 1
+        "jotun puffs" : 1
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
     },
@@ -805,7 +805,7 @@
       "hpPerSecond" : 5,
       "durationInMinutes" : 20,
       "resources" : {
-        "seeker meat " : 1
+        "seeker meat" : 1
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 ]
     },
@@ -846,7 +846,7 @@
       "durationInMinutes" : 30,
       "resources" : {
         "lox meat" : 1,
-        "seeker meat " : 1,
+        "seeker meat" : 1,
         "hare meat" : 1
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0 ]
@@ -869,7 +869,7 @@
       "resources" : {
         "honey" : 3,
         "chicken meat" : 1,
-        "jotun puffs " : 1
+        "jotun puffs" : 1
       },
       "nrOfResources" : [ 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 ]
     },
@@ -890,7 +890,7 @@
       "durationInMinutes" : 25,
       "resources" : {
         "carrot" : 2,
-        "jotun puffs " : 3,
+        "jotun puffs" : 3,
         "hare meat" : 1
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0 ]
@@ -912,8 +912,8 @@
       "durationInMinutes" : 25,
       "resources" : {
         "onion" : 1,
-        "cloudberries " : 1,
-        "jotun puffs " : 1
+        "cloudberries" : 1,
+        "jotun puffs" : 1
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
     },
@@ -934,7 +934,7 @@
       "durationInMinutes" : 25,
       "resources" : {
         "egg" : 3,
-        "jotun puffs " : 3
+        "jotun puffs" : 3
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0 ]
     },
@@ -976,7 +976,7 @@
       "durationInMinutes" : 25,
       "resources" : {
         "turnip" : 2,
-        "magecap " : 3,
+        "magecap" : 3,
         "blood clot" : 1
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0 ]
@@ -1019,8 +1019,8 @@
       "hpPerSecond" : 3,
       "durationInMinutes" : 30,
       "resources" : {
-        "magecap " : 2,
-        "seeker meat " : 2,
+        "magecap" : 2,
+        "seeker meat" : 2,
         "royal yelly" : 2
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 2 ]
