@@ -2,7 +2,7 @@
   "headers" : [ "name", "tier", "starred", "hp", "hpScore", "stamina", "staminaScore", "eitr", "eitrScore", "score", "type", "hpPerSecond", "durationInMinutes" ],
   "tiers" : [ "meadows", "black forest", "swamp", "mountain", "plains", "mistlands" ],
   "resourceTiers" : [ [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish" ], [ "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish" ], [ "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley", "egg" ], [ "magecap", "jotun puffs", "seeker meat", "hare meat", "chicken meat", "blood clot", "sap", "royal yelly" ] ],
-  "resources" : [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish", "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish", "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag", "onion", "wolf meat", "freeze gland", "cloudberries ", "lox meat", "barley", "egg", "magecap ", "jotun puffs ", "seeker meat ", "hare meat", "chicken meat", "blood clot", "sap", "royal yelly" ],
+  "resources" : [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish", "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish", "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag", "onion", "wolf meat", "freeze gland", "cloudberries ", "lox meat", "barley", "egg", "chicken meat", "magecap ", "jotun puffs ", "seeker meat ", "hare meat", "blood clot", "sap", "royal yelly" ],
   "food" : {
     "raspberries" : {
       "id" : 0,
@@ -692,7 +692,7 @@
     "cooked egg" : {
       "id" : 33,
       "name" : "cooked egg",
-      "tier" : 5,
+      "tier" : 6,
       "starred" : false,
       "hp" : 35,
       "hpScore" : 700.0,
@@ -712,7 +712,7 @@
     "cooked chicken meat" : {
       "id" : 34,
       "name" : "cooked chicken meat",
-      "tier" : 5,
+      "tier" : 6,
       "starred" : true,
       "hp" : 60,
       "hpScore" : 1200.0,
@@ -727,7 +727,7 @@
       "resources" : {
         "chicken meat" : 1
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "magecap" : {
       "id" : 35,
@@ -747,7 +747,7 @@
       "resources" : {
         "magecap " : 1
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ]
     },
     "jotun puffs" : {
       "id" : 36,
@@ -767,10 +767,30 @@
       "resources" : {
         "jotun puffs " : 1
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
+    },
+    "royal yelly" : {
+      "id" : 37,
+      "name" : "royal yelly",
+      "tier" : 6,
+      "starred" : false,
+      "hp" : 15,
+      "hpScore" : 225.0,
+      "stamina" : 15,
+      "staminaScore" : 225.0,
+      "eitr" : 0,
+      "eitrScore" : 0.0,
+      "score" : 450.0,
+      "type" : "white",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 15,
+      "resources" : {
+        "royal yelly" : 1
+      },
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
     },
     "cooked seeker meat" : {
-      "id" : 37,
+      "id" : 38,
       "name" : "cooked seeker meat",
       "tier" : 6,
       "starred" : false,
@@ -787,10 +807,10 @@
       "resources" : {
         "seeker meat " : 1
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 ]
     },
     "cooked hare meat" : {
-      "id" : 38,
+      "id" : 39,
       "name" : "cooked hare meat",
       "tier" : 6,
       "starred" : false,
@@ -807,10 +827,10 @@
       "resources" : {
         "hare meat" : 1
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ]
     },
     "meat platter" : {
-      "id" : 39,
+      "id" : 40,
       "name" : "meat platter",
       "tier" : 6,
       "starred" : false,
@@ -829,10 +849,10 @@
         "seeker meat " : 1,
         "hare meat" : 1
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0 ]
     },
     "honey glazed chicken" : {
-      "id" : 40,
+      "id" : 41,
       "name" : "honey glazed chicken",
       "tier" : 6,
       "starred" : true,
@@ -848,13 +868,13 @@
       "durationInMinutes" : 30,
       "resources" : {
         "honey" : 3,
-        "jotun puffs " : 1,
-        "chicken meat" : 1
+        "chicken meat" : 1,
+        "jotun puffs " : 1
       },
-      "nrOfResources" : [ 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 ]
     },
     "misthare supreme" : {
-      "id" : 41,
+      "id" : 42,
       "name" : "misthare supreme",
       "tier" : 6,
       "starred" : true,
@@ -873,10 +893,10 @@
         "jotun puffs " : 3,
         "hare meat" : 1
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0 ]
     },
     "salad" : {
-      "id" : 42,
+      "id" : 43,
       "name" : "salad",
       "tier" : 6,
       "starred" : true,
@@ -895,10 +915,10 @@
         "cloudberries " : 1,
         "jotun puffs " : 1
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
     },
     "mushroom omelette" : {
-      "id" : 43,
+      "id" : 44,
       "name" : "mushroom omelette",
       "tier" : 6,
       "starred" : false,
@@ -916,10 +936,10 @@
         "egg" : 3,
         "jotun puffs " : 3
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0 ]
     },
     "fish and bread" : {
-      "id" : 44,
+      "id" : 45,
       "name" : "fish and bread",
       "tier" : 6,
       "starred" : false,
@@ -940,7 +960,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
     "stuffed mushroom" : {
-      "id" : 45,
+      "id" : 46,
       "name" : "stuffed mushroom",
       "tier" : 6,
       "starred" : false,
@@ -959,10 +979,10 @@
         "magecap " : 3,
         "blood clot" : 1
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 0, 0 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0 ]
     },
     "yggdrasil porridge" : {
-      "id" : 46,
+      "id" : 47,
       "name" : "yggdrasil porridge",
       "tier" : 6,
       "starred" : false,
@@ -984,7 +1004,7 @@
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4, 2 ]
     },
     "seeker aspic" : {
-      "id" : 47,
+      "id" : 48,
       "name" : "seeker aspic",
       "tier" : 6,
       "starred" : false,
@@ -1003,7 +1023,7 @@
         "seeker meat " : 2,
         "royal yelly" : 2
       },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 2 ]
+      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 2 ]
     }
   }
 }

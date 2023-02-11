@@ -43,9 +43,6 @@
 
 <body style="margin: 1em">
 
-  <a href="https://valheim.fandom.com/wiki/Food" target="_blank">Wiki</a>
-  <br><br>
-
   <div class="container">
     <div class="row">
       <div class="col-3 pt-1 pb-1">
@@ -98,9 +95,11 @@
           <option value="30">30+</option>
         </select>
       </div>
-      <div class="col-3 pt-1 pb-1">
+      <div class="col-6 pt-1 pb-1">
         <button class="btn btn-sm btn-primary" id="filter">Filter</button>
         <button class="btn btn-sm btn-secondary" id="filter-clear">Clear</button>
+        <a class="btn btn-sm btn-info" href="https://valheim.fandom.com/wiki/Food" target="_blank">Wiki</a>
+        <button class="btn btn-sm btn-warning" id="json-clear">Reload</button>
       </div>
     </div>
   </div>
@@ -220,6 +219,12 @@
           table.clearFilter();
         });
       }
+
+      document.getElementById("json-clear").addEventListener("click", function () {
+        window.localStorage.removeItem('valheim-food');
+        location.reload();
+      });
+
 
       var table = new Tabulator("#valheim-food-table", {
         //placeholder: "Awaiting Data",
