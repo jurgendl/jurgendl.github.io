@@ -2,7 +2,7 @@
   "headers" : [ "name", "tier", "starred", "hp", "hpScore", "stamina", "staminaScore", "eitr", "eitrScore", "score", "type", "hpPerSecond", "durationInMinutes" ],
   "tiers" : [ "meadows", "black forest", "swamp", "mountain", "plains", "mistlands" ],
   "resourceTiers" : [ [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish" ], [ "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish" ], [ "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "magecap", "jotun puffs", "seeker meat", "hare meat", "chicken meat", "blood clot", "sap", "royal jelly" ] ],
-  "resources" : [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish", "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish", "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag", "onion", "wolf meat", "freeze gland", "cloudberries", "lox meat", "barley", "egg", "chicken meat", "magecap", "jotun puffs", "seeker meat", "hare meat", "blood clot", "sap", "royal yelly" ],
+  "resources" : [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish", "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish", "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag", "onion", "wolf meat", "freeze gland", "cloudberries", "lox meat", "barley", "egg", "chicken meat", "magecap", "jotun puffs", "seeker meat", "hare meat", "blood clot", "sap", "royal jelly" ],
   "food" : {
     "raspberries" : {
       "id" : 0,
@@ -44,9 +44,9 @@
       },
       "nrOfResources" : [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     },
-    "grilled neck meat" : {
+    "grilled neck tail" : {
       "id" : 2,
-      "name" : "grilled neck meat",
+      "name" : "grilled neck tail",
       "tier" : 1,
       "starred" : false,
       "hp" : 25,
@@ -769,9 +769,9 @@
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
     },
-    "royal yelly" : {
+    "royal jelly" : {
       "id" : 37,
-      "name" : "royal yelly",
+      "name" : "royal jelly",
       "tier" : 6,
       "starred" : false,
       "hp" : 15,
@@ -785,7 +785,7 @@
       "hpPerSecond" : 1,
       "durationInMinutes" : 15,
       "resources" : {
-        "royal yelly" : 1
+        "royal jelly" : 1
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
     },
@@ -999,7 +999,7 @@
       "resources" : {
         "barley" : 3,
         "sap" : 4,
-        "royal yelly" : 2
+        "royal jelly" : 2
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4, 2 ]
     },
@@ -1021,7 +1021,7 @@
       "resources" : {
         "magecap" : 2,
         "seeker meat" : 2,
-        "royal yelly" : 2
+        "royal jelly" : 2
       },
       "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 2 ]
     }
