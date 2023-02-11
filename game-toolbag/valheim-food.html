@@ -28,6 +28,10 @@
       white-space: normal;
     }
 
+    .bootstrap-select {
+      width: 100% !important;
+    }
+
     .tabulator-cell {
       cursor: crosshair;
     }
@@ -399,6 +403,9 @@
         <a class="btn btn-sm btn-info" href="https://valheim.fandom.com/wiki/Food" target="_blank">Wiki</a>
         <button class="btn btn-sm btn-warning" id="json-clear">Reload</button>
       </div>
+      <div class="col-8 pt-1 pb-1">
+        <input type="text" disabled id="totalPoints" class="form-control form-control-sm">
+      </div>
     </div>
   </div>
   <br>
@@ -414,7 +421,7 @@
 
   <script>
     function app(data) {
-      const tierColors = {
+      this.tierColors = {
         1: '#f7f781',
         2: '#bbe33d',
         3: '#b4c7dc',
@@ -422,12 +429,16 @@
         5: '#ffdbb6',
         6: '#ffc2c2',
       };
+      this.tabledata = [];
+      this.resourceCols = [];
+
+      let _this = this;
 
       window.localStorage.setItem('valheim-food', JSON.stringify(data));
-      console.log(data);
-      var tabledata = [];
+      //console.log(data);
+
       for (let [name, food] of Object.entries(data.food)) {
-        var row = {
+        let row = {
           id: food.id,
           name: food.name,
           tier: food.tier,
@@ -446,15 +457,13 @@
             row[resource] = '';
           }
         }
-
-        tabledata.push(row);
+        _this.tabledata.push(row);
       }
-      //console.log(tabledata);
-      console.table(tabledata);
-      var resourceCols = [];
+      //console.log(_this.tabledata);
+      //console.table(_this.tabledata);
 
       for (let resource of data.resources) {
-        var colorClass = '';
+        let colorClass = '';
         data.resourceTiers.forEach(function (resourceTier, i) {
           for (let rt of resourceTier) {
             if (resource == rt) {
@@ -465,26 +474,26 @@
         if (colorClass == '') {
           data.resourceTiers.forEach(function (resourceTier, i) {
             for (let rt of resourceTier) {
-              console.log(resource, rt, i, resource == rt);
+              //console.log(resource, rt, i, resource == rt);
               if (resource == rt) {
                 colorClass = data.tiers[i];
               }
             }
           });
         }
-        resourceCols.push({ title: resource, field: resource, sorter: "number", headerVertical: true, hozAlign: "center", cssClass: colorClass.replace(' ', '-') });
+        _this.resourceCols.push({ title: resource, field: resource, sorter: "number", headerVertical: true, hozAlign: "center", cssClass: colorClass.replace(' ', '-') });
       }
 
       {
-        var nameFilter = $('#filter-name');
-        var tierFilter = $('#filter-tier');
-        var starredFilter = $('#filter-starred');
-        var typeFilter = $('#filter-type');
-        var hpFilter = $('#filter-hp');
-        var staminaFilter = $('#filter-stamina');
-        var eitrFilter = $('#filter-eitr');
-        var hpsFilter = $('#filter-hps');
-        var durationFilter = $('#filter-duration');
+        _this.nameFilter = $('#filter-name');
+        _this.tierFilter = $('#filter-tier');
+        _this.starredFilter = $('#filter-starred');
+        _this.typeFilter = $('#filter-type');
+        _this.hpFilter = $('#filter-hp');
+        _this.staminaFilter = $('#filter-stamina');
+        _this.eitrFilter = $('#filter-eitr');
+        _this.hpsFilter = $('#filter-hps');
+        _this.durationFilter = $('#filter-duration');
         function updateFilter() {
           //console.log("name", nameFilter.val());
           //console.log("tier", tierFilter.val());
@@ -495,46 +504,52 @@
           //console.log("eitr", eitrFilter.val());
           //console.log("hp/s", hpsFilter.val());
           //console.log("duration", durationFilter.val());
-          table.clearFilter();
-          var f = [];
+
+          _this.table.clearFilter();
+          for (let i = 0; i < Object.keys(data.food).length; i++) {
+            _this.table.deselectRow(i);
+          }
+          $('#totalPoints').val('');
+
+          let f = [];
           if (nameFilter.val()) {
-            f.push({ field: "name", type: "like", value: nameFilter.val() });
+            f.push({ field: "name", type: "like", value: _this.nameFilter.val() });
           }
           if (tierFilter.val()) {
             f.push({
-              field: "tier", type: "in", value: tierFilter.val().map(str => parseInt(str))
+              field: "tier", type: "in", value: _this.tierFilter.val().map(str => parseInt(str))
             });
           }
-          if (starredFilter.val()) {
-            if (starredFilter.val().length == 1) {
-              if (starredFilter.val()[0] == "y") {
+          if (_this.starredFilter.val()) {
+            if (_this.starredFilter.val().length == 1) {
+              if (_this.starredFilter.val()[0] == "y") {
                 f.push({ field: "starred", type: "=", value: true });
               } else {
                 f.push({ field: "starred", type: "=", value: false });
               }
             }
           }
-          if (hpFilter.val()) {
-            f.push({ field: "hp", type: ">=", value: hpFilter.val() });
+          if (_this.hpFilter.val()) {
+            f.push({ field: "hp", type: ">=", value: _this.hpFilter.val() });
           }
-          if (staminaFilter.val()) {
-            f.push({ field: "stamina", type: ">=", value: staminaFilter.val() });
+          if (_this.staminaFilter.val()) {
+            f.push({ field: "stamina", type: ">=", value: _this.staminaFilter.val() });
           }
-          if (eitrFilter.val()) {
-            f.push({ field: "eitr", type: ">=", value: eitrFilter.val() });
+          if (_this.eitrFilter.val()) {
+            f.push({ field: "eitr", type: ">=", value: _this.eitrFilter.val() });
           }
-          if (typeFilter.val()) {
-            f.push({ field: "type", type: "in", value: typeFilter.val() });
+          if (_this.typeFilter.val()) {
+            f.push({ field: "type", type: "in", value: _this.typeFilter.val() });
           }
-          if (hpsFilter.val()) {
-            f.push({ field: "hpPerSecond", type: ">=", value: hpsFilter.val() });
+          if (_this.hpsFilter.val()) {
+            f.push({ field: "hpPerSecond", type: ">=", value: _this.hpsFilter.val() });
           }
-          if (durationFilter.val()) {
-            f.push({ field: "durationInMinutes", type: ">=", value: durationFilter.val() });
+          if (_this.durationFilter.val()) {
+            f.push({ field: "durationInMinutes", type: ">=", value: _this.durationFilter.val() });
           }
           if (f.length) {
             //console.log(f);
-            table.setFilter(f);
+            _this.table.setFilter(f);
           }
         }
         document.getElementById("filter").addEventListener("click", function () {
@@ -550,7 +565,12 @@
           typeFilter.selectpicker('val', ['W', 'Y', 'R', 'B']);
           hpsFilter.selectpicker('val', '');
           durationFilter.selectpicker('val', '');
-          table.clearFilter();
+
+          _this.table.clearFilter();
+          for (let i = 0; i < Object.keys(data.food).length; i++) {
+            _this.table.deselectRow(i);
+          }
+          $('#totalPoints').val('');
         });
       }
 
@@ -559,23 +579,24 @@
         location.reload();
       });
 
-      var table = new Tabulator("#valheim-food-table", {
+      _this.table = new Tabulator("#valheim-food-table", {
         //placeholder: "Awaiting Data",
         height: '700', // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
-        data: tabledata, //assign data to table
+        data: _this.tabledata, //assign data to table
         //layout: "fitColumns", //fit columns to width of table (optional)
         //layout: "fitDataTable",
         //layoutColumnsOnNewData: true,
         // responsiveLayout:"hide", // hide rows that no longer fit
         // responsiveLayout:"collapse", // collapse columns that no longer fit on the table into a list under the row
         //resizableRows: true, // this option takes a boolean value (default = false)
+        selectable: true, //make rows selectable
         columns: [
           {
             title: "Name", field: "name", frozen: true, /*headerFilter: "input",*/ formatter: function (cell, formatterParams) {
-              var dat = cell.getData();
-              var value = cell.getValue();
-              var color = tierColors[dat.tier];
-              var tt = "";
+              let dat = cell.getData();
+              let value = cell.getValue();
+              let color = _this.tierColors[dat.tier];
+              let tt = "";
               //console.log("data", dat, "value", value, "color", color);
               for (let [n, c] of Object.entries(data.food[value].resources)) {
                 if (tt == "") {
@@ -592,9 +613,9 @@
             columns: [
               {
                 title: "Tier", field: "tier", sorter: "number", headerVertical: true, hozAlign: "center" /*, headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }*/, formatter: function (cell, formatterParams) {
-                  var dat = cell.getData();
-                  var value = cell.getValue();
-                  return "<span style='background-color:" + tierColors[dat.tier] + ";display:block;width:100%;height:100%' title='meadows'>" + value + "</span>";
+                  let dat = cell.getData();
+                  let value = cell.getValue();
+                  return "<span style='background-color:" + _this.tierColors[dat.tier] + ";display:block;width:100%;height:100%' title='meadows'>" + value + "</span>";
                 }
               },
               { title: "Starred", field: "starred", sorter: "boolean", headerVertical: true, hozAlign: "center", formatter: "tickCross"              /*, headerFilter: "tickCross", headerFilterParams: { "tristate": true }*/ },
@@ -603,7 +624,7 @@
               { title: "Eitr", field: "eitr", sorter: "number", headerVertical: true, hozAlign: "center"/*, headerFilter: "number"*/ },
               {
                 title: "Type", field: "type", headerVertical: true, hozAlign: "center"/*, headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }*/, formatter: function (cell, formatterParams) {
-                  var value = cell.getValue();
+                  let value = cell.getValue();
                   if (value == "Y") {
                     return "<span title='yellow' style='background-color:#ffff84;display:block;width:100%;height:100%'>Y</span>";
                   } else if (value == "R") {
@@ -621,7 +642,7 @@
               { title: "Duration (m)", field: "durationInMinutes", sorter: "number", headerVertical: true, hozAlign: "center"/*, headerFilter: "number"*/ },
               {
                 title: "Score", field: "score", sorter: "number", headerVertical: true, mutator: (value, dat, type, params, component) => {
-                  var score = (dat.hp + dat.stamina + dat.eitr) * dat.durationInMinutes;
+                  let score = (dat.hp + dat.stamina + dat.eitr) * dat.durationInMinutes;
                   //console.log("Score", dat.hp, dat.stamina, dat.eitr, score);
                   return score;
                 }
@@ -635,7 +656,34 @@
         ],
       });
 
-      table.on("dataFiltered", function (filters, rows) {
+      _this.table.on("rowSelectionChanged", function (x, rows) {
+        if (rows.length == 0) {
+          $('#totalPoints').val('');
+        } else if (rows.length > 3) {
+          $('#totalPoints').val('TOO MANY ROWS SELECTED');
+        } else {
+          let totalHP = 0;
+          let totalStamina = 0;
+          let totalEitr = 0;
+          let totalScore = 0;
+          let dur = [];
+          for (let row of rows) {
+            let dat = row.getData();
+            totalHP += dat.hp;
+            totalStamina += dat.stamina;
+            totalEitr += dat.eitr;
+            dur.push(dat.durationInMinutes);
+            totalScore += (dat.hp + dat.stamina + dat.eitr) * dat.durationInMinutes;
+          }
+          if (Math.min.apply(Math, dur) == Math.max.apply(Math, dur)) {
+            $('#totalPoints').val('SELECTED TOTAL: HP=' + totalHP + ', Stamina=' + totalStamina + ', Eitr=' + totalEitr + ' [' + Math.min.apply(Math, dur) + 'm] > ' + totalScore + ' score');
+          } else {
+            $('#totalPoints').val('SELECTED TOTAL: HP=' + totalHP + ', Stamina=' + totalStamina + ', Eitr=' + totalEitr + ' [' + Math.min.apply(Math, dur) + '-' + Math.max.apply(Math, dur) + 'm] > ' + totalScore + ' score');
+          }
+        }
+      });
+
+      _this.table.on("dataFiltered", function (filters, rows) {
         //filters - array of filters currently applied
         //rows - array of row components that pass the filters
         for (let resource of data.resources) {
@@ -646,26 +694,26 @@
           }
         }
         if (filters.length > 0) {
-          console.log("dataFiltered", "filters=", filters, "rows=", rows.map(r => r.getData()));
-          var keep = [];
+          //console.log("dataFiltered", "filters=", filters, "rows=", rows.map(r => r.getData()));
+          let keep = [];
           for (let row of rows) {
             let dat = row.getData();
             for (let resource of data.resources) {
               if (dat[resource]) {
-                console.log(dat, resource, dat[resource]);
+                //console.log(dat, resource, dat[resource]);
                 keep.push(resource);
               }
             }
           }
-          console.log("keep", keep);
+          //console.log("keep", keep);
           for (let resource of data.resources) {
             let styleTag = document.getElementById("style-" + resource);
             if (styleTag) {
               if (keep.indexOf(resource) != -1) {
-                console.log("_", "style-" + resource);
+                //console.log("_", "style-" + resource);
                 styleTag.disabled = true;
               } else {
-                console.log("X", "style-" + resource);
+                //console.log("X", "style-" + resource);
                 styleTag.disabled = false;
               }
             }
@@ -680,7 +728,7 @@
           $('[data-toggle="popover"]').popover({ trigger: 'focus' });
 
           for (let resource of data.resources) {
-            var style = document.createElement("style");
+            let style = document.createElement("style");
             style.id = "style-" + resource;
             style.innerHTML = "[tabulator-field='" + resource + "'] { display: none !important; }";
             //console.log(style.id, style.innerHTML);
