@@ -273,7 +273,7 @@
       "id" : 13,
       "name" : "minced meat sauce",
       "tier" : 2,
-      "starred" : false,
+      "starred" : true,
       "hp" : 40,
       "hpScore" : 1000.0,
       "stamina" : 13,
