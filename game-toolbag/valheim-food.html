@@ -3,6 +3,7 @@
 <!--https://developer.snapappointments.com/bootstrap-select/ -->
 <!--https://github.com/snapappointments/bootstrap-select/ -->
 <!--https://developer.snapappointments.com/bootstrap-select/examples/-->
+<!--https://developer.snapappointments.com/bootstrap-select/methods/-->
 <!--https://developer.mozilla.org/en-US/docs/Web/API/Response/json -->
 <!--https://blog.logrocket.com/ storing-retrieving-javascript-objects-localstorage/ -->
 <!--https://tabulator.info/docs/5.4/quickstart-->
@@ -117,7 +118,7 @@
 
     function app(data) {
       window.localStorage.setItem('valheim-food', JSON.stringify(data));
-      console.log(data);
+      //console.log(data);
       var tabledata = [];
       for (let [name, food] of Object.entries(data.food)) {
         var row = {
@@ -142,7 +143,7 @@
 
         tabledata.push(row);
       }
-      console.log(tabledata);
+      //console.log(tabledata);
       console.table(tabledata);
       var resourceCols = [];
       for (let resource of data.resources) {
@@ -159,14 +160,14 @@
         var hpsFilter = $('#filter-hps');
         var durationFilter = $('#filter-duration');
         function updateFilter() {
-          console.log("name", nameFilter.val());
-          console.log("tier", tierFilter.val());
-          console.log("type", typeFilter.val());
-          console.log("hp", hpFilter.val());
-          console.log("stamina", staminaFilter.val());
-          console.log("eitr", eitrFilter.val());
-          console.log("hp/s", hpsFilter.val());
-          console.log("duration", durationFilter.val());
+          //console.log("name", nameFilter.val());
+          //console.log("tier", tierFilter.val());
+          //console.log("type", typeFilter.val());
+          //console.log("hp", hpFilter.val());
+          //console.log("stamina", staminaFilter.val());
+          //console.log("eitr", eitrFilter.val());
+          //console.log("hp/s", hpsFilter.val());
+          //console.log("duration", durationFilter.val());
           table.clearFilter();
           var f = [];
           if (nameFilter.val()) {
@@ -198,7 +199,7 @@
             f.push({ field: "durationInMinutes", type: ">=", value: durationFilter.val() });
           }
           if (f.length) {
-            console.log(f);
+            //console.log(f);
             table.setFilter(f);
           }
         }
@@ -220,7 +221,7 @@
 
       var table = new Tabulator("#valheim-food-table", {
         //placeholder: "Awaiting Data",
-        height: '800', // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+        height: '700', // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
         data: tabledata, //assign data to table
         //layout: "fitColumns", //fit columns to width of table (optional)
         //layout: "fitDataTable",
@@ -297,16 +298,52 @@
         ],
       });
 
+      table.on("dataFiltered", function (filters, rows) {
+        //filters - array of filters currently applied
+        //rows - array of row components that pass the filters
+        for (let resource of data.resources) {
+          let styleTag = document.getElementById("style-" + resource);
+          if (styleTag) {
+            //console.log("style-" + resource, styleTag);
+            styleTag.disabled = true;
+          }
+        }
+        if (filters.length > 0) {
+          console.log("dataFiltered", filters, rows);
+          var keep = [];
+          for (let row of rows) {
+            let dat = rows[1].getData();
+            for (let resource of data.resources) {
+              if (dat[resource]) {
+                //console.log(resource, dat[resource]);
+                keep.push(resource);
+              }
+            }
+          }
+          //debugger;
+          for (let resource of data.resources) {
+            let styleTag = document.getElementById("style-" + resource);
+            if (keep.indexOf(resource) != -1) {
+              console.log("style-" + resource, "enabled");
+              styleTag.disabled = true;
+            } else {
+              console.log("style-" + resource, "disabled");
+              styleTag.disabled = false;
+            }
+          }
+        }
+      });
+
       $(function () {
         setTimeout(() => {
-          console.log('POST');
+          //console.log('POST');
           $('[data-toggle="popover"]').popover({ trigger: 'focus' });
 
           for (let resource of data.resources) {
             var style = document.createElement("style");
             style.id = "style-" + resource;
             style.innerHTML = "[tabulator-field='" + resource + "'] { display: none !important; }";
-            console.log(style.id, style.innerHTML);
+            //console.log(style.id, style.innerHTML);
             document.body.appendChild(style);
             document.getElementById("style-" + resource).disabled = true;
           }
@@ -319,7 +356,7 @@
         let valheimFood = window.localStorage.getItem('valheim-food');
         if (valheimFood && valheimFood != undefined && valheimFood != null) {
           let data = JSON.parse(valheimFood);
-          console.log(data.headers);
+          //console.log(data.headers);
           app(data);
         } else {
           fetch('valheim-food.json')
@@ -327,7 +364,7 @@
             .then((data) => app(data));
         }
       } catch (e) {
-        console.log(e);
+        //console.log(e);
         fetch('valheim-food.json')
           .then((response) => response.json())
           .then((data) => app(data));
