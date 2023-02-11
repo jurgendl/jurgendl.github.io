@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--https://developer.snapappointments.com/bootstrap-select/ -->
-<!--https://github.com/snapappointments/bootstrap-select/ -->
+<!--https://developer.snapappointments.com/bootstrap-select/-->
+<!--https://github.com/snapappointments/bootstrap-select/-->
 <!--https://developer.snapappointments.com/bootstrap-select/examples/-->
 <!--https://developer.snapappointments.com/bootstrap-select/methods/-->
-<!--https://developer.mozilla.org/en-US/docs/Web/API/Response/json -->
-<!--https://blog.logrocket.com/ storing-retrieving-javascript-objects-localstorage/ -->
+<!--https://developer.mozilla.org/en-US/docs/Web/API/Response/json-->
+<!--https://blog.logrocket.com/storing-retrieving-javascript-objects-localstorage/-->
 <!--https://tabulator.info/docs/5.4/quickstart-->
 <!--https://tabulator.info/examples/5.4-->
 <!--https://tabulator.info/docs/5.4/filter#header-filters-->
 <!--https://github.com/olifolkerd/tabulator/issues/1266-->
+<!--https://github.com/olifolkerd/tabulator/issues/1063-->
 
 <head>
   <meta charset="UTF-8">
@@ -52,7 +53,7 @@
     }
 
     .mistlands {
-      background-color: #ff6d6d;
+      background-color: #ffc2c2;
     }
 
     /*.full {
@@ -153,7 +154,7 @@
         3: '#b4c7dc',
         4: '#dddddd',
         5: '#ffdbb6',
-        6: '#ff6d6d',
+        6: '#ffc2c2',
       };
 
       window.localStorage.setItem('valheim-food', JSON.stringify(data));
@@ -340,7 +341,7 @@
                   if (value == "Y") {
                     return "<span title='yellow' style='background-color:#ffff84;display:block;width:100%;height:100%'>Y</span>";
                   } else if (value == "R") {
-                    return "<span title='red' style='background-color:#ff6d6d;display:block;width:100%;height:100%'>R</span>";
+                    return "<span title='red' style='background-color:#ffc2c2;display:block;width:100%;height:100%'>R</span>";
                   } else if (value == "B") {
                     return "<span title='blue' style='background-color:#8787dc;display:block;width:100%;height:100%'>B</span>";
                   } else if (value == "W") {
