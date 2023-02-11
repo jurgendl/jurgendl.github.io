@@ -33,7 +33,7 @@
     }
 
     .meadows {
-      background-color: #e8f2a1;
+      background-color: #f7f781;
     }
 
     .black-forest {
@@ -149,7 +149,7 @@
   <script>
     function app(data) {
       const tierColors = {
-        1: '#e8f2a1',
+        1: '#f7f781',
         2: '#bbe33d',
         3: '#b4c7dc',
         4: '#dddddd',
@@ -318,7 +318,7 @@
                   tt = tt + "\n" + c + " " + n;
                 }
               }
-              return '<div style="background-color:' + color + '" title="' + tt + '">&nbsp;' + value + '</div>';
+              return '<div style="background-color:' + color + '" title="' + tt + '"><img width=32 height=32 src="images/'+value+'.png">&nbsp;' + value + '</div>';
             }
           },
           {//create column group
@@ -343,7 +343,7 @@
                   } else if (value == "R") {
                     return "<span title='red' style='background-color:#ffc2c2;display:block;width:100%;height:100%'>R</span>";
                   } else if (value == "B") {
-                    return "<span title='blue' style='background-color:#8787dc;display:block;width:100%;height:100%'>B</span>";
+                    return "<span title='blue' style='background-color:#b4c7dc;display:block;width:100%;height:100%'>B</span>";
                   } else if (value == "W") {
                     return "<span title='white' style='background-color:#ddd;display:block;width:100%;height:100%'>W</span>";
                   } else {
