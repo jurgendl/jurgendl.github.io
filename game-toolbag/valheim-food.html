@@ -26,6 +26,10 @@
       white-space: normal;
     }
 
+    .tabulator-cell {
+      cursor: crosshair;
+    }
+
     /*.full {
       position: absolute;
       height: 100vh;
@@ -49,12 +53,12 @@
       </div>
       <div class="col-3 pt-1 pb-1">
         <select class="selectpicker" multiple class="" id="filter-tier" title="Tier">
-          <option selected value="1">1</option>
-          <option selected value="2">2</option>
-          <option selected value="3">3</option>
-          <option selected value="4">4</option>
-          <option selected value="5">5</option>
-          <option selected value="6">6</option>
+          <option selected value="1">meadows</option>
+          <option selected value="2">black forest</option>
+          <option selected value="3">swamp</option>
+          <option selected value="4">mountain</option>
+          <option selected value="5">plains</option>
+          <option selected value="6">mistands</option>
         </select>
       </div>
       <div class="col-3 pt-1 pb-1">
@@ -241,7 +245,7 @@
                   tt = tt + "\n" + c + " " + n;
                 }
               }
-              return '<div style="cursor:crosshair" title="' + tt + '">' + value + '</div>';
+              return '<div title="' + tt + '">' + value + '</div>';
             }
           },
           {//create column group
@@ -251,17 +255,17 @@
                 title: "Tier", field: "tier", sorter: "number", headerVertical: true, hozAlign: "center" /*, headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }*/, formatter: function (cell, formatterParams) {
                   var value = cell.getValue();
                   if (value == 1) {
-                    return "<span style='background-color:#e8f2a1;display:block;width:100%;height:100%'>" + value + "</span>";
+                    return "<span style='background-color:#e8f2a1;display:block;width:100%;height:100%' title='meadows'>" + value + "</span>";
                   } else if (value == 2) {
-                    return "<span style='background-color:#bbe33d;display:block;width:100%;height:100%'>" + value + "</span>";
+                    return "<span style='background-color:#bbe33d;display:block;width:100%;height:100%' title='black forest'>" + value + "</span>";
                   } else if (value == 3) {
-                    return "<span style='background-color:#b4c7dc;display:block;width:100%;height:100%'>" + value + "</span>";
+                    return "<span style='background-color:#b4c7dc;display:block;width:100%;height:100%' title='swamp'>" + value + "</span>";
                   } else if (value == 4) {
-                    return "<span style='background-color:#ddd;display:block;width:100%;height:100%'>" + value + "</span>";
+                    return "<span style='background-color:#ddd;display:block;width:100%;height:100%' title='mountain'>" + value + "</span>";
                   } else if (value == 5) {
-                    return "<span style='background-color:#ffdbb6;display:block;width:100%;height:100%'>" + value + "</span>";
+                    return "<span style='background-color:#ffdbb6;display:block;width:100%;height:100%' title='plains'>" + value + "</span>";
                   } else if (value == 6) {
-                    return "<span style='background-color:#ff6d6d;display:block;width:100%;height:100%'>" + value + "</span>";
+                    return "<span style='background-color:#ff6d6d;display:block;width:100%;height:100%' title='mistlands'>" + value + "</span>";
                   } else {
                     return value;
                   }
@@ -275,13 +279,13 @@
                 title: "Type", field: "type", headerVertical: true, hozAlign: "center"/*, headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }*/, formatter: function (cell, formatterParams) {
                   var value = cell.getValue();
                   if (value == "Y") {
-                    return "<span style='background-color:#ffff84;display:block;width:100%;height:100%'>Y</span>";
+                    return "<span title='yellow' style='background-color:#ffff84;display:block;width:100%;height:100%'>Y</span>";
                   } else if (value == "R") {
-                    return "<span style='background-color:#ff6d6d;display:block;width:100%;height:100%'>R</span>";
+                    return "<span title='red' style='background-color:#ff6d6d;display:block;width:100%;height:100%'>R</span>";
                   } else if (value == "B") {
-                    return "<span style='background-color:#8787dc;display:block;width:100%;height:100%'>B</span>";
+                    return "<span title='blue' style='background-color:#8787dc;display:block;width:100%;height:100%'>B</span>";
                   } else if (value == "W") {
-                    return "<span style='background-color:#ddd;display:block;width:100%;height:100%'>W</span>";
+                    return "<span title='white' style='background-color:#ddd;display:block;width:100%;height:100%'>W</span>";
                   } else {
                     return value;
                   }
