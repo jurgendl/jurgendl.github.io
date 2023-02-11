@@ -32,6 +32,14 @@
       width: 100% !important;
     }
 
+    .imgcheck img {
+      border: 3px solid rgba(200, 100, 100, .75)
+    }
+
+    .imgcheck input[type=checkbox]:checked~img {
+      border: 3px solid rgba(100, 200, 100, .75)
+    }
+
     .tabulator-cell {
       cursor: crosshair;
     }
@@ -59,7 +67,6 @@
     .mistlands {
       background-color: #ffc2c2;
     }
-
 
     .tabulator-col[tabulator-field="raspberries"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="honey"] .tabulator-col-title::before,
@@ -232,8 +239,6 @@
       background-image: url('images/royal jelly.png');
     }
 
-
-
     /*.full {
       position: absolute;
       height: 100vh;
@@ -247,77 +252,97 @@
 
 <body style="margin: 1em">
 
-  <div class="container">
-    <div class="row">
-      <div class="col-4 pt-1 pb-1">
-        <input class="form-control form-control-sm" id="filter-name" type="text" placeholder="Name (like, comma seperated)">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-filter-tab" data-toggle="pill" href="#pills-filter" role="tab" aria-controls="pills-filter" aria-selected="true">Filter</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-settings-tab" data-toggle="pill" href="#pills-settings" role="tab" aria-controls="pills-settings" aria-selected="false">Settings</a>
+    </li>
+  </ul>
+  <div class="tab-content mb-2" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-filter" role="tabpanel" aria-labelledby="pills-filter-tab">
+      <!-- ========== CONTENT ========== -->
+      <div class="container" style="max-width: 95%;">
+        <div class="row">
+          <div class="col-4 pt-1 pb-1">
+            <input class="form-control form-control-sm" id="filter-name" type="text" placeholder="Name (like, comma seperated)">
+          </div>
+          <div class="col-4 pt-1 pb-1">
+            <select class="selectpicker" multiple id="filter-tier" title="Tier">
+              <option selected value="1">meadows</option>
+              <option selected value="2">black forest</option>
+              <option selected value="3">swamp</option>
+              <option selected value="4">mountain</option>
+              <option selected value="5">plains</option>
+              <option selected value="6">mistands</option>
+            </select>
+          </div>
+          <div class="col-4 pt-1 pb-1">
+            <select class="selectpicker" multiple id="filter-starred" title="Starred">
+              <option value="y" selected>starred</option>
+              <option value="n" selected>not starred</option>
+            </select>
+          </div>
+          <div class="col-4 pt-1 pb-1">
+            <input class="form-control form-control-sm" id="filter-hp" type="number" min="0" max="100" value="0" step="10" placeholder="HP+">
+          </div>
+          <div class="col-4 pt-1 pb-1">
+            <input class="form-control form-control-sm" id="filter-stamina" type="number" min="0" max="100" value="0" step="10" placeholder="Stamina+">
+          </div>
+          <div class="col-4 pt-1 pb-1">
+            <input class="form-control form-control-sm" id="filter-eitr" type="number" min="0" max="100" value="0" step="10" placeholder="Eitr+">
+          </div>
+          <div class="col-4 pt-1 pb-1">
+            <select class="selectpicker" multiple id="filter-type" title="Type">
+              <option selected value="W">white</option>
+              <option selected value="Y">yellow</option>
+              <option selected value="R">red</option>
+              <option selected value="B">blue</option>
+            </select>
+          </div>
+          <div class="col-4 pt-1 pb-1">
+            <select class="selectpicker" id="filter-hps" title="HP/s">
+              <option value="" selected></option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+          <div class="col-4 pt-1 pb-1">
+            <select class="selectpicker" id="filter-duration" title="Duration (m)">
+              <option value="" selected></option>
+              <option value="10">10+</option>
+              <option value="15">15+</option>
+              <option value="20">20+</option>
+              <option value="25">25+</option>
+              <option value="30">30+</option>
+            </select>
+          </div>
+          <div class="col-4 pt-1 pb-1">
+            <button class="btn btn-sm btn-primary" id="filter">Filter</button>
+            <button class="btn btn-sm btn-secondary" id="filter-clear">Clear</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="btn btn-sm btn-info" href="https://valheim.fandom.com/wiki/Food" target="_blank">Wiki</a>
+            <button class="btn btn-sm btn-warning" id="json-clear">Reload</button>
+          </div>
+          <div class="col-8 pt-1 pb-1">
+            <input type="text" disabled id="totalPoints" class="form-control form-control-sm">
+          </div>
+        </div>
       </div>
-      <div class="col-4 pt-1 pb-1">
-        <select class="selectpicker" multiple id="filter-tier" title="Tier">
-          <option selected value="1">meadows</option>
-          <option selected value="2">black forest</option>
-          <option selected value="3">swamp</option>
-          <option selected value="4">mountain</option>
-          <option selected value="5">plains</option>
-          <option selected value="6">mistands</option>
-        </select>
+      <!-- ============================== -->
+    </div>
+    <div class="tab-pane fade" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab">
+      <!-- ========== CONTENT ========== -->
+      <div class="container" style="max-width: 95%;">
+        <div class="row" id="resourceChecks"></div>
       </div>
-      <div class="col-4 pt-1 pb-1">
-        <select class="selectpicker" multiple id="filter-starred" title="Starred">
-          <option value="y" selected>starred</option>
-          <option value="n" selected>not starred</option>
-        </select>
-      </div>
-      <div class="col-4 pt-1 pb-1">
-        <input class="form-control form-control-sm" id="filter-hp" type="number" min="0" max="100" placeholder="HP">
-      </div>
-      <div class="col-4 pt-1 pb-1">
-        <input class="form-control form-control-sm" id="filter-stamina" type="number" min="0" max="100" placeholder="Stamina">
-      </div>
-      <div class="col-4 pt-1 pb-1">
-        <input class="form-control form-control-sm" id="filter-eitr" type="number" min="0" max="100" placeholder="Eitr">
-      </div>
-      <div class="col-4 pt-1 pb-1">
-        <select class="selectpicker" multiple id="filter-type" title="Type">
-          <option selected value="W">white</option>
-          <option selected value="Y">yellow</option>
-          <option selected value="R">red</option>
-          <option selected value="B">blue</option>
-        </select>
-      </div>
-      <div class="col-4 pt-1 pb-1">
-        <select class="selectpicker" id="filter-hps" title="HP/s">
-          <option value="" selected></option>
-          <option value="1">1+</option>
-          <option value="2">2+</option>
-          <option value="3">3+</option>
-          <option value="4">4+</option>
-          <option value="5">5+</option>
-        </select>
-      </div>
-      <div class="col-4 pt-1 pb-1">
-        <select class="selectpicker" id="filter-duration" title="Duration (m)">
-          <option value="" selected></option>
-          <option value="10">10+</option>
-          <option value="15">15+</option>
-          <option value="20">20+</option>
-          <option value="25">25+</option>
-          <option value="30">30+</option>
-        </select>
-      </div>
-      <div class="col-4 pt-1 pb-1">
-        <button class="btn btn-sm btn-primary" id="filter">Filter</button>
-        <button class="btn btn-sm btn-secondary" id="filter-clear">Clear</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="btn btn-sm btn-info" href="https://valheim.fandom.com/wiki/Food" target="_blank">Wiki</a>
-        <button class="btn btn-sm btn-warning" id="json-clear">Reload</button>
-      </div>
-      <div class="col-8 pt-1 pb-1">
-        <input type="text" disabled id="totalPoints" class="form-control form-control-sm">
-      </div>
+      <!-- ============================== -->
     </div>
   </div>
-  <br>
 
   <div class="full no-thead-dark no-table-dark table-striped table-bordered table-sm" id="valheim-food-table"></div>
 
@@ -393,6 +418,23 @@
         _this.resourceCols.push({ title: resource, field: resource, sorter: "number", headerVertical: true, hozAlign: "center", cssClass: colorClass.replace(' ', '-') });
       }
 
+      for (let resource of data.resources) {
+        let template = '<div class="col-2"><div style="width:unset;display:inline;" class="imgcheck input-group input-group-sm"><label class="checkbox-inline" for="check_' + resource.replace(' ', '_') + '"><input checked="checked" value="' + resource + '" style="display: none;" type="checkbox" id="check_' + resource.replace(' ', '_') + '"><img id="is_' + resource.replace(' ', '_') + '" width="32" height="32" src="images/' + resource + '.png">&nbsp;<span style="font-size:11px" id="lbl_' + resource.replace(' ', '_') + '">' + resource + '</span></label></div></div>'
+
+        $('#resourceChecks').append(template);
+
+        $("#check_" + resource.replace(' ', '_')).change(
+          function () {
+            if ($(this).is(':checked')) {
+              let styleTag = document.getElementById("style-" + resource);
+              styleTag.disabled = true;
+            } else {
+              let styleTag = document.getElementById("style-" + resource);
+              styleTag.disabled = false;
+            }
+          });
+      }
+
       {
         _this.nameFilter = $('#filter-name');
         _this.tierFilter = $('#filter-tier');
@@ -419,6 +461,9 @@
             _this.table.deselectRow(i);
           }
           $('#totalPoints').val('');
+          for (let resource of data.resources) {
+            $("#check_" + resource.replace(' ', '_')).prop('checked', true);
+          }
 
           let f = [];
           if (nameFilter.val()) {
@@ -483,6 +528,9 @@
             _this.table.deselectRow(i);
           }
           $('#totalPoints').val('');
+          for (let resource of data.resources) {
+            $("#check_" + resource.replace(' ', '_')).prop('checked', true);
+          }
         });
       }
 
@@ -624,9 +672,11 @@
               if (keep.indexOf(resource) != -1) {
                 //console.log("_", "style-" + resource);
                 styleTag.disabled = true;
+                $('#check_' + resource.replace(' ', '_')).prop('checked', true);
               } else {
                 //console.log("X", "style-" + resource);
                 styleTag.disabled = false;
+                $('#check_' + resource.replace(' ', '_')).prop('checked', false);
               }
             }
           }
