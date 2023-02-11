@@ -625,6 +625,7 @@
           let totalHP = 0;
           let totalStamina = 0;
           let totalEitr = 0;
+          let totalHPs = 0;
           let totalScore = 0;
           let dur = [];
           for (let row of rows) {
@@ -632,13 +633,14 @@
             totalHP += dat.hp;
             totalStamina += dat.stamina;
             totalEitr += dat.eitr;
+            totalHPs += dat.hpPerSecond;
             dur.push(dat.durationInMinutes);
             totalScore += (dat.hp + dat.stamina + dat.eitr) * dat.durationInMinutes;
           }
           if (Math.min.apply(Math, dur) == Math.max.apply(Math, dur)) {
-            $('#totalPoints').val('SELECTED TOTAL: HP=' + totalHP + ', Stamina=' + totalStamina + ', Eitr=' + totalEitr + ' [' + Math.min.apply(Math, dur) + 'm] > ' + totalScore + ' score');
+            $('#totalPoints').val('SELECTED TOTAL: HP=' + totalHP + ' +' + totalHPs + '/s, Stamina=' + totalStamina + ', Eitr=' + totalEitr + ' [' + Math.min.apply(Math, dur) + 'm] > ' + totalScore + ' score');
           } else {
-            $('#totalPoints').val('SELECTED TOTAL: HP=' + totalHP + ', Stamina=' + totalStamina + ', Eitr=' + totalEitr + ' [' + Math.min.apply(Math, dur) + '-' + Math.max.apply(Math, dur) + 'm] > ' + totalScore + ' score');
+            $('#totalPoints').val('SELECTED TOTAL: HP=' + totalHP + ' +' + totalHPs + '/s, Stamina=' + totalStamina + ', Eitr=' + totalEitr + ' [' + Math.min.apply(Math, dur) + '-' + Math.max.apply(Math, dur) + 'm] > ' + totalScore + ' score');
           }
         }
       });
