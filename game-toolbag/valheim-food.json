@@ -833,7 +833,7 @@
       "id" : 40,
       "name" : "meat platter",
       "tier" : 6,
-      "starred" : false,
+      "starred" : true,
       "hp" : 80,
       "hpScore" : 2400.0,
       "stamina" : 26,
