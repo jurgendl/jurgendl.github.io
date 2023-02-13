@@ -59,12 +59,14 @@ function app($$data) {
     // ==========================================================================================
     function buildResourceChecks(data) {
         for (let resource of _this.resources) {
-            let template = '<div class="col-2"><div style="width:unset;display:inline;" class="imgcheck input-group input-group-sm"><label class="checkbox-inline" for="check_' + resource.replace(' ', '_') + '"><input checked="checked" value="' + resource + '" style="display: none;" type="checkbox" id="check_' + resource.replace(' ', '_') + '"><img id="is_' + resource.replace(' ', '_') + '" width="32" height="32" src="images/' + resource + '.png">&nbsp;<span style="font-size:11px" id="lbl_' + resource.replace(' ', '_') + '">' + resource + '</span></label></div></div>'
+            let fixedName = resource.replace(' ', '_');
+            let template = '<div class="col-2"><div style="width:unset;display:inline;" class="imgcheck input-group input-group-sm"><label class="checkbox-inline" for="check_' + fixedName + '"><input checked="checked" value="' + resource + '" style="display: none;" type="checkbox" id="check_' + fixedName + '"><img id="is_' + fixedName + '" width="32" height="32" src="images/' + resource + '.png">&nbsp;<span style="font-size:11px" id="lbl_' + fixedName + '">' + resource + '</span></label></div></div>'
             //
             $('#resourceChecks').append(template);
             //
-            $("#check_" + resource.replace(' ', '_')).change(() => {
-                document.getElementById("style-" + resource).disabled = $(this).is(':checked');
+            $('#check_' + fixedName).click(function () {
+                let checked = $(this).is(':checked');
+                document.getElementById("style-" + resource).disabled = checked;
             });
         }
     }
@@ -268,7 +270,7 @@ function app($$data) {
                 }
             ],
         });
-
+        //
         _this.table.on("rowSelectionChanged", function (x, rows) {
             if (rows.length == 0) {
                 $('#totalPoints').val('');
@@ -297,7 +299,7 @@ function app($$data) {
                 }
             }
         });
-
+        //
         _this.table.on("dataFiltered", function (filters, rows) {
             //filters - array of filters currently applied
             //rows - array of row components that pass the filters

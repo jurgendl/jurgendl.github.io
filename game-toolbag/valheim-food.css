@@ -27,6 +27,30 @@
     padding: 100px 0 0 20px;
 }*/
 
+.meadows {
+    background-color: #f7f781;
+}
+
+.black-forest {
+    background-color: #bbe33d;
+}
+
+.swamp {
+    background-color: #b4c7dc;
+}
+
+.mountain {
+    background-color: #dddddd;
+}
+
+.plains {
+    background-color: #ffdbb6;
+}
+
+.mistlands {
+    background-color: #ffc2c2;
+}
+
 .tabulator-col[tabulator-field="raspberries"] .tabulator-col-title::before,
 .tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before,
 .tabulator-col[tabulator-field="honey"] .tabulator-col-title::before,
@@ -59,8 +83,7 @@
 .tabulator-col[tabulator-field="seeker meat"] .tabulator-col-title::before,
 .tabulator-col[tabulator-field="blood clot"] .tabulator-col-title::before,
 .tabulator-col[tabulator-field="sap"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="royal jelly"] .tabulator-col-title::before,
-noop {
+.tabulator-col[tabulator-field="royal jelly"] .tabulator-col-title::before {
     content: '';
     width: 32px;
     height: 32px;
