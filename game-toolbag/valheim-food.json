@@ -1,8 +1,7 @@
 {
   "headers" : [ "name", "tier", "starred", "hp", "hpScore", "stamina", "staminaScore", "eitr", "eitrScore", "score", "type", "hpPerSecond", "durationInMinutes" ],
   "tiers" : [ "meadows", "black forest", "swamp", "mountain", "plains", "mistlands" ],
-  "resourceTiers" : [ [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish" ], [ "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish" ], [ "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "magecap", "jotun puffs", "seeker meat", "hare meat", "chicken meat", "blood clot", "sap", "royal jelly" ] ],
-  "resources" : [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish", "mushroom", "blueberries", "carrot", "greydwarf eye", "serpent meat", "anglerfish", "turnip", "yellow mushroom", "ooze", "entrails", "thistle", "bloodbag", "onion", "wolf meat", "freeze gland", "cloudberries", "lox meat", "barley", "egg", "chicken meat", "magecap", "jotun puffs", "seeker meat", "hare meat", "blood clot", "sap", "royal jelly" ],
+  "resourceTiers" : [ [ "raspberries", "mushroom", "honey", "neck tail", "boar meat", "deer meat", "fish" ], [ "blueberries", "thistle", "carrot", "greydwarf eye", "yellow mushroom", "serpent meat", "anglerfish" ], [ "turnip", "ooze", "entrails", "bloodbag" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "chicken meat", "hare meat", "magecap", "jotun puffs", "seeker meat", "blood clot", "sap", "royal jelly" ] ],
   "food" : {
     "raspberries" : {
       "id" : 0,
@@ -21,8 +20,7 @@
       "durationInMinutes" : 10,
       "resources" : {
         "raspberries" : 1
-      },
-      "nrOfResources" : [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "honey" : {
       "id" : 1,
@@ -41,8 +39,7 @@
       "durationInMinutes" : 15,
       "resources" : {
         "honey" : 1
-      },
-      "nrOfResources" : [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "grilled neck tail" : {
       "id" : 2,
@@ -61,8 +58,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "neck tail" : 1
-      },
-      "nrOfResources" : [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "cooked boar meat" : {
       "id" : 3,
@@ -81,8 +77,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "boar meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "cooked deer meat" : {
       "id" : 4,
@@ -101,8 +96,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "deer meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "boar jerky" : {
       "id" : 5,
@@ -122,8 +116,7 @@
       "resources" : {
         "honey" : 0.5,
         "boar meat" : 0.5
-      },
-      "nrOfResources" : [ 0, 0.5, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "cooked fish" : {
       "id" : 6,
@@ -142,8 +135,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "fish" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "mushroom" : {
       "id" : 7,
@@ -162,8 +154,7 @@
       "durationInMinutes" : 15,
       "resources" : {
         "mushroom" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "blueberries" : {
       "id" : 8,
@@ -182,8 +173,7 @@
       "durationInMinutes" : 10,
       "resources" : {
         "blueberries" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "carrot" : {
       "id" : 9,
@@ -202,8 +192,7 @@
       "durationInMinutes" : 15,
       "resources" : {
         "carrot" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "carrot soup" : {
       "id" : 10,
@@ -223,8 +212,7 @@
       "resources" : {
         "mushroom" : 1,
         "carrot" : 3
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "queens jam" : {
       "id" : 11,
@@ -244,8 +232,7 @@
       "resources" : {
         "raspberries" : 2,
         "blueberries" : 1.5
-      },
-      "nrOfResources" : [ 2, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "deer stew" : {
       "id" : 12,
@@ -266,8 +253,7 @@
         "deer meat" : 1,
         "blueberries" : 1,
         "carrot" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "minced meat sauce" : {
       "id" : 13,
@@ -288,8 +274,7 @@
         "neck tail" : 1,
         "boar meat" : 1,
         "carrot" : 1
-      },
-      "nrOfResources" : [ 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "cooked serpent meat" : {
       "id" : 14,
@@ -308,8 +293,7 @@
       "durationInMinutes" : 25,
       "resources" : {
         "serpent meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "serpent stew" : {
       "id" : 15,
@@ -330,8 +314,7 @@
         "honey" : 2,
         "mushroom" : 1,
         "serpent meat" : 1
-      },
-      "nrOfResources" : [ 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "turnip stew" : {
       "id" : 16,
@@ -351,8 +334,7 @@
       "resources" : {
         "boar meat" : 1,
         "turnip" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "yellow mushroom" : {
       "id" : 17,
@@ -371,8 +353,7 @@
       "durationInMinutes" : 10,
       "resources" : {
         "yellow mushroom" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "muckshake" : {
       "id" : 18,
@@ -393,8 +374,7 @@
         "raspberries" : 2,
         "blueberries" : 2,
         "ooze" : 1
-      },
-      "nrOfResources" : [ 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "sausages" : {
       "id" : 19,
@@ -415,8 +395,7 @@
         "boar meat" : 0.25,
         "entrails" : 1,
         "thistle" : 0.25
-      },
-      "nrOfResources" : [ 0, 0, 0, 0.25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "black soup" : {
       "id" : 20,
@@ -437,8 +416,7 @@
         "honey" : 1,
         "turnip" : 1,
         "bloodbag" : 1
-      },
-      "nrOfResources" : [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "onion" : {
       "id" : 21,
@@ -457,8 +435,7 @@
       "durationInMinutes" : 15,
       "resources" : {
         "onion" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "onion soup" : {
       "id" : 22,
@@ -477,8 +454,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "onion" : 3
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "cooked wolf meat" : {
       "id" : 23,
@@ -497,8 +473,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "wolf meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "wolf jerky" : {
       "id" : 24,
@@ -518,8 +493,7 @@
       "resources" : {
         "honey" : 0.5,
         "wolf meat" : 0.5
-      },
-      "nrOfResources" : [ 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "wolf skewer" : {
       "id" : 25,
@@ -540,8 +514,7 @@
         "mushroom" : 2,
         "onion" : 1,
         "wolf meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "eyescream" : {
       "id" : 26,
@@ -561,8 +534,7 @@
       "resources" : {
         "greydwarf eye" : 3,
         "freeze gland" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "cloudberries" : {
       "id" : 27,
@@ -581,8 +553,7 @@
       "durationInMinutes" : 15,
       "resources" : {
         "cloudberries" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "cooked lox meat" : {
       "id" : 28,
@@ -601,8 +572,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "lox meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "fish wraps" : {
       "id" : 29,
@@ -622,8 +592,7 @@
       "resources" : {
         "fish" : 2,
         "barley" : 4
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "lox meat pie" : {
       "id" : 30,
@@ -644,8 +613,7 @@
         "cloudberries" : 2,
         "lox meat" : 2,
         "barley" : 4
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "blood pudding" : {
       "id" : 31,
@@ -666,8 +634,7 @@
         "thistle" : 2,
         "bloodbag" : 2,
         "barley" : 4
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "bread" : {
       "id" : 32,
@@ -686,8 +653,7 @@
       "durationInMinutes" : 25,
       "resources" : {
         "barley" : 10
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "cooked egg" : {
       "id" : 33,
@@ -706,8 +672,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "egg" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "cooked chicken meat" : {
       "id" : 34,
@@ -726,8 +691,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "chicken meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "magecap" : {
       "id" : 35,
@@ -746,8 +710,7 @@
       "durationInMinutes" : 15,
       "resources" : {
         "magecap" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "jotun puffs" : {
       "id" : 36,
@@ -766,8 +729,7 @@
       "durationInMinutes" : 15,
       "resources" : {
         "jotun puffs" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
+      }
     },
     "royal jelly" : {
       "id" : 37,
@@ -786,8 +748,7 @@
       "durationInMinutes" : 15,
       "resources" : {
         "royal jelly" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+      }
     },
     "cooked seeker meat" : {
       "id" : 38,
@@ -806,8 +767,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "seeker meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 ]
+      }
     },
     "cooked hare meat" : {
       "id" : 39,
@@ -826,8 +786,7 @@
       "durationInMinutes" : 20,
       "resources" : {
         "hare meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ]
+      }
     },
     "meat platter" : {
       "id" : 40,
@@ -848,8 +807,7 @@
         "lox meat" : 1,
         "seeker meat" : 1,
         "hare meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0 ]
+      }
     },
     "honey glazed chicken" : {
       "id" : 41,
@@ -870,8 +828,7 @@
         "honey" : 3,
         "chicken meat" : 1,
         "jotun puffs" : 1
-      },
-      "nrOfResources" : [ 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 ]
+      }
     },
     "misthare supreme" : {
       "id" : 42,
@@ -892,8 +849,7 @@
         "carrot" : 2,
         "jotun puffs" : 3,
         "hare meat" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0 ]
+      }
     },
     "salad" : {
       "id" : 43,
@@ -914,8 +870,7 @@
         "onion" : 1,
         "cloudberries" : 1,
         "jotun puffs" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
+      }
     },
     "mushroom omelette" : {
       "id" : 44,
@@ -935,8 +890,7 @@
       "resources" : {
         "egg" : 3,
         "jotun puffs" : 3
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0 ]
+      }
     },
     "fish and bread" : {
       "id" : 45,
@@ -956,8 +910,7 @@
       "resources" : {
         "anglerfish" : 1,
         "barley" : 20
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+      }
     },
     "stuffed mushroom" : {
       "id" : 46,
@@ -978,8 +931,7 @@
         "turnip" : 2,
         "magecap" : 3,
         "blood clot" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0 ]
+      }
     },
     "yggdrasil porridge" : {
       "id" : 47,
@@ -1000,8 +952,7 @@
         "barley" : 3,
         "sap" : 4,
         "royal jelly" : 2
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4, 2 ]
+      }
     },
     "seeker aspic" : {
       "id" : 48,
@@ -1022,8 +973,7 @@
         "magecap" : 1,
         "seeker meat" : 1,
         "royal jelly" : 1
-      },
-      "nrOfResources" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1 ]
+      }
     }
   }
 }

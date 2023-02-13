@@ -23,27 +23,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   <link href="tabulator/css/tabulator.min.css" rel="stylesheet">
   <link href="tabulator/css/tabulator_bootstrap4.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="valheim-food.css">
   <style id="internalcss">
-    .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
-      white-space: normal;
-    }
-
-    .bootstrap-select {
-      width: 100% !important;
-    }
-
-    .imgcheck img {
-      border: 3px solid rgba(200, 100, 100, .75)
-    }
-
-    .imgcheck input[type=checkbox]:checked~img {
-      border: 3px solid rgba(100, 200, 100, .75)
-    }
-
-    .tabulator-cell {
-      cursor: crosshair;
-    }
-
     .meadows {
       background-color: #f7f781;
     }
@@ -67,186 +48,6 @@
     .mistlands {
       background-color: #ffc2c2;
     }
-
-    .tabulator-col[tabulator-field="raspberries"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="honey"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="neck tail"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="boar meat"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="deer meat"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="fish"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="blueberries"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="carrot"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="greydwarf eye"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="serpent meat"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="anglerfish"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="turnip"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="yellow mushroom"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="ooze"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="entrails"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="thistle"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="bloodbag"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="onion"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="wolf meat"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="freeze gland"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="cloudberries"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="lox meat"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="barley"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="egg"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="chicken meat"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="magecap"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="jotun puffs"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="seeker meat"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="hare meat"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="blood clot"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="sap"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="royal jelly"] .tabulator-col-title::before {
-      content: '';
-      width: 32px;
-      height: 32px;
-      background-size: 32px;
-    }
-
-    .tabulator-col[tabulator-field="raspberries"] .tabulator-col-title::before {
-      background-image: url('images/raspberries.png');
-    }
-
-    .tabulator-col[tabulator-field="honey"] .tabulator-col-title::before {
-      background-image: url('images/honey.png');
-    }
-
-    .tabulator-col[tabulator-field="neck tail"] .tabulator-col-title::before {
-      background-image: url('images/neck tail.png');
-    }
-
-    .tabulator-col[tabulator-field="boar meat"] .tabulator-col-title::before {
-      background-image: url('images/boar meat.png');
-    }
-
-    .tabulator-col[tabulator-field="deer meat"] .tabulator-col-title::before {
-      background-image: url('images/deer meat.png');
-    }
-
-    .tabulator-col[tabulator-field="fish"] .tabulator-col-title::before {
-      background-image: url('images/fish.png');
-    }
-
-    .tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before {
-      background-image: url('images/mushroom.png');
-    }
-
-    .tabulator-col[tabulator-field="blueberries"] .tabulator-col-title::before {
-      background-image: url('images/blueberries.png');
-    }
-
-    .tabulator-col[tabulator-field="carrot"] .tabulator-col-title::before {
-      background-image: url('images/carrot.png');
-    }
-
-    .tabulator-col[tabulator-field="greydwarf eye"] .tabulator-col-title::before {
-      background-image: url('images/greydwarf eye.png');
-    }
-
-    .tabulator-col[tabulator-field="serpent meat"] .tabulator-col-title::before {
-      background-image: url('images/serpent meat.png');
-    }
-
-    .tabulator-col[tabulator-field="anglerfish"] .tabulator-col-title::before {
-      background-image: url('images/anglerfish.png');
-    }
-
-    .tabulator-col[tabulator-field="turnip"] .tabulator-col-title::before {
-      background-image: url('images/turnip.png');
-    }
-
-    .tabulator-col[tabulator-field="yellow mushroom"] .tabulator-col-title::before {
-      background-image: url('images/yellow mushroom.png');
-    }
-
-    .tabulator-col[tabulator-field="ooze"] .tabulator-col-title::before {
-      background-image: url('images/ooze.png');
-    }
-
-    .tabulator-col[tabulator-field="entrails"] .tabulator-col-title::before {
-      background-image: url('images/entrails.png');
-    }
-
-    .tabulator-col[tabulator-field="thistle"] .tabulator-col-title::before {
-      background-image: url('images/thistle.png');
-    }
-
-    .tabulator-col[tabulator-field="bloodbag"] .tabulator-col-title::before {
-      background-image: url('images/bloodbag.png');
-    }
-
-    .tabulator-col[tabulator-field="onion"] .tabulator-col-title::before {
-      background-image: url('images/onion.png');
-    }
-
-    .tabulator-col[tabulator-field="wolf meat"] .tabulator-col-title::before {
-      background-image: url('images/wolf meat.png');
-    }
-
-    .tabulator-col[tabulator-field="freeze gland"] .tabulator-col-title::before {
-      background-image: url('images/freeze gland.png');
-    }
-
-    .tabulator-col[tabulator-field="cloudberries"] .tabulator-col-title::before {
-      background-image: url('images/cloudberries.png');
-    }
-
-    .tabulator-col[tabulator-field="lox meat"] .tabulator-col-title::before {
-      background-image: url('images/lox meat.png');
-    }
-
-    .tabulator-col[tabulator-field="barley"] .tabulator-col-title::before {
-      background-image: url('images/barley.png');
-    }
-
-    .tabulator-col[tabulator-field="egg"] .tabulator-col-title::before {
-      background-image: url('images/egg.png');
-    }
-
-    .tabulator-col[tabulator-field="chicken meat"] .tabulator-col-title::before {
-      background-image: url('images/chicken meat.png');
-    }
-
-    .tabulator-col[tabulator-field="magecap"] .tabulator-col-title::before {
-      background-image: url('images/magecap.png');
-    }
-
-    .tabulator-col[tabulator-field="jotun puffs"] .tabulator-col-title::before {
-      background-image: url('images/jotun puffs.png');
-    }
-
-    .tabulator-col[tabulator-field="seeker meat"] .tabulator-col-title::before {
-      background-image: url('images/seeker meat.png');
-    }
-
-    .tabulator-col[tabulator-field="hare meat"] .tabulator-col-title::before {
-      background-image: url('images/hare meat.png');
-    }
-
-    .tabulator-col[tabulator-field="blood clot"] .tabulator-col-title::before {
-      background-image: url('images/blood clot.png');
-    }
-
-    .tabulator-col[tabulator-field="sap"] .tabulator-col-title::before {
-      background-image: url('images/sap.png');
-    }
-
-    .tabulator-col[tabulator-field="royal jelly"] .tabulator-col-title::before {
-      background-image: url('images/royal jelly.png');
-    }
-
-    /*.full {
-      position: absolute;
-      height: 100vh;
-      width: 100vw;
-      top: 0;
-      left: 0;
-      padding: 100px 0 0 20px;
-    }*/
   </style>
 </head>
 
@@ -365,11 +166,18 @@
       };
       this.tabledata = [];
       this.resourceCols = [];
+      this.resources = [];
 
       const _this = this;
 
       window.localStorage.setItem('valheim-food', JSON.stringify(data));
       //console.log(data);
+
+      for (let resourceTier of data.resourceTiers) {
+        for (let _resource of resourceTier) {
+          _this.resources.push(_resource);
+        }
+      }
 
       for (let [name, food] of Object.entries(data.food)) {
         let row = {
@@ -384,7 +192,7 @@
           hpPerSecond: food.hpPerSecond,
           durationInMinutes: food.durationInMinutes
         };
-        for (let resource of data.resources) {
+        for (let resource of _this.resources) {
           if (food.resources[resource]) {
             row[resource] = food.resources[resource];
           } else {
@@ -396,7 +204,7 @@
       //console.log(_this.tabledata);
       //console.table(_this.tabledata);
 
-      for (let resource of data.resources) {
+      for (let resource of _this.resources) {
         let colorClass = '';
         data.resourceTiers.forEach(function (resourceTier, i) {
           for (let rt of resourceTier) {
@@ -418,7 +226,7 @@
         _this.resourceCols.push({ title: resource, field: resource, sorter: "number", headerVertical: true, hozAlign: "center", cssClass: colorClass.replace(' ', '-') });
       }
 
-      for (let resource of data.resources) {
+      for (let resource of _this.resources) {
         let template = '<div class="col-2"><div style="width:unset;display:inline;" class="imgcheck input-group input-group-sm"><label class="checkbox-inline" for="check_' + resource.replace(' ', '_') + '"><input checked="checked" value="' + resource + '" style="display: none;" type="checkbox" id="check_' + resource.replace(' ', '_') + '"><img id="is_' + resource.replace(' ', '_') + '" width="32" height="32" src="images/' + resource + '.png">&nbsp;<span style="font-size:11px" id="lbl_' + resource.replace(' ', '_') + '">' + resource + '</span></label></div></div>'
 
         $('#resourceChecks').append(template);
@@ -461,7 +269,7 @@
             _this.table.deselectRow(i);
           }
           $('#totalPoints').val('');
-          for (let resource of data.resources) {
+          for (let resource of _this.resources) {
             $("#check_" + resource.replace(' ', '_')).prop('checked', true);
           }
 
@@ -528,7 +336,7 @@
             _this.table.deselectRow(i);
           }
           $('#totalPoints').val('');
-          for (let resource of data.resources) {
+          for (let resource of _this.resources) {
             $("#check_" + resource.replace(' ', '_')).prop('checked', true);
           }
         });
@@ -648,7 +456,7 @@
       _this.table.on("dataFiltered", function (filters, rows) {
         //filters - array of filters currently applied
         //rows - array of row components that pass the filters
-        for (let resource of data.resources) {
+        for (let resource of _this.resources) {
           let styleTag = document.getElementById("style-" + resource);
           if (styleTag) {
             //console.log("style-" + resource, styleTag);
@@ -660,7 +468,7 @@
           let keep = [];
           for (let row of rows) {
             let dat = row.getData();
-            for (let resource of data.resources) {
+            for (let resource of _this.resources) {
               if (dat[resource]) {
                 //console.log(dat, resource, dat[resource]);
                 keep.push(resource);
@@ -668,7 +476,7 @@
             }
           }
           //console.log("keep", keep);
-          for (let resource of data.resources) {
+          for (let resource of _this.resources) {
             let styleTag = document.getElementById("style-" + resource);
             if (styleTag) {
               if (keep.indexOf(resource) != -1) {
@@ -691,7 +499,7 @@
           //console.log('POST');
           $('[data-toggle="popover"]').popover({ trigger: 'focus' });
 
-          for (let resource of data.resources) {
+          for (let resource of _this.resources) {
             let style = document.createElement("style");
             style.id = "style-" + resource;
             style.innerHTML = "[tabulator-field='" + resource + "'] { display: none !important; }";
