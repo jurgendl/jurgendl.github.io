@@ -719,7 +719,7 @@
       "hpPerSecond": 2,
       "durationInMinutes": 25,
       "resources": {
-        "barley": 10
+        "barley": 5
       }
     },
     "cooked egg": {
@@ -976,7 +976,7 @@
       "durationInMinutes": 30,
       "resources": {
         "anglerfish": 1,
-        "barley": 20
+        "barley": 10
       }
     },
     "stuffed mushroom": {
