@@ -1,783 +1,783 @@
 {
-	"headers" : [ "name", "tier", "starred", "hp", "stamina", "eitr", "type", "hpPerSecond", "durationInMinutes" ],
-	"tiers" : [ "meadows", "black forest", "swamp", "mountain", "plains", "mistlands" ],
-	"resourceTiers" : [ [ "raspberries", "mushroom", "honey", "neck tail", "boar meat", "deer meat", "greydwarf eye", "fish" ], [ "blueberries", "thistle", "carrot", "yellow mushroom", "serpent meat" ], [ "turnip", "ooze", "entrails", "bloodbag" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "chicken meat", "hare meat", "magecap", "jotun puffs", "seeker meat", "blood clot", "sap", "royal jelly", "anglerfish" ] ],
-	"food" : {
-		"raspberries" : {
-			"id" : 0,
-			"name" : "raspberries",
-			"tier" : 1,
-			"starred" : false,
-			"hp" : 7,
-			"stamina" : 20,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 10,
-			"resources" : {
-				"raspberries" : 1
-			}
-		},
-		"honey" : {
-			"id" : 1,
-			"name" : "honey",
-			"tier" : 1,
-			"starred" : true,
-			"hp" : 8,
-			"stamina" : 35,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 15,
-			"resources" : {
-				"honey" : 1
-			}
-		},
-		"grilled neck tail" : {
-			"id" : 2,
-			"name" : "grilled neck tail",
-			"tier" : 1,
-			"starred" : false,
-			"hp" : 25,
-			"stamina" : 8,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 2,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"neck tail" : 1
-			}
-		},
-		"cooked boar meat" : {
-			"id" : 3,
-			"name" : "cooked boar meat",
-			"tier" : 1,
-			"starred" : true,
-			"hp" : 30,
-			"stamina" : 10,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 2,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"boar meat" : 1
-			}
-		},
-		"cooked deer meat" : {
-			"id" : 4,
-			"name" : "cooked deer meat",
-			"tier" : 1,
-			"starred" : false,
-			"hp" : 35,
-			"stamina" : 12,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 2,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"deer meat" : 1
-			}
-		},
-		"boar jerky" : {
-			"id" : 5,
-			"name" : "boar jerky",
-			"tier" : 1,
-			"starred" : true,
-			"hp" : 23,
-			"stamina" : 23,
-			"eitr" : 0,
-			"type" : "white",
-			"hpPerSecond" : 2,
-			"durationInMinutes" : 30,
-			"resources" : {
-				"honey" : 0.5,
-				"boar meat" : 0.5
-			}
-		},
-		"cooked fish" : {
-			"id" : 6,
-			"name" : "cooked fish",
-			"tier" : 1,
-			"starred" : false,
-			"hp" : 45,
-			"stamina" : 15,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 2,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"fish" : 1
-			}
-		},
-		"mushroom" : {
-			"id" : 7,
-			"name" : "mushroom",
-			"tier" : 2,
-			"starred" : false,
-			"hp" : 15,
-			"stamina" : 15,
-			"eitr" : 0,
-			"type" : "white",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 15,
-			"resources" : {
-				"mushroom" : 1
-			}
-		},
-		"blueberries" : {
-			"id" : 8,
-			"name" : "blueberries",
-			"tier" : 2,
-			"starred" : false,
-			"hp" : 8,
-			"stamina" : 25,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 10,
-			"resources" : {
-				"blueberries" : 1
-			}
-		},
-		"carrot" : {
-			"id" : 9,
-			"name" : "carrot",
-			"tier" : 2,
-			"starred" : false,
-			"hp" : 10,
-			"stamina" : 32,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 15,
-			"resources" : {
-				"carrot" : 1
-			}
-		},
-		"carrot soup" : {
-			"id" : 10,
-			"name" : "carrot soup",
-			"tier" : 2,
-			"starred" : true,
-			"hp" : 15,
-			"stamina" : 45,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 2,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"mushroom" : 1,
-				"carrot" : 3
-			}
-		},
-		"queens jam" : {
-			"id" : 11,
-			"name" : "queens jam",
-			"tier" : 2,
-			"starred" : true,
-			"hp" : 14,
-			"stamina" : 40,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 2,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"raspberries" : 2,
-				"blueberries" : 1.5
-			}
-		},
-		"deer stew" : {
-			"id" : 12,
-			"name" : "deer stew",
-			"tier" : 2,
-			"starred" : true,
-			"hp" : 45,
-			"stamina" : 15,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"deer meat" : 1,
-				"blueberries" : 1,
-				"carrot" : 1
-			}
-		},
-		"minced meat sauce" : {
-			"id" : 13,
-			"name" : "minced meat sauce",
-			"tier" : 2,
-			"starred" : true,
-			"hp" : 40,
-			"stamina" : 13,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"neck tail" : 1,
-				"boar meat" : 1,
-				"carrot" : 1
-			}
-		},
-		"cooked serpent meat" : {
-			"id" : 14,
-			"name" : "cooked serpent meat",
-			"tier" : 2,
-			"starred" : false,
-			"hp" : 70,
-			"stamina" : 23,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"serpent meat" : 1
-			}
-		},
-		"serpent stew" : {
-			"id" : 15,
-			"name" : "serpent stew",
-			"tier" : 2,
-			"starred" : false,
-			"hp" : 80,
-			"stamina" : 26,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 4,
-			"durationInMinutes" : 30,
-			"resources" : {
-				"honey" : 2,
-				"mushroom" : 1,
-				"serpent meat" : 1
-			}
-		},
-		"turnip stew" : {
-			"id" : 16,
-			"name" : "turnip stew",
-			"tier" : 3,
-			"starred" : true,
-			"hp" : 18,
-			"stamina" : 55,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 2,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"boar meat" : 1,
-				"turnip" : 1
-			}
-		},
-		"yellow mushroom" : {
-			"id" : 17,
-			"name" : "yellow mushroom",
-			"tier" : 3,
-			"starred" : false,
-			"hp" : 10,
-			"stamina" : 30,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 10,
-			"resources" : {
-				"yellow mushroom" : 1
-			}
-		},
-		"muckshake" : {
-			"id" : 18,
-			"name" : "muckshake",
-			"tier" : 3,
-			"starred" : false,
-			"hp" : 16,
-			"stamina" : 50,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"raspberries" : 2,
-				"blueberries" : 2,
-				"ooze" : 1
-			}
-		},
-		"sausages" : {
-			"id" : 19,
-			"name" : "sausages",
-			"tier" : 3,
-			"starred" : true,
-			"hp" : 55,
-			"stamina" : 18,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"boar meat" : 0.25,
-				"entrails" : 1,
-				"thistle" : 0.25
-			}
-		},
-		"black soup" : {
-			"id" : 20,
-			"name" : "black soup",
-			"tier" : 3,
-			"starred" : false,
-			"hp" : 50,
-			"stamina" : 17,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"honey" : 1,
-				"turnip" : 1,
-				"bloodbag" : 1
-			}
-		},
-		"onion" : {
-			"id" : 21,
-			"name" : "onion",
-			"tier" : 4,
-			"starred" : false,
-			"hp" : 15,
-			"stamina" : 40,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 15,
-			"resources" : {
-				"onion" : 1
-			}
-		},
-		"onion soup" : {
-			"id" : 22,
-			"name" : "onion soup",
-			"tier" : 4,
-			"starred" : true,
-			"hp" : 20,
-			"stamina" : 60,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"onion" : 3
-			}
-		},
-		"cooked wolf meat" : {
-			"id" : 23,
-			"name" : "cooked wolf meat",
-			"tier" : 4,
-			"starred" : false,
-			"hp" : 45,
-			"stamina" : 15,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"wolf meat" : 1
-			}
-		},
-		"wolf jerky" : {
-			"id" : 24,
-			"name" : "wolf jerky",
-			"tier" : 4,
-			"starred" : false,
-			"hp" : 33,
-			"stamina" : 33,
-			"eitr" : 0,
-			"type" : "white",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 30,
-			"resources" : {
-				"honey" : 0.5,
-				"wolf meat" : 0.5
-			}
-		},
-		"wolf skewer" : {
-			"id" : 25,
-			"name" : "wolf skewer",
-			"tier" : 4,
-			"starred" : true,
-			"hp" : 65,
-			"stamina" : 21,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"mushroom" : 2,
-				"onion" : 1,
-				"wolf meat" : 1
-			}
-		},
-		"eyescream" : {
-			"id" : 26,
-			"name" : "eyescream",
-			"tier" : 4,
-			"starred" : false,
-			"hp" : 21,
-			"stamina" : 65,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"greydwarf eye" : 3,
-				"freeze gland" : 1
-			}
-		},
-		"cloudberries" : {
-			"id" : 27,
-			"name" : "cloudberries",
-			"tier" : 5,
-			"starred" : false,
-			"hp" : 13,
-			"stamina" : 40,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 15,
-			"resources" : {
-				"cloudberries" : 1
-			}
-		},
-		"cooked lox meat" : {
-			"id" : 28,
-			"name" : "cooked lox meat",
-			"tier" : 5,
-			"starred" : false,
-			"hp" : 50,
-			"stamina" : 16,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 4,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"lox meat" : 1
-			}
-		},
-		"fish wraps" : {
-			"id" : 29,
-			"name" : "fish wraps",
-			"tier" : 5,
-			"starred" : true,
-			"hp" : 70,
-			"stamina" : 23,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 4,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"fish" : 2,
-				"barley" : 4
-			}
-		},
-		"lox meat pie" : {
-			"id" : 30,
-			"name" : "lox meat pie",
-			"tier" : 5,
-			"starred" : true,
-			"hp" : 75,
-			"stamina" : 24,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 4,
-			"durationInMinutes" : 30,
-			"resources" : {
-				"cloudberries" : 2,
-				"lox meat" : 2,
-				"barley" : 4
-			}
-		},
-		"blood pudding" : {
-			"id" : 31,
-			"name" : "blood pudding",
-			"tier" : 5,
-			"starred" : false,
-			"hp" : 25,
-			"stamina" : 75,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 2,
-			"durationInMinutes" : 30,
-			"resources" : {
-				"thistle" : 2,
-				"bloodbag" : 2,
-				"barley" : 4
-			}
-		},
-		"bread" : {
-			"id" : 32,
-			"name" : "bread",
-			"tier" : 5,
-			"starred" : true,
-			"hp" : 23,
-			"stamina" : 70,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 2,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"barley" : 5
-			}
-		},
-		"cooked egg" : {
-			"id" : 33,
-			"name" : "cooked egg",
-			"tier" : 6,
-			"starred" : false,
-			"hp" : 35,
-			"stamina" : 12,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"egg" : 1
-			}
-		},
-		"cooked chicken meat" : {
-			"id" : 34,
-			"name" : "cooked chicken meat",
-			"tier" : 6,
-			"starred" : false,
-			"hp" : 60,
-			"stamina" : 20,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 5,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"chicken meat" : 1
-			}
-		},
-		"magecap" : {
-			"id" : 35,
-			"name" : "magecap",
-			"tier" : 6,
-			"starred" : false,
-			"hp" : 25,
-			"stamina" : 25,
-			"eitr" : 25,
-			"type" : "blue",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 15,
-			"resources" : {
-				"magecap" : 1
-			}
-		},
-		"jotun puffs" : {
-			"id" : 36,
-			"name" : "jotun puffs",
-			"tier" : 6,
-			"starred" : false,
-			"hp" : 23,
-			"stamina" : 25,
-			"eitr" : 0,
-			"type" : "white",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 15,
-			"resources" : {
-				"jotun puffs" : 1
-			}
-		},
-		"royal jelly" : {
-			"id" : 37,
-			"name" : "royal jelly",
-			"tier" : 6,
-			"starred" : false,
-			"hp" : 15,
-			"stamina" : 15,
-			"eitr" : 0,
-			"type" : "white",
-			"hpPerSecond" : 1,
-			"durationInMinutes" : 15,
-			"resources" : {
-				"royal jelly" : 1
-			}
-		},
-		"cooked seeker meat" : {
-			"id" : 38,
-			"name" : "cooked seeker meat",
-			"tier" : 6,
-			"starred" : false,
-			"hp" : 60,
-			"stamina" : 20,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 5,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"seeker meat" : 1
-			}
-		},
-		"cooked hare meat" : {
-			"id" : 39,
-			"name" : "cooked hare meat",
-			"tier" : 6,
-			"starred" : false,
-			"hp" : 60,
-			"stamina" : 20,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 5,
-			"durationInMinutes" : 20,
-			"resources" : {
-				"hare meat" : 1
-			}
-		},
-		"meat platter" : {
-			"id" : 40,
-			"name" : "meat platter",
-			"tier" : 6,
-			"starred" : true,
-			"hp" : 80,
-			"stamina" : 26,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 5,
-			"durationInMinutes" : 30,
-			"resources" : {
-				"lox meat" : 1,
-				"seeker meat" : 1,
-				"hare meat" : 1
-			}
-		},
-		"honey glazed chicken" : {
-			"id" : 41,
-			"name" : "honey glazed chicken",
-			"tier" : 6,
-			"starred" : true,
-			"hp" : 80,
-			"stamina" : 26,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 5,
-			"durationInMinutes" : 30,
-			"resources" : {
-				"honey" : 3,
-				"chicken meat" : 1,
-				"jotun puffs" : 1
-			}
-		},
-		"misthare supreme" : {
-			"id" : 42,
-			"name" : "misthare supreme",
-			"tier" : 6,
-			"starred" : true,
-			"hp" : 85,
-			"stamina" : 28,
-			"eitr" : 0,
-			"type" : "red",
-			"hpPerSecond" : 5,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"carrot" : 2,
-				"jotun puffs" : 3,
-				"hare meat" : 1
-			}
-		},
-		"salad" : {
-			"id" : 43,
-			"name" : "salad",
-			"tier" : 6,
-			"starred" : true,
-			"hp" : 26,
-			"stamina" : 80,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"onion" : 1,
-				"cloudberries" : 1,
-				"jotun puffs" : 1
-			}
-		},
-		"mushroom omelette" : {
-			"id" : 44,
-			"name" : "mushroom omelette",
-			"tier" : 6,
-			"starred" : true,
-			"hp" : 28,
-			"stamina" : 85,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"egg" : 3,
-				"jotun puffs" : 3
-			}
-		},
-		"fish and bread" : {
-			"id" : 45,
-			"name" : "fish and bread",
-			"tier" : 6,
-			"starred" : false,
-			"hp" : 30,
-			"stamina" : 90,
-			"eitr" : 0,
-			"type" : "yellow",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 30,
-			"resources" : {
-				"barley" : 10,
-				"anglerfish" : 1
-			}
-		},
-		"stuffed mushroom" : {
-			"id" : 46,
-			"name" : "stuffed mushroom",
-			"tier" : 6,
-			"starred" : true,
-			"hp" : 25,
-			"stamina" : 12,
-			"eitr" : 75,
-			"type" : "blue",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"turnip" : 2,
-				"magecap" : 3,
-				"blood clot" : 1
-			}
-		},
-		"yggdrasil porridge" : {
-			"id" : 47,
-			"name" : "yggdrasil porridge",
-			"tier" : 6,
-			"starred" : false,
-			"hp" : 27,
-			"stamina" : 13,
-			"eitr" : 80,
-			"type" : "blue",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 25,
-			"resources" : {
-				"barley" : 3,
-				"sap" : 4,
-				"royal jelly" : 2
-			}
-		},
-		"seeker aspic" : {
-			"id" : 48,
-			"name" : "seeker aspic",
-			"tier" : 6,
-			"starred" : true,
-			"hp" : 28,
-			"stamina" : 14,
-			"eitr" : 85,
-			"type" : "blue",
-			"hpPerSecond" : 3,
-			"durationInMinutes" : 30,
-			"resources" : {
-				"magecap" : 1,
-				"seeker meat" : 1,
-				"royal jelly" : 1
-			}
-		}
-	}
+  "headers" : [ "name", "tier", "starred", "hp", "stamina", "eitr", "type", "hpPerSecond", "durationInMinutes" ],
+  "tiers" : [ "meadows", "black forest", "swamp", "mountain", "plains", "mistlands" ],
+  "resourceTiers" : [ [ "raspberries", "mushroom", "honey", "neck tail", "boar meat", "deer meat", "greydwarf eye", "fish" ], [ "blueberries", "thistle", "carrot", "yellow mushroom", "serpent meat" ], [ "turnip", "ooze", "entrails", "bloodbag" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "chicken meat", "hare meat", "magecap", "jotun puffs", "seeker meat", "blood clot", "sap", "royal jelly", "anglerfish" ] ],
+  "food" : {
+    "raspberries" : {
+      "id" : 0,
+      "name" : "raspberries",
+      "tier" : 1,
+      "starred" : false,
+      "hp" : 7,
+      "stamina" : 20,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 10,
+      "resources" : {
+        "raspberries" : 1
+      }
+    },
+    "honey" : {
+      "id" : 1,
+      "name" : "honey",
+      "tier" : 1,
+      "starred" : true,
+      "hp" : 8,
+      "stamina" : 35,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 15,
+      "resources" : {
+        "honey" : 1
+      }
+    },
+    "grilled neck tail" : {
+      "id" : 2,
+      "name" : "grilled neck tail",
+      "tier" : 1,
+      "starred" : false,
+      "hp" : 25,
+      "stamina" : 8,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 2,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "neck tail" : 1
+      }
+    },
+    "cooked boar meat" : {
+      "id" : 3,
+      "name" : "cooked boar meat",
+      "tier" : 1,
+      "starred" : true,
+      "hp" : 30,
+      "stamina" : 10,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 2,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "boar meat" : 1
+      }
+    },
+    "cooked deer meat" : {
+      "id" : 4,
+      "name" : "cooked deer meat",
+      "tier" : 1,
+      "starred" : false,
+      "hp" : 35,
+      "stamina" : 12,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 2,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "deer meat" : 1
+      }
+    },
+    "boar jerky" : {
+      "id" : 5,
+      "name" : "boar jerky",
+      "tier" : 1,
+      "starred" : true,
+      "hp" : 23,
+      "stamina" : 23,
+      "eitr" : 0,
+      "type" : "white",
+      "hpPerSecond" : 2,
+      "durationInMinutes" : 30,
+      "resources" : {
+        "honey" : 0.5,
+        "boar meat" : 0.5
+      }
+    },
+    "cooked fish" : {
+      "id" : 6,
+      "name" : "cooked fish",
+      "tier" : 1,
+      "starred" : false,
+      "hp" : 45,
+      "stamina" : 15,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 2,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "fish" : 1
+      }
+    },
+    "mushroom" : {
+      "id" : 7,
+      "name" : "mushroom",
+      "tier" : 1,
+      "starred" : false,
+      "hp" : 15,
+      "stamina" : 15,
+      "eitr" : 0,
+      "type" : "white",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 15,
+      "resources" : {
+        "mushroom" : 1
+      }
+    },
+    "blueberries" : {
+      "id" : 8,
+      "name" : "blueberries",
+      "tier" : 2,
+      "starred" : false,
+      "hp" : 8,
+      "stamina" : 25,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 10,
+      "resources" : {
+        "blueberries" : 1
+      }
+    },
+    "carrot" : {
+      "id" : 9,
+      "name" : "carrot",
+      "tier" : 2,
+      "starred" : false,
+      "hp" : 10,
+      "stamina" : 32,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 15,
+      "resources" : {
+        "carrot" : 1
+      }
+    },
+    "carrot soup" : {
+      "id" : 10,
+      "name" : "carrot soup",
+      "tier" : 2,
+      "starred" : true,
+      "hp" : 15,
+      "stamina" : 45,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 2,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "mushroom" : 1,
+        "carrot" : 3
+      }
+    },
+    "queens jam" : {
+      "id" : 11,
+      "name" : "queens jam",
+      "tier" : 2,
+      "starred" : true,
+      "hp" : 14,
+      "stamina" : 40,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 2,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "raspberries" : 2,
+        "blueberries" : 1.5
+      }
+    },
+    "deer stew" : {
+      "id" : 12,
+      "name" : "deer stew",
+      "tier" : 2,
+      "starred" : true,
+      "hp" : 45,
+      "stamina" : 15,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "deer meat" : 1,
+        "blueberries" : 1,
+        "carrot" : 1
+      }
+    },
+    "minced meat sauce" : {
+      "id" : 13,
+      "name" : "minced meat sauce",
+      "tier" : 2,
+      "starred" : true,
+      "hp" : 40,
+      "stamina" : 13,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "neck tail" : 1,
+        "boar meat" : 1,
+        "carrot" : 1
+      }
+    },
+    "cooked serpent meat" : {
+      "id" : 14,
+      "name" : "cooked serpent meat",
+      "tier" : 2,
+      "starred" : false,
+      "hp" : 70,
+      "stamina" : 23,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "serpent meat" : 1
+      }
+    },
+    "serpent stew" : {
+      "id" : 15,
+      "name" : "serpent stew",
+      "tier" : 2,
+      "starred" : false,
+      "hp" : 80,
+      "stamina" : 26,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 4,
+      "durationInMinutes" : 30,
+      "resources" : {
+        "honey" : 2,
+        "mushroom" : 1,
+        "serpent meat" : 1
+      }
+    },
+    "turnip stew" : {
+      "id" : 16,
+      "name" : "turnip stew",
+      "tier" : 3,
+      "starred" : true,
+      "hp" : 18,
+      "stamina" : 55,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 2,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "boar meat" : 1,
+        "turnip" : 1
+      }
+    },
+    "yellow mushroom" : {
+      "id" : 17,
+      "name" : "yellow mushroom",
+      "tier" : 3,
+      "starred" : false,
+      "hp" : 10,
+      "stamina" : 30,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 10,
+      "resources" : {
+        "yellow mushroom" : 1
+      }
+    },
+    "muckshake" : {
+      "id" : 18,
+      "name" : "muckshake",
+      "tier" : 3,
+      "starred" : false,
+      "hp" : 16,
+      "stamina" : 50,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "raspberries" : 2,
+        "blueberries" : 2,
+        "ooze" : 1
+      }
+    },
+    "sausages" : {
+      "id" : 19,
+      "name" : "sausages",
+      "tier" : 3,
+      "starred" : true,
+      "hp" : 55,
+      "stamina" : 18,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "boar meat" : 0.25,
+        "entrails" : 1,
+        "thistle" : 0.25
+      }
+    },
+    "black soup" : {
+      "id" : 20,
+      "name" : "black soup",
+      "tier" : 3,
+      "starred" : false,
+      "hp" : 50,
+      "stamina" : 17,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "honey" : 1,
+        "turnip" : 1,
+        "bloodbag" : 1
+      }
+    },
+    "onion" : {
+      "id" : 21,
+      "name" : "onion",
+      "tier" : 4,
+      "starred" : false,
+      "hp" : 15,
+      "stamina" : 40,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 15,
+      "resources" : {
+        "onion" : 1
+      }
+    },
+    "onion soup" : {
+      "id" : 22,
+      "name" : "onion soup",
+      "tier" : 4,
+      "starred" : true,
+      "hp" : 20,
+      "stamina" : 60,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "onion" : 3
+      }
+    },
+    "cooked wolf meat" : {
+      "id" : 23,
+      "name" : "cooked wolf meat",
+      "tier" : 4,
+      "starred" : false,
+      "hp" : 45,
+      "stamina" : 15,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "wolf meat" : 1
+      }
+    },
+    "wolf jerky" : {
+      "id" : 24,
+      "name" : "wolf jerky",
+      "tier" : 4,
+      "starred" : false,
+      "hp" : 33,
+      "stamina" : 33,
+      "eitr" : 0,
+      "type" : "white",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 30,
+      "resources" : {
+        "honey" : 0.5,
+        "wolf meat" : 0.5
+      }
+    },
+    "wolf skewer" : {
+      "id" : 25,
+      "name" : "wolf skewer",
+      "tier" : 4,
+      "starred" : true,
+      "hp" : 65,
+      "stamina" : 21,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "mushroom" : 2,
+        "onion" : 1,
+        "wolf meat" : 1
+      }
+    },
+    "eyescream" : {
+      "id" : 26,
+      "name" : "eyescream",
+      "tier" : 4,
+      "starred" : false,
+      "hp" : 21,
+      "stamina" : 65,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "greydwarf eye" : 3,
+        "freeze gland" : 1
+      }
+    },
+    "cloudberries" : {
+      "id" : 27,
+      "name" : "cloudberries",
+      "tier" : 5,
+      "starred" : false,
+      "hp" : 13,
+      "stamina" : 40,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 15,
+      "resources" : {
+        "cloudberries" : 1
+      }
+    },
+    "cooked lox meat" : {
+      "id" : 28,
+      "name" : "cooked lox meat",
+      "tier" : 5,
+      "starred" : false,
+      "hp" : 50,
+      "stamina" : 16,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 4,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "lox meat" : 1
+      }
+    },
+    "fish wraps" : {
+      "id" : 29,
+      "name" : "fish wraps",
+      "tier" : 5,
+      "starred" : true,
+      "hp" : 70,
+      "stamina" : 23,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 4,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "fish" : 2,
+        "barley" : 4
+      }
+    },
+    "lox meat pie" : {
+      "id" : 30,
+      "name" : "lox meat pie",
+      "tier" : 5,
+      "starred" : true,
+      "hp" : 75,
+      "stamina" : 24,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 4,
+      "durationInMinutes" : 30,
+      "resources" : {
+        "cloudberries" : 2,
+        "lox meat" : 2,
+        "barley" : 4
+      }
+    },
+    "blood pudding" : {
+      "id" : 31,
+      "name" : "blood pudding",
+      "tier" : 5,
+      "starred" : false,
+      "hp" : 25,
+      "stamina" : 75,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 2,
+      "durationInMinutes" : 30,
+      "resources" : {
+        "thistle" : 2,
+        "bloodbag" : 2,
+        "barley" : 4
+      }
+    },
+    "bread" : {
+      "id" : 32,
+      "name" : "bread",
+      "tier" : 5,
+      "starred" : true,
+      "hp" : 23,
+      "stamina" : 70,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 2,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "barley" : 5
+      }
+    },
+    "cooked egg" : {
+      "id" : 33,
+      "name" : "cooked egg",
+      "tier" : 6,
+      "starred" : false,
+      "hp" : 35,
+      "stamina" : 12,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "egg" : 1
+      }
+    },
+    "cooked chicken meat" : {
+      "id" : 34,
+      "name" : "cooked chicken meat",
+      "tier" : 6,
+      "starred" : false,
+      "hp" : 60,
+      "stamina" : 20,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 5,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "chicken meat" : 1
+      }
+    },
+    "magecap" : {
+      "id" : 35,
+      "name" : "magecap",
+      "tier" : 6,
+      "starred" : false,
+      "hp" : 25,
+      "stamina" : 25,
+      "eitr" : 25,
+      "type" : "blue",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 15,
+      "resources" : {
+        "magecap" : 1
+      }
+    },
+    "jotun puffs" : {
+      "id" : 36,
+      "name" : "jotun puffs",
+      "tier" : 6,
+      "starred" : false,
+      "hp" : 23,
+      "stamina" : 25,
+      "eitr" : 0,
+      "type" : "white",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 15,
+      "resources" : {
+        "jotun puffs" : 1
+      }
+    },
+    "royal jelly" : {
+      "id" : 37,
+      "name" : "royal jelly",
+      "tier" : 6,
+      "starred" : false,
+      "hp" : 15,
+      "stamina" : 15,
+      "eitr" : 0,
+      "type" : "white",
+      "hpPerSecond" : 1,
+      "durationInMinutes" : 15,
+      "resources" : {
+        "royal jelly" : 1
+      }
+    },
+    "cooked seeker meat" : {
+      "id" : 38,
+      "name" : "cooked seeker meat",
+      "tier" : 6,
+      "starred" : false,
+      "hp" : 60,
+      "stamina" : 20,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 5,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "seeker meat" : 1
+      }
+    },
+    "cooked hare meat" : {
+      "id" : 39,
+      "name" : "cooked hare meat",
+      "tier" : 6,
+      "starred" : false,
+      "hp" : 60,
+      "stamina" : 20,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 5,
+      "durationInMinutes" : 20,
+      "resources" : {
+        "hare meat" : 1
+      }
+    },
+    "meat platter" : {
+      "id" : 40,
+      "name" : "meat platter",
+      "tier" : 6,
+      "starred" : true,
+      "hp" : 80,
+      "stamina" : 26,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 5,
+      "durationInMinutes" : 30,
+      "resources" : {
+        "lox meat" : 1,
+        "seeker meat" : 1,
+        "hare meat" : 1
+      }
+    },
+    "honey glazed chicken" : {
+      "id" : 41,
+      "name" : "honey glazed chicken",
+      "tier" : 6,
+      "starred" : true,
+      "hp" : 80,
+      "stamina" : 26,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 5,
+      "durationInMinutes" : 30,
+      "resources" : {
+        "honey" : 3,
+        "chicken meat" : 1,
+        "jotun puffs" : 1
+      }
+    },
+    "misthare supreme" : {
+      "id" : 42,
+      "name" : "misthare supreme",
+      "tier" : 6,
+      "starred" : true,
+      "hp" : 85,
+      "stamina" : 28,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 5,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "carrot" : 2,
+        "jotun puffs" : 3,
+        "hare meat" : 1
+      }
+    },
+    "salad" : {
+      "id" : 43,
+      "name" : "salad",
+      "tier" : 6,
+      "starred" : true,
+      "hp" : 26,
+      "stamina" : 80,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "onion" : 1,
+        "cloudberries" : 1,
+        "jotun puffs" : 1
+      }
+    },
+    "mushroom omelette" : {
+      "id" : 44,
+      "name" : "mushroom omelette",
+      "tier" : 6,
+      "starred" : true,
+      "hp" : 28,
+      "stamina" : 85,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "egg" : 3,
+        "jotun puffs" : 3
+      }
+    },
+    "fish and bread" : {
+      "id" : 45,
+      "name" : "fish and bread",
+      "tier" : 6,
+      "starred" : false,
+      "hp" : 30,
+      "stamina" : 90,
+      "eitr" : 0,
+      "type" : "yellow",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 30,
+      "resources" : {
+        "barley" : 10,
+        "anglerfish" : 1
+      }
+    },
+    "stuffed mushroom" : {
+      "id" : 46,
+      "name" : "stuffed mushroom",
+      "tier" : 6,
+      "starred" : true,
+      "hp" : 25,
+      "stamina" : 12,
+      "eitr" : 75,
+      "type" : "blue",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "turnip" : 2,
+        "magecap" : 3,
+        "blood clot" : 1
+      }
+    },
+    "yggdrasil porridge" : {
+      "id" : 47,
+      "name" : "yggdrasil porridge",
+      "tier" : 6,
+      "starred" : false,
+      "hp" : 27,
+      "stamina" : 13,
+      "eitr" : 80,
+      "type" : "blue",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "barley" : 3,
+        "sap" : 4,
+        "royal jelly" : 2
+      }
+    },
+    "seeker aspic" : {
+      "id" : 48,
+      "name" : "seeker aspic",
+      "tier" : 6,
+      "starred" : true,
+      "hp" : 28,
+      "stamina" : 14,
+      "eitr" : 85,
+      "type" : "blue",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 30,
+      "resources" : {
+        "magecap" : 1,
+        "seeker meat" : 1,
+        "royal jelly" : 1
+      }
+    }
+  }
 }
