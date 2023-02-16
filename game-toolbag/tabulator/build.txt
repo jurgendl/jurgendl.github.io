@@ -1,6 +1,0 @@
-https://tabulator.info/
-https://github.com/olifolkerd/tabulator
-npm install
-src\js\core\modules/
-edit core.js, add optional.js
-npm run build
