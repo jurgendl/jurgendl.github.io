@@ -1,223 +1,139 @@
-.tabulator-cell {
-    cursor: crosshair;
-}
 
-.tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
-    white-space: normal;
-}
-
-.bootstrap-select {
-    width: 100% !important;
-}
-
-.imgcheck img {
-    border: 3px solid rgba(200, 100, 100, .75)
-}
-
-.imgcheck input[type=checkbox]:checked~img {
-    border: 3px solid rgba(100, 200, 100, .75)
-}
-
-/*.full {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    padding: 100px 0 0 20px;
-}*/
-
-.meadows {
-    background-color: #f7f781;
-}
-
-.black-forest {
-    background-color: #bbe33d;
-}
-
-.swamp {
-    background-color: #b4c7dc;
-}
-
-.mountain {
-    background-color: #dddddd;
-}
-
-.plains {
-    background-color: #ffdbb6;
-}
-
-.mistlands {
-    background-color: #ffc2c2;
-}
-
-.tabulator-col[tabulator-field="raspberries"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="honey"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="neck tail"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="boar meat"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="deer meat"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="fish"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="blueberries"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="thistle"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="carrot"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="greydwarf eye"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="yellow mushroom"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="serpent meat"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="anglerfish"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="turnip"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="ooze"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="entrails"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="bloodbag"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="onion"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="wolf meat"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="freeze gland"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="cloudberries"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="lox meat"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="barley"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="egg"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="chicken meat"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="hare meat"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="magecap"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="jotun puffs"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="seeker meat"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="blood clot"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="sap"] .tabulator-col-title::before,
-.tabulator-col[tabulator-field="royal jelly"] .tabulator-col-title::before {
-    content: '';
-    width: 32px;
-    height: 32px;
-    background-size: 32px;
-}
-
-.tabulator-col[tabulator-field="raspberries"] .tabulator-col-title::before {
-    background-image: url('images/raspberries.png');
-}
-
-.tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before {
-    background-image: url('images/mushroom.png');
-}
-
-.tabulator-col[tabulator-field="honey"] .tabulator-col-title::before {
-    background-image: url('images/honey.png');
-}
-
-.tabulator-col[tabulator-field="neck tail"] .tabulator-col-title::before {
-    background-image: url('images/neck tail.png');
-}
-
-.tabulator-col[tabulator-field="boar meat"] .tabulator-col-title::before {
-    background-image: url('images/boar meat.png');
-}
-
-.tabulator-col[tabulator-field="deer meat"] .tabulator-col-title::before {
-    background-image: url('images/deer meat.png');
-}
-
-.tabulator-col[tabulator-field="fish"] .tabulator-col-title::before {
-    background-image: url('images/fish.png');
-}
-
-.tabulator-col[tabulator-field="blueberries"] .tabulator-col-title::before {
-    background-image: url('images/blueberries.png');
-}
-
-.tabulator-col[tabulator-field="thistle"] .tabulator-col-title::before {
-    background-image: url('images/thistle.png');
-}
-
-.tabulator-col[tabulator-field="carrot"] .tabulator-col-title::before {
-    background-image: url('images/carrot.png');
-}
-
-.tabulator-col[tabulator-field="greydwarf eye"] .tabulator-col-title::before {
-    background-image: url('images/greydwarf eye.png');
-}
-
-.tabulator-col[tabulator-field="yellow mushroom"] .tabulator-col-title::before {
-    background-image: url('images/yellow mushroom.png');
-}
-
-.tabulator-col[tabulator-field="serpent meat"] .tabulator-col-title::before {
-    background-image: url('images/serpent meat.png');
-}
-
-.tabulator-col[tabulator-field="anglerfish"] .tabulator-col-title::before {
-    background-image: url('images/anglerfish.png');
-}
-
-.tabulator-col[tabulator-field="turnip"] .tabulator-col-title::before {
-    background-image: url('images/turnip.png');
-}
-
-.tabulator-col[tabulator-field="ooze"] .tabulator-col-title::before {
-    background-image: url('images/ooze.png');
-}
-
-.tabulator-col[tabulator-field="entrails"] .tabulator-col-title::before {
-    background-image: url('images/entrails.png');
-}
-
-.tabulator-col[tabulator-field="bloodbag"] .tabulator-col-title::before {
-    background-image: url('images/bloodbag.png');
-}
-
-.tabulator-col[tabulator-field="onion"] .tabulator-col-title::before {
-    background-image: url('images/onion.png');
-}
-
-.tabulator-col[tabulator-field="wolf meat"] .tabulator-col-title::before {
-    background-image: url('images/wolf meat.png');
-}
-
-.tabulator-col[tabulator-field="freeze gland"] .tabulator-col-title::before {
-    background-image: url('images/freeze gland.png');
-}
-
-.tabulator-col[tabulator-field="cloudberries"] .tabulator-col-title::before {
-    background-image: url('images/cloudberries.png');
-}
-
-.tabulator-col[tabulator-field="lox meat"] .tabulator-col-title::before {
-    background-image: url('images/lox meat.png');
-}
-
-.tabulator-col[tabulator-field="barley"] .tabulator-col-title::before {
-    background-image: url('images/barley.png');
-}
-
-.tabulator-col[tabulator-field="egg"] .tabulator-col-title::before {
-    background-image: url('images/egg.png');
-}
-
-.tabulator-col[tabulator-field="chicken meat"] .tabulator-col-title::before {
-    background-image: url('images/chicken meat.png');
-}
-
-.tabulator-col[tabulator-field="hare meat"] .tabulator-col-title::before {
-    background-image: url('images/hare meat.png');
-}
-
-.tabulator-col[tabulator-field="magecap"] .tabulator-col-title::before {
-    background-image: url('images/magecap.png');
-}
-
-.tabulator-col[tabulator-field="jotun puffs"] .tabulator-col-title::before {
-    background-image: url('images/jotun puffs.png');
-}
-
-.tabulator-col[tabulator-field="seeker meat"] .tabulator-col-title::before {
-    background-image: url('images/seeker meat.png');
-}
-
-.tabulator-col[tabulator-field="blood clot"] .tabulator-col-title::before {
-    background-image: url('images/blood clot.png');
-}
-
-.tabulator-col[tabulator-field="sap"] .tabulator-col-title::before {
-    background-image: url('images/sap.png');
-}
-
-.tabulator-col[tabulator-field="royal jelly"] .tabulator-col-title::before {
-    background-image: url('images/royal jelly.png');
-}
+    .tabulator-col[tabulator-field="raspberries"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="honey"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="neck tail"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="boar meat"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="deer meat"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="greydwarf eye"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="fish"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="blueberries"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="thistle"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="carrot"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="yellow mushroom"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="turnip"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="ooze"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="entrails"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="bloodbag"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="serpent meat"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="onion"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="wolf meat"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="freeze gland"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="cloudberries"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="lox meat"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="barley"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="egg"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="chicken meat"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="hare meat"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="magecap"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="jotun puffs"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="seeker meat"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="blood clot"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="sap"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="royal jelly"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="anglerfish"] .tabulator-col-title::before,
+noop {
+      content: '';
+      width: 32px;
+      height: 32px;
+      background-size: 32px;
+    }
+    .tabulator-col[tabulator-field="raspberries"] .tabulator-col-title::before {
+      background-image: url('images/raspberries.png');
+    }
+    .tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before {
+      background-image: url('images/mushroom.png');
+    }
+    .tabulator-col[tabulator-field="honey"] .tabulator-col-title::before {
+      background-image: url('images/honey.png');
+    }
+    .tabulator-col[tabulator-field="neck tail"] .tabulator-col-title::before {
+      background-image: url('images/neck tail.png');
+    }
+    .tabulator-col[tabulator-field="boar meat"] .tabulator-col-title::before {
+      background-image: url('images/boar meat.png');
+    }
+    .tabulator-col[tabulator-field="deer meat"] .tabulator-col-title::before {
+      background-image: url('images/deer meat.png');
+    }
+    .tabulator-col[tabulator-field="greydwarf eye"] .tabulator-col-title::before {
+      background-image: url('images/greydwarf eye.png');
+    }
+    .tabulator-col[tabulator-field="fish"] .tabulator-col-title::before {
+      background-image: url('images/fish.png');
+    }
+    .tabulator-col[tabulator-field="blueberries"] .tabulator-col-title::before {
+      background-image: url('images/blueberries.png');
+    }
+    .tabulator-col[tabulator-field="thistle"] .tabulator-col-title::before {
+      background-image: url('images/thistle.png');
+    }
+    .tabulator-col[tabulator-field="carrot"] .tabulator-col-title::before {
+      background-image: url('images/carrot.png');
+    }
+    .tabulator-col[tabulator-field="yellow mushroom"] .tabulator-col-title::before {
+      background-image: url('images/yellow mushroom.png');
+    }
+    .tabulator-col[tabulator-field="turnip"] .tabulator-col-title::before {
+      background-image: url('images/turnip.png');
+    }
+    .tabulator-col[tabulator-field="ooze"] .tabulator-col-title::before {
+      background-image: url('images/ooze.png');
+    }
+    .tabulator-col[tabulator-field="entrails"] .tabulator-col-title::before {
+      background-image: url('images/entrails.png');
+    }
+    .tabulator-col[tabulator-field="bloodbag"] .tabulator-col-title::before {
+      background-image: url('images/bloodbag.png');
+    }
+    .tabulator-col[tabulator-field="serpent meat"] .tabulator-col-title::before {
+      background-image: url('images/serpent meat.png');
+    }
+    .tabulator-col[tabulator-field="onion"] .tabulator-col-title::before {
+      background-image: url('images/onion.png');
+    }
+    .tabulator-col[tabulator-field="wolf meat"] .tabulator-col-title::before {
+      background-image: url('images/wolf meat.png');
+    }
+    .tabulator-col[tabulator-field="freeze gland"] .tabulator-col-title::before {
+      background-image: url('images/freeze gland.png');
+    }
+    .tabulator-col[tabulator-field="cloudberries"] .tabulator-col-title::before {
+      background-image: url('images/cloudberries.png');
+    }
+    .tabulator-col[tabulator-field="lox meat"] .tabulator-col-title::before {
+      background-image: url('images/lox meat.png');
+    }
+    .tabulator-col[tabulator-field="barley"] .tabulator-col-title::before {
+      background-image: url('images/barley.png');
+    }
+    .tabulator-col[tabulator-field="egg"] .tabulator-col-title::before {
+      background-image: url('images/egg.png');
+    }
+    .tabulator-col[tabulator-field="chicken meat"] .tabulator-col-title::before {
+      background-image: url('images/chicken meat.png');
+    }
+    .tabulator-col[tabulator-field="hare meat"] .tabulator-col-title::before {
+      background-image: url('images/hare meat.png');
+    }
+    .tabulator-col[tabulator-field="magecap"] .tabulator-col-title::before {
+      background-image: url('images/magecap.png');
+    }
+    .tabulator-col[tabulator-field="jotun puffs"] .tabulator-col-title::before {
+      background-image: url('images/jotun puffs.png');
+    }
+    .tabulator-col[tabulator-field="seeker meat"] .tabulator-col-title::before {
+      background-image: url('images/seeker meat.png');
+    }
+    .tabulator-col[tabulator-field="blood clot"] .tabulator-col-title::before {
+      background-image: url('images/blood clot.png');
+    }
+    .tabulator-col[tabulator-field="sap"] .tabulator-col-title::before {
+      background-image: url('images/sap.png');
+    }
+    .tabulator-col[tabulator-field="royal jelly"] .tabulator-col-title::before {
+      background-image: url('images/royal jelly.png');
+    }
+    .tabulator-col[tabulator-field="anglerfish"] .tabulator-col-title::before {
+      background-image: url('images/anglerfish.png');
+    }

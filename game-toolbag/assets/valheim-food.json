@@ -1,7 +1,7 @@
 {
   "headers" : [ "name", "tier", "starred", "hp", "stamina", "eitr", "type", "hpPerSecond", "durationInMinutes" ],
   "tiers" : [ "meadows", "black forest", "swamp", "mountain", "plains", "mistlands" ],
-  "resourceTiers" : [ [ "raspberries", "mushroom", "honey", "neck tail", "boar meat", "deer meat", "greydwarf eye", "fish" ], [ "blueberries", "thistle", "carrot", "yellow mushroom", "serpent meat" ], [ "turnip", "ooze", "entrails", "bloodbag" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "chicken meat", "hare meat", "magecap", "jotun puffs", "seeker meat", "blood clot", "sap", "royal jelly", "anglerfish" ] ],
+  "resourceTiers" : [ [ "raspberries", "mushroom", "honey", "neck tail", "boar meat", "deer meat", "greydwarf eye", "fish" ], [ "blueberries", "thistle", "carrot", "yellow mushroom" ], [ "turnip", "ooze", "entrails", "bloodbag", "serpent meat" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "chicken meat", "hare meat", "magecap", "jotun puffs", "seeker meat", "blood clot", "sap", "royal jelly", "anglerfish" ] ],
   "food" : {
     "raspberries" : {
       "id" : 0,
@@ -220,40 +220,8 @@
         "carrot" : 1
       }
     },
-    "cooked serpent meat" : {
-      "id" : 14,
-      "name" : "cooked serpent meat",
-      "tier" : 2,
-      "starred" : false,
-      "hp" : 70,
-      "stamina" : 23,
-      "eitr" : 0,
-      "type" : "red",
-      "hpPerSecond" : 3,
-      "durationInMinutes" : 25,
-      "resources" : {
-        "serpent meat" : 1
-      }
-    },
-    "serpent stew" : {
-      "id" : 15,
-      "name" : "serpent stew",
-      "tier" : 2,
-      "starred" : false,
-      "hp" : 80,
-      "stamina" : 26,
-      "eitr" : 0,
-      "type" : "red",
-      "hpPerSecond" : 4,
-      "durationInMinutes" : 30,
-      "resources" : {
-        "honey" : 2,
-        "mushroom" : 1,
-        "serpent meat" : 1
-      }
-    },
     "turnip stew" : {
-      "id" : 16,
+      "id" : 14,
       "name" : "turnip stew",
       "tier" : 3,
       "starred" : true,
@@ -269,7 +237,7 @@
       }
     },
     "yellow mushroom" : {
-      "id" : 17,
+      "id" : 15,
       "name" : "yellow mushroom",
       "tier" : 3,
       "starred" : false,
@@ -284,7 +252,7 @@
       }
     },
     "muckshake" : {
-      "id" : 18,
+      "id" : 16,
       "name" : "muckshake",
       "tier" : 3,
       "starred" : false,
@@ -301,7 +269,7 @@
       }
     },
     "sausages" : {
-      "id" : 19,
+      "id" : 17,
       "name" : "sausages",
       "tier" : 3,
       "starred" : true,
@@ -318,7 +286,7 @@
       }
     },
     "black soup" : {
-      "id" : 20,
+      "id" : 18,
       "name" : "black soup",
       "tier" : 3,
       "starred" : false,
@@ -332,6 +300,38 @@
         "honey" : 1,
         "turnip" : 1,
         "bloodbag" : 1
+      }
+    },
+    "cooked serpent meat" : {
+      "id" : 19,
+      "name" : "cooked serpent meat",
+      "tier" : 3,
+      "starred" : false,
+      "hp" : 70,
+      "stamina" : 23,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 3,
+      "durationInMinutes" : 25,
+      "resources" : {
+        "serpent meat" : 1
+      }
+    },
+    "serpent stew" : {
+      "id" : 20,
+      "name" : "serpent stew",
+      "tier" : 3,
+      "starred" : false,
+      "hp" : 80,
+      "stamina" : 26,
+      "eitr" : 0,
+      "type" : "red",
+      "hpPerSecond" : 4,
+      "durationInMinutes" : 30,
+      "resources" : {
+        "honey" : 2,
+        "mushroom" : 1,
+        "serpent meat" : 1
       }
     },
     "onion" : {
