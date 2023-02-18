@@ -1,10 +1,8 @@
 {
-  "headers" : [ "name", "tier", "starred", "hp", "stamina", "eitr", "type", "hpPerSecond", "durationInMinutes" ],
   "tiers" : [ "meadows", "black forest", "swamp", "mountain", "plains", "mistlands" ],
   "resourceTiers" : [ [ "raspberries", "mushroom", "honey", "neck tail", "boar meat", "deer meat", "greydwarf eye", "fish" ], [ "blueberries", "thistle", "carrot", "yellow mushroom" ], [ "turnip", "ooze", "entrails", "bloodbag", "serpent meat" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "chicken meat", "hare meat", "magecap", "jotun puffs", "seeker meat", "blood clot", "sap", "royal jelly", "anglerfish" ] ],
   "food" : {
     "raspberries" : {
-      "id" : 0,
       "name" : "raspberries",
       "tier" : 1,
       "starred" : false,
@@ -19,7 +17,6 @@
       }
     },
     "honey" : {
-      "id" : 1,
       "name" : "honey",
       "tier" : 1,
       "starred" : true,
@@ -34,7 +31,6 @@
       }
     },
     "grilled neck tail" : {
-      "id" : 2,
       "name" : "grilled neck tail",
       "tier" : 1,
       "starred" : false,
@@ -49,7 +45,6 @@
       }
     },
     "cooked boar meat" : {
-      "id" : 3,
       "name" : "cooked boar meat",
       "tier" : 1,
       "starred" : true,
@@ -64,7 +59,6 @@
       }
     },
     "cooked deer meat" : {
-      "id" : 4,
       "name" : "cooked deer meat",
       "tier" : 1,
       "starred" : false,
@@ -79,7 +73,6 @@
       }
     },
     "boar jerky" : {
-      "id" : 5,
       "name" : "boar jerky",
       "tier" : 1,
       "starred" : true,
@@ -95,7 +88,6 @@
       }
     },
     "cooked fish" : {
-      "id" : 6,
       "name" : "cooked fish",
       "tier" : 1,
       "starred" : false,
@@ -110,7 +102,6 @@
       }
     },
     "mushroom" : {
-      "id" : 7,
       "name" : "mushroom",
       "tier" : 1,
       "starred" : false,
@@ -125,7 +116,6 @@
       }
     },
     "blueberries" : {
-      "id" : 8,
       "name" : "blueberries",
       "tier" : 2,
       "starred" : false,
@@ -140,7 +130,6 @@
       }
     },
     "carrot" : {
-      "id" : 9,
       "name" : "carrot",
       "tier" : 2,
       "starred" : false,
@@ -155,7 +144,6 @@
       }
     },
     "carrot soup" : {
-      "id" : 10,
       "name" : "carrot soup",
       "tier" : 2,
       "starred" : true,
@@ -171,7 +159,6 @@
       }
     },
     "queens jam" : {
-      "id" : 11,
       "name" : "queens jam",
       "tier" : 2,
       "starred" : true,
@@ -187,7 +174,6 @@
       }
     },
     "deer stew" : {
-      "id" : 12,
       "name" : "deer stew",
       "tier" : 2,
       "starred" : true,
@@ -204,7 +190,6 @@
       }
     },
     "minced meat sauce" : {
-      "id" : 13,
       "name" : "minced meat sauce",
       "tier" : 2,
       "starred" : true,
@@ -221,7 +206,6 @@
       }
     },
     "turnip stew" : {
-      "id" : 14,
       "name" : "turnip stew",
       "tier" : 3,
       "starred" : true,
@@ -237,7 +221,6 @@
       }
     },
     "yellow mushroom" : {
-      "id" : 15,
       "name" : "yellow mushroom",
       "tier" : 3,
       "starred" : false,
@@ -252,7 +235,6 @@
       }
     },
     "muckshake" : {
-      "id" : 16,
       "name" : "muckshake",
       "tier" : 3,
       "starred" : false,
@@ -269,7 +251,6 @@
       }
     },
     "sausages" : {
-      "id" : 17,
       "name" : "sausages",
       "tier" : 3,
       "starred" : true,
@@ -286,7 +267,6 @@
       }
     },
     "black soup" : {
-      "id" : 18,
       "name" : "black soup",
       "tier" : 3,
       "starred" : false,
@@ -303,7 +283,6 @@
       }
     },
     "cooked serpent meat" : {
-      "id" : 19,
       "name" : "cooked serpent meat",
       "tier" : 3,
       "starred" : false,
@@ -318,7 +297,6 @@
       }
     },
     "serpent stew" : {
-      "id" : 20,
       "name" : "serpent stew",
       "tier" : 3,
       "starred" : false,
@@ -335,7 +313,6 @@
       }
     },
     "onion" : {
-      "id" : 21,
       "name" : "onion",
       "tier" : 4,
       "starred" : false,
@@ -350,7 +327,6 @@
       }
     },
     "onion soup" : {
-      "id" : 22,
       "name" : "onion soup",
       "tier" : 4,
       "starred" : true,
@@ -365,7 +341,6 @@
       }
     },
     "cooked wolf meat" : {
-      "id" : 23,
       "name" : "cooked wolf meat",
       "tier" : 4,
       "starred" : false,
@@ -380,7 +355,6 @@
       }
     },
     "wolf jerky" : {
-      "id" : 24,
       "name" : "wolf jerky",
       "tier" : 4,
       "starred" : false,
@@ -396,7 +370,6 @@
       }
     },
     "wolf skewer" : {
-      "id" : 25,
       "name" : "wolf skewer",
       "tier" : 4,
       "starred" : true,
@@ -413,7 +386,6 @@
       }
     },
     "eyescream" : {
-      "id" : 26,
       "name" : "eyescream",
       "tier" : 4,
       "starred" : false,
@@ -429,7 +401,6 @@
       }
     },
     "cloudberries" : {
-      "id" : 27,
       "name" : "cloudberries",
       "tier" : 5,
       "starred" : false,
@@ -444,7 +415,6 @@
       }
     },
     "cooked lox meat" : {
-      "id" : 28,
       "name" : "cooked lox meat",
       "tier" : 5,
       "starred" : false,
@@ -459,7 +429,6 @@
       }
     },
     "fish wraps" : {
-      "id" : 29,
       "name" : "fish wraps",
       "tier" : 5,
       "starred" : true,
@@ -475,7 +444,6 @@
       }
     },
     "lox meat pie" : {
-      "id" : 30,
       "name" : "lox meat pie",
       "tier" : 5,
       "starred" : true,
@@ -492,7 +460,6 @@
       }
     },
     "blood pudding" : {
-      "id" : 31,
       "name" : "blood pudding",
       "tier" : 5,
       "starred" : false,
@@ -509,7 +476,6 @@
       }
     },
     "bread" : {
-      "id" : 32,
       "name" : "bread",
       "tier" : 5,
       "starred" : true,
@@ -524,7 +490,6 @@
       }
     },
     "cooked egg" : {
-      "id" : 33,
       "name" : "cooked egg",
       "tier" : 6,
       "starred" : false,
@@ -539,7 +504,6 @@
       }
     },
     "cooked chicken meat" : {
-      "id" : 34,
       "name" : "cooked chicken meat",
       "tier" : 6,
       "starred" : false,
@@ -554,7 +518,6 @@
       }
     },
     "magecap" : {
-      "id" : 35,
       "name" : "magecap",
       "tier" : 6,
       "starred" : false,
@@ -569,7 +532,6 @@
       }
     },
     "jotun puffs" : {
-      "id" : 36,
       "name" : "jotun puffs",
       "tier" : 6,
       "starred" : false,
@@ -584,7 +546,6 @@
       }
     },
     "royal jelly" : {
-      "id" : 37,
       "name" : "royal jelly",
       "tier" : 6,
       "starred" : false,
@@ -599,7 +560,6 @@
       }
     },
     "cooked seeker meat" : {
-      "id" : 38,
       "name" : "cooked seeker meat",
       "tier" : 6,
       "starred" : false,
@@ -614,7 +574,6 @@
       }
     },
     "cooked hare meat" : {
-      "id" : 39,
       "name" : "cooked hare meat",
       "tier" : 6,
       "starred" : false,
@@ -629,7 +588,6 @@
       }
     },
     "meat platter" : {
-      "id" : 40,
       "name" : "meat platter",
       "tier" : 6,
       "starred" : true,
@@ -646,7 +604,6 @@
       }
     },
     "honey glazed chicken" : {
-      "id" : 41,
       "name" : "honey glazed chicken",
       "tier" : 6,
       "starred" : true,
@@ -663,7 +620,6 @@
       }
     },
     "misthare supreme" : {
-      "id" : 42,
       "name" : "misthare supreme",
       "tier" : 6,
       "starred" : true,
@@ -680,7 +636,6 @@
       }
     },
     "salad" : {
-      "id" : 43,
       "name" : "salad",
       "tier" : 6,
       "starred" : true,
@@ -697,7 +652,6 @@
       }
     },
     "mushroom omelette" : {
-      "id" : 44,
       "name" : "mushroom omelette",
       "tier" : 6,
       "starred" : true,
@@ -713,7 +667,6 @@
       }
     },
     "fish and bread" : {
-      "id" : 45,
       "name" : "fish and bread",
       "tier" : 6,
       "starred" : false,
@@ -729,7 +682,6 @@
       }
     },
     "stuffed mushroom" : {
-      "id" : 46,
       "name" : "stuffed mushroom",
       "tier" : 6,
       "starred" : true,
@@ -746,7 +698,6 @@
       }
     },
     "yggdrasil porridge" : {
-      "id" : 47,
       "name" : "yggdrasil porridge",
       "tier" : 6,
       "starred" : false,
@@ -763,7 +714,6 @@
       }
     },
     "seeker aspic" : {
-      "id" : 48,
       "name" : "seeker aspic",
       "tier" : 6,
       "starred" : true,
