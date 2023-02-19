@@ -1,6 +1,6 @@
 {
   "tiers" : [ "meadows", "black forest", "swamp", "mountain", "plains", "mistlands" ],
-  "resourceTiers" : [ [ "raspberries", "mushroom", "honey", "neck tail", "boar meat", "deer meat", "greydwarf eye", "fish" ], [ "blueberries", "thistle", "carrot", "yellow mushroom" ], [ "turnip", "ooze", "entrails", "bloodbag", "serpent meat" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "chicken meat", "hare meat", "magecap", "jotun puffs", "seeker meat", "blood clot", "sap", "royal jelly", "anglerfish" ] ],
+  "resourceTiers" : [ [ "raspberries", "honey", "neck tail", "boar meat", "deer meat", "fish", "greydwarf eye", "mushroom", "dandelion", "coal" ], [ "blueberries", "carrot", "yellow mushroom", "thistle" ], [ "turnip", "ooze", "entrails", "bloodbag", "serpent meat" ], [ "onion", "wolf meat", "freeze gland" ], [ "cloudberries", "lox meat", "barley" ], [ "egg", "chicken meat", "magecap", "jotun puffs", "seeker meat", "hare meat", "blood clot", "sap", "royal jelly", "anglerfish" ] ],
   "food" : {
     "raspberries" : {
       "name" : "raspberries",
@@ -205,6 +205,60 @@
         "carrot" : 1
       }
     },
+    "minor healing" : {
+      "name" : "minor healing",
+      "tier" : 2,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 0.16,
+      "resources" : {
+        "raspberries" : 10,
+        "honey" : 10,
+        "dandelion" : 1,
+        "blueberries" : 5
+      }
+    },
+    "minor stamina" : {
+      "name" : "minor stamina",
+      "tier" : 2,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 0.03,
+      "resources" : {
+        "raspberries" : 10,
+        "honey" : 10,
+        "yellow mushroom" : 10
+      }
+    },
+    "poison resistance" : {
+      "name" : "poison resistance",
+      "tier" : 2,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 10,
+      "resources" : {
+        "honey" : 10,
+        "neck tail" : 1,
+        "coal" : 10,
+        "thistle" : 5
+      }
+    },
+    "tasty" : {
+      "name" : "tasty",
+      "tier" : 2,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 0.16,
+      "resources" : {
+        "raspberries" : 10,
+        "honey" : 10,
+        "blueberries" : 5
+      }
+    },
     "turnip stew" : {
       "name" : "turnip stew",
       "tier" : 3,
@@ -262,8 +316,8 @@
       "durationInMinutes" : 25,
       "resources" : {
         "boar meat" : 0.25,
-        "entrails" : 1,
-        "thistle" : 0.25
+        "thistle" : 0.25,
+        "entrails" : 1
       }
     },
     "black soup" : {
@@ -310,6 +364,34 @@
         "honey" : 2,
         "mushroom" : 1,
         "serpent meat" : 1
+      }
+    },
+    "frost resistance" : {
+      "name" : "frost resistance",
+      "tier" : 3,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 10,
+      "resources" : {
+        "honey" : 10,
+        "greydwarf eye" : 1,
+        "thistle" : 5,
+        "bloodbag" : 2
+      }
+    },
+    "medium healing" : {
+      "name" : "medium healing",
+      "tier" : 3,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 0.16,
+      "resources" : {
+        "raspberries" : 10,
+        "honey" : 10,
+        "dandelion" : 1,
+        "bloodbag" : 4
       }
     },
     "onion" : {
@@ -487,6 +569,31 @@
       "durationInMinutes" : 25,
       "resources" : {
         "barley" : 5
+      }
+    },
+    "barley wine" : {
+      "name" : "barley wine",
+      "tier" : 5,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 10,
+      "resources" : {
+        "cloudberries" : 10,
+        "barley" : 10
+      }
+    },
+    "medium stamina" : {
+      "name" : "medium stamina",
+      "tier" : 5,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 0.03,
+      "resources" : {
+        "raspberries" : 10,
+        "yellow mushroom" : 10,
+        "cloudberries" : 10
       }
     },
     "cooked egg" : {
@@ -727,6 +834,46 @@
         "magecap" : 1,
         "seeker meat" : 1,
         "royal jelly" : 1
+      }
+    },
+    "lingering stamina" : {
+      "name" : "lingering stamina",
+      "tier" : 6,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 5,
+      "resources" : {
+        "cloudberries" : 10,
+        "jotun puffs" : 10,
+        "blood clot" : 10
+      }
+    },
+    "major healing" : {
+      "name" : "major healing",
+      "tier" : 6,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 0.16,
+      "resources" : {
+        "honey" : 10,
+        "blood clot" : 4,
+        "royal jelly" : 5
+      }
+    },
+    "minor eitr" : {
+      "name" : "minor eitr",
+      "tier" : 6,
+      "starred" : false,
+      "eitr" : 0,
+      "type" : "mead",
+      "durationInMinutes" : 0.16,
+      "resources" : {
+        "honey" : 10,
+        "magecap" : 5,
+        "jotun puffs" : 2,
+        "sap" : 5
       }
     }
   }

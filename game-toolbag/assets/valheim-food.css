@@ -1,16 +1,18 @@
 
     .tabulator-col[tabulator-field="raspberries"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="honey"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="neck tail"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="boar meat"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="deer meat"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="greydwarf eye"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="fish"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="greydwarf eye"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="dandelion"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="coal"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="blueberries"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="thistle"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="carrot"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="yellow mushroom"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="thistle"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="turnip"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="ooze"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="entrails"] .tabulator-col-title::before,
@@ -24,10 +26,10 @@
     .tabulator-col[tabulator-field="barley"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="egg"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="chicken meat"] .tabulator-col-title::before,
-    .tabulator-col[tabulator-field="hare meat"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="magecap"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="jotun puffs"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="seeker meat"] .tabulator-col-title::before,
+    .tabulator-col[tabulator-field="hare meat"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="blood clot"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="sap"] .tabulator-col-title::before,
     .tabulator-col[tabulator-field="royal jelly"] .tabulator-col-title::before,
@@ -41,9 +43,6 @@ noop {
     .tabulator-col[tabulator-field="raspberries"] .tabulator-col-title::before {
       background-image: url('images/raspberries.png');
     }
-    .tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before {
-      background-image: url('images/mushroom.png');
-    }
     .tabulator-col[tabulator-field="honey"] .tabulator-col-title::before {
       background-image: url('images/honey.png');
     }
@@ -56,23 +55,32 @@ noop {
     .tabulator-col[tabulator-field="deer meat"] .tabulator-col-title::before {
       background-image: url('images/deer meat.png');
     }
-    .tabulator-col[tabulator-field="greydwarf eye"] .tabulator-col-title::before {
-      background-image: url('images/greydwarf eye.png');
-    }
     .tabulator-col[tabulator-field="fish"] .tabulator-col-title::before {
       background-image: url('images/fish.png');
     }
+    .tabulator-col[tabulator-field="greydwarf eye"] .tabulator-col-title::before {
+      background-image: url('images/greydwarf eye.png');
+    }
+    .tabulator-col[tabulator-field="mushroom"] .tabulator-col-title::before {
+      background-image: url('images/mushroom.png');
+    }
+    .tabulator-col[tabulator-field="dandelion"] .tabulator-col-title::before {
+      background-image: url('images/dandelion.png');
+    }
+    .tabulator-col[tabulator-field="coal"] .tabulator-col-title::before {
+      background-image: url('images/coal.png');
+    }
     .tabulator-col[tabulator-field="blueberries"] .tabulator-col-title::before {
       background-image: url('images/blueberries.png');
-    }
-    .tabulator-col[tabulator-field="thistle"] .tabulator-col-title::before {
-      background-image: url('images/thistle.png');
     }
     .tabulator-col[tabulator-field="carrot"] .tabulator-col-title::before {
       background-image: url('images/carrot.png');
     }
     .tabulator-col[tabulator-field="yellow mushroom"] .tabulator-col-title::before {
       background-image: url('images/yellow mushroom.png');
+    }
+    .tabulator-col[tabulator-field="thistle"] .tabulator-col-title::before {
+      background-image: url('images/thistle.png');
     }
     .tabulator-col[tabulator-field="turnip"] .tabulator-col-title::before {
       background-image: url('images/turnip.png');
@@ -113,9 +121,6 @@ noop {
     .tabulator-col[tabulator-field="chicken meat"] .tabulator-col-title::before {
       background-image: url('images/chicken meat.png');
     }
-    .tabulator-col[tabulator-field="hare meat"] .tabulator-col-title::before {
-      background-image: url('images/hare meat.png');
-    }
     .tabulator-col[tabulator-field="magecap"] .tabulator-col-title::before {
       background-image: url('images/magecap.png');
     }
@@ -124,6 +129,9 @@ noop {
     }
     .tabulator-col[tabulator-field="seeker meat"] .tabulator-col-title::before {
       background-image: url('images/seeker meat.png');
+    }
+    .tabulator-col[tabulator-field="hare meat"] .tabulator-col-title::before {
+      background-image: url('images/hare meat.png');
     }
     .tabulator-col[tabulator-field="blood clot"] .tabulator-col-title::before {
       background-image: url('images/blood clot.png');
