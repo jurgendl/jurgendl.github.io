@@ -4,7 +4,10 @@
 		"date": "2023-01-01T00:00:00.000Z",
 		"title": "title",
 		"extra": "extra",
-		"text": "<person>person</person> <location>location</location> <item>item</item>"
+		"text": "<p><person>person</person> <location>location</location> <item>item</item><p><p>paragraph<br><span style='margin-left: 2em'>in</span></p>",
+		"images": [
+			"https://drive.google.com/uc?id=1uWjI2bPqfE0CI2_BLB6OEuzxXFhOvd9V"
+		]
 	},
 	{
 		"id": 2,
