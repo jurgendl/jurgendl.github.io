@@ -1,0 +1,2159 @@
+{
+	"free": "General",
+	"costs": [
+		{
+			"type": "characteristic",
+			"cost": [
+				[
+					100,
+					250,
+					500,
+					750
+				],
+				[
+					250,
+					500,
+					750,
+					1000
+				],
+				[
+					500,
+					750,
+					1000,
+					2500
+				]
+			]
+		},
+		{
+			"type": "talent",
+			"cost": [
+				[
+					200,
+					300,
+					400
+				],
+				[
+					300,
+					450,
+					600
+				],
+				[
+					600,
+					900,
+					1200
+				]
+			]
+		},
+		{
+			"type": "skill",
+			"cost": [
+				[
+					100,
+					200,
+					300,
+					400
+				],
+				[
+					200,
+					400,
+					600,
+					800
+				],
+				[
+					300,
+					600,
+					900,
+					1200
+				]
+			]
+		}
+	],
+	"classes": [
+		{
+			"class": "Heavy Gunner",
+			"aptitudes": [
+				"Ballistic Skill",
+				"Defense",
+				"Fellowship",
+				"Offence",
+				"Perception",
+				"Toughness"
+			]
+		},
+		{
+			"class": "Medic",
+			"aptitudes": [
+				"Ballistic Skill",
+				"Fieldcraft",
+				"Ballistic Skill",
+				"Fieldcraft",
+				"Intelligence",
+				"Knowledge",
+				"Perception",
+				"Willpower"
+			]
+		},
+		{
+			"class": "Operator",
+			"aptitudes": [
+				"Agility",
+				"Ballistic Skill",
+				"Fellowship",
+				"Fieldcraft",
+				"Intelligence",
+				"Tech"
+			]
+		},
+		{
+			"class": "Sergeant",
+			"aptitudes": [
+				"Defense",
+				"Fellowship",
+				"Leadership",
+				"Perception",
+				"Strength",
+				"Toughness",
+				"Weapon Skill"
+			]
+		},
+		{
+			"class": "Weapon Specialist",
+			"aptitudes": [
+				"Agility",
+				"Ballistic Skill",
+				"Fellowship",
+				"Fieldcraft",
+				"Finesse",
+				"Weapon Skill"
+			]
+		},
+		{
+			"class": "Commissar",
+			"aptitudes": [
+				"Agility",
+				"Fellowship",
+				"Finesse",
+				"Leadership",
+				"Perception",
+				"Weapon Skill",
+				"Willpower"
+			]
+		},
+		{
+			"class": "Ministorum Priest",
+			"aptitudes": [
+				"Starting Aptitudes: Fellowship",
+				"Leadership",
+				"Perception",
+				"Social",
+				"Strength",
+				"Weapon Skill",
+				"Willpower"
+			]
+		},
+		{
+			"class": "Ogryn",
+			"aptitudes": [
+				"Ballistic Skill",
+				"Defense",
+				"Offence",
+				"Strength",
+				"Toughness",
+				"Weapon Skill"
+			]
+		},
+		{
+			"class": "Ratling",
+			"aptitudes": [
+				"Agility",
+				"Ballistic Skill",
+				"Fellowship",
+				"Fieldcraft",
+				"Finesse",
+				"Perception",
+				"Social"
+			]
+		},
+		{
+			"class": "Storm Trooper",
+			"aptitudes": [
+				"Agility",
+				"Ballistic Skill",
+				"Fieldcraft",
+				"Finesse",
+				"Offence",
+				"Toughness"
+			]
+		},
+		{
+			"class": "Tech-Priest Enginseer",
+			"aptitudes": [
+				"Ballistic Skill",
+				"Intelligence",
+				"Knowledge",
+				"Strength",
+				"Tech",
+				"Toughness",
+				"Weapon Skill",
+				"Willpower"
+			]
+		},
+		{
+			"class": "Brawler",
+			"aptitudes": [
+				"Agility",
+				"Finesse",
+				"Offence",
+				"Strength",
+				"Toughness",
+				"Weapon Skill"
+			]
+		},
+		{
+			"class": "Breacher",
+			"aptitudes": [
+				"Agility",
+				"Finesse",
+				"Intelligence",
+				"Tech",
+				"Toughness",
+				"Willpower"
+			]
+		},
+		{
+			"class": "Commander",
+			"aptitudes": [
+				"Fellowship",
+				"Intelligence",
+				"Leadership",
+				"Social",
+				"Toughness",
+				"Weapon Skill"
+			]
+		},
+		{
+			"class": "Field Chirurgeon",
+			"aptitudes": [
+				"Ballistic Skill",
+				"Defense",
+				"Fellowship",
+				"Intelligence",
+				"Knowledge",
+				"Willpower"
+			]
+		},
+		{
+			"class": "Master of Ordnance",
+			"aptitudes": [
+				"Agility",
+				"Fellowship",
+				"Intelligence",
+				"Leadership",
+				"Offence",
+				"Perception"
+			]
+		},
+		{
+			"class": "Scout",
+			"aptitudes": [
+				"Agility",
+				"Fieldcraft",
+				"Strength",
+				"Perception",
+				"Offence",
+				"Weapon Skill"
+			]
+		},
+		{
+			"class": "Sentry",
+			"aptitudes": [
+				"Ballistic Skill",
+				"Finesse",
+				"Intelligence",
+				"Perception",
+				"Offence",
+				"Toughness"
+			]
+		},
+		{
+			"class": "Sharpshooter",
+			"aptitudes": [
+				"Agility",
+				"Ballistic Skill",
+				"Fellowship",
+				"Finesse",
+				"Offence",
+				"Perception"
+			]
+		},
+		{
+			"class": "Tank Ace",
+			"aptitudes": [
+				"Agility",
+				"Fellowship",
+				"Leadership",
+				"Perception",
+				"Tech",
+				"Willpower"
+			]
+		}
+	],
+	"optional": [
+		"Weapon Skill",
+		"Ballistic Skill",
+		"Strength",
+		"Toughness",
+		"Agility",
+		"Intelligence",
+		"Perception",
+		"Willpower",
+		"Fellowship"
+	],
+	"characteristic": [
+		{
+			"name": "Weapon Skill",
+			"aptitude": "Offence"
+		},
+		{
+			"name": "Ballistic Skill",
+			"aptitude": "Finesse"
+		},
+		{
+			"name": "Strength",
+			"aptitude": "Offence"
+		},
+		{
+			"name": "Toughness",
+			"aptitude": "Defense"
+		},
+		{
+			"name": "Agility",
+			"aptitude": "Finesse"
+		},
+		{
+			"name": "Intelligence",
+			"aptitude": "Knowledge"
+		},
+		{
+			"name": "Perception",
+			"aptitude": "Fieldcraft"
+		},
+		{
+			"name": "Willpower",
+			"aptitude": "Psyker"
+		},
+		{
+			"name": "Fellowship",
+			"aptitude": "Social"
+		}
+	],
+	"skills": [
+		{
+			"name": "Acrobatics",
+			"aptitudes": [
+				"Agility",
+				"General"
+			]
+		},
+		{
+			"name": "Athletics",
+			"aptitudes": [
+				"Strength",
+				"General"
+			]
+		},
+		{
+			"name": "Awareness",
+			"aptitudes": [
+				"Perception",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Charm",
+			"aptitudes": [
+				"Fellowship",
+				"Social"
+			]
+		},
+		{
+			"name": "Command",
+			"aptitudes": [
+				"Fellowship",
+				"Leadership"
+			]
+		},
+		{
+			"name": "Commerce",
+			"aptitudes": [
+				"Intelligence",
+				"Knowledge"
+			]
+		},
+		{
+			"name": "Common Lore",
+			"aptitudes": [
+				"Intelligence",
+				"General"
+			]
+		},
+		{
+			"name": "Decieve",
+			"aptitudes": [
+				"Fellowship",
+				"Social"
+			]
+		},
+		{
+			"name": "Dodge",
+			"aptitudes": [
+				"Agility",
+				"Defense"
+			]
+		},
+		{
+			"name": "Forbidden Lore",
+			"aptitudes": [
+				"Intelligence",
+				"Knowledge"
+			]
+		},
+		{
+			"name": "Inquiry",
+			"aptitudes": [
+				"Fellowship",
+				"Social"
+			]
+		},
+		{
+			"name": "Interrogation",
+			"aptitudes": [
+				"Willpower",
+				"Social"
+			]
+		},
+		{
+			"name": "Intimidate",
+			"aptitudes": [
+				"Strength",
+				"Social"
+			]
+		},
+		{
+			"name": "Linguistics",
+			"aptitudes": [
+				"Intelligence",
+				"General"
+			]
+		},
+		{
+			"name": "Logic",
+			"aptitudes": [
+				"Intelligence",
+				"Knowledge"
+			]
+		},
+		{
+			"name": "Medicae",
+			"aptitudes": [
+				"Intelligence",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Navigate",
+			"aptitudes": [
+				"Intelligence",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Operate",
+			"aptitudes": [
+				"Agility",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Parry",
+			"aptitudes": [
+				"Weapon Skill",
+				"Defense"
+			]
+		},
+		{
+			"name": "Psyniscience",
+			"aptitudes": [
+				"Perception",
+				"Psyker"
+			]
+		},
+		{
+			"name": "Scholastic Lore",
+			"aptitudes": [
+				"Intelligence",
+				"Knowledge"
+			]
+		},
+		{
+			"name": "Scrutiny",
+			"aptitudes": [
+				"Perception",
+				"General"
+			]
+		},
+		{
+			"name": "Sleight of Hand",
+			"aptitudes": [
+				"Agility",
+				"Knowledge"
+			]
+		},
+		{
+			"name": "Stealth",
+			"aptitudes": [
+				"Agility",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Survival",
+			"aptitudes": [
+				"Perception",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Tech Use",
+			"aptitudes": [
+				"Intelligence",
+				"Tech"
+			]
+		},
+		{
+			"name": "Trade",
+			"aptitudes": [
+				"Intelligence",
+				"General"
+			]
+		}
+	],
+	"talents": [
+		{
+			"tier": 1,
+			"talent": "Air of Authority",
+			"prerequisites": "Fel 30",
+			"apt1": "Fellowship",
+			"apt2": "Leadership",
+			"benefit": "Affect more targets with Command."
+		},
+		{
+			"tier": 1,
+			"talent": "Ambidextrous",
+			"prerequisites": "Ag 30",
+			"apt1": "Weapon Skill",
+			"apt2": "Ballistic Skill",
+			"benefit": "Use either hand equally well—reduce penalties for using two weapons."
+		},
+		{
+			"tier": 1,
+			"talent": "Ambush",
+			"prerequisites": "Stealth",
+			"apt1": "Agility",
+			"apt2": "Fieldcraft",
+			"benefit": "Inflict additional Damage on Unaware targets."
+		},
+		{
+			"tier": 1,
+			"talent": "Berserk Charge",
+			"prerequisites": "—",
+			"apt1": "Strength",
+			"apt2": "Offence",
+			"benefit": "Gain an extra bonus to hit when charging."
+		},
+		{
+			"tier": 1,
+			"talent": "Blind Fighting",
+			"prerequisites": "Per 30",
+			"apt1": "Perception",
+			"apt2": "Fieldcraft",
+			"benefit": "Suffer half usual penalties for obscured vision."
+		},
+		{
+			"tier": 1,
+			"talent": "Brute of Burden",
+			"prerequisites": "Str 45",
+			"apt1": "Strength",
+			"apt2": "General",
+			"benefit": "Character can carry larger loads and forced march for longer."
+		},
+		{
+			"tier": 1,
+			"talent": "Calculated Barrage",
+			"prerequisites": "Int 35",
+			"apt1": "Ballistic Skill",
+			"apt2": "Knowledge",
+			"benefit": "Pin targets with Indirect Fire."
+		},
+		{
+			"tier": 1,
+			"talent": "Catfall",
+			"prerequisites": "Ag 30",
+			"apt1": "Agility",
+			"apt2": "Fieldcraft",
+			"benefit": "Reduce falling damage."
+		},
+		{
+			"tier": 1,
+			"talent": "Cold Hearted",
+			"prerequisites": "—",
+			"apt1": "Willpower",
+			"apt2": "Defense",
+			"benefit": "Immune to Seduction, resistant to Charm."
+		},
+		{
+			"tier": 1,
+			"talent": "Combat Formation",
+			"prerequisites": "Int 40",
+			"apt1": "Leadership",
+			"apt2": "Fieldcraft",
+			"benefit": "Use intelligence bonus for Initiative."
+		},
+		{
+			"tier": 1,
+			"talent": "Combat Sense",
+			"prerequisites": "Per 30",
+			"apt1": "Perception",
+			"apt2": "Fieldcraft",
+			"benefit": "Use Per bonus instead of Ag bonus for Initiative."
+		},
+		{
+			"tier": 1,
+			"talent": "Deadeye Shot",
+			"prerequisites": "BS 30",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Reduce penalties for ranged called shots."
+		},
+		{
+			"tier": 1,
+			"talent": "Die Hard",
+			"prerequisites": "WP 40",
+			"apt1": "Willpower",
+			"apt2": "Defense",
+			"benefit": "Improves chances of surviving Blood Loss."
+		},
+		{
+			"tier": 1,
+			"talent": "Disarm",
+			"prerequisites": "Ag 30",
+			"apt1": "Weapon Skill",
+			"apt2": "Defense",
+			"benefit": "Force opponent to drop weapon."
+		},
+		{
+			"tier": 1,
+			"talent": "Disturbing Voice",
+			"prerequisites": "—",
+			"apt1": "Fellowship",
+			"apt2": "Social",
+			"benefit": "+10 to Intimidate, –10 to Charm."
+		},
+		{
+			"tier": 1,
+			"talent": "Double Team",
+			"prerequisites": "—",
+			"apt1": "General",
+			"apt2": "Offence",
+			"benefit": "Gain additional +10 for outnumbering opponent."
+		},
+		{
+			"tier": 1,
+			"talent": "Drop Trooper",
+			"prerequisites": "Operate (Aeronautica)",
+			"apt1": "Agility",
+			"apt2": "Tech",
+			"benefit": "Bonus to Operate Test for grav-chutes."
+		},
+		{
+			"tier": 1,
+			"talent": "Duelist",
+			"prerequisites": "WS 35, Sure Strike",
+			"apt1": "Finesse",
+			"apt2": "Weapon Skill",
+			"benefit": "Bonus to engaging single opponents."
+		},
+		{
+			"tier": 1,
+			"talent": "Ears to the Ground",
+			"prerequisites": "Commerce, Perception 30",
+			"apt1": "Perception",
+			"apt2": "Social",
+			"benefit": "Character gains a bonus to trade or barter goods and avoid official notice."
+		},
+		{
+			"tier": 1,
+			"talent": "Enemy",
+			"prerequisites": "—",
+			"apt1": "General",
+			"apt2": "Social",
+			"benefit": "An organization or group particularly despises the character."
+		},
+		{
+			"tier": 1,
+			"talent": "Excellent Cook",
+			"prerequisites": "Trade (Cook) +10",
+			"apt1": "Fieldcraft",
+			"apt2": "General",
+			"benefit": "Fix a hearty meal to provide squad mates with a bonus to resist Fear and Pinning."
+		},
+		{
+			"tier": 1,
+			"talent": "Ferric Summons",
+			"prerequisites": "Ferric Lure Implants, Mechanicus Implants",
+			"apt1": "Willpower",
+			"apt2": "Tech",
+			"benefit": "Can summon larger metallic objects."
+		},
+		{
+			"tier": 1,
+			"talent": "Frenzy",
+			"prerequisites": "—",
+			"apt1": "Strength",
+			"apt2": "Offence",
+			"benefit": "Enter psychotic rage to gain combat bonuses."
+		},
+		{
+			"tier": 1,
+			"talent": "Heightened Senses†",
+			"prerequisites": "—",
+			"apt1": "Perception",
+			"apt2": "Fieldcraft",
+			"benefit": "Gain +10 bonus to particular sense."
+		},
+		{
+			"tier": 1,
+			"talent": "Heroic Inspiration",
+			"prerequisites": "Fel 35, Command",
+			"apt1": "Leadership",
+			"apt2": "Social",
+			"benefit": "Use Inspire Special Use of the Command Skill as a Half Action."
+		},
+		{
+			"tier": 1,
+			"talent": "Initiated Maintenance",
+			"prerequisites": "Common Lore (Adeptus Mechanicus) +10",
+			"apt1": "Ballistic Skill",
+			"apt2": "Tech",
+			"benefit": "Reduces Jams and Overheating."
+		},
+		{
+			"tier": 1,
+			"talent": "Iron Jaw",
+			"prerequisites": "T 40",
+			"apt1": "Toughness",
+			"apt2": "Defense",
+			"benefit": "Test Toughness to overcome Stunning."
+		},
+		{
+			"tier": 1,
+			"talent": "It Not So Dark",
+			"prerequisites": "Ogryn, Willpower 40",
+			"apt1": "Willpower",
+			"apt2": "General",
+			"benefit": "Reduced effects from “But It Dark in Dere” Trait."
+		},
+		{
+			"tier": 1,
+			"talent": "Jaded",
+			"prerequisites": "WP 40",
+			"apt1": "Willpower",
+			"apt2": "Defense",
+			"benefit": "Ignore mundane horrors."
+		},
+		{
+			"tier": 1,
+			"talent": "Lasgun Volley",
+			"prerequisites": "BS 30, Weapon Training (Las)",
+			"apt1": "Ballistic Skill",
+			"apt2": "General",
+			"benefit": "Inflict extra Damage with Ranged Volley Order when wielding a Las weapon."
+		},
+		{
+			"tier": 1,
+			"talent": "Leap Up",
+			"prerequisites": "Ag 30",
+			"apt1": "Agility",
+			"apt2": "General",
+			"benefit": "Stand as a Free Action."
+		},
+		{
+			"tier": 1,
+			"talent": "Light Sleeper",
+			"prerequisites": "Per 30",
+			"apt1": "Perception",
+			"apt2": "Fieldcraft",
+			"benefit": "Count as awake even when sleeping."
+		},
+		{
+			"tier": 1,
+			"talent": "Lightning Reflexes",
+			"prerequisites": "—",
+			"apt1": "Agility",
+			"apt2": "Fieldcraft",
+			"benefit": "Roll twice and take the highest for Initiative rolls."
+		},
+		{
+			"tier": 1,
+			"talent": "Litany of Condemnation",
+			"prerequisites": "Willpower 40, Scholastic Lore (Imperial Creed) +10",
+			"apt1": "Willpower",
+			"apt2": "Social",
+			"benefit": "Character may inspire others to resist Fear from Daemons and their ilk."
+		},
+		{
+			"tier": 1,
+			"talent": "Little 'Un",
+			"prerequisites": "Fellowship 30, Non-Ogryn",
+			"apt1": "Fellowship",
+			"apt2": "General",
+			"benefit": "Character is easily liked and trusted by Ogryns."
+		},
+		{
+			"tier": 1,
+			"talent": "Loyal Demeanour",
+			"prerequisites": "Ogryn",
+			"apt1": "Fellowship",
+			"apt2": "Leadership",
+			"benefit": "Others take character more seriously."
+		},
+		{
+			"tier": 1,
+			"talent": "Meditation",
+			"prerequisites": "—",
+			"apt1": "Willpower",
+			"apt2": "Knowledge",
+			"benefit": "Character may enter a trance to ignore Fatigue."
+		},
+		{
+			"tier": 1,
+			"talent": "Mimic",
+			"prerequisites": "—",
+			"apt1": "Fellowship",
+			"apt2": "Social",
+			"benefit": "Character can copy voices."
+		},
+		{
+			"tier": 1,
+			"talent": "Modify Payload",
+			"prerequisites": "Tech-Use",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Increase Damage, Blast Quality, and Smoke Quality of explosives."
+		},
+		{
+			"tier": 1,
+			"talent": "Orthoproxy",
+			"prerequisites": "—",
+			"apt1": "Willpower",
+			"apt2": "Tech",
+			"benefit": "+20 bonus to resist mind control or interrogation."
+		},
+		{
+			"tier": 1,
+			"talent": "Overlooked",
+			"prerequisites": "Perception 35, Unremarkable",
+			"apt1": "Perception",
+			"apt2": "Defense",
+			"benefit": "Enemies attack other characters first."
+		},
+		{
+			"tier": 1,
+			"talent": "Peer",
+			"prerequisites": "Fel 30",
+			"apt1": "Fellowship",
+			"apt2": "Social",
+			"benefit": "Character has good reputation amongst chosen group."
+		},
+		{
+			"tier": 1,
+			"talent": "Polyglot",
+			"prerequisites": "Int 40, Fel 30",
+			"apt1": "Intelligence",
+			"apt2": "Social",
+			"benefit": "Character has innate grasp of languages."
+		},
+		{
+			"tier": 1,
+			"talent": "Potentia Coil Induction",
+			"prerequisites": "Implanted Potentia or Mechanicus Implants, Toughness 35",
+			"apt1": "Toughness",
+			"apt2": "Tech",
+			"benefit": "Draw on external power sources to reduce Fatigue."
+		},
+		{
+			"tier": 1,
+			"talent": "Psychic Power†",
+			"prerequisites": "Psyker",
+			"apt1": "Willpower",
+			"apt2": "Psyker",
+			"benefit": "May take one psychic power."
+		},
+		{
+			"tier": 1,
+			"talent": "Pugilist",
+			"prerequisites": "S 30",
+			"apt1": "Offence",
+			"apt2": "Strength",
+			"benefit": "Feint as a Free Action with Unarmed Standard Attack and Called Shot Actions."
+		},
+		{
+			"tier": 1,
+			"talent": "Push the Limit",
+			"prerequisites": "Operate (Any One), Technical Knock",
+			"apt1": "Agility",
+			"apt2": "Tech",
+			"benefit": "Bonus to Vehicle Manoeuvre Tests with Structural Integrity loss on a Failed Test."
+		},
+		{
+			"tier": 1,
+			"talent": "Quick Draw",
+			"prerequisites": "—",
+			"apt1": "Agility",
+			"apt2": "Finesse",
+			"benefit": "Draw weapon as Free Action."
+		},
+		{
+			"tier": 1,
+			"talent": "Rabbit Punch",
+			"prerequisites": "Agility 35, Weapon Skill 35",
+			"apt1": "Agility",
+			"apt2": "Finesse",
+			"benefit": "Use AB for unarmed Damage."
+		},
+		{
+			"tier": 1,
+			"talent": "Radiant Presence",
+			"prerequisites": "Fel 40",
+			"apt1": "Fellowship",
+			"apt2": "Leadership",
+			"benefit": "Character has an inspiring aura."
+		},
+		{
+			"tier": 1,
+			"talent": "Rapid Reload",
+			"prerequisites": "—",
+			"apt1": "Agility",
+			"apt2": "Fieldcraft",
+			"benefit": "Reduce reload time."
+		},
+		{
+			"tier": 1,
+			"talent": "Resistance†",
+			"prerequisites": "—",
+			"apt1": "Toughness",
+			"apt2": "Defense",
+			"benefit": "Gain +10 bonus to particular resistance Test."
+		},
+		{
+			"tier": 1,
+			"talent": "Sound Constitution",
+			"prerequisites": "—",
+			"apt1": "Toughness",
+			"apt2": "General",
+			"benefit": "Gain an additional Wound."
+		},
+		{
+			"tier": 1,
+			"talent": "Street Fighting",
+			"prerequisites": "WS 30",
+			"apt1": "Weapon Skill",
+			"apt2": "Offence",
+			"benefit": "Add half WS to Critical Damage."
+		},
+		{
+			"tier": 1,
+			"talent": "Strength in the Creed",
+			"prerequisites": "Ministorum Priest or 10+ Insanity Points",
+			"apt1": "Willpower",
+			"apt2": "Offence",
+			"benefit": "Invoke the Imperial Creed for inspiration on an attack."
+		},
+		{
+			"tier": 1,
+			"talent": "Sure Strike",
+			"prerequisites": "WS 30",
+			"apt1": "Weapon Skill",
+			"apt2": "Finesse",
+			"benefit": "Reduce penalties for melee Called Shots."
+		},
+		{
+			"tier": 1,
+			"talent": "Swift Suture",
+			"prerequisites": "Medicae",
+			"apt1": "Finesse",
+			"apt2": "Intelligence",
+			"benefit": "End Blood Loss condition when performing First Aid."
+		},
+		{
+			"tier": 1,
+			"talent": "Takedown",
+			"prerequisites": "—",
+			"apt1": "Weapon Skill",
+			"apt2": "Offence",
+			"benefit": "Make special attack to stun opponent."
+		},
+		{
+			"tier": 1,
+			"talent": "Technical Knock",
+			"prerequisites": "Int 30",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Un-jam gun as Half Action."
+		},
+		{
+			"tier": 1,
+			"talent": "Total Recall",
+			"prerequisites": "Int 30",
+			"apt1": "Intelligence",
+			"apt2": "Knowledge",
+			"benefit": "Character can remember trivial facts and minor details."
+		},
+		{
+			"tier": 1,
+			"talent": "Unarmed Warrior",
+			"prerequisites": "WS 35, Ag 35",
+			"apt1": "Strength",
+			"apt2": "Offence",
+			"benefit": "Improves unarmed attacks."
+		},
+		{
+			"tier": 1,
+			"talent": "Unremarkable",
+			"prerequisites": "—",
+			"apt1": "General",
+			"apt2": "Social",
+			"benefit": "Character is easily forgettable."
+		},
+		{
+			"tier": 1,
+			"talent": "Unusual Companion",
+			"prerequisites": "Fel 30",
+			"apt1": "General",
+			"apt2": "Social",
+			"benefit": "Gain a non-standard Comrade."
+		},
+		{
+			"tier": 1,
+			"talent": "Urge the Penitent",
+			"prerequisites": "Command +10, Scholastic Lore (Imperial Creed)",
+			"apt1": "Fellowship",
+			"apt2": "Social",
+			"benefit": "Benefit when re-rolling Tests with Fate Points."
+		},
+		{
+			"tier": 1,
+			"talent": "Vigilant",
+			"prerequisites": "Per 35",
+			"apt1": "Offence",
+			"apt2": "Perception",
+			"benefit": "Use Perception instead of Agility for Overwatch."
+		},
+		{
+			"tier": 1,
+			"talent": "Warp Sense",
+			"prerequisites": "Psy Rating, Psyniscience, Per 30",
+			"apt1": "Perception",
+			"apt2": "Psyker",
+			"benefit": "Allows Psyniscience Test as Free Action."
+		},
+		{
+			"tier": 1,
+			"talent": "Weapon-Tech",
+			"prerequisites": "Tech Use +10, Int 40",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Increase potency of advanced weaponry."
+		},
+		{
+			"tier": 1,
+			"talent": "Weapon Training†",
+			"prerequisites": "—",
+			"apt1": "General",
+			"apt2": "Finesse",
+			"benefit": "Use Weapon Group without penalty."
+		},
+		{
+			"tier": 1,
+			"talent": "Wrestler",
+			"prerequisites": "S 30, Athletics",
+			"apt1": "Strength",
+			"apt2": "General",
+			"benefit": "Use Athletics Skill instead of Strength Characteristic while Grappling."
+		},
+		{
+			"tier": 2,
+			"talent": "Ace Operator",
+			"prerequisites": "Operate (Any) +10",
+			"apt1": "Agility",
+			"apt2": "Tech",
+			"benefit": "Reduce Degrees of Failure on failed Operate Tests by Agility Bonus."
+		},
+		{
+			"tier": 2,
+			"talent": "Accelerated Repairs",
+			"prerequisites": "Any Essential Repair Skill +20, Tech-Use +10",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Character may conduct repairs more swiftly."
+		},
+		{
+			"tier": 2,
+			"talent": "Armour-Monger",
+			"prerequisites": "Int 35, Tech-Use, Trade (Armourer)",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Increase the efficacy of physical armour."
+		},
+		{
+			"tier": 2,
+			"talent": "Aspire to Vengeance",
+			"prerequisites": "WS 40, WP 40",
+			"apt1": "Fellowship",
+			"apt2": "Offence",
+			"benefit": "Character gains powerful benefits to attacks upon the loss of an ally."
+		},
+		{
+			"tier": 2,
+			"talent": "Battle Rage",
+			"prerequisites": "Frenzy",
+			"apt1": "Strength",
+			"apt2": "Defense",
+			"benefit": "Parry while frenzied."
+		},
+		{
+			"tier": 2,
+			"talent": "Battlefield Tech-Wright",
+			"prerequisites": "Any Essential Repair Skill +10, Willpower 35",
+			"apt1": "Willpower",
+			"apt2": "Tech",
+			"benefit": "Ignore penalties from distractions on Tech-Use and Repair Tests."
+		},
+		{
+			"tier": 2,
+			"talent": "Bulging Biceps",
+			"prerequisites": "S 45",
+			"apt1": "Strength",
+			"apt2": "Offence",
+			"benefit": "Remove bracing requirement from certain weapons."
+		},
+		{
+			"tier": 2,
+			"talent": "Chain Weapon Expertise",
+			"prerequisites": "WS 40 , Weapon Training (Chain)",
+			"apt1": "Weapon Skill",
+			"apt2": "Offence",
+			"benefit": "Add additional Damage die for Tearing with Chain weapons."
+		},
+		{
+			"tier": 2,
+			"talent": "Cleanse and Purify",
+			"prerequisites": "WP 35, Weapon Training (Flame)",
+			"apt1": "Offence",
+			"apt2": "Willpower",
+			"benefit": "Increase chance to ignite foes with Flame weapons."
+		},
+		{
+			"tier": 2,
+			"talent": "Combat Master",
+			"prerequisites": "WS 30",
+			"apt1": "Weapon Skill",
+			"apt2": "Defense",
+			"benefit": "Opponents get no bonus for outnumbering the character."
+		},
+		{
+			"tier": 2,
+			"talent": "Confessor",
+			"prerequisites": "Fellowship 35, Ministorum Priest, Willpower 35",
+			"apt1": "Fellowship",
+			"apt2": "Leadership",
+			"benefit": "Other characters may remove additional Insanity Points for XP."
+		},
+		{
+			"tier": 2,
+			"talent": "Counter Attack",
+			"prerequisites": "WS 40",
+			"apt1": "Weapon Skill",
+			"apt2": "Defense",
+			"benefit": "May attack after successful Parry."
+		},
+		{
+			"tier": 2,
+			"talent": "Crack Shot",
+			"prerequisites": "BS 50",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Add +2 to ranged Crit Damage."
+		},
+		{
+			"tier": 2,
+			"talent": "Creative Killer",
+			"prerequisites": "Street Fighting",
+			"apt1": "Intelligence",
+			"apt2": "Offence",
+			"benefit": "Deal improved Damage with Improvised Weapons."
+		},
+		{
+			"tier": 2,
+			"talent": "Crippling Strike",
+			"prerequisites": "WS 50",
+			"apt1": "Weapon Skill",
+			"apt2": "Finesse",
+			"benefit": "Add +2 to melee Crit Damage."
+		},
+		{
+			"tier": 2,
+			"talent": "Cybernetic Boost",
+			"prerequisites": "One or More Cybernetic Limbs, Tech-Use",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Gain Unnatural Strength or Agility Traits by overcharging cybernetic limbs or mechadendrites."
+		},
+		{
+			"tier": 2,
+			"talent": "Deflect Shot",
+			"prerequisites": "Ag 50",
+			"apt1": "Weapon Skill",
+			"apt2": "Defense",
+			"benefit": "Add WS Bonus to AP against Primitive ranged attacks."
+		},
+		{
+			"tier": 2,
+			"talent": "Exotic Weapon Training",
+			"prerequisites": "—",
+			"apt1": "Intelligence",
+			"apt2": "Finesse",
+			"benefit": "Gain proficiency with one exotic weapon."
+		},
+		{
+			"tier": 2,
+			"talent": "Foresight",
+			"prerequisites": "Int 30",
+			"apt1": "Intelligence",
+			"apt2": "Knowledge",
+			"benefit": "Contemplate to gain +10 bonus to next Test."
+		},
+		{
+			"tier": 2,
+			"talent": "Furious Assault",
+			"prerequisites": "WS 35",
+			"apt1": "Weapon Skill",
+			"apt2": "Offence",
+			"benefit": "On a successful WS Test, gain a free second attack."
+		},
+		{
+			"tier": 2,
+			"talent": "Guardian",
+			"prerequisites": "Ag 40",
+			"apt1": "Agility",
+			"apt2": "Defense",
+			"benefit": "Spend a Fate Point to trade places with an ally targeted by an attack."
+		},
+		{
+			"tier": 2,
+			"talent": "Hard Target",
+			"prerequisites": "Ag 40",
+			"apt1": "Agility",
+			"apt2": "Defense",
+			"benefit": "–20 to hit character when he Charges or Runs."
+		},
+		{
+			"tier": 2,
+			"talent": "Hardy",
+			"prerequisites": "T 40",
+			"apt1": "Toughness",
+			"apt2": "Defense",
+			"benefit": "Character always heals as if lightly wounded."
+		},
+		{
+			"tier": 2,
+			"talent": "Hatred",
+			"prerequisites": "—",
+			"apt1": "Weapon Skill",
+			"apt2": "Social",
+			"benefit": "Gain +10 bonus to attack hated creatures."
+		},
+		{
+			"tier": 2,
+			"talent": "Hip Shooting",
+			"prerequisites": "BS 40, Ag 40",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Characters may shoot when moving."
+		},
+		{
+			"tier": 2,
+			"talent": "Hotshot Pilot",
+			"prerequisites": "Ag 40, Operate (any)",
+			"apt1": "Agility",
+			"apt2": "Fieldcraft",
+			"benefit": "Character can drive or fly anything."
+		},
+		{
+			"tier": 2,
+			"talent": "Independent Targeting",
+			"prerequisites": "BS 40",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Fire at multiple targets more than 10 metres apart."
+		},
+		{
+			"tier": 2,
+			"talent": "Inspire Wrath",
+			"prerequisites": "Air of Authority",
+			"apt1": "Fellowship",
+			"apt2": "Leadership",
+			"benefit": "Inspire crowd to hatred and anger."
+		},
+		{
+			"tier": 2,
+			"talent": "Integrated Weapon Expertise",
+			"prerequisites": "Ballistic Skill 40, Implanted Potentia or Mechanicus Implants",
+			"apt1": "Ballistic Skill",
+			"apt2": "Defense",
+			"benefit": "Reduce Integrated weapon penalties."
+		},
+		{
+			"tier": 2,
+			"talent": "Iron Discipline",
+			"prerequisites": "Fel 30",
+			"apt1": "Fellowship",
+			"apt2": "Leadership",
+			"benefit": "Comrades resist Pinning and Fear."
+		},
+		{
+			"tier": 2,
+			"talent": "Killing Strike",
+			"prerequisites": "WS 50",
+			"apt1": "Weapon Skill",
+			"apt2": "Offence",
+			"benefit": "Spend Fate Point to make melee attacks unavoidable."
+		},
+		{
+			"tier": 2,
+			"talent": "Las Weapon Expertise",
+			"prerequisites": "BS 35, Lasgun Volley",
+			"apt1": "Ballistic Skill",
+			"apt2": "General",
+			"benefit": "Impose a penalty on opponents attempting to Dodge attacks with Las weapons."
+		},
+		{
+			"tier": 2,
+			"talent": "Luminen Shock",
+			"prerequisites": "Luminen Capacitors, Mechanicus Implants",
+			"apt1": "Weapon Skill",
+			"apt2": "Tech",
+			"benefit": "Character can discharge energy in melee attack."
+		},
+		{
+			"tier": 2,
+			"talent": "Maglev Transcendence",
+			"prerequisites": "Maglev Coils/Mechanicus Implants",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Character can hover for longer periods of time."
+		},
+		{
+			"tier": 2,
+			"talent": "Marksman",
+			"prerequisites": "BS 35",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "No penalties for firing at long or extreme range."
+		},
+		{
+			"tier": 2,
+			"talent": "Mechadendrite Use†",
+			"prerequisites": "Mechanicus Implants",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Gain ability to use certain Mechadendrites."
+		},
+		{
+			"tier": 2,
+			"talent": "Melta Weapon Expertise",
+			"prerequisites": "BS 40, Weapon Training (Melta)",
+			"apt1": "Ballistic Skill",
+			"apt2": "Offence",
+			"benefit": "Increase the Range of Melta weapons by a number of metres equal to Ballistic Skill Bonus."
+		},
+		{
+			"tier": 2,
+			"talent": "Methodical Care",
+			"prerequisites": "Int 40, Swift Suture",
+			"apt1": "Intelligence",
+			"apt2": "Knowledge",
+			"benefit": "—"
+		},
+		{
+			"tier": 2,
+			"talent": "Munitorum Influence",
+			"prerequisites": "—",
+			"apt1": "Fellowship",
+			"apt2": "Social",
+			"benefit": "+5 Bonus to Squad Logistics Rating."
+		},
+		{
+			"tier": 2,
+			"talent": "Nerves of Steel",
+			"prerequisites": "—",
+			"apt1": "Willpower",
+			"apt2": "Defense",
+			"benefit": "Reroll Pinning Tests."
+		},
+		{
+			"tier": 2,
+			"talent": "Paranoia",
+			"prerequisites": "—",
+			"apt1": "Perception",
+			"apt2": "Fieldcraft",
+			"benefit": "Character is always alert for danger."
+		},
+		{
+			"tier": 2,
+			"talent": "Perfected Maintenance",
+			"prerequisites": "Common Lore (Adeptus Mechanicus) +20, Initiated Maintenance",
+			"apt1": "Ballistic Skill",
+			"apt2": "Tech",
+			"benefit": "Improves the Craftsmanship of one item temporarily."
+		},
+		{
+			"tier": 2,
+			"talent": "Persuasive Charm",
+			"prerequisites": "Fel 35, Charm",
+			"apt1": "Fellowship",
+			"apt2": "Social",
+			"benefit": "Use Charm Skill to gain a bonus to Logistics Tests."
+		},
+		{
+			"tier": 2,
+			"talent": "Plasma Weapon Expertise",
+			"prerequisites": "BS 40, Weapon Training (Plasma)",
+			"apt1": "Ballistic Skill",
+			"apt2": "Tech",
+			"benefit": "Reduce the chance of the Overheats Quality triggering when wielding a Plasma weapon."
+		},
+		{
+			"tier": 2,
+			"talent": "Precise Blow",
+			"prerequisites": "WS 40, Sure Strike",
+			"apt1": "Weapon Skill",
+			"apt2": "Finesse",
+			"benefit": "Reduce penalty for melee called shots."
+		},
+		{
+			"tier": 2,
+			"talent": "Prosanguine",
+			"prerequisites": "Autosanguine Implant, Mechanicus Implants",
+			"apt1": "Toughness",
+			"apt2": "Tech",
+			"benefit": "Test to heal 1d5 Damage."
+		},
+		{
+			"tier": 2,
+			"talent": "Rapid Reaction",
+			"prerequisites": "Ag 40",
+			"apt1": "Agility",
+			"apt2": "Fieldcraft",
+			"benefit": "Test Ag to ignore surprise."
+		},
+		{
+			"tier": 2,
+			"talent": "Ratling Requisitions",
+			"prerequisites": "Agility 45, Ratling",
+			"apt1": "Agility",
+			"apt2": "Social",
+			"benefit": "Spend a Fate Point to automatically “requisition” a small item."
+		},
+		{
+			"tier": 2,
+			"talent": "Ripper Charge",
+			"prerequisites": "S 45, Bulging Biceps",
+			"apt1": "Ballistic Skill",
+			"apt2": "Offence",
+			"benefit": "Make Full-Auto attack with Charge Move."
+		},
+		{
+			"tier": 2,
+			"talent": "Rite of Static Overload",
+			"prerequisites": "One or More Cybernetic Limbs, Tech-Use +10",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Gain Shocking Quality on melee attacks with a Cybernetic limb or mechadendrite."
+		},
+		{
+			"tier": 2,
+			"talent": "Sharpshooter",
+			"prerequisites": "BS 40, Deadeye Shot",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Decrease penalty for ranged called shots."
+		},
+		{
+			"tier": 2,
+			"talent": "Skilled Rider",
+			"prerequisites": "Survival +10",
+			"apt1": "Agility",
+			"apt2": "Fieldcraft",
+			"benefit": "Avoid being thrown from mounts and Mount/Dismount as a Half Action."
+		},
+		{
+			"tier": 2,
+			"talent": "Solid Projectile Weapon Expertise",
+			"prerequisites": "BS 35, Weapon Training (Solid Projectile)",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Reload as a Free Action after successfully clearing a Jammed Solid Projectile weapon."
+		},
+		{
+			"tier": 2,
+			"talent": "Stealth Sniper",
+			"prerequisites": "Stealth +10",
+			"apt1": "Ballistic Skill",
+			"apt2": "Fieldcraft",
+			"benefit": "Chance to remain hidden after making a ranged attack."
+		},
+		{
+			"tier": 2,
+			"talent": "Strong Minded",
+			"prerequisites": "WP 30, Resistance (Psychic Powers)",
+			"apt1": "Willpower",
+			"apt2": "Defense",
+			"benefit": "May reroll failed WP Tests to resist Psychic Powers."
+		},
+		{
+			"tier": 2,
+			"talent": "Surefoot Wayfinder",
+			"prerequisites": "Survival +10",
+			"apt1": "Perception",
+			"apt2": "Fieldcraft",
+			"benefit": "Move through difficult terrain and gain bonuses to tracking."
+		},
+		{
+			"tier": 2,
+			"talent": "Storm of Iron",
+			"prerequisites": "BS 45, Weapon Training (any one ranged)",
+			"apt1": "Ballistic Skill",
+			"apt2": "Offence",
+			"benefit": "Allocate extra full-auto and semi-auto hits to additional targets within five metres."
+		},
+		{
+			"tier": 2,
+			"talent": "Swift Attack",
+			"prerequisites": "WS 30",
+			"apt1": "Weapon Skill",
+			"apt2": "Finesse",
+			"benefit": "May make multiple melee attacks."
+		},
+		{
+			"tier": 2,
+			"talent": "Tank Hunter",
+			"prerequisites": "BS 40",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Add BS Bonus to weapon Penetration against vehicles."
+		},
+		{
+			"tier": 2,
+			"talent": "The Bigger They Are",
+			"prerequisites": "BS 40",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Modify Hit Location on larger enemies."
+		},
+		{
+			"tier": 2,
+			"talent": "Tireless",
+			"prerequisites": "T 40, WP 35",
+			"apt1": "Toughness",
+			"apt2": "Willpower",
+			"benefit": "Ignore Fatigue penalty"
+		},
+		{
+			"tier": 2,
+			"talent": "Two-Weapon Wielder",
+			"prerequisites": "—",
+			"apt1": "Weapon Skill",
+			"apt2": "Finesse",
+			"benefit": "May fight with two weapons."
+		},
+		{
+			"tier": 2,
+			"talent": "Two-Weapon Wielder",
+			"prerequisites": "—",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "May fight with two weapons."
+		},
+		{
+			"tier": 2,
+			"talent": "Unarmed Master",
+			"prerequisites": "WS 45, Ag 40, Unarmed Warrior",
+			"apt1": "Strength",
+			"apt2": "Offence",
+			"benefit": "Deadly fighter while unarmed."
+		},
+		{
+			"tier": 2,
+			"talent": "Unshakeable Faith",
+			"prerequisites": "WP 35",
+			"apt1": "Willpower",
+			"apt2": "Defense",
+			"benefit": "May reroll failed Fear Tests."
+		},
+		{
+			"tier": 2,
+			"talent": "Unstoppable Charge",
+			"prerequisites": "WS 40, Survival +10",
+			"apt1": "Fieldcraft",
+			"apt2": "Weapon Skill",
+			"benefit": "Improve Charge Action and Crushing Charge Mounted Special Action."
+		},
+		{
+			"tier": 2,
+			"talent": "Vengeful Protector",
+			"prerequisites": "WS 45, S 45",
+			"apt1": "Strength",
+			"apt2": "Offence",
+			"benefit": "Deal increased Damage to enemies that have harmed squad mates."
+		},
+		{
+			"tier": 2,
+			"talent": "Warp Conduit",
+			"prerequisites": "Psy Rating, Strong Minded, WP 50",
+			"apt1": "Willpower",
+			"apt2": "Psyker",
+			"benefit": "Spend Fate Point to get +1d5 to Psy Rating."
+		},
+		{
+			"tier": 2,
+			"talent": "Whirlwind of Death",
+			"prerequisites": "WS 40",
+			"apt1": "Weapon Skill",
+			"apt2": "Finesse",
+			"benefit": "Make one attack for each melee opponent."
+		},
+		{
+			"tier": 2,
+			"talent": "Wild Charge",
+			"prerequisites": "S 45, Berserk Charge",
+			"apt1": "Strength",
+			"apt2": "Offence",
+			"benefit": "Charge attacks are more difficult to evade, but gain a smaller bonus to hit."
+		},
+		{
+			"tier": 3,
+			"talent": "Abiding Resilience",
+			"prerequisites": "Toughness 40",
+			"apt1": "Toughness",
+			"apt2": "Defense",
+			"benefit": "Regain additional Wounds and Fatigue when spending a Fate Point."
+		},
+		{
+			"tier": 3,
+			"talent": "Arms Master",
+			"prerequisites": "WS 40, BS 40, Weapon Training (any two)",
+			"apt1": "Weapon Skill",
+			"apt2": "Ballistic Skill",
+			"benefit": "Less penalty for using weapons untrained."
+		},
+		{
+			"tier": 3,
+			"talent": "Assassin Strike",
+			"prerequisites": "Ag 40, Acrobatics",
+			"apt1": "Weapon Skill",
+			"apt2": "Fieldcraft",
+			"benefit": "After making melee attack, test Acrobatics to move."
+		},
+		{
+			"tier": 3,
+			"talent": "Bastion of Iron Will",
+			"prerequisites": "Psy Rating, Strong Minded, WP 40",
+			"apt1": "Willpower",
+			"apt2": "Psyker",
+			"benefit": "Gain bonus to Opposed Tests when defending against psychic powers."
+		},
+		{
+			"tier": 3,
+			"talent": "Blademaster",
+			"prerequisites": "WS 30, Weapon Training (any melee)",
+			"apt1": "Weapon Skill",
+			"apt2": "Finesse",
+			"benefit": "Reroll missed attack, once per Round."
+		},
+		{
+			"tier": 3,
+			"talent": "Blade Dancer",
+			"prerequisites": "WS 40, Two-Weapon Wielder (Melee)",
+			"apt1": "Weapon Skill",
+			"apt2": "Finesse",
+			"benefit": "Reduced penalties for fighting with two melee weapons."
+		},
+		{
+			"tier": 3,
+			"talent": "Blessing of Flame",
+			"prerequisites": "WP 45, Scholastic Lore (Imperial Creed) +20",
+			"apt1": "Ballistic Skill",
+			"apt2": "Knowledge",
+			"benefit": "Bless Flame weapons for use against Daemons."
+		},
+		{
+			"tier": 3,
+			"talent": "Bombardier",
+			"prerequisites": "BS 40, Weapon Training (Launcher), Tech-Use",
+			"apt1": "Offence",
+			"apt2": "Tech",
+			"benefit": "Bonus to attack with launchers and explosives, improved scatter."
+		},
+		{
+			"tier": 3,
+			"talent": "Crushing Blow",
+			"prerequisites": "WS 40",
+			"apt1": "Weapon Skill",
+			"apt2": "Offence",
+			"benefit": "Add half WS Bonus to Damage inflicted in melee."
+		},
+		{
+			"tier": 3,
+			"talent": "Cybernetic Calibrations",
+			"prerequisites": "Two or more Cybernetics, Tech-Use +10, Cybernetic Boost",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Improves Craftsmanship of all implanted cybernetics."
+		},
+		{
+			"tier": 3,
+			"talent": "Death Serves the Righteous",
+			"prerequisites": "BS 50, Deadeye Shot, Sharpshooter",
+			"apt1": "Ballistic Skill",
+			"apt2": "Offence",
+			"benefit": "Spend Fate Point to change Damage die result of 1 to 10 once per combat."
+		},
+		{
+			"tier": 3,
+			"talent": "Desperate Strength",
+			"prerequisites": "Toughness 50, Frenzy",
+			"apt1": "Toughness",
+			"apt2": "Defense",
+			"benefit": "Gain greater Unnatural Strength and Toughness when badly hurt."
+		},
+		{
+			"tier": 3,
+			"talent": "Don’t You Die On Me!",
+			"prerequisites": "Master Chirurgeon, Methodical Care",
+			"apt1": "Intelligence",
+			"apt2": "Knowledge",
+			"benefit": "Resuscitate allies who have recently died from Blood Loss or failed Toughness Tests."
+		},
+		{
+			"tier": 3,
+			"talent": "Eye of Vengeance",
+			"prerequisites": "BS 50",
+			"apt1": "Ballistic Skill",
+			"apt2": "Offence",
+			"benefit": "Adds Damage and Pen to ranged attack."
+		},
+		{
+			"tier": 3,
+			"talent": "Favoured by the Warp",
+			"prerequisites": "WP 35",
+			"apt1": "Willpower",
+			"apt2": "Psyker",
+			"benefit": "Roll twice for Psychic Phenomena and choose."
+		},
+		{
+			"tier": 3,
+			"talent": "Fearless",
+			"prerequisites": "Nerves of Steel",
+			"apt1": "Willpower",
+			"apt2": "Defense",
+			"benefit": "Immune to Fear and Pinning."
+		},
+		{
+			"tier": 3,
+			"talent": "Feat of Strength",
+			"prerequisites": "S 45, Bulging Biceps",
+			"apt1": "Offence",
+			"apt2": "Strength",
+			"benefit": "Temporarily gain or increase Unnatural Strength Trait."
+		},
+		{
+			"tier": 3,
+			"talent": "Final Judgement",
+			"prerequisites": "Fel 45, Air of Authority, Deadeye Shot",
+			"apt1": "Ballistic Skill",
+			"apt2": "Leadership",
+			"benefit": "Motivate allies with Command Skill after messily executing an enemy."
+		},
+		{
+			"tier": 3,
+			"talent": "Giantkiller",
+			"prerequisites": "Ballistic Skill 50, The Bigger They Are",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Deal increased Damage to larger enemies."
+		},
+		{
+			"tier": 3,
+			"talent": "Gunslinger",
+			"prerequisites": "BS 40, Two-Weapon Wielder (Ballistic)",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Reduce penalties for fighting with two pistols."
+		},
+		{
+			"tier": 3,
+			"talent": "Hammer Blow",
+			"prerequisites": "Crushing Blow",
+			"apt1": "Strength",
+			"apt2": "Offence",
+			"benefit": "Make a thunderous strike with a melee weapon."
+		},
+		{
+			"tier": 3,
+			"talent": "Imperial Commander",
+			"prerequisites": "Fellowship 45, Willpower 40",
+			"apt1": "Fellowship",
+			"apt2": "Leadership",
+			"benefit": "Command mixed units of troops with greater efficiency."
+		},
+		{
+			"tier": 3,
+			"talent": "Infused Knowledge",
+			"prerequisites": "Int 40, Lore (any one)",
+			"apt1": "Intelligence",
+			"apt2": "Knowledge",
+			"benefit": "Know a little bit about everything."
+		},
+		{
+			"tier": 3,
+			"talent": "Integrated Weapon Mastery",
+			"prerequisites": "T 40, WP 40, Implanted Potentia or Mechanicus Implants, Integrated Weapon Expertise",
+			"apt1": "Ballistic Skill",
+			"apt2": "Defense",
+			"benefit": "Suffer Fatigue to gain benefits with Integrated Weapons."
+		},
+		{
+			"tier": 3,
+			"talent": "Into the Jaws of Hell",
+			"prerequisites": "Iron Discipline, Fel 50",
+			"apt1": "Fellowship",
+			"apt2": "Leadership",
+			"benefit": "Comrades ignore Fear and Pinning."
+		},
+		{
+			"tier": 3,
+			"talent": "Las Weapon Mastery",
+			"prerequisites": "BS 45, Las Weapon Expertise",
+			"apt1": "Ballistic Skill",
+			"apt2": "General",
+			"benefit": "Deal increased Damage with Las weapons based on Degrees of Success."
+		},
+		{
+			"tier": 3,
+			"talent": "Lasgun Barrage",
+			"prerequisites": "Weapon Training (Las), BS 40",
+			"apt1": "Ballistic Skill",
+			"apt2": "Offence",
+			"benefit": "Additional DoS when firing Las weapons."
+		},
+		{
+			"tier": 3,
+			"talent": "Lightning Attack",
+			"prerequisites": "Swift Attack",
+			"apt1": "Weapon Skill",
+			"apt2": "Finesse",
+			"benefit": "Character may make many melee attacks with single roll."
+		},
+		{
+			"tier": 3,
+			"talent": "Lock On",
+			"prerequisites": "Per 40, Vigilant",
+			"apt1": "Offence",
+			"apt2": "Perception",
+			"benefit": "Dodge while maintaining an Aim or Overwatch Action."
+		},
+		{
+			"tier": 3,
+			"talent": "Luminen Blast",
+			"prerequisites": "Luminen Shock, Luminen Capacitors, Mechanicus Implants",
+			"apt1": "Ballistic Skill",
+			"apt2": "Tech",
+			"benefit": "May discharge stored energy as a ranged attack."
+		},
+		{
+			"tier": 3,
+			"talent": "Master Chirurgeon",
+			"prerequisites": "Medicae +10",
+			"apt1": "Intelligence",
+			"apt2": "Fieldcraft",
+			"benefit": "Perform advanced medical procedures."
+		},
+		{
+			"tier": 3,
+			"talent": "Master Enginseer",
+			"prerequisites": "Tech-Use +20, Mechanicus Implants",
+			"apt1": "Intelligence",
+			"apt2": "Tech",
+			"benefit": "Gain +10 to Tech-Use Tests, and spend Fate Points to automatically succeed on Tech-Use Tests."
+		},
+		{
+			"tier": 3,
+			"talent": "Master Orator",
+			"prerequisites": "Inspire Wrath",
+			"apt1": "Fellowship",
+			"apt2": "Leadership",
+			"benefit": "Affect larger groups with Charm and Intimidate."
+		},
+		{
+			"tier": 3,
+			"talent": "Mastery†",
+			"prerequisites": "Rank 4 in Selected Skill",
+			"apt1": "Intelligence",
+			"apt2": "Knowledge",
+			"benefit": "May spend Fate Point to succeed on Test."
+		},
+		{
+			"tier": 3,
+			"talent": "Melta Weapon Mastery",
+			"prerequisites": "BS 50, Melta Weapon Expertise",
+			"apt1": "Ballistic Skill",
+			"apt2": "Offence",
+			"benefit": "Increase Penetration of Melta Weapons based on Degrees of Success."
+		},
+		{
+			"tier": 3,
+			"talent": "Mental Maze",
+			"prerequisites": "Int 35, Strong Minded",
+			"apt1": "Defense",
+			"apt2": "Intelligence",
+			"benefit": "Spend a Fate Point to add Intelligence Bonus to Degrees of Success on Opposed Willpower Tests."
+		},
+		{
+			"tier": 3,
+			"talent": "Mighty Shot",
+			"prerequisites": "BS 40",
+			"apt1": "Ballistic Skill",
+			"apt2": "Offence",
+			"benefit": "Add half BS Bonus to ranged Damage rolls."
+		},
+		{
+			"tier": 3,
+			"talent": "Never Die",
+			"prerequisites": "WP 50, T 50",
+			"apt1": "Toughness",
+			"apt2": "Defense",
+			"benefit": "Ignore penalties from Critical Damage by spending Fate Point."
+		},
+		{
+			"tier": 3,
+			"talent": "Overkill",
+			"prerequisites": "Per 40, Bulging Biceps",
+			"apt1": "Perception",
+			"apt2": "Offence",
+			"benefit": "Once per combat encounter, Aim as a Free Action with a chosen ranged weapon type."
+		},
+		{
+			"tier": 3,
+			"talent": "Plasma Weapon Mastery",
+			"prerequisites": "BS 50, Plasma Weapon Expertise",
+			"apt1": "Ballistic Skill",
+			"apt2": "Tech",
+			"benefit": "Increase Damage and Penetration when firing Plasma weapons on Maximal setting."
+		},
+		{
+			"tier": 3,
+			"talent": "Preternatural Speed",
+			"prerequisites": "WS 40, Ag 50",
+			"apt1": "Agility",
+			"apt2": "Offence",
+			"benefit": "Double speed when charging."
+		},
+		{
+			"tier": 3,
+			"talent": "Ranged Weapon Expert",
+			"prerequisites": "BS 50, Weapon Training (Chosen Group)",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Once per combat, Aim as a Free Action and roll twice for Damage with a chosen ranged weapon type."
+		},
+		{
+			"tier": 3,
+			"talent": "Relic Bearer",
+			"prerequisites": "Logistics Rating 40+, Scholastic Lore (Imperial Creed) +20",
+			"apt1": "Fellowship",
+			"apt2": "Social",
+			"benefit": "Character is entrusted with a sacred relic."
+		},
+		{
+			"tier": 3,
+			"talent": "Righteous Blow",
+			"prerequisites": "BS 45 or WS 45 or WP 45",
+			"apt1": "Offence",
+			"apt2": "Willpower",
+			"benefit": "Roll twice for Righteous Fury and choose result."
+		},
+		{
+			"tier": 3,
+			"talent": "Sacred Flame",
+			"prerequisites": "WP 40, Cleanse and Purify",
+			"apt1": "—",
+			"apt2": "—",
+			"benefit": "Offence Willpower Inflict Righteous Fury on a 9 or 10 with Flame Weapons."
+		},
+		{
+			"tier": 3,
+			"talent": "Sidearm",
+			"prerequisites": "WS 40, BS 40, Two-Weapon Wielder (Ballistic, Melee)",
+			"apt1": "Weapon Skill",
+			"apt2": "Ballistic Skill",
+			"benefit": "Reduce penalties for fighting with pistol and melee weapon."
+		},
+		{
+			"tier": 3,
+			"talent": "Solid Projectile Weapon Mastery",
+			"prerequisites": "BS 45, Solid Projectile Weapon Expertise",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Solid Projectile Weapons gain Proven (X) Quality equal to half of Ballistic Skill Bonus."
+		},
+		{
+			"tier": 3,
+			"talent": "Sprint",
+			"prerequisites": "—",
+			"apt1": "Agility",
+			"apt2": "Fieldcraft",
+			"benefit": "Move more quickly in combat."
+		},
+		{
+			"tier": 3,
+			"talent": "Step Aside",
+			"prerequisites": "Agility 40, Dodge or Parry",
+			"apt1": "Agility",
+			"apt2": "Defense",
+			"benefit": "May make additional Dodge or Parry attempt."
+		},
+		{
+			"tier": 3,
+			"talent": "Stirring Rhetoric",
+			"prerequisites": "Fel 45, Heroic Inspiration",
+			"apt1": "Fellowship",
+			"apt2": "Social",
+			"benefit": "Once per session, spend a Fate Point to improve the Inspire Special Use of the Command Skill."
+		},
+		{
+			"tier": 3,
+			"talent": "Suffer Not the Work of Heretics",
+			"prerequisites": "Hatred (any one), Ministorum Priest or 20+ Insanity Points",
+			"apt1": "Willpower",
+			"apt2": "Offence",
+			"benefit": "Gain benefits to Penetration against targets of your Hatred."
+		},
+		{
+			"tier": 3,
+			"talent": "Target Selection",
+			"prerequisites": "BS 50",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "May shoot into melee without penalty."
+		},
+		{
+			"tier": 3,
+			"talent": "Tear ‘em Ter Bits!",
+			"prerequisites": "Ogryn, Strength 50",
+			"apt1": "Strength",
+			"apt2": "Offence",
+			"benefit": "—"
+		},
+		{
+			"tier": 3,
+			"talent": "The Flesh is Weak",
+			"prerequisites": "Two or more Cybernetics, Tech-Use +10",
+			"apt1": "Tech",
+			"apt2": "Toughness",
+			"benefit": "Gain Machine Trait equal to half the number of Cybernetic implants."
+		},
+		{
+			"tier": 3,
+			"talent": "Thunder Charge",
+			"prerequisites": "S 50",
+			"apt1": "Strength",
+			"apt2": "Offence",
+			"benefit": "Break enemies with armoured charge."
+		},
+		{
+			"tier": 3,
+			"talent": "Thunderous Castigation",
+			"prerequisites": "Command +20, Scholastic Lore (Imperial Creed) +20",
+			"apt1": "Fellowship",
+			"apt2": "Leadership",
+			"benefit": "Strike fear into enemies with fiery rhetoric."
+		},
+		{
+			"tier": 3,
+			"talent": "True Grit",
+			"prerequisites": "T 40",
+			"apt1": "Toughness",
+			"apt2": "Defense",
+			"benefit": "Reduce Critical Damage taken."
+		},
+		{
+			"tier": 3,
+			"talent": "Trademark Item",
+			"prerequisites": "Fel 40, Command +10",
+			"apt1": "Fellowship",
+			"apt2": "Social",
+			"benefit": "Item grants bonus to Interaction Tests and allows extra Sweeping Order."
+		},
+		{
+			"tier": 3,
+			"talent": "Underfoot Assault",
+			"prerequisites": "Agility 40, Weapon Skill 40",
+			"apt1": "Weapon Skill",
+			"apt2": "Finesse",
+			"benefit": "Gain benefits in melee against larger foes."
+		},
+		{
+			"tier": 3,
+			"talent": "Versatile Shooter",
+			"prerequisites": "Sharpshooter, Target Selection",
+			"apt1": "Ballistic Skill",
+			"apt2": "Finesse",
+			"benefit": "Gain the full benefit of the Accurate Quality on Pistol, Heavy, and Vehicle Weapons."
+		},
+		{
+			"tier": 3,
+			"talent": "Veteran Comrade",
+			"prerequisites": "Character Speciality with at least one Comrade",
+			"apt1": "General",
+			"apt2": "Leadership",
+			"benefit": "One Comrade grants extra bonuses and can participate in Veteran Orders."
+		},
+		{
+			"tier": 3,
+			"talent": "Vitality Coils",
+			"prerequisites": "Implanted Potentia or Mechanicus Implants, Potentia Coil Induction, Toughness 45",
+			"apt1": "Toughness",
+			"apt2": "Tech",
+			"benefit": "Draw on external power sources to heal injuries."
+		},
+		{
+			"tier": 3,
+			"talent": "Warp Lock",
+			"prerequisites": "Psy Rating, Strong Minded, WP 50",
+			"apt1": "Willpower",
+			"apt2": "Psyker",
+			"benefit": "Ignore Psychic Phenomenon once per session."
+		}
+	]
+}

@@ -1,0 +1,4 @@
+body{padding:4em}.classSelect{margin-bottom:2em}.aptitudeSelect{margin-bottom:2em}.selectedAptitudes{margin-bottom:2em}.characteristic{display:grid;grid-template-columns:120px 150px 150px;grid-template-rows:auto;margin-bottom:2em}.characteristic :nth-child(3n),.characteristic :nth-child(3n-1){font-weight:500}.characteristic :nth-child(3n-1){text-decoration:underline}.skill{display:grid;grid-template-columns:120px 150px 150px 150px;grid-template-rows:auto;margin-bottom:2em}.skill :nth-child(4n),.skill :nth-child(4n-1){font-weight:500}.skill :nth-child(4n-2){text-decoration:underline}.talent{display:grid;grid-template-columns:60px 40px 200px 150px 150px 2fr;grid-template-rows:auto;margin-bottom:2em}.talent :nth-child(6n-1),.talent :nth-child(6n-2){font-weight:500}.talent :nth-child(6n-3){text-decoration:underline}.m2{color:darkgreen}.m1{color:blueviolet}.m0{color:mediumvioletred}
+
+
+/*# sourceMappingURL=w40k.css.map*/
