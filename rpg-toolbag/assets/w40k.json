@@ -70,7 +70,7 @@
 	],
 	"classes": [
 		{
-			"class": "Heavy Gunner",
+			"class": "Heavy Gunner (OW Core)",
 			"aptitudes": [
 				"Ballistic Skill",
 				"Defense",
@@ -81,7 +81,7 @@
 			]
 		},
 		{
-			"class": "Medic",
+			"class": "Medic (OW Core)",
 			"aptitudes": [
 				"Ballistic Skill",
 				"Fieldcraft",
@@ -94,7 +94,7 @@
 			]
 		},
 		{
-			"class": "Operator",
+			"class": "Operator (OW Core)",
 			"aptitudes": [
 				"Agility",
 				"Ballistic Skill",
@@ -105,7 +105,7 @@
 			]
 		},
 		{
-			"class": "Sergeant",
+			"class": "Sergeant (OW Core)",
 			"aptitudes": [
 				"Defense",
 				"Fellowship",
@@ -117,7 +117,7 @@
 			]
 		},
 		{
-			"class": "Weapon Specialist",
+			"class": "Weapon Specialist (OW Core)",
 			"aptitudes": [
 				"Agility",
 				"Ballistic Skill",
@@ -128,7 +128,7 @@
 			]
 		},
 		{
-			"class": "Commissar",
+			"class": "Commissar (OW Core)",
 			"aptitudes": [
 				"Agility",
 				"Fellowship",
@@ -140,7 +140,7 @@
 			]
 		},
 		{
-			"class": "Ministorum Priest",
+			"class": "Ministorum Priest (OW Core)",
 			"aptitudes": [
 				"Starting Aptitudes: Fellowship",
 				"Leadership",
@@ -152,7 +152,7 @@
 			]
 		},
 		{
-			"class": "Ogryn",
+			"class": "Ogryn (OW Core)",
 			"aptitudes": [
 				"Ballistic Skill",
 				"Defense",
@@ -163,7 +163,7 @@
 			]
 		},
 		{
-			"class": "Ratling",
+			"class": "Ratling (OW Core)",
 			"aptitudes": [
 				"Agility",
 				"Ballistic Skill",
@@ -175,7 +175,7 @@
 			]
 		},
 		{
-			"class": "Storm Trooper",
+			"class": "Storm Trooper (OW Core)",
 			"aptitudes": [
 				"Agility",
 				"Ballistic Skill",
@@ -186,7 +186,7 @@
 			]
 		},
 		{
-			"class": "Tech-Priest Enginseer",
+			"class": "Tech-Priest Enginseer (OW Core)",
 			"aptitudes": [
 				"Ballistic Skill",
 				"Intelligence",
@@ -199,7 +199,7 @@
 			]
 		},
 		{
-			"class": "Brawler",
+			"class": "Brawler (HotE Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Finesse",
@@ -210,7 +210,7 @@
 			]
 		},
 		{
-			"class": "Breacher",
+			"class": "Breacher (HotE Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Finesse",
@@ -221,7 +221,7 @@
 			]
 		},
 		{
-			"class": "Commander",
+			"class": "Commander (HotE Advanced Spec)",
 			"aptitudes": [
 				"Fellowship",
 				"Intelligence",
@@ -232,7 +232,7 @@
 			]
 		},
 		{
-			"class": "Field Chirurgeon",
+			"class": "Field Chirurgeon (HotE Advanced Spec)",
 			"aptitudes": [
 				"Ballistic Skill",
 				"Defense",
@@ -243,7 +243,7 @@
 			]
 		},
 		{
-			"class": "Master of Ordnance",
+			"class": "Master of Ordnance (HotE Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Fellowship",
@@ -254,7 +254,7 @@
 			]
 		},
 		{
-			"class": "Scout",
+			"class": "Scout (HotE Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Fieldcraft",
@@ -265,7 +265,7 @@
 			]
 		},
 		{
-			"class": "Sentry",
+			"class": "Sentry (HotE Advanced Spec)",
 			"aptitudes": [
 				"Ballistic Skill",
 				"Finesse",
@@ -276,7 +276,7 @@
 			]
 		},
 		{
-			"class": "Sharpshooter",
+			"class": "Sharpshooter (HotE Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Ballistic Skill",
@@ -287,7 +287,7 @@
 			]
 		},
 		{
-			"class": "Tank Ace",
+			"class": "Tank Ace (HotE Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Fellowship",
@@ -893,7 +893,7 @@
 		},
 		{
 			"tier": 1,
-			"talent": "Psychic Power†",
+			"talent": "Psychic Power",
 			"prerequisites": "Psyker",
 			"apt1": "Willpower",
 			"apt2": "Psyker",
@@ -949,7 +949,7 @@
 		},
 		{
 			"tier": 1,
-			"talent": "Resistance†",
+			"talent": "Resistance",
 			"prerequisites": "—",
 			"apt1": "Toughness",
 			"apt2": "Defense",
@@ -1077,7 +1077,7 @@
 		},
 		{
 			"tier": 1,
-			"talent": "Weapon Training†",
+			"talent": "Weapon Training",
 			"prerequisites": "—",
 			"apt1": "General",
 			"apt2": "Finesse",
@@ -1373,7 +1373,7 @@
 		},
 		{
 			"tier": 2,
-			"talent": "Mechadendrite Use†",
+			"talent": "Mechadendrite Use",
 			"prerequisites": "Mechanicus Implants",
 			"apt1": "Intelligence",
 			"apt2": "Tech",
@@ -1917,7 +1917,7 @@
 		},
 		{
 			"tier": 3,
-			"talent": "Mastery†",
+			"talent": "Mastery",
 			"prerequisites": "Rank 4 in Selected Skill",
 			"apt1": "Intelligence",
 			"apt2": "Knowledge",
