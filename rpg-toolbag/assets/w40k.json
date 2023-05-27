@@ -725,7 +725,7 @@
 		},
 		{
 			"tier": 1,
-			"talent": "Heightened Senses†",
+			"talent": "Heightened Senses",
 			"prerequisites": "—",
 			"apt1": "Perception",
 			"apt2": "Fieldcraft",
@@ -2007,8 +2007,8 @@
 			"tier": 3,
 			"talent": "Sacred Flame",
 			"prerequisites": "WP 40, Cleanse and Purify",
-			"apt1": "—",
-			"apt2": "—",
+			"apt1": "General",
+			"apt2": "General",
 			"benefit": "Offence Willpower Inflict Righteous Fury on a 9 or 10 with Flame Weapons."
 		},
 		{
