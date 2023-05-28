@@ -73,7 +73,7 @@
 			"class": "Heavy Gunner (OW Core)",
 			"aptitudes": [
 				"Ballistic Skill",
-				"Defense",
+				"Defence",
 				"Fellowship",
 				"Offence",
 				"Perception",
@@ -107,7 +107,7 @@
 		{
 			"class": "Sergeant (OW Core)",
 			"aptitudes": [
-				"Defense",
+				"Defence",
 				"Fellowship",
 				"Leadership",
 				"Perception",
@@ -155,7 +155,7 @@
 			"class": "Ogryn (OW Core)",
 			"aptitudes": [
 				"Ballistic Skill",
-				"Defense",
+				"Defence",
 				"Offence",
 				"Strength",
 				"Toughness",
@@ -235,7 +235,7 @@
 			"class": "Field Chirurgeon (HotE, Advanced Spec)",
 			"aptitudes": [
 				"Ballistic Skill",
-				"Defense",
+				"Defence",
 				"Fellowship",
 				"Intelligence",
 				"Knowledge",
@@ -308,7 +308,15 @@
 		"Perception",
 		"Willpower",
 		"Fellowship",
-		"Psyker"
+		"Offence",
+		"Finesse",
+		"Defence",
+		"Knowledge",
+		"Fieldcraft",
+		"Psyker",
+		"Social",
+		"Tech",
+		"Leadership"
 	],
 	"characteristic": [
 		{
@@ -325,7 +333,7 @@
 		},
 		{
 			"name": "Toughness",
-			"aptitude": "Defense"
+			"aptitude": "Defence"
 		},
 		{
 			"name": "Agility",
@@ -409,7 +417,7 @@
 			"name": "Dodge",
 			"aptitudes": [
 				"Agility",
-				"Defense"
+				"Defence"
 			]
 		},
 		{
@@ -479,7 +487,7 @@
 			"name": "Parry",
 			"aptitudes": [
 				"Weapon Skill",
-				"Defense"
+				"Defence"
 			]
 		},
 		{
@@ -609,7 +617,7 @@
 			"talent": "Cold Hearted",
 			"prerequisites": "—",
 			"apt1": "Willpower",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Immune to Seduction, resistant to Charm."
 		},
 		{
@@ -641,7 +649,7 @@
 			"talent": "Die Hard",
 			"prerequisites": "WP 40",
 			"apt1": "Willpower",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Improves chances of surviving Blood Loss."
 		},
 		{
@@ -649,7 +657,7 @@
 			"talent": "Disarm",
 			"prerequisites": "Ag 30",
 			"apt1": "Weapon Skill",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Force opponent to drop weapon."
 		},
 		{
@@ -753,7 +761,7 @@
 			"talent": "Iron Jaw",
 			"prerequisites": "T 40",
 			"apt1": "Toughness",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Test Toughness to overcome Stunning."
 		},
 		{
@@ -769,7 +777,7 @@
 			"talent": "Jaded",
 			"prerequisites": "WP 40",
 			"apt1": "Willpower",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Ignore mundane horrors."
 		},
 		{
@@ -865,7 +873,7 @@
 			"talent": "Overlooked",
 			"prerequisites": "Perception 35, Unremarkable",
 			"apt1": "Perception",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Enemies attack other characters first."
 		},
 		{
@@ -953,7 +961,7 @@
 			"talent": "Resistance",
 			"prerequisites": "—",
 			"apt1": "Toughness",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Gain +10 bonus to particular resistance Test."
 		},
 		{
@@ -1129,7 +1137,7 @@
 			"talent": "Battle Rage",
 			"prerequisites": "Frenzy",
 			"apt1": "Strength",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Parry while frenzied."
 		},
 		{
@@ -1169,7 +1177,7 @@
 			"talent": "Combat Master",
 			"prerequisites": "WS 30",
 			"apt1": "Weapon Skill",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Opponents get no bonus for outnumbering the character."
 		},
 		{
@@ -1185,7 +1193,7 @@
 			"talent": "Counter Attack",
 			"prerequisites": "WS 40",
 			"apt1": "Weapon Skill",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "May attack after successful Parry."
 		},
 		{
@@ -1225,7 +1233,7 @@
 			"talent": "Deflect Shot",
 			"prerequisites": "Ag 50",
 			"apt1": "Weapon Skill",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Add WS Bonus to AP against Primitive ranged attacks."
 		},
 		{
@@ -1257,7 +1265,7 @@
 			"talent": "Guardian",
 			"prerequisites": "Ag 40",
 			"apt1": "Agility",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Spend a Fate Point to trade places with an ally targeted by an attack."
 		},
 		{
@@ -1265,7 +1273,7 @@
 			"talent": "Hard Target",
 			"prerequisites": "Ag 40",
 			"apt1": "Agility",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "–20 to hit character when he Charges or Runs."
 		},
 		{
@@ -1273,7 +1281,7 @@
 			"talent": "Hardy",
 			"prerequisites": "T 40",
 			"apt1": "Toughness",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Character always heals as if lightly wounded."
 		},
 		{
@@ -1321,7 +1329,7 @@
 			"talent": "Integrated Weapon Expertise",
 			"prerequisites": "Ballistic Skill 40, Implanted Potentia or Mechanicus Implants",
 			"apt1": "Ballistic Skill",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Reduce Integrated weapon penalties."
 		},
 		{
@@ -1409,7 +1417,7 @@
 			"talent": "Nerves of Steel",
 			"prerequisites": "—",
 			"apt1": "Willpower",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Reroll Pinning Tests."
 		},
 		{
@@ -1529,7 +1537,7 @@
 			"talent": "Strong Minded",
 			"prerequisites": "WP 30, Resistance (Psychic Powers)",
 			"apt1": "Willpower",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "May reroll failed WP Tests to resist Psychic Powers."
 		},
 		{
@@ -1609,7 +1617,7 @@
 			"talent": "Unshakeable Faith",
 			"prerequisites": "WP 35",
 			"apt1": "Willpower",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "May reroll failed Fear Tests."
 		},
 		{
@@ -1657,7 +1665,7 @@
 			"talent": "Abiding Resilience",
 			"prerequisites": "Toughness 40",
 			"apt1": "Toughness",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Regain additional Wounds and Fatigue when spending a Fate Point."
 		},
 		{
@@ -1745,7 +1753,7 @@
 			"talent": "Desperate Strength",
 			"prerequisites": "Toughness 50, Frenzy",
 			"apt1": "Toughness",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Gain greater Unnatural Strength and Toughness when badly hurt."
 		},
 		{
@@ -1777,7 +1785,7 @@
 			"talent": "Fearless",
 			"prerequisites": "Nerves of Steel",
 			"apt1": "Willpower",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Immune to Fear and Pinning."
 		},
 		{
@@ -1841,7 +1849,7 @@
 			"talent": "Integrated Weapon Mastery",
 			"prerequisites": "T 40, WP 40, Implanted Potentia or Mechanicus Implants, Integrated Weapon Expertise",
 			"apt1": "Ballistic Skill",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Suffer Fatigue to gain benefits with Integrated Weapons."
 		},
 		{
@@ -1936,7 +1944,7 @@
 			"tier": 3,
 			"talent": "Mental Maze",
 			"prerequisites": "Int 35, Strong Minded",
-			"apt1": "Defense",
+			"apt1": "Defence",
 			"apt2": "Intelligence",
 			"benefit": "Spend a Fate Point to add Intelligence Bonus to Degrees of Success on Opposed Willpower Tests."
 		},
@@ -1953,7 +1961,7 @@
 			"talent": "Never Die",
 			"prerequisites": "WP 50, T 50",
 			"apt1": "Toughness",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Ignore penalties from Critical Damage by spending Fate Point."
 		},
 		{
@@ -2041,7 +2049,7 @@
 			"talent": "Step Aside",
 			"prerequisites": "Agility 40, Dodge or Parry",
 			"apt1": "Agility",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "May make additional Dodge or Parry attempt."
 		},
 		{
@@ -2105,7 +2113,7 @@
 			"talent": "True Grit",
 			"prerequisites": "T 40",
 			"apt1": "Toughness",
-			"apt2": "Defense",
+			"apt2": "Defence",
 			"benefit": "Reduce Critical Damage taken."
 		},
 		{

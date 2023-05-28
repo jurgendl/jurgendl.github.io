@@ -80,7 +80,15 @@
 		"Perception",
 		"Willpower",
 		"Fellowship",
-		"Psyker"
+		"Offence",
+		"Finesse",
+		"Defence",
+		"Knowledge",
+		"Fieldcraft",
+		"Psyker",
+		"Social",
+		"Tech",
+		"Leadership"
 	],
 	"characteristic": [
 		{
@@ -97,7 +105,7 @@
 		},
 		{
 			"name": "Toughness",
-			"aptitude": "Defense"
+			"aptitude": "Defence"
 		},
 		{
 			"name": "Agility",
@@ -181,7 +189,7 @@
 			"name": "Dodge",
 			"aptitudes": [
 				"Agility",
-				"Defense"
+				"Defence"
 			]
 		},
 		{
@@ -251,7 +259,7 @@
 			"name": "Parry",
 			"aptitudes": [
 				"Weapon Skill",
-				"Defense"
+				"Defence"
 			]
 		},
 		{
@@ -321,7 +329,7 @@
 		{"tier":1,"talent":"Double Team","prerequisites":"-","apt1":"General","apt2":"Offence","benefit":"Gain additional +10 for outnumbering opponent.","ref":"PG 126 CB"},
 		{"tier":1,"talent":"Enemy (choose)","prerequisites":"-","apt1":"General","apt2":"Social","benefit":"Suffers a -10 times X penalty to Fellowship and Influence tests when dealing with group.","ref":"PG 126 CB"},
 		{"tier":1,"talent":"Ferric Summons","prerequisites":"Ferric Lure Implants, Mechanicus Implants","apt1":"Willpower","apt2":"Tech","benefit":"Can summon larger metallic objects up to 2 kilograms per point of his Willpower bonus, and can summon such objects up to 40 metres.","ref":"PG 127 CB"},
-		{"tier":1,"talent":"Flagellant","prerequisites":"Willpower 30","apt1":"Offense","apt2":"Toughness","benefit":"As a Full Action, the character can take 1d5–2 levels of Fatigue (minimum 1) to gain a +10 bonus on Willpower tests to resist Fear, Pinning, psychic powers, or Corruption, for one hour or until the end of the current encounter. If the Acolyte also possesses the Frenzy talent, he can enter a Frenzied state as a Free Action while under the efects of this talent.","ref":"PG 127 CB"},
+		{"tier":1,"talent":"Flagellant","prerequisites":"Willpower 30","apt1":"Offence","apt2":"Toughness","benefit":"As a Full Action, the character can take 1d5–2 levels of Fatigue (minimum 1) to gain a +10 bonus on Willpower tests to resist Fear, Pinning, psychic powers, or Corruption, for one hour or until the end of the current encounter. If the Acolyte also possesses the Frenzy talent, he can enter a Frenzied state as a Free Action while under the efects of this talent.","ref":"PG 127 CB"},
 		{"tier":1,"talent":"Frenzy","prerequisites":"-","apt1":"Strength","apt2":"Offence","benefit":"May spend one full round to enter Frenzy gaining +10 bonus to Weapon Skill, Strength, Toughness, and Willpower, but suffering a -20 penalty to Ballistic Skill, Intelligence, and Fellowship and is immune to Fear, Pinning, Stunning effects, and the effects of Fatigue; he cannot Parry, retreat, or flee. He remains Frenzied for the duration of the combat, and cannot use psychic powers while Frenzied. After combat ends can make a Willpower test to snap out and cannot Frenzy again for at least an hour.","ref":"PG 127 CB"},
 		{"tier":1,"talent":"Grenadier","prerequisites":"BS 35","apt1":"Ballistic Skill","apt2":"Finesse","benefit":"When the character misses with a thrown weapon or weapon with the Blast quality, he may reduce the distance it scatters by a number of metres up to half his BS bonus","ref":"PG 62 EO"},
 		{"tier":1,"talent":"Iron Jaw","prerequisites":"T 40","apt1":"Toughness","apt2":"Defence","benefit":"Test Challenging (+0) Toughness Test to overcome Stunning.","ref":"PG 128 CB"},
@@ -329,7 +337,8 @@
 		{"tier":1,"talent":"Keen Intuition","prerequisites":"Int 35","apt1":"Perception","apt2":"Social","benefit":"Can retry Awareness test once with -10 modifier.","ref":"PG 129 CB"},
 		{"tier":1,"talent":"Leap Up","prerequisites":"Ag 30","apt1":"Agility","apt2":"General","benefit":"Stand as a Free Action.","ref":"PG 129 CB"},
 		{"tier":1,"talent":"Leaping Dodge","prerequisites":"Ag 35, Rank 2 in the Dodge skill","apt1":"Agility","apt2":"Defence","benefit":"When he would make an Agility test to avoid attacks from weapons with the Spray quality, he may make the test using his Dodge (Ag) skill instead.","ref":"PG 63 EO"},
-		{"tier":1,"talent":"Mounted Warrior","prerequisites":"Rank 2 (Trained) in any Operate skill or Rank 2(Trained) in Survival skill, BS 30 or WS 30","apt1":"Weapon Skill / Ballistic Skill","apt2":"Offence","benefit":"Reduces any penalty for making attacks (Melee or Ranged) from a moving vehicle or mount by 10 for each advance.","ref":"PG 58 EI"},
+		{"tier":1,"talent":"Mounted Warrior","prerequisites":"Rank 2 (Trained) in any Operate skill or Rank 2(Trained) in Survival skill, BS 30 or WS 30","apt1":"Weapon Skill","apt2":"Offence","benefit":"Reduces any penalty for making attacks (Melee or Ranged) from a moving vehicle or mount by 10 for each advance.","ref":"PG 58 EI"},
+		{"tier":1,"talent":"Mounted Warrior","prerequisites":"Rank 2 (Trained) in any Operate skill or Rank 2(Trained) in Survival skill, BS 30 or WS 30","apt1":"Ballistic Skill","apt2":"Offence","benefit":"Reduces any penalty for making attacks (Melee or Ranged) from a moving vehicle or mount by 10 for each advance.","ref":"PG 58 EI"},
 		{"tier":1,"talent":"Nowhere to Hide","prerequisites":"Per 30","apt1":"Perception","apt2":"Offence","benefit":"Can add DoS from the attack to reduce armour value of cover.","ref":"PG 130 CB"},
 		{"tier":1,"talent":"Peer (choose)","prerequisites":"Fel 30","apt1":"Fellowship","apt2":"Social","benefit":"Character has good reputation amongst chosen group with bonus to Fellowship tests increases to +10 times X. Additionally, when the character acquires his talent, also increases his Influence by 1.","ref":"PG 130 CB"},
 		{"tier":1,"talent":"Quick Draw","prerequisites":"-","apt1":"Agility","apt2":"Finesse","benefit":"Draw weapon as Free Action.","ref":"PG 131 CB"},
@@ -361,7 +370,8 @@
 		{"tier":2,"talent":"Double Tap","prerequisites":"Two-Weapon Wielder","apt1":"Finesse","apt2":"Offence","benefit":"A second ranged attack against the same target, grants a+20 bonus if scored 1 or more DoS.","ref":"PG 125 CB"},
 		{"tier":2,"talent":"Exotic Weapon Training","prerequisites":"-","apt1":"Intelligence","apt2":"Finesse","benefit":"Gain proficiency with one exotic weapon type.","ref":"PG 127 CB"},
 		{"tier":2,"talent":"Face in a Crowd","prerequisites":"Fel 35, Clues from the Crowds","apt1":"Fellowship","apt2":"Social","benefit":"Can use Fellowship instead of Agility when Shadowing.","ref":"PG 127 CB"},
-		{"tier":2,"talent":"Field Vivisection","prerequisites":"BS or WS 40, Forbidden Lore (Xenos-Any), Rank 2 in the Medicae skill","apt1":"Ballistic Skill/Weapon Skill","apt2":"Knowledge","benefit":"When using the Called Shot action with a melee or ranged attack (depending on the Specialisation) against a target for which the character has the appropriate Forbidden Lore (Xenos) skill, he makes a Medicae (WS) or Medicae (BS) test in place of the normal Weapon Skill or Ballistic Skill test.","ref":"PG 62 EO"},
+		{"tier":2,"talent":"Field Vivisection","prerequisites":"BS or WS 40, Forbidden Lore (Xenos-Any), Rank 2 in the Medicae skill","apt1":"Ballistic Skill","apt2":"Knowledge","benefit":"When using the Called Shot action with a melee or ranged attack (depending on the Specialisation) against a target for which the character has the appropriate Forbidden Lore (Xenos) skill, he makes a Medicae (WS) or Medicae (BS) test in place of the normal Weapon Skill or Ballistic Skill test.","ref":"PG 62 EO"},
+		{"tier":2,"talent":"Field Vivisection","prerequisites":"BS or WS 40, Forbidden Lore (Xenos-Any), Rank 2 in the Medicae skill","apt1":"Weapon Skill","apt2":"Knowledge","benefit":"When using the Called Shot action with a melee or ranged attack (depending on the Specialisation) against a target for which the character has the appropriate Forbidden Lore (Xenos) skill, he makes a Medicae (WS) or Medicae (BS) test in place of the normal Weapon Skill or Ballistic Skill test.","ref":"PG 62 EO"},
 		{"tier":2,"talent":"Hard Target","prerequisites":"Ag 40","apt1":"Agility","apt2":"Defence","benefit":"-20 to hit character when he Charges or Runs.","ref":"PG 128 CB"},
 		{"tier":2,"talent":"Harden Soul","prerequisites":"WP 35, 10 Corruption points","apt1":"Defence","apt2":"Willpower","benefit":"Whenever the character would gain Corruption points, he may reduce the amount gained by half (rounded up) and gain Insanity points equal to the amount reduced.","ref":"PG 61 EB"},
 		{"tier":2,"talent":"Hardy","prerequisites":"T 40","apt1":"Toughness","apt2":"Defence","benefit":"Character always heals as if Lightly Damaged.","ref":"PG 128 CB"},
@@ -369,7 +379,8 @@
 		{"tier":2,"talent":"Hip Shooting","prerequisites":"BS 40, Ag 40","apt1":"Ballistic Skill","apt2":"Finesse","benefit":"As a Full Action, can both move up to his Full Move rate and make a single shot attack with a ranged weapon per weapon.","ref":"PG 128 CB"},
 		{"tier":2,"talent":"Hotshot Pilot","prerequisites":"Rank 2 in Survival or any Operate skill, Ag 35","apt1":"Agility","apt2":"Tech","benefit":"On an succesful Operate test, he may voluntarily suffer 1 level of Fatigue to add a number of DoS equal to half of his Agility bonus. When failed an Operate test, he may voluntarily suffer 1 level of Fatigue in order to reduce the degrees of failure by an amount equal to his Agility bonus, to a minimum of 1.","ref":"PG 62 EO"},
 		{"tier":2,"talent":"Independent Targeting","prerequisites":"BS 40","apt1":"Ballistic Skill","apt2":"Finesse","benefit":"Fire at multiple targets more than 10 metres apart when firing two weapons.","ref":"PG 128 CB"},
-		{"tier":2,"talent":"Inescapable Attack (choose)","prerequisites":"BS 40 or WS 40,Per 35","apt1":"Weapon Skill / Ballistic Skill","apt2":"Finesse","benefit":"Attacker imposes penalty on all evasion attempts made against this attack equal to 10 times the total degrees of success scored on the attack test.","ref":"PG 128 CB"},
+		{"tier":2,"talent":"Inescapable Attack (choose)","prerequisites":"BS 40 or WS 40,Per 35","apt1":"Ballistic Skill","apt2":"Finesse","benefit":"Attacker imposes penalty on all evasion attempts made against this attack equal to 10 times the total degrees of success scored on the attack test.","ref":"PG 128 CB"},
+		{"tier":2,"talent":"Inescapable Attack (choose)","prerequisites":"BS 40 or WS 40,Per 35","apt1":"Weapon Skill","apt2":"Finesse","benefit":"Attacker imposes penalty on all evasion attempts made against this attack equal to 10 times the total degrees of success scored on the attack test.","ref":"PG 128 CB"},
 		{"tier":2,"talent":"Inspiring Aura","prerequisites":"Halo of Command","apt1":"Leadership","apt2":"Willpower","benefit":"can affect allies of any kind with the Terrify special use for the Command skill (pg 101 CB). This need not represent threats and intimidation, but might represent inspiring words, encouragement, or sheer steadfastness in the face of terrifying foes.","ref":"PG 61 EB"},
 		{"tier":2,"talent":"Iron Resolve","prerequisites":"Resistance (Fear), Jaded","apt1":"Defence","apt2":"Willpower","benefit":"After failing a Fear or Pinning test, the character can re-roll the test with a -10 modifier.","ref":"PG 61 EB"},
 		{"tier":2,"talent":"Killing Strike","prerequisites":"WS 50","apt1":"Weapon Skill","apt2":"Offence","benefit":"Spend Fate point to make melee attacks unavoidable.","ref":"PG 129 CB"},
@@ -380,14 +391,16 @@
 		{"tier":2,"talent":"Mechadendrite Use (choose)","prerequisites":"Mechanicus Implants","apt1":"Intelligence","apt2":"Tech","benefit":"Gain ability to use certain Mechadendrites. Weapon or Utility.","ref":"PG 130 CB"},
 		{"tier":2,"talent":"One-on-One","prerequisites":"WS 40","apt1":"Finesse","apt2":"Weapon Skill","benefit":"When fighting a single enemy in melee combat, the character scores extra degrees of success on successful Weapon Skill tests equal to half of his Weapon Skill bonus (rounded down).","ref":"PG 61 EB"},
 		{"tier":2,"talent":"Penitent Psyker","prerequisites":"Psy rating, Strong Minded, WP 40","apt1":"Psyker","apt2":"Defence","benefit":"psyker or ally within 10 metres target of a psychic power suffer any number of levels of Fatigue, each level grants +10 to opposed test to resist or avoid.","ref":"PG 58 EI"},
-		{"tier":2,"talent":"Precision Killer (choose)","prerequisites":"BS 40 or WS 40","apt1":"Ballistic Skill/Weapon Skill","apt2":"Finesse","benefit":"No penalty to making Called Shot in either Ranged or Melee Combat.","ref":"PG 130 CB"},
+		{"tier":2,"talent":"Precision Killer (choose)","prerequisites":"BS 40 or WS 40","apt1":"Ballistic Skill","apt2":"Finesse","benefit":"No penalty to making Called Shot in either Ranged or Melee Combat.","ref":"PG 130 CB"},
+		{"tier":2,"talent":"Precision Killer (choose)","prerequisites":"BS 40 or WS 40","apt1":"Weapon Skill","apt2":"Finesse","benefit":"No penalty to making Called Shot in either Ranged or Melee Combat.","ref":"PG 130 CB"},
 		{"tier":2,"talent":"Prosanguine","prerequisites":"Auto Sanguine Implants, Mechanicus Implants","apt1":"Toughness","apt2":"Tech","benefit":"Spend 10 minutes and make a Tech-Use test to heal 1d5 damage. Rolls 96 or higher, loses the ability for one week.","ref":"PG 131 CB"},
 		{"tier":2,"talent":"Purity of Hatred","prerequisites":"Hatred (Any)","apt1":"Offence","apt2":"Willpower","benefit":"Attacks gain the Vengeful (9) quality against opponents of Hatred group.","ref":"PG 58 EI"},
 		{"tier":2,"talent":"Rites of Banishment","prerequisites":"Common Lore (Imperial Creed) +10 or Forbidden Lore (Daemonology)","apt1":"Offence","apt2":"Willpower","benefit":"Once per round as a Half Action, the character may speak the litanies and invocations to disrupt Daemons. Until the beginning of his next turn, Daemons within a distance equal to twice the character's Willpower bonus in meters suffer a -10 penalty to Willpower tests.","ref":"PG 61 EB"},
 		{"tier":2,"talent":"Strong Minded","prerequisites":"WP 30, Resistance (Psychic Powers)","apt1":"Willpower","apt2":"Defence","benefit":"May reroll failed WP tests to resist psychic powers.","ref":"PG 131 CB"},
 		{"tier":2,"talent":"Swift Attack","prerequisites":"WS 30","apt1":"Weapon Skill","apt2":"Finesse","benefit":"May make multiple melee attacks.","ref":"PG 131 CB"},
 		{"tier":2,"talent":"Tainted Psyker","prerequisites":"Psy rating, Rank 2 (Trained) in Psyniscience Skill, 10 Corruption points","apt1":"Knowledge","apt2":"Psyker","benefit":"When making a Focus Power test, the character may gain a number of Corruption points up to his psy rating. For each point he gains in this way, he gains a +10 bonus but adds +5 to rolls on Table 6-2 Psychic Phenomena","ref":"PG 58 EI"},
-		{"tier":2,"talent":"Two-Weapon Wielder (choose)","prerequisites":"-","apt1":"Weapon Skill/Ballistic Skill","apt2":"Finesse","benefit":"Attacks with two weapons count as being part of the same Half Action, and both tests made to attack with the weapons suffer a -20 penalty.","ref":"PG 132 CB"},
+		{"tier":2,"talent":"Two-Weapon Wielder (choose)","prerequisites":"-","apt1":"Ballistic Skill","apt2":"Finesse","benefit":"Attacks with two weapons count as being part of the same Half Action, and both tests made to attack with the weapons suffer a -20 penalty.","ref":"PG 132 CB"},
+		{"tier":2,"talent":"Two-Weapon Wielder (choose)","prerequisites":"-","apt1":"Weapon Skill","apt2":"Finesse","benefit":"Attacks with two weapons count as being part of the same Half Action, and both tests made to attack with the weapons suffer a -20 penalty.","ref":"PG 132 CB"},
 		{"tier":2,"talent":"Unarmed Specialist","prerequisites":"Ambidextrous, Ag 35, WS 35","apt1":"Strength","apt2":"Offence","benefit":"When fighting unarmed, attacks hit as Deadly Natural Weapons and user can re-roll damage.","ref":"PG 132 CB"},
 		{"tier":2,"talent":"Warp Conduit","prerequisites":"Psy Rating, Strong Minded, WP 50","apt1":"Willpower","apt2":"Psyker","benefit":"Spend Fate point to add 1d5 to psy rating however he adds +30 to rolls on Table 6-2: Psychic Phenomena","ref":"PG 132 CB"},
 		{"tier":2,"talent":"Whirlwind of Death","prerequisites":"WS 40","apt1":"Weapon Skill","apt2":"Finesse","benefit":"As a Half Action, may make one Standard Attack action with a melee weapon against a foe, plus one additional Standard Attack action with the same weapon targeting each other foe also engaged in melee combat with the character beyond the first (to a maximum number of attacks up to his Weapon Skill bonus).","ref":"PG 133 CB"},
