@@ -79,7 +79,8 @@
 		"Intelligence",
 		"Perception",
 		"Willpower",
-		"Fellowship"
+		"Fellowship",
+		"Psyker"
 	],
 	"characteristic": [
 		{
