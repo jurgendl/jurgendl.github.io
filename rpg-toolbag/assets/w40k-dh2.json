@@ -1,0 +1,316 @@
+{
+	"free": "General",
+	"costs": [
+		{
+			"type": "characteristic",
+			"cost": [
+				[
+					100,
+					250,
+					500,
+					750
+				],
+				[
+					250,
+					500,
+					750,
+					1000
+				],
+				[
+					500,
+					750,
+					1000,
+					2500
+				]
+			]
+		},
+		{
+			"type": "talent",
+			"cost": [
+				[
+					200,
+					300,
+					400
+				],
+				[
+					300,
+					450,
+					600
+				],
+				[
+					600,
+					900,
+					1200
+				]
+			]
+		},
+		{
+			"type": "skill",
+			"cost": [
+				[
+					100,
+					200,
+					300,
+					400
+				],
+				[
+					200,
+					400,
+					600,
+					800
+				],
+				[
+					300,
+					600,
+					900,
+					1200
+				]
+			]
+		}
+	],
+	"classes": [
+	],
+	"optional": [
+		"Weapon Skill",
+		"Ballistic Skill",
+		"Strength",
+		"Toughness",
+		"Agility",
+		"Intelligence",
+		"Perception",
+		"Willpower",
+		"Fellowship"
+	],
+	"characteristic": [
+		{
+			"name": "Weapon Skill",
+			"aptitude": "Offence"
+		},
+		{
+			"name": "Ballistic Skill",
+			"aptitude": "Finesse"
+		},
+		{
+			"name": "Strength",
+			"aptitude": "Offence"
+		},
+		{
+			"name": "Toughness",
+			"aptitude": "Defense"
+		},
+		{
+			"name": "Agility",
+			"aptitude": "Finesse"
+		},
+		{
+			"name": "Intelligence",
+			"aptitude": "Knowledge"
+		},
+		{
+			"name": "Perception",
+			"aptitude": "Fieldcraft"
+		},
+		{
+			"name": "Willpower",
+			"aptitude": "Psyker"
+		},
+		{
+			"name": "Fellowship",
+			"aptitude": "Social"
+		}
+	],
+	"skills": [
+		{
+			"name": "Acrobatics",
+			"aptitudes": [
+				"Agility",
+				"General"
+			]
+		},
+		{
+			"name": "Athletics",
+			"aptitudes": [
+				"Strength",
+				"General"
+			]
+		},
+		{
+			"name": "Awareness",
+			"aptitudes": [
+				"Perception",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Charm",
+			"aptitudes": [
+				"Fellowship",
+				"Social"
+			]
+		},
+		{
+			"name": "Command",
+			"aptitudes": [
+				"Fellowship",
+				"Leadership"
+			]
+		},
+		{
+			"name": "Commerce",
+			"aptitudes": [
+				"Intelligence",
+				"Knowledge"
+			]
+		},
+		{
+			"name": "Common Lore",
+			"aptitudes": [
+				"Intelligence",
+				"General"
+			]
+		},
+		{
+			"name": "Decieve",
+			"aptitudes": [
+				"Fellowship",
+				"Social"
+			]
+		},
+		{
+			"name": "Dodge",
+			"aptitudes": [
+				"Agility",
+				"Defense"
+			]
+		},
+		{
+			"name": "Forbidden Lore",
+			"aptitudes": [
+				"Intelligence",
+				"Knowledge"
+			]
+		},
+		{
+			"name": "Inquiry",
+			"aptitudes": [
+				"Fellowship",
+				"Social"
+			]
+		},
+		{
+			"name": "Interrogation",
+			"aptitudes": [
+				"Willpower",
+				"Social"
+			]
+		},
+		{
+			"name": "Intimidate",
+			"aptitudes": [
+				"Strength",
+				"Social"
+			]
+		},
+		{
+			"name": "Linguistics",
+			"aptitudes": [
+				"Intelligence",
+				"General"
+			]
+		},
+		{
+			"name": "Logic",
+			"aptitudes": [
+				"Intelligence",
+				"Knowledge"
+			]
+		},
+		{
+			"name": "Medicae",
+			"aptitudes": [
+				"Intelligence",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Navigate",
+			"aptitudes": [
+				"Intelligence",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Operate",
+			"aptitudes": [
+				"Agility",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Parry",
+			"aptitudes": [
+				"Weapon Skill",
+				"Defense"
+			]
+		},
+		{
+			"name": "Psyniscience",
+			"aptitudes": [
+				"Perception",
+				"Psyker"
+			]
+		},
+		{
+			"name": "Scholastic Lore",
+			"aptitudes": [
+				"Intelligence",
+				"Knowledge"
+			]
+		},
+		{
+			"name": "Scrutiny",
+			"aptitudes": [
+				"Perception",
+				"General"
+			]
+		},
+		{
+			"name": "Sleight of Hand",
+			"aptitudes": [
+				"Agility",
+				"Knowledge"
+			]
+		},
+		{
+			"name": "Stealth",
+			"aptitudes": [
+				"Agility",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Survival",
+			"aptitudes": [
+				"Perception",
+				"Fieldcraft"
+			]
+		},
+		{
+			"name": "Tech Use",
+			"aptitudes": [
+				"Intelligence",
+				"Tech"
+			]
+		},
+		{
+			"name": "Trade",
+			"aptitudes": [
+				"Intelligence",
+				"General"
+			]
+		}
+	],
+	"talents": [
+
+	]
+}

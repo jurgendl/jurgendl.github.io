@@ -199,7 +199,7 @@
 			]
 		},
 		{
-			"class": "Brawler (HotE Advanced Spec)",
+			"class": "Brawler (HotE, Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Finesse",
@@ -210,7 +210,7 @@
 			]
 		},
 		{
-			"class": "Breacher (HotE Advanced Spec)",
+			"class": "Breacher (HotE, Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Finesse",
@@ -221,7 +221,7 @@
 			]
 		},
 		{
-			"class": "Commander (HotE Advanced Spec)",
+			"class": "Commander (HotE, Advanced Spec)",
 			"aptitudes": [
 				"Fellowship",
 				"Intelligence",
@@ -232,7 +232,7 @@
 			]
 		},
 		{
-			"class": "Field Chirurgeon (HotE Advanced Spec)",
+			"class": "Field Chirurgeon (HotE, Advanced Spec)",
 			"aptitudes": [
 				"Ballistic Skill",
 				"Defense",
@@ -243,7 +243,7 @@
 			]
 		},
 		{
-			"class": "Master of Ordnance (HotE Advanced Spec)",
+			"class": "Master of Ordnance (HotE, Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Fellowship",
@@ -254,7 +254,7 @@
 			]
 		},
 		{
-			"class": "Scout (HotE Advanced Spec)",
+			"class": "Scout (HotE, Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Fieldcraft",
@@ -265,7 +265,7 @@
 			]
 		},
 		{
-			"class": "Sentry (HotE Advanced Spec)",
+			"class": "Sentry (HotE, Advanced Spec)",
 			"aptitudes": [
 				"Ballistic Skill",
 				"Finesse",
@@ -276,7 +276,7 @@
 			]
 		},
 		{
-			"class": "Sharpshooter (HotE Advanced Spec)",
+			"class": "Sharpshooter (HotE, Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Ballistic Skill",
@@ -287,7 +287,7 @@
 			]
 		},
 		{
-			"class": "Tank Ace (HotE Advanced Spec)",
+			"class": "Tank Ace (HotE, Advanced Spec)",
 			"aptitudes": [
 				"Agility",
 				"Fellowship",
