@@ -515,6 +515,13 @@
 			]
 		},
 		{
+			"name": "Security",
+			"aptitudes": [
+				"Intelligence",
+				"Tech"
+			]
+		},
+		{
 			"name": "Sleight of Hand",
 			"aptitudes": [
 				"Agility",
