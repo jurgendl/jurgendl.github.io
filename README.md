@@ -6,5 +6,5 @@
 
 [Valheim: Food](https://jurgendl.github.io/game-toolbag/valheim-food.html)
 
-[W40K: Build Helper (Only War, Dark Heresy2)](https://jurgendl.github.io/game-toolbag/w40k.html)
+[W40K: Build Helper (Only War, Dark Heresy2)](https://jurgendl.github.io/rpg-toolbag/w40k.html)
 
