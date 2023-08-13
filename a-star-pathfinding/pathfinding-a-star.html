@@ -37,7 +37,7 @@
 
         .cell {
             font-size: 10px;
-            border: 2px solid rgba(0, 0, 0, .2);
+            border: 2px solid #ccc;
             width: 72px;
             max-width: 72px;
             min-width: 72px;
@@ -61,7 +61,7 @@
 
         .start,
         .cell.start {
-            --bgcolor: blue;
+            --bgcolor: #1e1e98;
             background-color: var(--bgcolor);
             color: white;
         }
@@ -75,7 +75,7 @@
 
         .blocked,
         .cell.blocked {
-            --bgcolor: red;
+            --bgcolor: #554020;
             background-color: var(--bgcolor);
             color: white;
         }
@@ -504,7 +504,7 @@
                         const docNode = this.docNode(point);
                         docNode.classList.add('open');
                         point.label = this.updateLabel(this.current, point);
-                        docNode.innerHTML = "<div><div class='light coord'>(r:" + point.r + ",c:" + point.c + ")</div><div class='light h'>h=" + point.h + "</div><div class='light g'>g=" + point.g + "</div><div class='dark f'>f=" + point.f + "</div><div class='light parent'>" + point.label + "</div><div class='dark order'>&nbsp;</div></div>";
+                        docNode.innerHTML = "<div><div class='light coord'>(r:" + point.r + ",c:" + point.c + ")</div><div class='light h'>h=" + point.h + "</div><div class='light g'>g=" + point.g + "</div><div class='dark f'>f=" + point.f + "</div><div class='parent'>" + point.label + "</div><div class='dark order'>&nbsp;</div></div>";
                     }
                 });
 
