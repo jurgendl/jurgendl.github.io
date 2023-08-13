@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    https://www.youtube.com/watch?v=T8mgXpW1_vc&ab_channel=KyleStone
+    https://www.gamedev.net/tutorials/programming/artificial-intelligence/a-pathfinding-for-beginners-r2003/
+    https://cdnjs.com/libraries/p5.js
+    https://p5js.org/get-started/
+-->
+<!--
+    https://blog.bitsrc.io/advanced-data-structures-implementing-the-a-algorithm-in-javascript-5ae1e8a4ab2f
+-->
+<!--
+    https://www.geeksforgeeks.org/a-search-algorithm/
+-->
+<!--
+    https://www.youtube.com/watch?v=-L-WgKMFuhE&ab_channel=SebastianLague
+    https://github.com/SebLague/Pathfinding/blob/master/Episode%2001%20-%20pseudocode/Pseudocode
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Pathfinding</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <style>
+        body {
+            font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+        }
+
+        #grid {
+            border: 2px solid rgb(0, 0, 0);
+            display: inline-block;
+        }
+
+        .cell {
+            font-size: 10px;
+        }
+
+        .start {
+            background-color: blue;
+            color: white;
+        }
+
+        .goal {
+            background-color: green;
+            color: white;
+        }
+
+        .blocked {
+            background-color: red;
+            color: white;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .cell {
+            border: 2px solid rgba(0, 0, 0, .2);
+            width: 72px;
+            max-width: 72px;
+            min-width: 72px;
+            height: 72px;
+            max-height: 72px;
+            min-height: 72px;
+        }
+
+        .open {
+            background-color: yellow;
+        }
+
+        .open.adjusted {
+            background-color: rgb(223, 223, 31);
+        }
+
+        .cell:not(.open) {
+            position: relative;
+        }
+
+        .cell:not(.open)>* {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .open>* {
+            display: grid;
+            grid-template-rows: repeat(6, 1fr);
+        }
+
+        .open>*>* {
+            text-align: center;
+        }
+
+        .open.closed {
+            background-color: #efd6a7;
+        }
+
+        .current,
+        .open.adjusted.current {
+            background-color: #dda8e7;
+        }
+
+        .light {
+            color: #999;
+        }
+
+        .dark {
+            font-weight: bold;
+        }
+
+        .parent {
+            height: 7px;
+            max-height: 7px;
+            min-height: 7px;
+        }
+
+        .path:not(.start):not(.goal) {
+            background-color: lightgreen !important;
+        }
+
+        .wall-vertical {
+            border-right-color: red;
+        }
+
+        .wall-vertical-opposite {
+            border-left-color: red;
+        }
+
+        .wall-horizontal {
+            border-bottom-color: red;
+        }
+
+        .wall-horizontal-opposite {
+            border-top-color: red;
+        }
+
+        .unsolvable {
+            background-color: purple;
+            color: white;
+        }
+
+        .cell>span {
+            white-space: nowrap;
+        }
+    </style>
+    <button id="next">Next</button>
+    <button id="auto">Auto</button>
+    &nbsp;&nbsp;&nbsp;
+    <a href="?">[Home]</a>
+    <a href="?" id="rnd">[Random]</a>
+    <a href="?" id="save">[Save]</a>
+    <a href="?" id="toggle">[Toggle cut corners]</a>
+    &nbsp;&nbsp;&nbsp;
+    <span class="start">START</span>
+    <span class="goal">GOAL</span>
+    <span class="blocked">BLOCKED</span>
+    <span class="open">OPEN</span>
+    <span class="current">LOWEST OPEN</span>
+    <span class="open adjusted">OPEN (recalculate because shorter path was found)</span>
+    <span class="open closed">CLOSED</span>
+    <span class="path">PATH RESOLVED</span>
+    <span class="unsolvable">NO PATH</span>
+    &nbsp;&nbsp;&nbsp;
+    <u>Cut corners=<span id="cutting"></span></u>
+    &nbsp;&nbsp;&nbsp;
+    <u>Calculation iterations: <span id="stepsTaken"></span></u>
+    <br><br>
+
+    <div id="grid"></div>
+
+    <script>
+
+        let delay = 200; // delay between steps in ms in auto solve mode
+        let random = 25; // number of random obstacles
+        const updateGridVisually = true; // set to false to disable visualisation of the grid
+        const defRows = 10; // default number of rows
+        const defCols = 10; // default number of columns
+        const L = 10; // unit for distance of neighbours in a straight line: ( 1 ) * 10
+        const LD = 14; // diagonal: √( L^2 + L^2 ) * 10 [rounded to 0 decimal places]
+        class Data {
+            closed = [];
+            open = [];
+            current = null;
+            neighbours = [];
+            neighboursOpen = [];
+            obstacles = [];
+            columns = defCols; // number of columns
+            rows = defRows; // number of rows
+            cutCorners = false; // allow diagonal movement through corners
+            goal = null; // goal cell
+            start = null; // start cell
+            horizontalWalls = []; // blocked by wall to the bottom
+            verticalWalls = []; // blocked by wall to the right
+            calculationIterations = 0; // total calculation iterations
+            solvedPath = null; // path from start to goal
+
+            // utility method
+            equals(point1, point2) {
+                return point1.r == point2.r && point1.c == point2.c;
+            }
+
+            // utility method
+            find(list, point) {
+                return list.find(p => this.equals(p, point));
+            }
+
+            // utility method
+            contains(list, point) {
+                return this.find(list, point) != null;
+            }
+
+            // copy setup from another data object
+            copyFrom(data) {
+                this.clear();
+                this.obstacles = data.obstacles;
+                this.columns = data.columns;
+                this.rows = data.rows;
+                this.cutCorners = data.cutCorners;
+                this.goal = data.goal;
+                this.start = data.start;
+                this.horizontalWalls = data.horizontalWalls;
+                this.verticalWalls = data.verticalWalls;
+            }
+
+            // clear all data
+            clear() {
+                this.closed = [];
+                this.open = [];
+                this.current = null;
+                this.neighbours = [];
+                this.neighboursOpen = [];
+                this.obstacles = [];
+                this.goal = null;
+                this.start = null;
+                this.horizontalWalls = [];
+                this.verticalWalls = [];
+                this.calculationIterations = 0;
+                this.solvedPath = null;
+            }
+
+            reset() {
+                this.closed = [];
+                this.open = [];
+                this.current = null;
+                this.neighbours = [];
+                this.neighboursOpen = [];
+                this.calculationIterations = 0;
+                this.solvedPath = null;
+            }
+
+            setupData() {
+                this.start.g = 0; // distance from start to start is 0 (obviously): number is used by first calculation step
+                this.current = this.start; // start cell should be added as current for first calculation step
+            }
+
+            // all neighbours of a point including diagonals even if they are blocked or out of bounds (for the purpose of checking if a point is a neighbour of another point)
+            allNeighboursOf(point) {
+                let n = [];
+                n.push({ 'r': point.r - 1, 'c': point.c - 1 });
+                n.push({ 'r': point.r - 1, 'c': point.c });
+                n.push({ 'r': point.r - 1, 'c': point.c + 1 });
+                n.push({ 'r': point.r, 'c': point.c - 1 });
+                n.push({ 'r': point.r, 'c': point.c + 1 });
+                n.push({ 'r': point.r + 1, 'c': point.c - 1 });
+                n.push({ 'r': point.r + 1, 'c': point.c });
+                n.push({ 'r': point.r + 1, 'c': point.c + 1 });
+                return n;
+            }
+
+            // all neighbours of a point that are not blocked or out of bounds, and that are not already closed (handled)
+            possibleNeighboursOf(point) {
+                let n = this.allNeighboursOf(point);
+                // filter out out of bounds
+                n = n.filter(n => n.r >= 0 && n.r < this.rows && n.c >= 0 && n.c < this.columns);
+                // filter out those already closed (handled)
+                n = n.filter(n => !this.isClosed(n));
+                // filter out those blocked by obstacles
+                n = n.filter(n => !this.isBlockedByObstacle(point, n));
+                // filter out those blocked by walls
+                n = n.filter(n => !this.isBlockedByWall(point, n));
+                // set parent and update label showing origin of parent (arrow)
+                n.forEach(n => {
+                    n.parent = point;
+                    if (updateGridVisually) this.updateLabel(n.parent, n);
+                });
+                return n;
+            }
+
+            // update direction label (arrow)
+            updateLabel(parent, child) {
+                if (parent.r == child.r) child.label = parent.c > child.c ? '→' : '←';
+                else if (parent.c == child.c) child.label = parent.r > child.r ? '↓' : '↑';
+                else if (parent.r > child.r) child.label = parent.c > child.c ? '↘' : '↙';
+                else if (parent.r < child.r) child.label = parent.c > child.c ? '↗' : '↖';
+                return child.label;
+            }
+
+            isBlockedByObstacle(fromPoint, toPoint) {
+                // target is obstacle: blocked
+                if (this.isObstacle(toPoint)) return true;
+
+                // straight movement never blocked by obstacles
+                if (fromPoint.r == toPoint.r || fromPoint.c == toPoint.c) return false;
+
+                // other neighbours in square
+                const x1 = { 'r': fromPoint.r, 'c': toPoint.c };
+                const x2 = { 'r': toPoint.r, 'c': fromPoint.c };
+
+                // filter out movement between obstacles if cutCorners
+                // n X
+                // X n
+                // 
+                // X n
+                // n X
+
+                // filter out movement close to corners if not cutCorners
+                // n X
+                // . n
+                // 
+                // X n
+                // n .
+
+                return this.cutCorners ? (this.isObstacle(x1) && this.isObstacle(x2)) : (this.isObstacle(x1) || this.isObstacle(x2));
+            }
+
+            isBlockedByWall(fromPoint, toPoint) {
+                if (fromPoint.c == toPoint.c) { // vertical up or down
+                    if (fromPoint.r + 1 == toPoint.r) {
+                        // fromPoint
+                        // ↓
+                        // toPoint
+                        if (this.contains(this.horizontalWalls, fromPoint)) {
+                            return true;
+                        }
+                    } else /* if (fromPoint.r == toPoint.r + 1) */ {
+                        // toPoint
+                        // ↑
+                        // fromPoint 
+                        if (this.contains(this.horizontalWalls, toPoint)) {
+                            return true;
+                        }
+                    }
+                } else if (fromPoint.r == toPoint.r) {      // move left or right
+                    if (fromPoint.c + 1 == toPoint.c) {
+                        // fromPoint → toPoint
+                        if (this.contains(this.verticalWalls, fromPoint)) {
+                            return true;
+                        }
+                    } else /* if (fromPoint.c == toPoint.c + 1) */ {
+                        //  toPoint ← fromPoint
+                        if (this.contains(this.verticalWalls, toPoint)) {
+                            return true;
+                        }
+                    }
+                } else /* if (fromPoint.r != toPoint.r && fromPoint.c != toPoint.c) */ { // diagonal move
+
+                    /*
+                    if ((fromPoint.c + 1) == toPoint.c && (fromPoint.r + 1) == toPoint.r) {
+                        // fromPoint
+                        // _________⬊
+                        // __________ toPoint
+                    } else if (fromPoint.c == (toPoint.c + 1) && fromPoint.r == (toPoint.r + 1)) {
+                        // toPoint
+                        // ________⬉
+                        // _________ fromPoint
+                    } else if (fromPoint.c == (toPoint.c + 1) && (fromPoint.r + 1) == toPoint.r) {
+                        // _________ fromPoint
+                        // ________⬈
+                    } else if ((fromPoint.c + 1) == toPoint.c && fromPoint.r == (toPoint.r + 1)) {
+                        // ___________ toPoint
+                        // __________⬋
+                    }
+                    */
+                    const topLeftPoint = { 'r': Math.min(fromPoint.r, toPoint.r), 'c': Math.min(fromPoint.c, toPoint.c) };
+                    const topRightPoint = { 'r': topLeftPoint.r, 'c': topLeftPoint.c + 1 };
+                    const bottomLeftPoint = { 'r': topLeftPoint.r + 1, 'c': topLeftPoint.c };
+                    if (this.cutCorners) {
+                        if (this.contains(this.horizontalWalls, topLeftPoint) && this.contains(this.horizontalWalls, topRightPoint)) {
+                            return true;
+                        }
+                        if (this.contains(this.verticalWalls, topLeftPoint) && this.contains(this.verticalWalls, bottomLeftPoint)) {
+                            return true;
+                        }
+                    } else {
+                        if (this.contains(this.horizontalWalls, topLeftPoint)) {
+                            return true;
+                        }
+                        if (this.contains(this.verticalWalls, topLeftPoint)) {
+                            return true;
+                        }
+                        if (this.contains(this.horizontalWalls, topRightPoint)) {
+                            return true;
+                        }
+                        if (this.contains(this.verticalWalls, bottomLeftPoint)) {
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+
+            isObstacle(point) {
+                return this.contains(this.obstacles, point);
+            }
+
+            isClosed(point) {
+                return this.contains(this.closed, point);
+            }
+
+            isOpen(point) {
+                return this.contains(this.open, point);
+            }
+
+            isGoal(point) {
+                return this.equals(this.goal, point);
+            }
+
+            isStart(point) {
+                return this.equals(this.start, point);
+            }
+
+            // Manhattan distance (see constant LD for adjacent diagonal distance)
+            // can also be used for distance to goal instead of total number of straight steps taken
+            distance(point1, point2) {
+                return Math.sqrt(Math.pow(point1.r - point2.r, 2) + Math.pow(point1.c - point2.c, 2));
+            }
+
+            // distance in horizontal ad vertical steps taken to goal
+            h(point1, point2) {
+                return (Math.abs(point1.r - point2.r) + Math.abs(point1.c - point2.c)) * 10;
+            }
+
+            // adjacent distance (either L or LD)
+            g(point1, point2) {
+                return (point1.r == point2.r || point1.c == point2.c) ? L : LD;
+            }
+
+            // solve the maze and return the solved path or null if no path was found
+            solve(maxSteps = 1000) {
+                this.reset();
+                this.setupData();
+                while (maxSteps-- > 0) {
+                    this.step();
+                    if (this.noPath || this.foundGoal) break;
+                }
+                if (this.foundGoal) return this.debugPath();
+                return null;
+            }
+
+            // take a single calculation iteration to solve the maze
+            step() {
+                if (this.noPath) return;
+                if (this.foundGoal) return;
+
+                this.calculationIterations++;
+                if (updateGridVisually) document.getElementById('stepsTaken').innerHTML = this.calculationIterations;
+
+                this.closed.push(this.current);
+                if (updateGridVisually) if (this.start != this.current) {
+                    const docNode = this.docNode(this.current);
+                    docNode.classList.add('closed');
+                    docNode.querySelector('.order').innerHTML = this.closed.length - 1;
+                }
+
+                this.neighbours = this.possibleNeighboursOf(this.current);
+
+                this.neighbours.filter(point => this.isOpen(point)).map(point => this.find(this.open, point)).forEach(point => {
+                    // recalculate g, if shorter path when going through current
+                    // recalculate f
+                    const g = this.current.g + this.g(point, this.current);
+                    if (g < point.g) {
+                        point.g = g;
+                        point.f = point.h + point.g;
+                        point.parent = this.current;
+                        if (updateGridVisually) if (point.h > 0) {
+                            const docNode = this.docNode(point);
+                            docNode.classList.add('adjusted');
+                            docNode.querySelector('.g').innerHTML = "g=" + point.g;
+                            docNode.querySelector('.f').innerHTML = "f=" + point.f;
+                            docNode.querySelector('.parent').innerHTML = this.updateLabel(this.current, point);
+                        }
+                    }
+                });
+
+                this.neighbours.filter(point => !this.isOpen(point)).forEach(point => {
+                    this.open.push(point);
+                    point.h = this.h(point, this.goal);
+                    point.g = this.current.g + this.g(point, this.current);
+                    point.f = point.h + point.g;
+                    if (updateGridVisually) if (point.h > 0) {
+                        const docNode = this.docNode(point);
+                        docNode.classList.add('open');
+                        docNode.innerHTML = "<div><div class='light coord'>(r:" + point.r + ",c:" + point.c + ")</div><div class='light h'>h=" + point.h + "</div><div class='light g'>g=" + point.g + "</div><div class='dark f'>f=" + point.f + "</div><div class='light parent'>" + point.label + "</div><div class='dark order'>&nbsp;</div></div>";
+                    }
+                });
+
+                if (this.open.length == 0) {
+                    this.noPath = true;
+                    console.log('no path');
+                    if (updateGridVisually) this.docNode(this.goal).style.backgroundColor = "purple";
+                    return;
+                }
+
+                this.open.sort((a, b) => a.f - b.f || a.h - b.h);
+                if (updateGridVisually && this.current) this.docNode(this.current).classList.remove('current');
+                this.current = this.open.shift();
+                if (this.isGoal(this.current)) {
+                    this.foundGoal = true;
+                    this.goal.parent = this.current;
+                    this.solvedPath = this.buildPath();
+                    this.debugPath();
+                    return;
+                } else {
+                    if (updateGridVisually) this.docNode(this.current).classList.add('current');
+                }
+            }
+
+            docNode(point) {
+                return document.getElementById(`${point.r}-${point.c}`);
+            }
+
+            buildPath() {
+                let path = [];
+                let current = this.goal;
+                while (current != this.start) {
+                    path.push(current);
+                    current = current.parent;
+                }
+                path.push(this.start);
+                path.reverse();
+                return path.splice(1, path.length - 2);
+            }
+
+            debugPath() {
+                if (updateGridVisually) this.solvedPath.forEach((p, i) => {
+                    const docNode = document.getElementById(`${p.r}-${p.c}`);
+                    docNode.classList.add('path');
+                    const orderSpan = docNode.querySelector('.order');
+                    if (orderSpan) orderSpan.innerHTML = '#' + (i + 1);
+                });
+                this.solvedPath.forEach((p, i) => console.log(i + ": " + p.r + "," + p.c));
+            }
+
+            // utility method
+            removeItemOnce(arr, value) {
+                const index = arr.indexOf(value);
+                if (index > -1) arr.splice(index, 1);
+                return arr;
+            }
+        }
+
+        const d = new Data();
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.get('data')) {
+            d.copyFrom(JSON.parse(decodeURIComponent(urlParams.get('data'))));
+            console.log('restored data', d);
+        }
+        if (urlParams.get('cutCorners')) d.cutCorners = urlParams.get('cutCorners') == 'true';
+        if (urlParams.get('columns')) d.columns = urlParams.get('columns');
+        if (urlParams.get('rows')) d.rows = urlParams.get('rows');
+        if (urlParams.get('delay')) delay = urlParams.get('delay');
+        if (urlParams.get('rnd')) random = urlParams.get('rnd');
+
+        if (!urlParams.get('data')) {
+            if (urlParams.get('rnd')) {
+                console.log('random data');
+                let cellPicker = [];
+                for (let ri = 0; ri < d.rows; ri++) {
+                    for (let ci = 0; ci < d.columns; ci++) {
+                        const cellOption = { 'r': ri, 'c': ci };
+                        console.log("cellOption", cellOption);
+                        cellPicker.push(cellOption);
+                    }
+                }
+                console.log("columns=" + d.columns, "rows=" + d.rows, "cellPicker", cellPicker);
+
+                let j;
+
+                j = Math.floor(Math.random() * cellPicker.length);
+                d.start = cellPicker[j];
+                console.log("j", j, "start", d.start);
+                d.removeItemOnce(cellPicker, d.start);
+
+                j = Math.floor(Math.random() * cellPicker.length);
+                d.goal = cellPicker[j];
+                console.log("j", j, "goal", d.goal);
+                d.removeItemOnce(cellPicker, d.goal);
+
+                let cellPicked;
+                for (let i = 0; i < random; i++) {
+                    j = Math.floor(Math.random() * cellPicker.length);
+                    cellPicked = cellPicker[j];
+                    console.log("j", j, "obstacle", cellPicked);
+                    d.obstacles.push(cellPicked);
+                    d.removeItemOnce(cellPicker, cellPicked);
+                }
+            } else {
+                console.log('default data');
+                /*d.start = { 'r': 2, 'c': 2 };
+                d.goal = { 'r': 3, 'c': 6 };
+                d.obstacles = [
+                    { 'r': 3, 'c': 1 },
+                    { 'r': 3, 'c': 2 },
+                    { 'r': 3, 'c': 3 },
+                    { 'r': 3, 'c': 4 },
+                    { 'r': 2, 'c': 4 },
+                    { 'r': 1, 'c': 4 },
+                ];*/
+                /*d.horizontalWalls = [
+                    { 'r': 1, 'c': 5 },
+                    { 'r': 1, 'c': 6 }
+                ];*/
+                /*
+                d.start = { 'r': 1, 'c': 1 };
+                d.obstacles.push({ 'r': 1, 'c': 2 });
+                d.goal = { 'r': 1, 'c': 3 };
+                */
+                d.obstacles = [{ "r": 5, "c": 5 }, { "r": 6, "c": 9 }, { "r": 0, "c": 2 }, { "r": 6, "c": 8 }, { "r": 6, "c": 6 }, { "r": 3, "c": 8 }, { "r": 9, "c": 2 }, { "r": 1, "c": 1 }, { "r": 4, "c": 4 }, { "r": 3, "c": 5 }, { "r": 6, "c": 4 }, { "r": 3, "c": 9 }, { "r": 2, "c": 9 }, { "r": 0, "c": 0 }, { "r": 1, "c": 0 }, { "r": 2, "c": 7 }, { "r": 8, "c": 5 }, { "r": 0, "c": 5 }, { "r": 8, "c": 7 }, { "r": 1, "c": 2 }, { "r": 6, "c": 3 }, { "r": 9, "c": 0 }, { "r": 6, "c": 7 }, { "r": 8, "c": 6 }, { "r": 3, "c": 0 }];
+                d.start = { r: 9, c: 1 };
+                d.goal = { r: 4, c: 5 };
+            }
+        }
+
+        document.getElementById('cutting').innerHTML = d.cutCorners ? 'yes' : 'no';
+
+        document.getElementById('save').href = "?data=" + encodeURIComponent(JSON.stringify(d));
+        d.cutCorners = !d.cutCorners;
+        document.getElementById('toggle').href = "?data=" + encodeURIComponent(JSON.stringify(d));
+        d.cutCorners = !d.cutCorners;
+
+        d.setupData();
+
+        document.getElementById('rnd').href = "?columns=" + d.columns + "&rows=" + d.rows + "&rnd=" + random + "&cutCorners=" + d.cutCorners + "&delay=" + delay;
+
+        if (updateGridVisually) {
+            const grid = document.getElementById("grid");
+            let innerHTML = "";
+            for (let ri = 0; ri < d.rows; ri++) {
+                innerHTML += `<div class="row" id="${ri}">`;
+                for (let ci = 0; ci < d.columns; ci++) {
+                    const point = { 'r': ri, 'c': ci };
+                    let classList = "";
+                    let content = "";
+                    if (d.isStart(point)) {
+                        classList = "start";
+                        content = "S";
+                    } else if (d.isGoal(point)) {
+                        classList = "goal";
+                        content = "G";
+                    } else if (d.isObstacle(point)) {
+                        classList = "blocked";
+                        content = "X";
+                    }
+                    if (d.contains(d.verticalWalls, point)) {
+                        classList += " wall-vertical";
+                    }
+                    const pointLeft = { 'r': ri, 'c': ci - 1 };
+                    if (d.contains(d.verticalWalls, pointLeft)) {
+                        classList += " wall-vertical-opposite";
+                    }
+                    if (d.contains(d.horizontalWalls, point)) {
+                        classList += " wall-horizontal";
+                    }
+                    const pointAbove = { 'r': ri - 1, 'c': ci };
+                    if (d.contains(d.horizontalWalls, pointAbove)) {
+                        classList += " wall-horizontal-opposite";
+                    }
+                    innerHTML += `<div class="cell ${classList}" id="${ri}-${ci}"><span>${content}(r:${ri},c:${ci})</span></div>`;
+                }
+                innerHTML += "</div>";
+            }
+            grid.innerHTML += innerHTML;
+        }
+
+        document.getElementById('next').addEventListener("click", event => {
+            event.preventDefault();
+            d.step();
+        });
+
+        if (urlParams.get('delay')) delay = urlParams.get('delay');
+        document.getElementById('auto').addEventListener("click", event => {
+            event.preventDefault();
+            const interval = setInterval(() => {
+                if (d.foundGoal || d.noPath) {
+                    clearInterval(interval);
+                    return;
+                }
+                d.step();
+            }, delay);
+        });
+    </script>
+
+</body>
+
+</html>
