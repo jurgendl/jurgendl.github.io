@@ -31,30 +31,12 @@
             display: inline-block;
         }
 
-        .cell {
-            font-size: 10px;
-        }
-
-        .start {
-            background-color: blue;
-            color: white;
-        }
-
-        .goal {
-            background-color: green;
-            color: white;
-        }
-
-        .blocked {
-            background-color: red;
-            color: white;
-        }
-
         .row {
             display: flex;
         }
 
         .cell {
+            font-size: 10px;
             border: 2px solid rgba(0, 0, 0, .2);
             width: 72px;
             max-width: 72px;
@@ -62,14 +44,51 @@
             height: 72px;
             max-height: 72px;
             min-height: 72px;
+            transition: background-color .75s ease-in-out;
+            --bgcolor: white;
+            background-color: var(--bgcolor);
         }
 
-        .open {
-            background-color: yellow;
+        @keyframes bgcoloranim {
+            0% {
+                background: var(--bgcolor);
+            }
+
+            100% {
+                background: var(--bgcolor);
+            }
+        }
+
+        .start,
+        .cell.start {
+            --bgcolor: blue;
+            background-color: var(--bgcolor);
+            color: white;
+        }
+
+        .goal,
+        .cell.goal {
+            --bgcolor: green;
+            background-color: var(--bgcolor);
+            color: white;
+        }
+
+        .blocked,
+        .cell.blocked {
+            --bgcolor: red;
+            background-color: var(--bgcolor);
+            color: white;
+        }
+
+        .open,
+        .cell.open {
+            --bgcolor: yellow;
+            background-color: var(--bgcolor);
         }
 
         .open.adjusted {
-            background-color: rgb(223, 223, 31);
+            --bgcolor: rgb(223, 223, 31);
+            background-color: var(--bgcolor);
         }
 
         .cell:not(.open) {
@@ -94,12 +113,14 @@
         }
 
         .open.closed {
-            background-color: #efd6a7;
+            --bgcolor: #efd6a7;
+            background-color: var(--bgcolor);
         }
 
         .current,
         .open.adjusted.current {
-            background-color: #dda8e7;
+            --bgcolor: #dda8e7;
+            background-color: var(--bgcolor);
         }
 
         .light {
@@ -137,8 +158,9 @@
         }
 
         .unsolvable {
-            background-color: purple;
             color: white;
+            --bgcolor: purple;
+            background-color: var(--bgcolor);
         }
 
         .cell>span {
@@ -282,11 +304,6 @@
                 n = n.filter(n => !this.isBlockedByObstacle(point, n));
                 // filter out those blocked by walls
                 n = n.filter(n => !this.isBlockedByWall(point, n));
-                // set parent and update label showing origin of parent (arrow)
-                n.forEach(n => {
-                    n.parent = point;
-                    if (updateGridVisually) n.label = this.updateLabel(n.parent, n);
-                });
                 return n;
             }
 
@@ -477,33 +494,36 @@
 
                 this.neighbours = this.possibleNeighboursOf(this.current);
 
-                this.neighbours.filter(point => this.isOpen(point)).map(point => this.find(this.open, point)).forEach(point => {
-                    // recalculate g, if shorter path when going through current
-                    // recalculate f
-                    const g = this.current.g + this.g(point, this.current);
-                    if (g < point.g) {
-                        point.g = g;
-                        point.f = point.h + point.g;
-                        point.parent = this.current;
-                        if (updateGridVisually) if (point.h > 0) {
-                            const docNode = this.docNode(point);
-                            docNode.classList.add('adjusted');
-                            docNode.querySelector('.g').innerHTML = "g=" + point.g;
-                            docNode.querySelector('.f').innerHTML = "f=" + point.f;
-                            docNode.querySelector('.parent').innerHTML = this.point.label = updateLabel(this.current, point);
-                        }
-                    }
-                });
-
                 this.neighbours.filter(point => !this.isOpen(point)).forEach(point => {
                     this.open.push(point);
                     point.h = this.h(point, this.goal);
                     point.g = this.current.g + this.g(point, this.current);
                     point.f = point.h + point.g;
+                    point.parent = this.current;
                     if (updateGridVisually) if (point.h > 0) {
                         const docNode = this.docNode(point);
                         docNode.classList.add('open');
+                        point.label = this.updateLabel(this.current, point);
                         docNode.innerHTML = "<div><div class='light coord'>(r:" + point.r + ",c:" + point.c + ")</div><div class='light h'>h=" + point.h + "</div><div class='light g'>g=" + point.g + "</div><div class='dark f'>f=" + point.f + "</div><div class='light parent'>" + point.label + "</div><div class='dark order'>&nbsp;</div></div>";
+                    }
+                });
+
+                this.neighbours.filter(point => this.isOpen(point)).map(point => this.find(this.open, point)).forEach(point => {
+                    // recalculate if shorter path when going through current
+                    const g = this.current.g + this.g(point, this.current);
+                    if (g < point.g) {
+                        // h doesn't change /* point.h = this.h(point, this.goal); */
+                        point.g = g; // g is calculate above
+                        point.f = point.h + point.g; // recalculate
+                        point.parent = this.current; // change parent
+                        if (updateGridVisually) if (point.h > 0) {
+                            const docNode = this.docNode(point);
+                            docNode.classList.add('adjusted');
+                            point.label = this.updateLabel(this.current, point);
+                            docNode.querySelector('.g').innerHTML = "g=" + point.g;
+                            docNode.querySelector('.f').innerHTML = "f=" + point.f;
+                            docNode.querySelector('.parent').innerHTML = point.label;
+                        }
                     }
                 });
 
