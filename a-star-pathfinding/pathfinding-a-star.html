@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <!--
     https://www.youtube.com/watch?v=T8mgXpW1_vc&ab_channel=KyleStone
     https://www.gamedev.net/tutorials/programming/artificial-intelligence/a-pathfinding-for-beginners-r2003/
-    https://cdnjs.com/libraries/p5.js
-    https://p5js.org/get-started/
--->
-<!--
     https://blog.bitsrc.io/advanced-data-structures-implementing-the-a-algorithm-in-javascript-5ae1e8a4ab2f
--->
-<!--
     https://www.geeksforgeeks.org/a-search-algorithm/
--->
-<!--
     https://www.youtube.com/watch?v=-L-WgKMFuhE&ab_channel=SebastianLague
     https://github.com/SebLague/Pathfinding/blob/master/Episode%2001%20-%20pseudocode/Pseudocode
+    https://www.omnicalculator.com/math/manhattan-distance
+    https://en.wikipedia.org/wiki/Taxicab_geometry
+    https://iq.opengenus.org/euclidean-vs-manhattan-vs-chebyshev-distance/
 -->
 
 <head>
@@ -439,7 +435,7 @@
                 return Math.abs(point1.r - point2.r) + Math.abs(point1.c - point2.c);
             }
 
-            // Manhattan distance: distance in horizontal ad vertical steps taken to goal, multiplied by 10
+            // Manhattan distance: distance in horizontal and vertical steps taken to goal, multiplied by 10
             h(point1, point2) {
                 // Euclidean needs more calculations than Manhattan, it's also slower, but it's more accurate
                 // console.log('Euclidean', point1, point2, Math.floor(this.euclideanDistance(point1, point2) * 10));
@@ -448,7 +444,7 @@
                 return this.manhattanDistance(point1, point2) * 10;
             }
 
-            // adjacent distance (either L or LD, lenght, length diagonal), multiplied by 10
+            // Euclidean distance: distance for adjacent cells, multiplied by 10, either L (1 * 10) or LD (1.4… * 10)
             g(point1, point2) {
                 return (point1.r == point2.r || point1.c == point2.c) ? L : LD;
             }
