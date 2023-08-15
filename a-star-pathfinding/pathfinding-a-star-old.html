@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    https://www.youtube.com/watch?v=T8mgXpW1_vc&ab_channel=KyleStone
+    https://www.gamedev.net/tutorials/programming/artificial-intelligence/a-pathfinding-for-beginners-r2003/
+    https://blog.bitsrc.io/advanced-data-structures-implementing-the-a-algorithm-in-javascript-5ae1e8a4ab2f
+    https://www.geeksforgeeks.org/a-search-algorithm/
+    https://www.youtube.com/watch?v=-L-WgKMFuhE&ab_channel=SebastianLague
+    https://github.com/SebLague/Pathfinding/blob/master/Episode%2001%20-%20pseudocode/Pseudocode
+    https://www.omnicalculator.com/math/manhattan-distance
+    https://en.wikipedia.org/wiki/Taxicab_geometry
+    https://iq.opengenus.org/euclidean-vs-manhattan-vs-chebyshev-distance/
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Pathfinding</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+        }
+
+        #grid {
+            border: 2px solid rgb(0, 0, 0);
+            display: inline-block;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .cell {
+            font-size: 10px;
+            border: 2px solid #ccc;
+            width: 72px;
+            max-width: 72px;
+            min-width: 72px;
+            height: 72px;
+            max-height: 72px;
+            min-height: 72px;
+            transition: background-color .75s ease-in-out;
+            --bgcolor: white;
+            background-color: var(--bgcolor);
+        }
+
+        @keyframes bgcoloranim {
+            0% {
+                background: var(--bgcolor);
+            }
+
+            100% {
+                background: var(--bgcolor);
+            }
+        }
+
+        .start,
+        .cell.start {
+            --bgcolor: #1e1e98;
+            background-color: var(--bgcolor);
+            color: white;
+        }
+
+        .goal,
+        .cell.goal {
+            --bgcolor: green;
+            background-color: var(--bgcolor);
+            color: white;
+        }
+
+        .blocked,
+        .cell.blocked {
+            --bgcolor: #554020;
+            background-color: var(--bgcolor);
+            color: white;
+        }
+
+        .open,
+        .cell.open {
+            --bgcolor: yellow;
+            background-color: var(--bgcolor);
+        }
+
+        .open.adjusted {
+            --bgcolor: rgb(223, 223, 31);
+            background-color: var(--bgcolor);
+        }
+
+        .cell:not(.open) {
+            position: relative;
+        }
+
+        .cell:not(.open)>* {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .open>* {
+            display: grid;
+            grid-template-rows: repeat(6, 1fr);
+        }
+
+        .open>*>* {
+            text-align: center;
+        }
+
+        .open.closed {
+            --bgcolor: #efd6a7;
+            background-color: var(--bgcolor);
+        }
+
+        .current,
+        .open.adjusted.current {
+            --bgcolor: #dda8e7;
+            background-color: var(--bgcolor);
+        }
+
+        .light {
+            color: #999;
+        }
+
+        .dark {
+            font-weight: bold;
+        }
+
+        .parent {
+            height: 7px;
+            max-height: 7px;
+            min-height: 7px;
+        }
+
+        .path:not(.start):not(.goal) {
+            background-color: lightgreen !important;
+        }
+
+        .wall-vertical {
+            border-right-color: red;
+        }
+
+        .wall-vertical-opposite {
+            border-left-color: red;
+        }
+
+        .wall-horizontal {
+            border-bottom-color: red;
+        }
+
+        .wall-horizontal-opposite {
+            border-top-color: red;
+        }
+
+        .unsolvable {
+            color: white;
+            --bgcolor: purple;
+            background-color: var(--bgcolor);
+        }
+
+        .cell>span {
+            white-space: nowrap;
+        }
+    </style>
+    <button id="next">Next</button>
+    <button id="auto">Auto</button>
+    &nbsp;&nbsp;&nbsp;
+    <a href="?">[Home]</a>
+    <a href="?" id="rnd">[Random]</a>
+    <a href="?" id="save">[Save]</a>
+    <a href="?" id="toggle">[Toggle cut corners]</a>
+    &nbsp;&nbsp;&nbsp;
+    <span class="start">START</span>
+    <span class="goal">GOAL</span>
+    <span class="blocked">BLOCKED</span>
+    <span class="open">OPEN</span>
+    <span class="current">LOWEST OPEN</span>
+    <span class="open adjusted">OPEN (recalculate because shorter path was found)</span>
+    <span class="open closed">CLOSED</span>
+    <span class="path">PATH RESOLVED</span>
+    <span class="unsolvable">NO PATH</span>
+    &nbsp;&nbsp;&nbsp;
+    <u>Cut corners=<span id="cutting"></span></u>
+    &nbsp;&nbsp;&nbsp;
+    <u>Calculation iterations: <span id="stepsTaken"></span></u>
+    <br><br>
+
+    <div id="grid"></div>
+
+    <script>
+        class Coordinate {
+            c;//x
+            r;//y
+
+            constructor(r, c) {
+                this.r = r;
+                this.c = c;
+            }
+
+            equals(p) {
+                return this.r == p.r && this.c == p.c;
+            }
+        }
+
+        function coordinate(r, c) {
+            return new Coordinate(r, c);
+        }
+
+        function toCoordinate(o) {
+            return new Coordinate(o.r, o.c);
+        }
+
+        Array.prototype.contains = function (p) {
+            for (let i = 0; i < this.length; i++) {
+                if ('equals' in this[i]) {
+                    if (this[i].equals(p)) {
+                        return true;
+                    }
+                } else if (this[i] === p) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        Array.prototype.positionOf = function (p) {
+            for (let i = 0; i < this.length; i++) {
+                if ('equals' in this[i]) {
+                    if (this[i].equals(p)) {
+                        return i;
+                    }
+                } else if (this[i] === p) {
+                    return i;
+                }
+            }
+            return -1;
+        };
+
+        Array.prototype.get = function (pos) {
+            return this[pos];
+        };
+
+        Array.prototype.lookUp = function (p) {
+            return this.get(this.positionOf(p));
+        }
+
+        // config is read from URL (see below)
+        const urlParams = new URLSearchParams(window.location.search);
+
+        let delay = 200; // delay between steps in ms in auto solve mode
+        let random = 25; // number of random obstacles
+        const updateGridVisually = true; // set to false to disable visualisation of the grid
+        const defRows = 10; // default number of rows
+        const defCols = 10; // default number of columns
+        const L = 10; // unit for distance of neighbours in a straight line: ( 1 ) * 10
+        const LD = 14; // diagonal: √( L^2 + L^2 ) * 10 [rounded to 0 decimal places]
+        class AStarMazeWalker {
+            closed = [];
+            open = [];
+            current = null;
+            neighbours = [];
+            neighboursOpen = [];
+            obstacles = [];
+            columns = defCols; // number of columns
+            rows = defRows; // number of rows
+            cutCorners = false; // allow diagonal movement through corners
+            goal = null; // goal cell
+            start = null; // start cell
+            horizontalWalls = []; // blocked by wall to the bottom
+            verticalWalls = []; // blocked by wall to the right
+            calculationIterations = 0; // total calculation iterations
+            solvedPath = null; // path from start to goal
+
+            // copy setup from another data object
+            copyFrom(data) {
+                this.clear();
+                this.obstacles = data.obstacles.map(toCoordinate);
+                this.columns = data.columns;
+                this.rows = data.rows;
+                this.cutCorners = data.cutCorners;
+                this.goal = toCoordinate(data.goal);
+                this.start = toCoordinate(data.start);
+                this.horizontalWalls = data.horizontalWalls.map(toCoordinate);
+                this.verticalWalls = data.verticalWalls.map(toCoordinate);
+            }
+
+            // clear all data
+            clear() {
+                this.reset();
+                this.obstacles = [];
+                this.goal = null;
+                this.start = null;
+                this.horizontalWalls = [];
+                this.verticalWalls = [];
+            }
+
+            // reset to initial state
+            reset() {
+                this.closed = [];
+                this.open = [];
+                this.current = null;
+                this.neighbours = [];
+                this.neighboursOpen = [];
+                this.calculationIterations = 0;
+                this.solvedPath = null;
+            }
+
+            setupData() {
+                this.start.g = 0; // distance from start to start is 0 (obviously): number is used by first calculation step
+                this.current = this.start; // start cell should be added as current for first calculation step
+            }
+
+            // all neighbours of a point including diagonals even if they are blocked or out of bounds (for the purpose of checking if a point is a neighbour of another point)
+            allNeighboursOf(point) {
+                let n = [];
+                n.push(coordinate(point.r - 1, point.c - 1));
+                n.push(coordinate(point.r - 1, point.c));
+                n.push(coordinate(point.r - 1, point.c + 1));
+                n.push(coordinate(point.r, point.c - 1));
+                n.push(coordinate(point.r, point.c + 1));
+                n.push(coordinate(point.r + 1, point.c - 1));
+                n.push(coordinate(point.r + 1, point.c));
+                n.push(coordinate(point.r + 1, point.c + 1));
+                return n;
+            }
+
+            insideBounds(n) {
+                return (0 <= n.r && n.r < this.rows) && (0 <= n.c && n.c < this.columns);
+            }
+
+            // all neighbours of a point that are not blocked or out of bounds, and that are not already closed (handled)
+            possibleNeighboursOf(point) {
+                let n = this.allNeighboursOf(point);
+                // filter out out of bounds
+                n = n.filter(n => this.insideBounds(n));
+                // filter out those already closed (handled)
+                n = n.filter(n => !this.closed.contains(n));
+                // filter out those blocked by obstacles
+                n = n.filter(n => !this.isBlockedByObstacle(point, n));
+                // filter out those blocked by walls
+                n = n.filter(n => !this.isBlockedByWall(point, n));
+                return n;
+            }
+
+            // update direction label (arrow)
+            getLabel(parent, child) {
+                if (parent.r == child.r) return parent.c > child.c ? '→' : '←';
+                if (parent.c == child.c) return parent.r > child.r ? '↓' : '↑';
+                if (parent.r > child.r) return parent.c > child.c ? '↘' : '↙';
+                if (parent.r < child.r) return parent.c > child.c ? '↗' : '↖';
+                return null;
+            }
+
+            isBlockedByObstacle(fromPoint, toPoint) {
+                // target is obstacle: blocked
+                if (this.obstacles.contains(toPoint)) return true;
+
+                // straight movement never blocked by obstacles
+                if (fromPoint.r == toPoint.r || fromPoint.c == toPoint.c) return false;
+
+                // other neighbours in square
+                const x1 = coordinate(fromPoint.r, toPoint.c);
+                const x2 = coordinate(toPoint.r, fromPoint.c);
+
+                // filter out movement between obstacles if cutCorners
+                // n X
+                // X n
+                // 
+                // X n
+                // n X
+
+                // filter out movement close to corners if not cutCorners
+                // n X
+                // . n
+                // 
+                // X n
+                // n .
+
+                return this.cutCorners ? (this.obstacles.contains(x1) && this.obstacles.contains(x2)) : (this.obstacles.contains(x1) || this.obstacles.contains(x2));
+            }
+
+            isBlockedByWall(fromPoint, toPoint) {
+                if (fromPoint.c == toPoint.c) { // vertical up or down
+                    if (fromPoint.r + 1 == toPoint.r) {
+                        // fromPoint
+                        // ↓
+                        // toPoint
+                        if (this.horizontalWalls.contains(fromPoint)) {
+                            return true;
+                        }
+                    } else /* if (fromPoint.r == toPoint.r + 1) */ {
+                        // toPoint
+                        // ↑
+                        // fromPoint 
+                        if (this.horizontalWalls.contains(toPoint)) {
+                            return true;
+                        }
+                    }
+                } else if (fromPoint.r == toPoint.r) {      // move left or right
+                    if (fromPoint.c + 1 == toPoint.c) {
+                        // fromPoint → toPoint
+                        if (this.verticalWalls.contains(fromPoint)) {
+                            return true;
+                        }
+                    } else /* if (fromPoint.c == toPoint.c + 1) */ {
+                        //  toPoint ← fromPoint
+                        if (this.verticalWalls.contains(toPoint)) {
+                            return true;
+                        }
+                    }
+                } else /* if (fromPoint.r != toPoint.r && fromPoint.c != toPoint.c) */ { // diagonal move
+
+                    /*
+                    if ((fromPoint.c + 1) == toPoint.c && (fromPoint.r + 1) == toPoint.r) {
+                        // fromPoint
+                        // _________⬊
+                        // __________ toPoint
+                    } else if (fromPoint.c == (toPoint.c + 1) && fromPoint.r == (toPoint.r + 1)) {
+                        // toPoint
+                        // ________⬉
+                        // _________ fromPoint
+                    } else if (fromPoint.c == (toPoint.c + 1) && (fromPoint.r + 1) == toPoint.r) {
+                        // _________ fromPoint
+                        // ________⬈
+                    } else if ((fromPoint.c + 1) == toPoint.c && fromPoint.r == (toPoint.r + 1)) {
+                        // ___________ toPoint
+                        // __________⬋
+                    }
+                    */
+                    const topLeftPoint = coordinate(Math.min(fromPoint.r, toPoint.r), Math.min(fromPoint.c, toPoint.c));
+                    const topRightPoint = coordinate(topLeftPoint.r, topLeftPoint.c + 1);
+                    const bottomLeftPoint = coordinate(topLeftPoint.r + 1, topLeftPoint.c);
+                    if (this.cutCorners) {
+                        if (this.horizontalWalls.contains(topLeftPoint) && this.horizontalWalls.contains(topRightPoint)) {
+                            return true;
+                        }
+                        if (this.verticalWalls.contains(topLeftPoint) && this.verticalWalls.contains(bottomLeftPoint)) {
+                            return true;
+                        }
+                    } else {
+                        if (this.horizontalWalls.contains(topLeftPoint)) {
+                            return true;
+                        }
+                        if (this.verticalWalls.contains(topLeftPoint)) {
+                            return true;
+                        }
+                        if (this.horizontalWalls.contains(topRightPoint)) {
+                            return true;
+                        }
+                        if (this.verticalWalls.contains(bottomLeftPoint)) {
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+
+            // Euclidean distance between points
+            euclideanDistance(point1, point2) {
+                //  d = √[(x2 – x1)^2 + (y2 – y1)^2]
+                return Math.sqrt(Math.pow(point1.r - point2.r, 2) + Math.pow(point1.c - point2.c, 2));
+            }
+
+            manhattanDistance(point1, point2) {
+                return Math.abs(point1.r - point2.r) + Math.abs(point1.c - point2.c);
+            }
+
+            // Manhattan distance: distance in horizontal and vertical steps taken to goal, multiplied by 10
+            h(point1, point2) {
+                // Euclidean needs more calculations than Manhattan, it's also slower, but it's more accurate
+                // console.log('Euclidean', point1, point2, Math.floor(this.euclideanDistance(point1, point2) * 10));
+                // console.log('Manhattan', point1, point2, this.manhattanDistance(point1, point2) * 10);
+                // return Math.floor(this.euclideanDistance(point1, point2) * 10);
+                return this.manhattanDistance(point1, point2) * 10;
+            }
+
+            // Euclidean distance: distance for adjacent cells, multiplied by 10, either L (1 * 10) or LD (1.4… * 10)
+            g(point1, point2) {
+                return (point1.r == point2.r || point1.c == point2.c) ? L : LD;
+            }
+
+            // solve the maze and return the solved path or null if no path was found
+            solve(maxSteps = 1000) {
+                this.reset();
+                this.setupData();
+                while (maxSteps-- > 0) {
+                    this.step();
+                    if (this.noPath || this.foundGoal) break;
+                }
+                if (this.foundGoal) return this.debugPath();
+                return null;
+            }
+
+            // take a single calculation iteration to solve the maze
+            step() {
+                if (this.noPath) return;
+                if (this.foundGoal) return;
+
+                this.calculationIterations++;
+                if (updateGridVisually) document.getElementById('stepsTaken').innerHTML = this.calculationIterations;
+
+                this.closed.push(this.current);
+                if (updateGridVisually) if (this.start != this.current) {
+                    const docNode = this.docNode(this.current);
+                    docNode.classList.add('closed');
+                    docNode.querySelector('.order').innerHTML = this.closed.length - 1;
+                }
+
+                this.neighbours = this.possibleNeighboursOf(this.current);
+
+                this.neighbours.filter(point => !this.open.contains(point)).forEach(point => {
+                    this.open.push(point);
+                    point.h = this.h(point, this.goal);
+                    point.g = this.current.g + this.g(point, this.current);
+                    point.f = point.h + point.g;
+                    point.parent = this.current;
+                    if (updateGridVisually) if (point.h > 0) {
+                        const docNode = this.docNode(point);
+                        docNode.classList.add('open');
+                        point.label = this.getLabel(this.current, point);
+                        docNode.innerHTML = "<div><div class='light coord'>(r:" + point.r + ",c:" + point.c + ")</div><div class='light h'>h=" + point.h + "</div><div class='light g'>g=" + point.g + "</div><div class='dark f'>f=" + point.f + "</div><div class='parent'>" + point.label + "</div><div class='dark order'>&nbsp;</div></div>";
+                    }
+                });
+
+                this.neighbours.filter(point => this.open.contains(point)).map(point => this.open.lookUp(point)).forEach(point => {
+                    // recalculate if shorter path when going through current
+                    const g = this.current.g + this.g(point, this.current);
+                    if (g < point.g) {
+                        // h doesn't change /* point.h = this.h(point, this.goal); */
+                        point.g = g; // g is calculate above
+                        point.f = point.h + point.g; // recalculate
+                        point.parent = this.current; // change parent
+                        if (updateGridVisually) if (point.h > 0) {
+                            const docNode = this.docNode(point);
+                            docNode.classList.add('adjusted');
+                            point.label = this.getLabel(this.current, point);
+                            docNode.querySelector('.g').innerHTML = "g=" + point.g;
+                            docNode.querySelector('.f').innerHTML = "f=" + point.f;
+                            docNode.querySelector('.parent').innerHTML = point.label;
+                        }
+                    }
+                });
+
+                if (this.open.length == 0) {
+                    this.noPath = true;
+                    console.log('no path');
+                    if (updateGridVisually) this.docNode(this.goal).style.backgroundColor = "purple";
+                    return;
+                }
+
+                this.open.sort((a, b) => a.f - b.f || a.h - b.h);
+                if (updateGridVisually && this.current) this.docNode(this.current).classList.remove('current');
+                this.current = this.open.shift();
+                if (this.goal.equals(this.current)) {
+                    this.foundGoal = true;
+                    this.goal.parent = this.current;
+                    this.solvedPath = this.buildPath();
+                    this.debugPath();
+                    return;
+                } else {
+                    if (updateGridVisually) this.docNode(this.current).classList.add('current');
+                }
+            }
+
+            docNode(point) {
+                return document.getElementById(`${point.r}-${point.c}`);
+            }
+
+            buildPath() {
+                let path = [];
+                let current = this.goal;
+                while (current != this.start) {
+                    path.push(current);
+                    current = current.parent;
+                }
+                path.push(this.start);
+                path.reverse();
+                return path.splice(1, path.length - 2); // TODO why is goal twice included?
+            }
+
+            debugPath() {
+                if (updateGridVisually) this.solvedPath.forEach((p, i) => {
+                    const docNode = document.getElementById(`${p.r}-${p.c}`);
+                    docNode.classList.add('path');
+                    const orderSpan = docNode.querySelector('.order');
+                    if (orderSpan) orderSpan.innerHTML = '#' + (i + 1);
+                });
+                this.solvedPath.forEach((p, i) => console.log(i + ": " + p.r + "," + p.c));
+            }
+
+            // utility method
+            removeFromArray(arr, value) {
+                const index = arr.indexOf(value);
+                if (index > -1) arr.splice(index, 1);
+                return arr;
+            }
+        }
+
+        const mazeWalker = new AStarMazeWalker();
+
+        {
+            if (urlParams.get('data')) mazeWalker.copyFrom(JSON.parse(decodeURIComponent(urlParams.get('data'))));
+            // separate uURL parameters take precedence over data parameter
+            if (urlParams.get('cutCorners')) mazeWalker.cutCorners = urlParams.get('cutCorners') == 'true';
+            if (urlParams.get('columns')) mazeWalker.columns = urlParams.get('columns');
+            if (urlParams.get('rows')) mazeWalker.rows = urlParams.get('rows');
+            if (urlParams.get('delay')) delay = urlParams.get('delay');
+            if (urlParams.get('rnd')) random = urlParams.get('rnd');
+        }
+
+        if (!urlParams.get('data')) {
+
+            if (urlParams.get('rnd')) {
+
+                console.log('random data');
+                let cellOptions = [];
+                for (let ri = 0; ri < mazeWalker.rows; ri++) {
+                    for (let ci = 0; ci < mazeWalker.columns; ci++) {
+                        cellOptions.push(coordinate(ri, ci));
+                    }
+                }
+                console.log("columns=" + mazeWalker.columns, "rows=" + mazeWalker.rows, "cellPicker", cellOptions);
+
+                let j;
+
+                j = Math.floor(Math.random() * cellOptions.length);
+                mazeWalker.start = cellOptions[j];
+                console.log("j", j, "start", mazeWalker.start);
+                mazeWalker.removeFromArray(cellOptions, mazeWalker.start);
+
+                j = Math.floor(Math.random() * cellOptions.length);
+                mazeWalker.goal = cellOptions[j];
+                console.log("j", j, "goal", mazeWalker.goal);
+                mazeWalker.removeFromArray(cellOptions, mazeWalker.goal);
+
+                let cellPicked;
+                for (let i = 0; i < random; i++) {
+                    j = Math.floor(Math.random() * cellOptions.length);
+                    cellPicked = cellOptions[j];
+                    console.log("j", j, "obstacle", cellPicked);
+                    mazeWalker.obstacles.push(cellPicked);
+                    mazeWalker.removeFromArray(cellOptions, cellPicked);
+                }
+
+            } else {
+
+                console.log('default data');
+                // example 1
+                if (false) {
+                    mazeWalker.start = coordinate(2, 2);
+                    mazeWalker.goal = coordinate(3, 6);
+                    mazeWalker.obstacles = [
+                        coordinate(3, 1),
+                        coordinate(3, 2),
+                        coordinate(3, 3),
+                        coordinate(3, 4),
+                        coordinate(2, 4),
+                        coordinate(1, 4),
+                    ];
+                    if (false) mazeWalker.horizontalWalls = [
+                        coordinate(1, 5),
+                        coordinate(1, 6)
+                    ];
+                }
+                // example 2
+                if (false) {
+                    mazeWalker.start = coordinate(1, 1);
+                    mazeWalker.obstacles.push(coordinate(1, 2));
+                    mazeWalker.goal = coordinate(1, 3);
+                }
+                // example 3
+                if (true) {
+                    const obstacles = [{ "r": 5, "c": 5 }, { "r": 6, "c": 9 }, { "r": 0, "c": 2 }, { "r": 6, "c": 8 }, { "r": 6, "c": 6 }, { "r": 3, "c": 8 }, { "r": 9, "c": 2 }, { "r": 1, "c": 1 }, { "r": 4, "c": 4 }, { "r": 3, "c": 5 }, { "r": 6, "c": 4 }, { "r": 3, "c": 9 }, { "r": 2, "c": 9 }, { "r": 0, "c": 0 }, { "r": 1, "c": 0 }, { "r": 2, "c": 7 }, { "r": 8, "c": 5 }, { "r": 0, "c": 5 }, { "r": 8, "c": 7 }, { "r": 1, "c": 2 }, { "r": 6, "c": 3 }, { "r": 9, "c": 0 }, { "r": 6, "c": 7 }, { "r": 8, "c": 6 }, { "r": 3, "c": 0 }];
+                    obstacles.forEach(o => mazeWalker.obstacles.push(toCoordinate(o)));
+                    mazeWalker.start = coordinate(9, 1);
+                    mazeWalker.goal = coordinate(4, 5);
+                }
+            }
+
+        }
+
+        {
+            document.getElementById('cutting').innerHTML = mazeWalker.cutCorners ? 'yes' : 'no';
+            document.getElementById('save').href = "?data=" + encodeURIComponent(JSON.stringify(mazeWalker));
+            document.getElementById('toggle').href = "?cutCorners=" + !mazeWalker.cutCorners + "&data=" + encodeURIComponent(JSON.stringify(mazeWalker));
+            document.getElementById('rnd').href = "?columns=" + mazeWalker.columns + "&rows=" + mazeWalker.rows + "&rnd=" + random + "&cutCorners=" + mazeWalker.cutCorners + "&delay=" + delay;
+        }
+
+        mazeWalker.setupData();
+
+        if (updateGridVisually) {
+            const grid = document.getElementById("grid");
+            let innerHTML = "";
+            for (let row = 0; row < mazeWalker.rows; row++) {
+                innerHTML += `<div class="row" id="${row}">`;
+                for (let column = 0; column < mazeWalker.columns; column++) {
+                    const point = coordinate(row, column);
+                    let classList = "cell";
+                    let content = "";
+                    console.log(mazeWalker.start);
+                    if (mazeWalker.start.equals(point)) {
+                        classList += " start";
+                        content = "S";
+                    } else if (mazeWalker.goal.equals(point)) {
+                        classList += " goal";
+                        content = "G";
+                    } else if (mazeWalker.obstacles.contains(point)) {
+                        classList += " blocked";
+                        content = "X";
+                    }
+                    if (mazeWalker.verticalWalls.contains(point)) {
+                        classList += " wall-vertical";
+                    }
+                    const pointLeft = coordinate(row, column - 1);
+                    if (mazeWalker.verticalWalls.contains(pointLeft)) {
+                        classList += " wall-vertical-opposite";
+                    }
+                    if (mazeWalker.horizontalWalls.contains(point)) {
+                        classList += " wall-horizontal";
+                    }
+                    const pointAbove = coordinate(row - 1, column);
+                    if (mazeWalker.horizontalWalls.contains(pointAbove)) {
+                        classList += " wall-horizontal-opposite";
+                    }
+                    innerHTML += `<div class="${classList}" id="${row}-${column}"><span>${content}(r:${row},c:${column})</span></div>`;
+                }
+                innerHTML += "</div>";
+            }
+            grid.innerHTML += innerHTML;
+        }
+
+        document.getElementById('next').addEventListener("click", event => {
+            event.preventDefault();
+            mazeWalker.step();
+        });
+
+        document.getElementById('auto').addEventListener("click", event => {
+            event.preventDefault();
+            const interval = setInterval(() => {
+                if (mazeWalker.foundGoal || mazeWalker.noPath) {
+                    clearInterval(interval);
+                    return;
+                }
+                mazeWalker.step();
+            }, delay);
+        });
+    </script>
+
+</body>
+
+</html>

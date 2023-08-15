@@ -11,12 +11,14 @@
     https://www.omnicalculator.com/math/manhattan-distance
     https://en.wikipedia.org/wiki/Taxicab_geometry
     https://iq.opengenus.org/euclidean-vs-manhattan-vs-chebyshev-distance/
+	https://www.youtube.com/watch?v=eSOJ3ARN5FM&ab_channel=ComputerScience
 -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A* Pathfinding</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -24,6 +26,7 @@
     <style>
         body {
             font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+            margin: 2em;
         }
 
         #grid {
@@ -36,59 +39,110 @@
         }
 
         .cell {
+            --cell-dim: 72px;
             font-size: 10px;
             border: 2px solid #ccc;
-            width: 72px;
-            max-width: 72px;
-            min-width: 72px;
-            height: 72px;
-            max-height: 72px;
-            min-height: 72px;
-            transition: background-color .75s ease-in-out;
+            width: var(--cell-dim);
+            max-width: var(--cell-dim);
+            min-width: var(--cell-dim);
+            height: var(--cell-dim);
+            max-height: var(--cell-dim);
+            min-height: var(--cell-dim);
+        }
+
+        .cell {
             --bgcolor: white;
             background-color: var(--bgcolor);
+            color: black;
+            transition: background-color .75s ease-in-out, color .75s ease-in-out;
         }
 
         @keyframes bgcoloranim {
             0% {
-                background: var(--bgcolor);
+                background-color: var(--bgcolor);
+                color: var(--color);
             }
 
             100% {
-                background: var(--bgcolor);
+                background-color: var(--bgcolor);
+                color: var(--color);
             }
         }
 
         .start,
         .cell.start {
             --bgcolor: #1e1e98;
+            --color: white;
             background-color: var(--bgcolor);
-            color: white;
+            color: var(--color);
         }
 
         .goal,
         .cell.goal {
-            --bgcolor: green;
+            --bgcolor: rgb(12, 128, 12);
+            --color: white;
             background-color: var(--bgcolor);
-            color: white;
+            color: var(--color);
         }
 
         .blocked,
         .cell.blocked {
-            --bgcolor: #554020;
+            --bgcolor: #5d4623;
+            --color: white;
             background-color: var(--bgcolor);
-            color: white;
+            color: var(--color);
         }
 
         .open,
         .cell.open {
-            --bgcolor: yellow;
+            --bgcolor: rgb(251, 251, 36);
+            --color: black;
             background-color: var(--bgcolor);
+            color: var(--color);
         }
 
-        .open.adjusted {
+        .adjusted,
+        .cell.open.adjusted {
             --bgcolor: rgb(223, 223, 31);
+            --color: black;
             background-color: var(--bgcolor);
+            color: var(--color);
+        }
+
+        .closed,
+        .cell.open.closed,
+        .cell.open.adjusted.closed {
+            --bgcolor: #efd6a7;
+            --color: black;
+            background-color: var(--bgcolor);
+            color: var(--color);
+        }
+
+        .current,
+        .cell.open.current,
+        .cell.open.adjusted.current,
+        .cell.open.closed.current,
+        .cell.open.adjusted.closed.current {
+            --bgcolor: #dda8e7;
+            --color: black;
+            background-color: var(--bgcolor);
+            color: var(--color);
+        }
+
+        .path,
+        .cell.path:not(.start):not(.goal) {
+            --bgcolor: rgb(141, 233, 141);
+            --color: black;
+            background-color: var(--bgcolor);
+            color: var(--color);
+        }
+
+        .unsolvable,
+        .cell.unsolvable {
+            --bgcolor: rgb(145, 6, 145);
+            --color: white;
+            background-color: var(--bgcolor);
+            color: var(--color);
         }
 
         .cell:not(.open) {
@@ -112,17 +166,6 @@
             text-align: center;
         }
 
-        .open.closed {
-            --bgcolor: #efd6a7;
-            background-color: var(--bgcolor);
-        }
-
-        .current,
-        .open.adjusted.current {
-            --bgcolor: #dda8e7;
-            background-color: var(--bgcolor);
-        }
-
         .light {
             color: #999;
         }
@@ -135,10 +178,6 @@
             height: 7px;
             max-height: 7px;
             min-height: 7px;
-        }
-
-        .path:not(.start):not(.goal) {
-            background-color: lightgreen !important;
         }
 
         .wall-vertical {
@@ -157,36 +196,30 @@
             border-top-color: red;
         }
 
-        .unsolvable {
-            color: white;
-            --bgcolor: purple;
-            background-color: var(--bgcolor);
-        }
-
         .cell>span {
             white-space: nowrap;
         }
     </style>
-    <button id="next">Next</button>
-    <button id="auto">Auto</button>
-    &nbsp;&nbsp;&nbsp;
     <a href="?">[Home]</a>
     <a href="?" id="rnd">[Random]</a>
     <a href="?" id="save">[Save]</a>
     <a href="?" id="toggle">[Toggle cut corners]</a>
-    &nbsp;&nbsp;&nbsp;
+    <br><br>
+    <button id="next">Next</button>
+    <button id="auto">Auto</button>
+    <br><br>
     <span class="start">START</span>
     <span class="goal">GOAL</span>
     <span class="blocked">BLOCKED</span>
     <span class="open">OPEN</span>
+    <span class="adjusted">OPEN (recalculate because shorter path was found)</span>
     <span class="current">LOWEST OPEN</span>
-    <span class="open adjusted">OPEN (recalculate because shorter path was found)</span>
-    <span class="open closed">CLOSED</span>
+    <span class="closed">CLOSED</span>
     <span class="path">PATH RESOLVED</span>
     <span class="unsolvable">NO PATH</span>
-    &nbsp;&nbsp;&nbsp;
+    <br><br>
     <u>Cut corners=<span id="cutting"></span></u>
-    &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;
     <u>Calculation iterations: <span id="stepsTaken"></span></u>
     <br><br>
 
@@ -194,59 +227,102 @@
 
     <script>
         class Coordinate {
+            static toCoordinate(o, columns) {
+                return new Coordinate(o.r, o.c, columns);
+            }
+
             c;//x
             r;//y
+            i;//index in single dimension array
 
-            constructor(r, c) {
+            constructor(r, c, columns) {
                 this.r = r;
                 this.c = c;
+                this.setOrder(columns);
+            }
+
+            toString() {
+                return `(${this.r},${this.c})`;
             }
 
             equals(p) {
                 return this.r == p.r && this.c == p.c;
             }
+
+            setOrder(columns) {
+                this.i = this.r * columns + this.c;
+            }
+
+            compare(p) {
+                return this.i < p.i ? -1 : this.i > p.i ? 1 : 0;
+            }
         }
 
-        function coordinate(r, c) {
-            return new Coordinate(r, c);
-        }
+        class CoordinateArray extends Array {
+            /*binarySearch(coordinate) {
+                let startIndex = 0;
+                let endIndex = this.length - 1;
+                while (startIndex <= endIndex) {
+                    const middleIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
+                    if (this[middleIndex].equals(coordinate)) {
+                        return middleIndex;
+                    }
+                    if (this[middleIndex].compare(coordinate) > 0) {
+                        startIndex = middleIndex + 1;
+                    } else {
+                        endIndex = middleIndex - 1;
+                    }
+                }
+                return -1;
+            }*/
 
-        function toCoordinate(o) {
-            return new Coordinate(o.r, o.c);
-        }
+            sortCoordinates() {
+                this.sort((a, b) => a.i - b.i);
+            }
 
-        Array.prototype.contains = function (p) {
-            for (let i = 0; i < this.length; i++) {
-                if ('equals' in this[i]) {
-                    if (this[i].equals(p)) {
+            containsCoordinate(coordinate) {
+                //return this.binarySearch(coordinate) != -1;
+                for (let i = 0; i < this.length; i++) {
+                    //if ('equals' in this[i]) {
+                    if (this[i].equals(coordinate)) {
+                        //console.log("containsCoordinate", coordinate, i, this.binarySearch(coordinate));
                         return true;
                     }
-                } else if (this[i] === p) {
-                    return true;
+                    //} else if (this[i] === coordinate) {
+                    //    return true;
+                    //}
                 }
+                return false;
             }
-            return false;
-        };
 
-        Array.prototype.positionOf = function (p) {
-            for (let i = 0; i < this.length; i++) {
-                if ('equals' in this[i]) {
-                    if (this[i].equals(p)) {
+            positionOfCoordinate(coordinate) {
+                //return this.binarySearch(coordinate);
+
+                for (let i = 0; i < this.length; i++) {
+                    //if ('equals' in this[i]) {
+                    if (this[i].equals(coordinate)) {
+                        //console.log("positionOfCoordinate", coordinate, i, this.binarySearch(coordinate));
                         return i;
                     }
-                } else if (this[i] === p) {
-                    return i;
+                    //} else if (this[i] === coordinate) {
+                    //    return i;
+                    //}
                 }
+                return -1;
             }
-            return -1;
-        };
 
-        Array.prototype.get = function (pos) {
-            return this[pos];
-        };
+            findCoordinate(coordinate) {
+                return this[this.positionOfCoordinate(coordinate)];
+            }
 
-        Array.prototype.lookUp = function (p) {
-            return this.get(this.positionOf(p));
+            removeCoordinate(coordinate) {
+                const index = this.indexOf(this.findCoordinate(coordinate));
+                if (index > -1) this.splice(index, 1);
+            }
+
+            addCoordinate(r, c, columns) {
+                this.push(new Coordinate(r, c, columns));
+            }
         }
 
         // config is read from URL (see below)
@@ -260,73 +336,75 @@
         const L = 10; // unit for distance of neighbours in a straight line: ( 1 ) * 10
         const LD = 14; // diagonal: √( L^2 + L^2 ) * 10 [rounded to 0 decimal places]
         class AStarMazeWalker {
-            closed = [];
-            open = [];
+            closed = new CoordinateArray();
+            open = new CoordinateArray();
             current = null;
-            neighbours = [];
-            neighboursOpen = [];
-            obstacles = [];
+            neighbours = new CoordinateArray();
+            neighboursOpen = new CoordinateArray();
+            obstacles = new CoordinateArray();
             columns = defCols; // number of columns
             rows = defRows; // number of rows
             cutCorners = false; // allow diagonal movement through corners
             goal = null; // goal cell
             start = null; // start cell
-            horizontalWalls = []; // blocked by wall to the bottom
-            verticalWalls = []; // blocked by wall to the right
+            horizontalWalls = new CoordinateArray(); // blocked by wall to the bottom
+            verticalWalls = new CoordinateArray(); // blocked by wall to the right
             calculationIterations = 0; // total calculation iterations
-            solvedPath = null; // path from start to goal
+            solvedPath = false; // path from start to goal
 
             // copy setup from another data object
             copyFrom(data) {
                 this.clear();
-                this.obstacles = data.obstacles.map(toCoordinate);
+                data.obstacles.forEach(o => this.obstacles.push(Coordinate.toCoordinate(o, data.columns)));
                 this.columns = data.columns;
                 this.rows = data.rows;
                 this.cutCorners = data.cutCorners;
-                this.goal = toCoordinate(data.goal);
-                this.start = toCoordinate(data.start);
-                this.horizontalWalls = data.horizontalWalls.map(toCoordinate);
-                this.verticalWalls = data.verticalWalls.map(toCoordinate);
+                this.goal = Coordinate.toCoordinate(data.goal, data.columns);
+                this.start = Coordinate.toCoordinate(data.start, data.columns);
+                data.horizontalWalls.forEach(o => this.horizontalWalls.push(Coordinate.toCoordinate(o, data.columns)));
+                data.verticalWalls.forEach(o => this.verticalWalls.push(Coordinate.toCoordinate(o, data.columns)));
             }
 
             // clear all data
             clear() {
                 this.reset();
-                this.obstacles = [];
+                this.obstacles = new CoordinateArray();
                 this.goal = null;
                 this.start = null;
-                this.horizontalWalls = [];
-                this.verticalWalls = [];
+                this.horizontalWalls = new CoordinateArray();
+                this.verticalWalls = new CoordinateArray();
             }
 
             // reset to initial state
             reset() {
-                this.closed = [];
-                this.open = [];
+                this.closed = new CoordinateArray();
+                this.open = new CoordinateArray();
                 this.current = null;
-                this.neighbours = [];
-                this.neighboursOpen = [];
+                this.neighbours = new CoordinateArray();
+                this.neighboursOpen = new CoordinateArray();
                 this.calculationIterations = 0;
-                this.solvedPath = null;
+                this.solvedPath = false;
             }
 
             setupData() {
                 this.start.g = 0; // distance from start to start is 0 (obviously): number is used by first calculation step
                 this.current = this.start; // start cell should be added as current for first calculation step
+                // this.obstacles.setCoordinatesOrder(this.columns); // calculate index for faster findCoordinate
+                this.obstacles.sortCoordinates(); // sort obstacles for faster findCoordinate
             }
 
             // all neighbours of a point including diagonals even if they are blocked or out of bounds (for the purpose of checking if a point is a neighbour of another point)
-            allNeighboursOf(point) {
-                let n = [];
-                n.push(coordinate(point.r - 1, point.c - 1));
-                n.push(coordinate(point.r - 1, point.c));
-                n.push(coordinate(point.r - 1, point.c + 1));
-                n.push(coordinate(point.r, point.c - 1));
-                n.push(coordinate(point.r, point.c + 1));
-                n.push(coordinate(point.r + 1, point.c - 1));
-                n.push(coordinate(point.r + 1, point.c));
-                n.push(coordinate(point.r + 1, point.c + 1));
-                return n;
+            allNeighboursOf(coordinate) {
+                let neighbours = new CoordinateArray();
+                neighbours.addCoordinate(coordinate.r - 1, coordinate.c - 1, this.columns);
+                neighbours.addCoordinate(coordinate.r - 1, coordinate.c, this.columns);
+                neighbours.addCoordinate(coordinate.r - 1, coordinate.c + 1, this.columns);
+                neighbours.addCoordinate(coordinate.r, coordinate.c - 1, this.columns);
+                neighbours.addCoordinate(coordinate.r, coordinate.c + 1, this.columns);
+                neighbours.addCoordinate(coordinate.r + 1, coordinate.c - 1, this.columns);
+                neighbours.addCoordinate(coordinate.r + 1, coordinate.c, this.columns);
+                neighbours.addCoordinate(coordinate.r + 1, coordinate.c + 1, this.columns);
+                return neighbours;
             }
 
             insideBounds(n) {
@@ -334,38 +412,38 @@
             }
 
             // all neighbours of a point that are not blocked or out of bounds, and that are not already closed (handled)
-            possibleNeighboursOf(point) {
-                let n = this.allNeighboursOf(point);
+            possibleNeighboursOf(coordinate) {
+                let neighbours = this.allNeighboursOf(coordinate);
                 // filter out out of bounds
-                n = n.filter(n => this.insideBounds(n));
+                neighbours = neighbours.filter(n => this.insideBounds(n));
                 // filter out those already closed (handled)
-                n = n.filter(n => !this.closed.contains(n));
+                neighbours = neighbours.filter(n => !this.closed.containsCoordinate(n));
                 // filter out those blocked by obstacles
-                n = n.filter(n => !this.isBlockedByObstacle(point, n));
+                neighbours = neighbours.filter(n => !this.isBlockedByObstacle(coordinate, n));
                 // filter out those blocked by walls
-                n = n.filter(n => !this.isBlockedByWall(point, n));
-                return n;
+                neighbours = neighbours.filter(n => !this.isBlockedByWall(coordinate, n));
+                return neighbours;
             }
 
             // update direction label (arrow)
-            getLabel(parent, child) {
-                if (parent.r == child.r) return parent.c > child.c ? '→' : '←';
-                if (parent.c == child.c) return parent.r > child.r ? '↓' : '↑';
-                if (parent.r > child.r) return parent.c > child.c ? '↘' : '↙';
-                if (parent.r < child.r) return parent.c > child.c ? '↗' : '↖';
+            getCoordinateLabel(parentCoordinate, childCoordinate) {
+                if (parentCoordinate.r == childCoordinate.r) return parentCoordinate.c > childCoordinate.c ? '→' : '←';
+                if (parentCoordinate.c == childCoordinate.c) return parentCoordinate.r > childCoordinate.r ? '↓' : '↑';
+                if (parentCoordinate.r > childCoordinate.r) return parentCoordinate.c > childCoordinate.c ? '↘' : '↙';
+                if (parentCoordinate.r < childCoordinate.r) return parentCoordinate.c > childCoordinate.c ? '↗' : '↖';
                 return null;
             }
 
-            isBlockedByObstacle(fromPoint, toPoint) {
-                // target is obstacle: blocked
-                if (this.obstacles.contains(toPoint)) return true;
+            isBlockedByObstacle(fromCoordinate, toCoordinate) {
+                // targetCoordinate is obstacle: blocked
+                if (this.obstacles.containsCoordinate(toCoordinate)) return true;
 
                 // straight movement never blocked by obstacles
-                if (fromPoint.r == toPoint.r || fromPoint.c == toPoint.c) return false;
+                if (fromCoordinate.r == toCoordinate.r || fromCoordinate.c == toCoordinate.c) return false;
 
                 // other neighbours in square
-                const x1 = coordinate(fromPoint.r, toPoint.c);
-                const x2 = coordinate(toPoint.r, fromPoint.c);
+                const coordinate1 = new Coordinate(fromCoordinate.r, toCoordinate.c, this.colums);
+                const coordinate2 = new Coordinate(toCoordinate.r, fromCoordinate.c, this.colums);
 
                 // filter out movement between obstacles if cutCorners
                 // n X
@@ -381,78 +459,78 @@
                 // X n
                 // n .
 
-                return this.cutCorners ? (this.obstacles.contains(x1) && this.obstacles.contains(x2)) : (this.obstacles.contains(x1) || this.obstacles.contains(x2));
+                return this.cutCorners ? (this.obstacles.containsCoordinate(coordinate1) && this.obstacles.containsCoordinate(coordinate2)) : (this.obstacles.containsCoordinate(coordinate1) || this.obstacles.containsCoordinate(coordinate2));
             }
 
-            isBlockedByWall(fromPoint, toPoint) {
-                if (fromPoint.c == toPoint.c) { // vertical up or down
-                    if (fromPoint.r + 1 == toPoint.r) {
-                        // fromPoint
+            isBlockedByWall(fromCoordinate, toCoordinate) {
+                if (fromCoordinate.c == toCoordinate.c) { // vertical up or down
+                    if (fromCoordinate.r + 1 == toCoordinate.r) {
+                        // fromCoordinate
                         // ↓
-                        // toPoint
-                        if (this.horizontalWalls.contains(fromPoint)) {
+                        // toCoordinate
+                        if (this.horizontalWalls.containsCoordinate(fromCoordinate)) {
                             return true;
                         }
-                    } else /* if (fromPoint.r == toPoint.r + 1) */ {
-                        // toPoint
+                    } else /* if (fromCoordinate.r == toCoordinate.r + 1) */ {
+                        // toCoordinate
                         // ↑
-                        // fromPoint 
-                        if (this.horizontalWalls.contains(toPoint)) {
+                        // fromCoordinate 
+                        if (this.horizontalWalls.containsCoordinate(toCoordinate)) {
                             return true;
                         }
                     }
-                } else if (fromPoint.r == toPoint.r) {      // move left or right
-                    if (fromPoint.c + 1 == toPoint.c) {
-                        // fromPoint → toPoint
-                        if (this.verticalWalls.contains(fromPoint)) {
+                } else if (fromCoordinate.r == toCoordinate.r) {      // move left or right
+                    if (fromCoordinate.c + 1 == toCoordinate.c) {
+                        // fromCoordinate → toCoordinate
+                        if (this.verticalWalls.containsCoordinate(fromCoordinate)) {
                             return true;
                         }
-                    } else /* if (fromPoint.c == toPoint.c + 1) */ {
-                        //  toPoint ← fromPoint
-                        if (this.verticalWalls.contains(toPoint)) {
+                    } else /* if (fromCoordinate.c == toCoordinate.c + 1) */ {
+                        //  toCoordinate ← fromCoordinate
+                        if (this.verticalWalls.containsCoordinate(toCoordinate)) {
                             return true;
                         }
                     }
-                } else /* if (fromPoint.r != toPoint.r && fromPoint.c != toPoint.c) */ { // diagonal move
+                } else /* if (fromCoordinate.r != toCoordinate.r && fromCoordinate.c != toCoordinate.c) */ { // diagonal move
 
                     /*
-                    if ((fromPoint.c + 1) == toPoint.c && (fromPoint.r + 1) == toPoint.r) {
-                        // fromPoint
+                    if ((fromCoordinate.c + 1) == toCoordinate.c && (fromCoordinate.r + 1) == toCoordinate.r) {
+                        // fromCoordinate
                         // _________⬊
-                        // __________ toPoint
-                    } else if (fromPoint.c == (toPoint.c + 1) && fromPoint.r == (toPoint.r + 1)) {
-                        // toPoint
+                        // __________ toCoordinate
+                    } else if (fromCoordinate.c == (toCoordinate.c + 1) && fromCoordinate.r == (toCoordinate.r + 1)) {
+                        // toCoordinate
                         // ________⬉
-                        // _________ fromPoint
-                    } else if (fromPoint.c == (toPoint.c + 1) && (fromPoint.r + 1) == toPoint.r) {
-                        // _________ fromPoint
+                        // _________ fromCoordinate
+                    } else if (fromCoordinate.c == (toCoordinate.c + 1) && (fromCoordinate.r + 1) == toCoordinate.r) {
+                        // _________ fromCoordinate
                         // ________⬈
-                    } else if ((fromPoint.c + 1) == toPoint.c && fromPoint.r == (toPoint.r + 1)) {
-                        // ___________ toPoint
+                    } else if ((fromCoordinate.c + 1) == toCoordinate.c && fromCoordinate.r == (toCoordinate.r + 1)) {
+                        // ___________ toCoordinate
                         // __________⬋
                     }
                     */
-                    const topLeftPoint = coordinate(Math.min(fromPoint.r, toPoint.r), Math.min(fromPoint.c, toPoint.c));
-                    const topRightPoint = coordinate(topLeftPoint.r, topLeftPoint.c + 1);
-                    const bottomLeftPoint = coordinate(topLeftPoint.r + 1, topLeftPoint.c);
+                    const topLeftPoint = new Coordinate(Math.min(fromCoordinate.r, toCoordinate.r), Math.min(fromCoordinate.c, toCoordinate.c), this.colums);
+                    const topRightPoint = new Coordinate(topLeftPoint.r, topLeftPoint.c + 1, this.colums);
+                    const bottomLeftPoint = new Coordinate(topLeftPoint.r + 1, topLeftPoint.c, this.colums);
                     if (this.cutCorners) {
-                        if (this.horizontalWalls.contains(topLeftPoint) && this.horizontalWalls.contains(topRightPoint)) {
+                        if (this.horizontalWalls.containsCoordinate(topLeftPoint) && this.horizontalWalls.containsCoordinate(topRightPoint)) {
                             return true;
                         }
-                        if (this.verticalWalls.contains(topLeftPoint) && this.verticalWalls.contains(bottomLeftPoint)) {
+                        if (this.verticalWalls.containsCoordinate(topLeftPoint) && this.verticalWalls.containsCoordinate(bottomLeftPoint)) {
                             return true;
                         }
                     } else {
-                        if (this.horizontalWalls.contains(topLeftPoint)) {
+                        if (this.horizontalWalls.containsCoordinate(topLeftPoint)) {
                             return true;
                         }
-                        if (this.verticalWalls.contains(topLeftPoint)) {
+                        if (this.verticalWalls.containsCoordinate(topLeftPoint)) {
                             return true;
                         }
-                        if (this.horizontalWalls.contains(topRightPoint)) {
+                        if (this.horizontalWalls.containsCoordinate(topRightPoint)) {
                             return true;
                         }
-                        if (this.verticalWalls.contains(bottomLeftPoint)) {
+                        if (this.verticalWalls.containsCoordinate(bottomLeftPoint)) {
                             return true;
                         }
                     }
@@ -462,87 +540,85 @@
             }
 
             // Euclidean distance between points
-            euclideanDistance(point1, point2) {
+            euclideanDistance(coordinate1, coordinate2) {
                 //  d = √[(x2 – x1)^2 + (y2 – y1)^2]
-                return Math.sqrt(Math.pow(point1.r - point2.r, 2) + Math.pow(point1.c - point2.c, 2));
+                return Math.sqrt(Math.pow(coordinate1.r - coordinate2.r, 2) + Math.pow(coordinate1.c - coordinate2.c, 2));
             }
 
-            manhattanDistance(point1, point2) {
-                return Math.abs(point1.r - point2.r) + Math.abs(point1.c - point2.c);
+            // Manhattan distance: distance in horizontal and vertical steps taken to goal
+            manhattanDistance(coordinate1, coordinate2) {
+                return Math.abs(coordinate1.r - coordinate2.r) + Math.abs(coordinate1.c - coordinate2.c);
             }
 
-            // Manhattan distance: distance in horizontal and vertical steps taken to goal, multiplied by 10
-            h(point1, point2) {
+            // heuristic: Manhattan distance multiplied by 10
+            h(coordinate1, coordinate2) {
                 // Euclidean needs more calculations than Manhattan, it's also slower, but it's more accurate
-                // console.log('Euclidean', point1, point2, Math.floor(this.euclideanDistance(point1, point2) * 10));
-                // console.log('Manhattan', point1, point2, this.manhattanDistance(point1, point2) * 10);
                 // return Math.floor(this.euclideanDistance(point1, point2) * 10);
-                return this.manhattanDistance(point1, point2) * 10;
+                return this.manhattanDistance(coordinate1, coordinate2) * 10;
             }
 
             // Euclidean distance: distance for adjacent cells, multiplied by 10, either L (1 * 10) or LD (1.4… * 10)
-            g(point1, point2) {
-                return (point1.r == point2.r || point1.c == point2.c) ? L : LD;
+            g(coordinate1, coordinate2) {
+                return (coordinate1.r == coordinate2.r || coordinate1.c == coordinate2.c) ? L : LD;
             }
 
-            // solve the maze and return the solved path or null if no path was found
+            // solve the maze and return the solved path or null if no path was found, max 1000 steps (default)
             solve(maxSteps = 1000) {
                 this.reset();
                 this.setupData();
-                while (maxSteps-- > 0) {
+                while (maxSteps-- > 0 && !this.foundGoal && !this.noPath) {
                     this.step();
-                    if (this.noPath || this.foundGoal) break;
                 }
-                if (this.foundGoal) return this.debugPath();
-                return null;
+                return this.path;
             }
 
             // take a single calculation iteration to solve the maze
             step() {
-                if (this.noPath) return;
-                if (this.foundGoal) return;
+                if (this.noPath || this.foundGoal) return;
 
                 this.calculationIterations++;
-                if (updateGridVisually) document.getElementById('stepsTaken').innerHTML = this.calculationIterations;
-
                 this.closed.push(this.current);
-                if (updateGridVisually) if (this.start != this.current) {
-                    const docNode = this.docNode(this.current);
-                    docNode.classList.add('closed');
-                    docNode.querySelector('.order').innerHTML = this.closed.length - 1;
+
+                if (updateGridVisually) {
+                    document.getElementById('stepsTaken').innerHTML = this.calculationIterations;
+                    if (this.start != this.current) {
+                        const domNode = this.domNode(this.current);
+                        domNode.classList.add('closed');
+                        domNode.querySelector('.order').innerHTML = this.closed.length - 1;
+                    }
                 }
 
                 this.neighbours = this.possibleNeighboursOf(this.current);
 
-                this.neighbours.filter(point => !this.open.contains(point)).forEach(point => {
-                    this.open.push(point);
-                    point.h = this.h(point, this.goal);
-                    point.g = this.current.g + this.g(point, this.current);
-                    point.f = point.h + point.g;
-                    point.parent = this.current;
-                    if (updateGridVisually) if (point.h > 0) {
-                        const docNode = this.docNode(point);
-                        docNode.classList.add('open');
-                        point.label = this.getLabel(this.current, point);
-                        docNode.innerHTML = "<div><div class='light coord'>(r:" + point.r + ",c:" + point.c + ")</div><div class='light h'>h=" + point.h + "</div><div class='light g'>g=" + point.g + "</div><div class='dark f'>f=" + point.f + "</div><div class='parent'>" + point.label + "</div><div class='dark order'>&nbsp;</div></div>";
+                this.neighbours.filter(coordinate => !this.open.containsCoordinate(coordinate)).forEach(coordinate => {
+                    this.open.push(coordinate);
+                    coordinate.h = this.h(coordinate, this.goal);
+                    coordinate.g = this.current.g + this.g(coordinate, this.current);
+                    coordinate.f = coordinate.h + coordinate.g;
+                    coordinate.parent = this.current;
+                    if (updateGridVisually) if (coordinate.h > 0) {
+                        const domNode = this.domNode(coordinate);
+                        domNode.classList.add('open');
+                        coordinate.label = this.getCoordinateLabel(this.current, coordinate);
+                        domNode.innerHTML = "<div><div class='light coord'>(r:" + coordinate.r + ",c:" + coordinate.c + ")</div><div class='light h'>h=" + coordinate.h + "</div><div class='light g'>g=" + coordinate.g + "</div><div class='dark f'>f=" + coordinate.f + "</div><div class='parent'>" + coordinate.label + "</div><div class='dark order'>&nbsp;</div></div>";
                     }
                 });
 
-                this.neighbours.filter(point => this.open.contains(point)).map(point => this.open.lookUp(point)).forEach(point => {
+                this.neighbours.filter(coordinate => this.open.containsCoordinate(coordinate)).map(coordinate => this.open.findCoordinate(coordinate)).forEach(coordinate => {
                     // recalculate if shorter path when going through current
-                    const g = this.current.g + this.g(point, this.current);
-                    if (g < point.g) {
+                    const g = this.current.g + this.g(coordinate, this.current);
+                    if (g < coordinate.g) { // only recalculate if g is shorter
                         // h doesn't change /* point.h = this.h(point, this.goal); */
-                        point.g = g; // g is calculate above
-                        point.f = point.h + point.g; // recalculate
-                        point.parent = this.current; // change parent
-                        if (updateGridVisually) if (point.h > 0) {
-                            const docNode = this.docNode(point);
-                            docNode.classList.add('adjusted');
-                            point.label = this.getLabel(this.current, point);
-                            docNode.querySelector('.g').innerHTML = "g=" + point.g;
-                            docNode.querySelector('.f').innerHTML = "f=" + point.f;
-                            docNode.querySelector('.parent').innerHTML = point.label;
+                        coordinate.g = g; // g is calculate above
+                        coordinate.f = coordinate.h + coordinate.g; // recalculate
+                        coordinate.parent = this.current; // change parent
+                        if (updateGridVisually) if (coordinate.h > 0) {
+                            const domNode = this.domNode(coordinate);
+                            domNode.classList.add('adjusted');
+                            coordinate.label = this.getCoordinateLabel(this.current, coordinate);
+                            domNode.querySelector('.g').innerHTML = "g=" + coordinate.g;
+                            domNode.querySelector('.f').innerHTML = "f=" + coordinate.f;
+                            domNode.querySelector('.parent').innerHTML = coordinate.label;
                         }
                     }
                 });
@@ -550,12 +626,12 @@
                 if (this.open.length == 0) {
                     this.noPath = true;
                     console.log('no path');
-                    if (updateGridVisually) this.docNode(this.goal).style.backgroundColor = "purple";
+                    if (updateGridVisually) this.domNode(this.goal).style.backgroundColor = "purple";
                     return;
                 }
 
                 this.open.sort((a, b) => a.f - b.f || a.h - b.h);
-                if (updateGridVisually && this.current) this.docNode(this.current).classList.remove('current');
+                if (updateGridVisually && this.current) this.domNode(this.current).classList.remove('current');
                 this.current = this.open.shift();
                 if (this.goal.equals(this.current)) {
                     this.foundGoal = true;
@@ -564,20 +640,21 @@
                     this.debugPath();
                     return;
                 } else {
-                    if (updateGridVisually) this.docNode(this.current).classList.add('current');
+                    if (updateGridVisually) this.domNode(this.current).classList.add('current');
                 }
             }
 
-            docNode(point) {
-                return document.getElementById(`${point.r}-${point.c}`);
+            domNode(coordinate) {
+                return document.getElementById(`${coordinate.r}-${coordinate.c}`);
             }
 
             buildPath() {
-                let path = [];
-                let current = this.goal;
-                while (current != this.start) {
-                    path.push(current);
-                    current = current.parent;
+                if (!this.foundGoal) return;
+                let path = new CoordinateArray();
+                let pathCoordinate = this.goal;
+                while (pathCoordinate != this.start) {
+                    path.push(pathCoordinate);
+                    pathCoordinate = pathCoordinate.parent;
                 }
                 path.push(this.start);
                 path.reverse();
@@ -585,20 +662,15 @@
             }
 
             debugPath() {
-                if (updateGridVisually) this.solvedPath.forEach((p, i) => {
-                    const docNode = document.getElementById(`${p.r}-${p.c}`);
-                    docNode.classList.add('path');
-                    const orderSpan = docNode.querySelector('.order');
-                    if (orderSpan) orderSpan.innerHTML = '#' + (i + 1);
+                if (!this.foundGoal) return;
+                if (!this.solvedPath) buildPath();
+                if (updateGridVisually) this.solvedPath.forEach((coordinate, index) => {
+                    const domNode = document.getElementById(`${coordinate.r}-${coordinate.c}`);
+                    domNode.classList.add('path');
+                    const orderSpan = domNode.querySelector('.order');
+                    if (orderSpan) orderSpan.innerHTML = '#' + (index + 1);
                 });
-                this.solvedPath.forEach((p, i) => console.log(i + ": " + p.r + "," + p.c));
-            }
-
-            // utility method
-            removeFromArray(arr, value) {
-                const index = arr.indexOf(value);
-                if (index > -1) arr.splice(index, 1);
-                return arr;
+                this.solvedPath.forEach((coordinate, index) => console.log(index + ": " + coordinate.r + "," + coordinate.c));
             }
         }
 
@@ -606,12 +678,12 @@
 
         {
             if (urlParams.get('data')) mazeWalker.copyFrom(JSON.parse(decodeURIComponent(urlParams.get('data'))));
-            // separate uURL parameters take precedence over data parameter
+            // separate URL parameters take precedence over data parameter
             if (urlParams.get('cutCorners')) mazeWalker.cutCorners = urlParams.get('cutCorners') == 'true';
-            if (urlParams.get('columns')) mazeWalker.columns = urlParams.get('columns');
-            if (urlParams.get('rows')) mazeWalker.rows = urlParams.get('rows');
-            if (urlParams.get('delay')) delay = urlParams.get('delay');
-            if (urlParams.get('rnd')) random = urlParams.get('rnd');
+            if (urlParams.get('columns')) mazeWalker.columns = parseInt(urlParams.get('columns'));
+            if (urlParams.get('rows')) mazeWalker.rows = parseInt(urlParams.get('rows'));
+            if (urlParams.get('delay')) delay = parseInt(urlParams.get('delay'));
+            if (urlParams.get('rnd')) random = parseInt(urlParams.get('rnd'));
         }
 
         if (!urlParams.get('data')) {
@@ -619,66 +691,63 @@
             if (urlParams.get('rnd')) {
 
                 console.log('random data');
-                let cellOptions = [];
+                let cellOptions = new CoordinateArray();
                 for (let ri = 0; ri < mazeWalker.rows; ri++) {
                     for (let ci = 0; ci < mazeWalker.columns; ci++) {
-                        cellOptions.push(coordinate(ri, ci));
+                        cellOptions.addCoordinate(ri, ci, mazeWalker.columns);
                     }
                 }
-                console.log("columns=" + mazeWalker.columns, "rows=" + mazeWalker.rows, "cellPicker", cellOptions);
 
-                let j;
 
-                j = Math.floor(Math.random() * cellOptions.length);
-                mazeWalker.start = cellOptions[j];
-                console.log("j", j, "start", mazeWalker.start);
-                mazeWalker.removeFromArray(cellOptions, mazeWalker.start);
+                let boundRows = Math.ceil(mazeWalker.rows / 4);
+                let boundColumns = Math.ceil(mazeWalker.columns / 4);
 
-                j = Math.floor(Math.random() * cellOptions.length);
-                mazeWalker.goal = cellOptions[j];
-                console.log("j", j, "goal", mazeWalker.goal);
-                mazeWalker.removeFromArray(cellOptions, mazeWalker.goal);
+                mazeWalker.start = new Coordinate(Math.floor(Math.random() * boundRows), Math.floor(Math.random() * boundColumns, mazeWalker.colums));
+                cellOptions.removeCoordinate(mazeWalker.start);
+
+                mazeWalker.goal = new Coordinate(mazeWalker.rows - 1 - Math.floor(Math.random() * boundRows), mazeWalker.columns - 1 - Math.floor(Math.random() * boundColumns), mazeWalker.colums);
+                cellOptions.removeCoordinate(mazeWalker.goal);
 
                 let cellPicked;
-                for (let i = 0; i < random; i++) {
+                let j;
+                let i;
+                for (; i < random; i++) {
                     j = Math.floor(Math.random() * cellOptions.length);
                     cellPicked = cellOptions[j];
-                    console.log("j", j, "obstacle", cellPicked);
                     mazeWalker.obstacles.push(cellPicked);
-                    mazeWalker.removeFromArray(cellOptions, cellPicked);
+                    cellOptions.removeCoordinate(cellPicked);
                 }
 
             } else {
 
-                console.log('default data');
+                console.log('example data');
                 // example 1
-                if (true) {
-                    mazeWalker.start = coordinate(2, 2);
-                    mazeWalker.goal = coordinate(3, 6);
-                    mazeWalker.obstacles = [
-                        coordinate(3, 1),
-                        coordinate(3, 2),
-                        coordinate(3, 3),
-                        coordinate(3, 4),
-                        coordinate(2, 4),
-                        coordinate(1, 4),
-                    ];
-                    if (false) mazeWalker.horizontalWalls = [
-                        coordinate(1, 5),
-                        coordinate(1, 6)
-                    ];
+                if (false) {
+                    mazeWalker.start = new Coordinate(2, 2, mazeWalker.colums);
+                    mazeWalker.goal = new Coordinate(3, 6, mazeWalker.colums);
+                    mazeWalker.obstacles.addCoordinate(3, 1, mazeWalker.colums);
+                    mazeWalker.obstacles.addCoordinate(3, 2, mazeWalker.colums);
+                    mazeWalker.obstacles.addCoordinate(3, 3, mazeWalker.colums);
+                    mazeWalker.obstacles.addCoordinate(3, 4, mazeWalker.colums);
+                    mazeWalker.obstacles.addCoordinate(2, 4, mazeWalker.colums);
+                    mazeWalker.obstacles.addCoordinate(1, 4, mazeWalker.colums);
+                    if (false) {
+                        mazeWalker.horizontalWalls.addCoordinate(1, 5, mazeWalker.colums);
+                        mazeWalker.horizontalWalls.addCoordinate(1, 6, mazeWalker.colums);
+                    }
                 }
                 // example 2
-                if (false) {
-                    mazeWalker.start = coordinate(1, 1);
-                    mazeWalker.obstacles.push(coordinate(1, 2));
-                    mazeWalker.goal = coordinate(1, 3);
+                else if (false) {
+                    mazeWalker.start = new Coordinate(1, 1, mazeWalker.colums);
+                    mazeWalker.goal = new Coordinate(1, 3, mazeWalker.colums);
+                    mazeWalker.obstacles.addCoordinate(1, 2, mazeWalker.colums);
                 }
                 // example 3
-                if (false) {
-                    /*mazeWalker.obstacles = [{ "r": 5, "c": 5 }, { "r": 6, "c": 9 }, { "r": 0, "c": 2 }, { "r": 6, "c": 8 }, { "r": 6, "c": 6 }, { "r": 3, "c": 8 }, { "r": 9, "c": 2 }, { "r": 1, "c": 1 }, { "r": 4, "c": 4 }, { "r": 3, "c": 5 }, { "r": 6, "c": 4 }, { "r": 3, "c": 9 }, { "r": 2, "c": 9 }, { "r": 0, "c": 0 }, { "r": 1, "c": 0 }, { "r": 2, "c": 7 }, { "r": 8, "c": 5 }, { "r": 0, "c": 5 }, { "r": 8, "c": 7 }, { "r": 1, "c": 2 }, { "r": 6, "c": 3 }, { "r": 9, "c": 0 }, { "r": 6, "c": 7 }, { "r": 8, "c": 6 }, { "r": 3, "c": 0 }];
-                    mazeWalker.start = { r: 9, c: 1 };
-                    mazeWalker.goal = { r: 4, c: 5 };*/
+                else if (true) {
+                    const obstacles = [{ "r": 5, "c": 5 }, { "r": 6, "c": 9 }, { "r": 0, "c": 2 }, { "r": 6, "c": 8 }, { "r": 6, "c": 6 }, { "r": 3, "c": 8 }, { "r": 9, "c": 2 }, { "r": 1, "c": 1 }, { "r": 4, "c": 4 }, { "r": 3, "c": 5 }, { "r": 6, "c": 4 }, { "r": 3, "c": 9 }, { "r": 2, "c": 9 }, { "r": 0, "c": 0 }, { "r": 1, "c": 0 }, { "r": 2, "c": 7 }, { "r": 8, "c": 5 }, { "r": 0, "c": 5 }, { "r": 8, "c": 7 }, { "r": 1, "c": 2 }, { "r": 6, "c": 3 }, { "r": 9, "c": 0 }, { "r": 6, "c": 7 }, { "r": 8, "c": 6 }, { "r": 3, "c": 0 }];
+                    obstacles.forEach(o => mazeWalker.obstacles.push(Coordinate.toCoordinate(o, mazeWalker.colums)));
+                    mazeWalker.start = new Coordinate(9, 1, mazeWalker.colums);
+                    mazeWalker.goal = new Coordinate(4, 5, mazeWalker.colums);
                 }
             }
 
@@ -699,32 +768,31 @@
             for (let row = 0; row < mazeWalker.rows; row++) {
                 innerHTML += `<div class="row" id="${row}">`;
                 for (let column = 0; column < mazeWalker.columns; column++) {
-                    const point = coordinate(row, column);
+                    const coordinate = new Coordinate(row, column, mazeWalker.colums);
                     let classList = "cell";
                     let content = "";
-                    console.log(mazeWalker.start);
-                    if (mazeWalker.start.equals(point)) {
+                    if (mazeWalker.start.equals(coordinate)) {
                         classList += " start";
                         content = "S";
-                    } else if (mazeWalker.goal.equals(point)) {
+                    } else if (mazeWalker.goal.equals(coordinate)) {
                         classList += " goal";
                         content = "G";
-                    } else if (mazeWalker.obstacles.contains(point)) {
+                    } else if (mazeWalker.obstacles.containsCoordinate(coordinate)) {
                         classList += " blocked";
                         content = "X";
                     }
-                    if (mazeWalker.verticalWalls.contains(point)) {
+                    if (mazeWalker.verticalWalls.containsCoordinate(coordinate)) {
                         classList += " wall-vertical";
                     }
-                    const pointLeft = coordinate(row, column - 1);
-                    if (mazeWalker.verticalWalls.contains(pointLeft)) {
+                    const coordinateLeft = new Coordinate(row, column - 1, mazeWalker.colums);
+                    if (mazeWalker.verticalWalls.containsCoordinate(coordinateLeft)) {
                         classList += " wall-vertical-opposite";
                     }
-                    if (mazeWalker.horizontalWalls.contains(point)) {
+                    if (mazeWalker.horizontalWalls.containsCoordinate(coordinate)) {
                         classList += " wall-horizontal";
                     }
-                    const pointAbove = coordinate(row - 1, column);
-                    if (mazeWalker.horizontalWalls.contains(pointAbove)) {
+                    const coordinateAbove = new Coordinate(row - 1, column, mazeWalker.colums);
+                    if (mazeWalker.horizontalWalls.containsCoordinate(coordinateAbove)) {
                         classList += " wall-horizontal-opposite";
                     }
                     innerHTML += `<div class="${classList}" id="${row}-${column}"><span>${content}(r:${row},c:${column})</span></div>`;
