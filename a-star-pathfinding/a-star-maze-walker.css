@@ -1,0 +1,175 @@
+body {
+    font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+    margin: 2em;
+}
+
+#grid {
+    border: 2px solid rgb(0, 0, 0);
+    display: inline-block;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    --cell-dim: 72px;
+    font-size: 10px;
+    border: 2px solid #ccc;
+    width: var(--cell-dim);
+    max-width: var(--cell-dim);
+    min-width: var(--cell-dim);
+    height: var(--cell-dim);
+    max-height: var(--cell-dim);
+    min-height: var(--cell-dim);
+}
+
+.cell {
+    --bgcolor: white;
+    background-color: var(--bgcolor);
+    color: black;
+    transition: background-color .75s ease-in-out, color .75s ease-in-out;
+}
+
+@keyframes bgcoloranim {
+    0% {
+        background-color: var(--bgcolor);
+        color: var(--color);
+    }
+
+    100% {
+        background-color: var(--bgcolor);
+        color: var(--color);
+    }
+}
+
+.start,
+.cell.start {
+    --bgcolor: #1e1e98;
+    --color: white;
+    background-color: var(--bgcolor);
+    color: var(--color);
+}
+
+.goal,
+.cell.goal {
+    --bgcolor: rgb(12, 128, 12);
+    --color: white;
+    background-color: var(--bgcolor);
+    color: var(--color);
+}
+
+.blocked,
+.cell.blocked {
+    --bgcolor: #5d4623;
+    --color: white;
+    background-color: var(--bgcolor);
+    color: var(--color);
+}
+
+.open,
+.cell.open {
+    --bgcolor: rgb(251, 251, 36);
+    --color: black;
+    background-color: var(--bgcolor);
+    color: var(--color);
+}
+
+.adjusted,
+.cell.open.adjusted {
+    --bgcolor: rgb(223, 223, 31);
+    --color: black;
+    background-color: var(--bgcolor);
+    color: var(--color);
+}
+
+.closed,
+.cell.open.closed,
+.cell.open.adjusted.closed {
+    --bgcolor: #efd6a7;
+    --color: black;
+    background-color: var(--bgcolor);
+    color: var(--color);
+}
+
+.current,
+.cell.open.current,
+.cell.open.adjusted.current,
+.cell.open.closed.current,
+.cell.open.adjusted.closed.current {
+    --bgcolor: #dda8e7;
+    --color: black;
+    background-color: var(--bgcolor);
+    color: var(--color);
+}
+
+.path,
+.cell.path:not(.start):not(.goal) {
+    --bgcolor: rgb(141, 233, 141);
+    --color: black;
+    background-color: var(--bgcolor);
+    color: var(--color);
+}
+
+.unsolvable,
+.cell.unsolvable {
+    --bgcolor: rgb(145, 6, 145);
+    --color: white;
+    background-color: var(--bgcolor);
+    color: var(--color);
+}
+
+.cell:not(.open) {
+    position: relative;
+}
+
+.cell:not(.open)>* {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.open>* {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.open>*>* {
+    text-align: center;
+}
+
+.light {
+    color: #999;
+}
+
+.dark {
+    font-weight: bold;
+}
+
+.parent {
+    height: 7px;
+    max-height: 7px;
+    min-height: 7px;
+}
+
+.wall-vertical {
+    border-right-color: #e06b2c;
+}
+
+.wall-vertical-opposite {
+    border-left-color: #e06b2c;
+}
+
+.wall-horizontal {
+    border-bottom-color: #e06b2c;
+}
+
+.wall-horizontal-opposite {
+    border-top-color: #e06b2c;
+}
+
+.cell>span {
+    white-space: nowrap;
+}

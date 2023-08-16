@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    https://www.youtube.com/watch?v=T8mgXpW1_vc&ab_channel=KyleStone
+    https://www.gamedev.net/tutorials/programming/artificial-intelligence/a-pathfinding-for-beginners-r2003/
+    https://blog.bitsrc.io/advanced-data-structures-implementing-the-a-algorithm-in-javascript-5ae1e8a4ab2f
+    https://www.geeksforgeeks.org/a-search-algorithm/
+    https://www.youtube.com/watch?v=-L-WgKMFuhE&ab_channel=SebastianLague
+    https://github.com/SebLague/Pathfinding/blob/master/Episode%2001%20-%20pseudocode/Pseudocode
+    https://www.omnicalculator.com/math/manhattan-distance
+    https://en.wikipedia.org/wiki/Taxicab_geometry
+    https://iq.opengenus.org/euclidean-vs-manhattan-vs-chebyshev-distance/
+	https://www.youtube.com/watch?v=eSOJ3ARN5FM&ab_channel=ComputerScience
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Pathfinding</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="a-star-maze-walker.css">
+</head>
+
+<body>
+    <a href="?">[Home]</a>
+    <a href="?" id="rnd">[Random]</a>
+    <a href="?" id="save">[Save]</a>
+    <a href="?" id="toggle">[Toggle cut corners]</a>
+    <br><br>
+    <button id="next">Next</button>
+    <button id="auto">Auto</button>
+    <br><br>
+    <span class="start">START</span>
+    <span class="goal">GOAL</span>
+    <span class="blocked">BLOCKED</span>
+    <span class="open">OPEN</span>
+    <span class="adjusted">OPEN (recalculate because shorter path was found)</span>
+    <span class="current">LOWEST OPEN</span>
+    <span class="closed">CLOSED</span>
+    <span class="path">PATH RESOLVED</span>
+    <span class="unsolvable">NO PATH</span>
+    <br><br>
+    <u>Cut corners=<span id="cutting"></span></u>
+    &nbsp;&nbsp;
+    <u>Calculation iterations: <span id="stepsTaken"></span></u>
+    <br><br>
+    <div id="grid"></div>
+    <script src="a-star-maze-walker.js"></script>
+    <script>
+        let mazeWalkerStepDelay = 200; // delay between steps in ms in auto solve mode
+        let mazeWalkerRandomCount = 25; // number of random obstacles
+        let mazeWalkerUpdateGridVisually = true; // set to false to disable visualisation of the grid
+
+        const mazeWalker = new AStarMazeWalker();
+
+        AStarMazeWalker.prototype.domNode = function (coordinate) {
+            return document.getElementById(`${coordinate.r}-${coordinate.c}`);
+        };
+
+        AStarMazeWalker.prototype.visualizeStepsTaken = function () {
+            if (mazeWalkerUpdateGridVisually) {
+                document.getElementById('stepsTaken').innerHTML = this.iterations;
+                if (this.start != this.current) {
+                    const domNode = this.domNode(this.current);
+                    domNode.classList.add('closed');
+                    domNode.querySelector('.order').innerHTML = this.closed.length - 1;
+                }
+            }
+        };
+
+        AStarMazeWalker.prototype.visualizeOpeningCoordinate = function (neighbour) {
+            if (mazeWalkerUpdateGridVisually) {
+                if (neighbour.h > 0) {
+                    const domNode = this.domNode(neighbour);
+                    domNode.classList.add('open');
+                    domNode.innerHTML = "<div><div class='light coord'>(r:" + neighbour.r + ",c:" + neighbour.c + ")</div><div class='light h'>h=" + neighbour.h + "</div><div class='light g'>g=" + neighbour.g + "</div><div class='dark f'>f=" + neighbour.f + "</div><div class='parent'>" + neighbour.label + "</div><div class='dark order'>&nbsp;</div></div>";
+                }
+            }
+        };
+
+        AStarMazeWalker.prototype.visualizeRecalculateOpenCoordinate = function (neighbour) {
+            if (mazeWalkerUpdateGridVisually) {
+                if (neighbour.h > 0) {
+                    const domNode = this.domNode(neighbour);
+                    domNode.classList.add('adjusted');
+                    domNode.querySelector('.g').innerHTML = "g=" + neighbour.g;
+                    domNode.querySelector('.f').innerHTML = "f=" + neighbour.f;
+                    domNode.querySelector('.parent').innerHTML = neighbour.label;
+                }
+            }
+        };
+
+        AStarMazeWalker.prototype.visualizeNoPathToGoal = function () {
+            if (mazeWalkerUpdateGridVisually) {
+                this.domNode(this.goal).style.backgroundColor = "purple";
+            }
+        };
+
+        AStarMazeWalker.prototype.visualizeClosingCurrentCoordinate = function () {
+            if (mazeWalkerUpdateGridVisually) {
+                this.domNode(this.current).classList.remove('current');
+            }
+        };
+
+        AStarMazeWalker.prototype.visualizeSettingCurrentCoordinate = function () {
+            if (mazeWalkerUpdateGridVisually) {
+                this.domNode(this.current).classList.add('current');
+            }
+        };
+
+        AStarMazeWalker.prototype.visualizeDebugPath = function () {
+            if (mazeWalkerUpdateGridVisually) {
+                this.solvedPath.forEach((coordinate, i) => {
+                    const domNode = this.domNode(coordinate);
+                    domNode.classList.add('path');
+                    const orderSpan = domNode.querySelector('.order');
+                    if (orderSpan) orderSpan.innerHTML = '#' + (i + 1);
+                });
+            }
+        };
+
+        {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            if (urlParams.get('data')) mazeWalker.fromData(JSON.parse(decodeURIComponent(urlParams.get('data'))));
+            // separate URL parameters take precedence over data parameter
+            if (urlParams.get('cutCorners')) mazeWalker.cutCorners = urlParams.get('cutCorners') == 'true';
+            if (urlParams.get('columns')) mazeWalker.columns = parseInt(urlParams.get('columns'));
+            if (urlParams.get('rows')) mazeWalker.rows = parseInt(urlParams.get('rows'));
+            if (urlParams.get('delay')) mazeWalkerStepDelay = parseInt(urlParams.get('delay'));
+            if (urlParams.get('rnd')) mazeWalkerRandomCount = parseInt(urlParams.get('rnd'));
+
+            if (!urlParams.get('data')) {
+
+                if (urlParams.get('rnd')) {
+
+                    console.log('random data');
+                    let cellOptions = new CoordinateArray();
+                    for (let ri = 0; ri < mazeWalker.rows; ri++) {
+                        for (let ci = 0; ci < mazeWalker.columns; ci++) {
+                            cellOptions.addCoordinate(ri, ci, mazeWalker.columns);
+                        }
+                    }
+
+
+                    let boundRows = Math.ceil(mazeWalker.rows / 4);
+                    let boundColumns = Math.ceil(mazeWalker.columns / 4);
+
+                    mazeWalker.start = new Coordinate(Math.floor(Math.random() * boundRows), Math.floor(Math.random() * boundColumns, mazeWalker.colums));
+                    cellOptions.removeCoordinate(mazeWalker.start);
+
+                    mazeWalker.goal = new Coordinate(mazeWalker.rows - 1 - Math.floor(Math.random() * boundRows), mazeWalker.columns - 1 - Math.floor(Math.random() * boundColumns), mazeWalker.colums);
+                    cellOptions.removeCoordinate(mazeWalker.goal);
+
+                    let cellPicked;
+                    let j;
+                    let i;
+                    for (; i < mazeWalkerRandomCount; i++) {
+                        j = Math.floor(Math.random() * cellOptions.length);
+                        cellPicked = cellOptions[j];
+                        mazeWalker.obstacles.push(cellPicked);
+                        cellOptions.removeCoordinate(cellPicked);
+                    }
+
+                } else {
+
+                    console.log('example data');
+                    // example 1
+                    if (false) {
+                        mazeWalker.start = new Coordinate(2, 2, mazeWalker.colums);
+                        mazeWalker.goal = new Coordinate(3, 6, mazeWalker.colums);
+                        mazeWalker.obstacles.addCoordinate(3, 1, mazeWalker.colums);
+                        mazeWalker.obstacles.addCoordinate(3, 2, mazeWalker.colums);
+                        mazeWalker.obstacles.addCoordinate(3, 3, mazeWalker.colums);
+                        mazeWalker.obstacles.addCoordinate(3, 4, mazeWalker.colums);
+                        mazeWalker.obstacles.addCoordinate(2, 4, mazeWalker.colums);
+                        mazeWalker.obstacles.addCoordinate(1, 4, mazeWalker.colums);
+                        if (false) {
+                            //mazeWalker.horizontalWalls.addCoordinate(1, 5, mazeWalker.colums);
+                            mazeWalker.horizontalWalls.addCoordinate(1, 6, mazeWalker.colums);
+                        }
+                    }
+                    // example 2
+                    else if (false) {
+                        mazeWalker.start = new Coordinate(1, 1, mazeWalker.colums);
+                        mazeWalker.goal = new Coordinate(1, 3, mazeWalker.colums);
+                        mazeWalker.obstacles.addCoordinate(1, 2, mazeWalker.colums);
+                    }
+                    // example 3
+                    else if (true) {
+                        const obstacles = [{ "r": 5, "c": 5 }, { "r": 6, "c": 9 }, { "r": 0, "c": 2 }, { "r": 6, "c": 8 }, { "r": 6, "c": 6 }, { "r": 3, "c": 8 }, { "r": 9, "c": 2 }, { "r": 1, "c": 1 }, { "r": 4, "c": 4 }, { "r": 3, "c": 5 }, { "r": 6, "c": 4 }, { "r": 3, "c": 9 }, { "r": 2, "c": 9 }, { "r": 0, "c": 0 }, { "r": 1, "c": 0 }, { "r": 2, "c": 7 }, { "r": 8, "c": 5 }, { "r": 0, "c": 5 }, { "r": 8, "c": 7 }, { "r": 1, "c": 2 }, { "r": 6, "c": 3 }, { "r": 9, "c": 0 }, { "r": 6, "c": 7 }, { "r": 8, "c": 6 }, { "r": 3, "c": 0 }];
+                        obstacles.forEach(o => mazeWalker.obstacles.push(Coordinate.toCoordinate(o, mazeWalker.colums)));
+                        mazeWalker.start = new Coordinate(9, 1, mazeWalker.colums);
+                        mazeWalker.goal = new Coordinate(4, 5, mazeWalker.colums);
+                    }
+                }
+
+            }
+        }
+
+        {
+            const backupData = encodeURIComponent(JSON.stringify(mazeWalker));
+            document.getElementById('cutting').innerHTML = mazeWalker.cutCorners ? 'yes' : 'no';
+            document.getElementById('save').href = "?data=" + backupData;
+            document.getElementById('toggle').href = "?cutCorners=" + !mazeWalker.cutCorners + "&data=" + backupData;
+            document.getElementById('rnd').href = "?columns=" + mazeWalker.columns + "&rows=" + mazeWalker.rows + "&rnd=" + mazeWalkerRandomCount + "&cutCorners=" + mazeWalker.cutCorners + "&delay=" + mazeWalkerStepDelay;
+        }
+
+        mazeWalker.setup();
+
+        if (mazeWalkerUpdateGridVisually) {
+            const grid = document.getElementById("grid");
+            let innerHTML = "";
+            for (let row = 0; row < mazeWalker.rows; row++) {
+                innerHTML += `<div class="row" id="${row}">`;
+                for (let column = 0; column < mazeWalker.columns; column++) {
+                    const coordinate = new Coordinate(row, column, mazeWalker.colums);
+                    let classList = "cell";
+                    let content = "";
+                    if (mazeWalker.start.equals(coordinate)) {
+                        classList += " start";
+                        content = "S";
+                    } else if (mazeWalker.goal.equals(coordinate)) {
+                        classList += " goal";
+                        content = "G";
+                    } else if (mazeWalker.obstacles.containsCoordinate(coordinate)) {
+                        classList += " blocked";
+                        content = "X";
+                    }
+                    if (mazeWalker.verticalWalls.containsCoordinate(coordinate)) {
+                        classList += " wall-vertical";
+                    }
+                    const coordinateLeft = new Coordinate(row, column - 1, mazeWalker.colums);
+                    if (mazeWalker.verticalWalls.containsCoordinate(coordinateLeft)) {
+                        classList += " wall-vertical-opposite";
+                    }
+                    if (mazeWalker.horizontalWalls.containsCoordinate(coordinate)) {
+                        classList += " wall-horizontal";
+                    }
+                    const coordinateAbove = new Coordinate(row - 1, column, mazeWalker.colums);
+                    if (mazeWalker.horizontalWalls.containsCoordinate(coordinateAbove)) {
+                        classList += " wall-horizontal-opposite";
+                    }
+                    innerHTML += `<div class="${classList}" id="${row}-${column}"><span>${content}(r:${row},c:${column})</span></div>`;
+                }
+                innerHTML += "</div>";
+            }
+            grid.innerHTML += innerHTML;
+        }
+
+        document.getElementById('next').addEventListener("click", event => {
+            event.preventDefault();
+            mazeWalker.step();
+        });
+
+        document.getElementById('auto').addEventListener("click", event => {
+            event.preventDefault();
+            const interval = setInterval(() => {
+                if (mazeWalker.finished()) {
+                    clearInterval(interval);
+                    return;
+                }
+                mazeWalker.step();
+            }, mazeWalkerStepDelay);
+        });
+    </script>
+</body>
+
+</html>
