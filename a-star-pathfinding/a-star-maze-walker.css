@@ -52,7 +52,8 @@ body {
 }
 
 .goal,
-.cell.goal {
+.cell.goal,
+.cell.open.goal {
     --bgcolor: rgb(12, 128, 12);
     --color: white;
     background-color: var(--bgcolor);

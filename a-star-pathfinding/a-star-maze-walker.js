@@ -298,7 +298,7 @@ class AStarMazeWalker {
             neighbour.f = neighbour.h + neighbour.g;
             neighbour.parent = this.current;
             neighbour.label = this.getCoordinateLabel(this.current, neighbour);
-            this.visualizeOpeningCoordinate(neighbour);
+            if (neighbour.h > 0) this.visualizeOpeningCoordinate(neighbour);
         });
 
         if (this.open.length == 0) {
@@ -332,13 +332,13 @@ class AStarMazeWalker {
         }
         path.push(this.start);
         path.reverse();
-        return path.splice(1, path.length - 2); // FIXME why is goal twice included?
+        return path.splice(0, path.length - 1);
     }
 
     debugPath() {
         if (!this.foundGoal) return;
         this.visualizeDebugPath();
-        this.solvedPath.forEach((coordinate, i) => console.log(i + ": " + coordinate.r + "," + coordinate.c));
+        this.solvedPath.forEach((coordinate, i) => console.log((i + 1) + ": " + coordinate.r + "," + coordinate.c));
     }
 
     visualizeStepsTaken() {
