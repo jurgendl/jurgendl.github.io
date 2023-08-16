@@ -278,16 +278,6 @@ class AStarMazeWalker {
 
         let neighbours = this.possibleNeighboursOf(this.current);
 
-        neighbours.filter(neighbour => !this.open.containsCoordinate(neighbour)).forEach(neighbour => {
-            this.open.push(neighbour);
-            neighbour.h = this.h(neighbour, this.goal);
-            neighbour.g = this.current.g + this.g(neighbour, this.current);
-            neighbour.f = neighbour.h + neighbour.g;
-            neighbour.parent = this.current;
-            neighbour.label = this.getCoordinateLabel(this.current, neighbour);
-            this.visualizeOpeningCoordinate(neighbour);
-        });
-
         neighbours.filter(neighbour => this.open.containsCoordinate(neighbour)).map(neighbour => this.open.lookUpCoordinate(neighbour)).forEach(neighbour => {
             // recalculate if shorter path when going through current
             const newG = this.current.g + this.g(neighbour, this.current);
@@ -299,6 +289,16 @@ class AStarMazeWalker {
                 neighbour.label = this.getCoordinateLabel(this.current, neighbour);
                 this.visualizeRecalculateOpenCoordinate(neighbour);
             }
+        });
+
+        neighbours.filter(neighbour => !this.open.containsCoordinate(neighbour)).forEach(neighbour => {
+            this.open.push(neighbour);
+            neighbour.h = this.h(neighbour, this.goal);
+            neighbour.g = this.current.g + this.g(neighbour, this.current);
+            neighbour.f = neighbour.h + neighbour.g;
+            neighbour.parent = this.current;
+            neighbour.label = this.getCoordinateLabel(this.current, neighbour);
+            this.visualizeOpeningCoordinate(neighbour);
         });
 
         if (this.open.length == 0) {
@@ -340,7 +340,6 @@ class AStarMazeWalker {
         this.visualizeDebugPath();
         this.solvedPath.forEach((coordinate, i) => console.log(i + ": " + coordinate.r + "," + coordinate.c));
     }
-
 
     visualizeStepsTaken() {
         // override in subclass to visualize

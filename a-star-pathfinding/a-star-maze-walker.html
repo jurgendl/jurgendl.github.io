@@ -70,29 +70,25 @@
 
         AStarMazeWalker.prototype.visualizeOpeningCoordinate = function (neighbour) {
             if (mazeWalkerUpdateGridVisually) {
-                if (neighbour.h > 0) {
-                    const domNode = this.domNode(neighbour);
-                    domNode.classList.add('open');
-                    domNode.innerHTML = "<div><div class='light coord'>(r:" + neighbour.r + ",c:" + neighbour.c + ")</div><div class='light h'>h=" + neighbour.h + "</div><div class='light g'>g=" + neighbour.g + "</div><div class='dark f'>f=" + neighbour.f + "</div><div class='parent'>" + neighbour.label + "</div><div class='dark order'>&nbsp;</div></div>";
-                }
+                const domNode = this.domNode(neighbour);
+                domNode.classList.add('open');
+                domNode.innerHTML = "<div><div class='light coord'>(r:" + neighbour.r + ",c:" + neighbour.c + ")</div><div class='light h'>h=" + neighbour.h + "</div><div class='light g'>g=" + neighbour.g + "</div><div class='dark f'>f=" + neighbour.f + "</div><div class='parent'>" + neighbour.label + "</div><div class='dark order'>&nbsp;</div></div>";
             }
         };
 
         AStarMazeWalker.prototype.visualizeRecalculateOpenCoordinate = function (neighbour) {
             if (mazeWalkerUpdateGridVisually) {
-                if (neighbour.h > 0) {
-                    const domNode = this.domNode(neighbour);
-                    domNode.classList.add('adjusted');
-                    domNode.querySelector('.g').innerHTML = "g=" + neighbour.g;
-                    domNode.querySelector('.f').innerHTML = "f=" + neighbour.f;
-                    domNode.querySelector('.parent').innerHTML = neighbour.label;
-                }
+                const domNode = this.domNode(neighbour);
+                domNode.classList.add('adjusted');
+                domNode.querySelector('.g').innerHTML = "g=" + neighbour.g;
+                domNode.querySelector('.f').innerHTML = "f=" + neighbour.f;
+                domNode.querySelector('.parent').innerHTML = neighbour.label;
             }
         };
 
         AStarMazeWalker.prototype.visualizeNoPathToGoal = function () {
             if (mazeWalkerUpdateGridVisually) {
-                this.domNode(this.goal).style.backgroundColor = "purple";
+                this.domNode(this.goal).classList.add('unsolvable');
             }
         };
 
@@ -134,14 +130,13 @@
 
                 if (urlParams.get('rnd')) {
 
-                    console.log('random data');
+                    console.log('random data', mazeWalkerRandomCount);
                     let cellOptions = new CoordinateArray();
                     for (let ri = 0; ri < mazeWalker.rows; ri++) {
                         for (let ci = 0; ci < mazeWalker.columns; ci++) {
                             cellOptions.addCoordinate(ri, ci, mazeWalker.columns);
                         }
                     }
-
 
                     let boundRows = Math.ceil(mazeWalker.rows / 4);
                     let boundColumns = Math.ceil(mazeWalker.columns / 4);
@@ -154,8 +149,7 @@
 
                     let cellPicked;
                     let j;
-                    let i;
-                    for (; i < mazeWalkerRandomCount; i++) {
+                    for (let i = 0; i < mazeWalkerRandomCount; i++) {
                         j = Math.floor(Math.random() * cellOptions.length);
                         cellPicked = cellOptions[j];
                         mazeWalker.obstacles.push(cellPicked);
