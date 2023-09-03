@@ -575,7 +575,7 @@
 		{
 			"tier": 1,
 			"talent": "Ambush",
-			"prerequisites": "Stealth",
+			"prerequisites": "Stealth +0",
 			"apt1": "Agility",
 			"apt2": "Fieldcraft",
 			"benefit": "Inflict additional Damage on Unaware targets."
@@ -687,7 +687,7 @@
 		{
 			"tier": 1,
 			"talent": "Drop Trooper",
-			"prerequisites": "Operate (Aeronautica)",
+			"prerequisites": "Operate (Aeronautica) +0",
 			"apt1": "Agility",
 			"apt2": "Tech",
 			"benefit": "Bonus to Operate Test for grav-chutes."
@@ -703,7 +703,7 @@
 		{
 			"tier": 1,
 			"talent": "Ears to the Ground",
-			"prerequisites": "Commerce, Perception 30",
+			"prerequisites": "Commerce +0, Perception 30",
 			"apt1": "Perception",
 			"apt2": "Social",
 			"benefit": "Character gains a bonus to trade or barter goods and avoid official notice."
@@ -863,7 +863,7 @@
 		{
 			"tier": 1,
 			"talent": "Modify Payload",
-			"prerequisites": "Tech-Use",
+			"prerequisites": "Tech Use +0",
 			"apt1": "Intelligence",
 			"apt2": "Tech",
 			"benefit": "Increase Damage, Blast Quality, and Smoke Quality of explosives."
@@ -927,7 +927,7 @@
 		{
 			"tier": 1,
 			"talent": "Push the Limit",
-			"prerequisites": "Operate (Any One), Technical Knock",
+			"prerequisites": "Operate (any) +0, Technical Knock",
 			"apt1": "Agility",
 			"apt2": "Tech",
 			"benefit": "Bonus to Vehicle Manoeuvre Tests with Structural Integrity loss on a Failed Test."
@@ -1007,7 +1007,7 @@
 		{
 			"tier": 1,
 			"talent": "Swift Suture",
-			"prerequisites": "Medicae",
+			"prerequisites": "Medicae +0",
 			"apt1": "Finesse",
 			"apt2": "Intelligence",
 			"benefit": "End Blood Loss condition when performing First Aid."
@@ -1063,7 +1063,7 @@
 		{
 			"tier": 1,
 			"talent": "Urge the Penitent",
-			"prerequisites": "Command +10, Scholastic Lore (Imperial Creed)",
+			"prerequisites": "Command +10, Scholastic Lore (Imperial Creed) +0",
 			"apt1": "Fellowship",
 			"apt2": "Social",
 			"benefit": "Benefit when re-rolling Tests with Fate Points."
@@ -1103,7 +1103,7 @@
 		{
 			"tier": 1,
 			"talent": "Wrestler",
-			"prerequisites": "Strength 30, Athletics",
+			"prerequisites": "Strength 30, Athletics +0",
 			"apt1": "Strength",
 			"apt2": "General",
 			"benefit": "Use Athletics Skill instead of Strength Characteristic while Grappling."
@@ -1119,7 +1119,7 @@
 		{
 			"tier": 2,
 			"talent": "Accelerated Repairs",
-			"prerequisites": "Any Essential Repair Skill +20, Tech-Use +10",
+			"prerequisites": "Any Essential Repair Skill +20, Tech Use +10",
 			"apt1": "Intelligence",
 			"apt2": "Tech",
 			"benefit": "Character may conduct repairs more swiftly."
@@ -1127,7 +1127,7 @@
 		{
 			"tier": 2,
 			"talent": "Armour-Monger",
-			"prerequisites": "Intelligence 35, Tech-Use, Trade (Armourer)",
+			"prerequisites": "Intelligence 35, Tech Use +0, Trade (Armourer) +0",
 			"apt1": "Intelligence",
 			"apt2": "Tech",
 			"benefit": "Increase the efficacy of physical armour."
@@ -1154,7 +1154,7 @@
 			"prerequisites": "Any Essential Repair Skill +10, Willpower 35",
 			"apt1": "Willpower",
 			"apt2": "Tech",
-			"benefit": "Ignore penalties from distractions on Tech-Use and Repair Tests."
+			"benefit": "Ignore penalties from distractions on Tech Use and Repair Tests."
 		},
 		{
 			"tier": 2,
@@ -1231,7 +1231,7 @@
 		{
 			"tier": 2,
 			"talent": "Cybernetic Boost",
-			"prerequisites": "One or More Cybernetic Limbs, Tech-Use",
+			"prerequisites": "One or More Cybernetic Limbs, Tech Use +0",
 			"apt1": "Intelligence",
 			"apt2": "Tech",
 			"benefit": "Gain Unnatural Strength or Agility Traits by overcharging cybernetic limbs or mechadendrites."
@@ -1311,7 +1311,7 @@
 		{
 			"tier": 2,
 			"talent": "Hotshot Pilot",
-			"prerequisites": "Agility 40, Operate (any)",
+			"prerequisites": "Agility 40, Operate (any) +0",
 			"apt1": "Agility",
 			"apt2": "Fieldcraft",
 			"benefit": "Character can drive or fly anything."
@@ -1375,7 +1375,7 @@
 		{
 			"tier": 2,
 			"talent": "Maglev Transcendence",
-			"prerequisites": "Maglev Coils/Mechanicus Implants",
+			"prerequisites": "Maglev Coils or Mechanicus Implants",
 			"apt1": "Intelligence",
 			"apt2": "Tech",
 			"benefit": "Character can hover for longer periods of time."
@@ -1447,7 +1447,7 @@
 		{
 			"tier": 2,
 			"talent": "Persuasive Charm",
-			"prerequisites": "Fellowship 35, Charm",
+			"prerequisites": "Fellowship 35, Charm +0",
 			"apt1": "Fellowship",
 			"apt2": "Social",
 			"benefit": "Use Charm Skill to gain a bonus to Logistics Tests."
@@ -1503,7 +1503,7 @@
 		{
 			"tier": 2,
 			"talent": "Rite of Static Overload",
-			"prerequisites": "One or More Cybernetic Limbs, Tech-Use +10",
+			"prerequisites": "One or More Cybernetic Limbs, Tech Use +10",
 			"apt1": "Intelligence",
 			"apt2": "Tech",
 			"benefit": "Gain Shocking Quality on melee attacks with a Cybernetic limb or mechadendrite."
@@ -1639,7 +1639,7 @@
 		{
 			"tier": 2,
 			"talent": "Vengeful Protector",
-			"prerequisites": "Weapon Skill 45, S 45",
+			"prerequisites": "Weapon Skill 45, Strength 45",
 			"apt1": "Strength",
 			"apt2": "Offence",
 			"benefit": "Deal increased Damage to enemies that have harmed squad mates."
@@ -1687,7 +1687,7 @@
 		{
 			"tier": 3,
 			"talent": "Assassin Strike",
-			"prerequisites": "Agility 40, Acrobatics",
+			"prerequisites": "Agility 40, Acrobatics +0",
 			"apt1": "Weapon Skill",
 			"apt2": "Fieldcraft",
 			"benefit": "After making melee attack, test Acrobatics to move."
@@ -1727,7 +1727,7 @@
 		{
 			"tier": 3,
 			"talent": "Bombardier",
-			"prerequisites": "Ballistic Skill 40, Weapon Training (Launcher), Tech-Use",
+			"prerequisites": "Ballistic Skill 40, Weapon Training (Launcher), Tech Use +0",
 			"apt1": "Offence",
 			"apt2": "Tech",
 			"benefit": "Bonus to attack with launchers and explosives, improved scatter."
@@ -1743,7 +1743,7 @@
 		{
 			"tier": 3,
 			"talent": "Cybernetic Calibrations",
-			"prerequisites": "Two or more Cybernetics, Tech-Use +10, Cybernetic Boost",
+			"prerequisites": "Two or more Cybernetics, Tech Use +10, Cybernetic Boost",
 			"apt1": "Intelligence",
 			"apt2": "Tech",
 			"benefit": "Improves Craftsmanship of all implanted cybernetics."
@@ -1847,7 +1847,7 @@
 		{
 			"tier": 3,
 			"talent": "Infused Knowledge",
-			"prerequisites": "Intelligence 40, Lore (any one)",
+			"prerequisites": "Intelligence 40, Lore (any) +0",
 			"apt1": "Intelligence",
 			"apt2": "Knowledge",
 			"benefit": "Know a little bit about everything."
@@ -1919,10 +1919,10 @@
 		{
 			"tier": 3,
 			"talent": "Master Enginseer",
-			"prerequisites": "Tech-Use +20, Mechanicus Implants",
+			"prerequisites": "Tech Use +20, Mechanicus Implants",
 			"apt1": "Intelligence",
 			"apt2": "Tech",
-			"benefit": "Gain +10 to Tech-Use Tests, and spend Fate Points to automatically succeed on Tech-Use Tests."
+			"benefit": "Gain +10 to Tech Use Tests, and spend Fate Points to automatically succeed on Tech Use Tests."
 		},
 		{
 			"tier": 3,
@@ -1967,7 +1967,7 @@
 		{
 			"tier": 3,
 			"talent": "Never Die",
-			"prerequisites": "Willpower 50, T 50",
+			"prerequisites": "Willpower 50, Toughness 50",
 			"apt1": "Toughness",
 			"apt2": "Defence",
 			"benefit": "Ignore penalties from Critical Damage by spending Fate Point."
@@ -2055,7 +2055,7 @@
 		{
 			"tier": 3,
 			"talent": "Step Aside",
-			"prerequisites": "Agility 40, Dodge or Parry",
+			"prerequisites": "Agility 40, Dodge +0 or Parry +0",
 			"apt1": "Agility",
 			"apt2": "Defence",
 			"benefit": "May make additional Dodge or Parry attempt."
@@ -2071,7 +2071,7 @@
 		{
 			"tier": 3,
 			"talent": "Suffer Not the Work of Heretics",
-			"prerequisites": "Hatred (any one), Ministorum Priest or 20+ Insanity Points",
+			"prerequisites": "Hatred (any), Ministorum Priest or 20+ Insanity Points",
 			"apt1": "Willpower",
 			"apt2": "Offence",
 			"benefit": "Gain benefits to Penetration against targets of your Hatred."
@@ -2095,7 +2095,7 @@
 		{
 			"tier": 3,
 			"talent": "The Flesh is Weak",
-			"prerequisites": "Two or more Cybernetics, Tech-Use +10",
+			"prerequisites": "Two or more Cybernetics, Tech Use +10",
 			"apt1": "Tech",
 			"apt2": "Toughness",
 			"benefit": "Gain Machine Trait equal to half the number of Cybernetic implants."
