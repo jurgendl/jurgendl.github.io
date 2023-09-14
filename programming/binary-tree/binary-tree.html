@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    https://www.geeksforgeeks.org/binary-search-tree-data-structure/
+    https://www.geeksforgeeks.org/introduction-to-avl-tree
+    https://codepen.io/blackjacques/details/ZPMpza
+    https://www.developer.com/design/creating-a-tree-diagram-with-d3-js/
+    https://stackoverflow.com/questions/5873624/parse-json-string-into-a-particular-object-prototype-in-javascript
+    https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/
+    https://www.geeksforgeeks.org/deletion-in-binary-search-tree/
+    https://www.geeksforgeeks.org/construct-complete-binary-tree-given-array/
+    https://www.geeksforgeeks.org/passing-a-function-as-a-parameter-in-javascript/
+    https://www.geeksforgeeks.org/binary-search-tree-traversal-inorder-preorder-post-order/
+    https://www.geeksforgeeks.org/convert-normal-bst-balanced-bst/
+    https://www.geeksforgeeks.org/convert-bst-min-heap/
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <title></title>
+    <style>
+        body {
+            background-color: #eee;
+            margin: 2em;
+        }
+
+        .node circle {
+            fill: #fff;
+            stroke: black;
+            stroke-width: 2px;
+        }
+
+        .node text {
+            font-size: 12px;
+            font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+        }
+
+        .link {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 2px;
+        }
+
+
+        g.node--delete circle {
+            fill: rgb(194, 255, 215);
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin: 1em 0;" id="valuesUnordered"></div>
+    <div style="margin: 1em 0;" id="before_height"></div>
+    <div style="margin: 1em 0;" id="before_ordered"></div>
+    <div style="margin: 1em 0;" id="between"></div>
+    <div style="margin: 1em 0;" id="after_height"></div>
+    <div style="margin: 1em 0;" id="after_ordered"></div>
+    <div style="margin: 1em 0;" id="balanced_height"></div>
+    <div style="margin: 1em 0;" id="balanced_ordered"></div>
+    <div style="margin: 1em 0;" id="before_treeView"></div>
+    <div style="margin: 1em 0;" id="after_treeView"></div>
+    <div style="margin: 1em 0;" id="balanced_treeView"></div>
+    <script type="module" src="binary-tree-index.js"></script>
+</body>
+
+</html>
