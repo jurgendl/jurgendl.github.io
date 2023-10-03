@@ -1,0 +1,1 @@
+$(".darkmode").click((function(){$("body").toggleClass("dark"),$("body").hasClass("dark")?document.getElementById("theme").href="assets/darkly.bootstrap.min.css":document.getElementById("theme").href="assets/original.bootstrap.min.css"}));
