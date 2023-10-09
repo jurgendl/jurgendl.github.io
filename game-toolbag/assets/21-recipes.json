@@ -1,0 +1,664 @@
+[
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodBaconAndEggs",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodEgg"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodRawMeat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"name": "foodBakedPotato",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropPotato"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodBlueberryPie",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodCropBlueberries",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodPumpkinPie",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropPumpkin"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodPumpkinCheesecake",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCropPumpkin"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBeer"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodPumpkinBread",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCropPumpkin"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodBoiledMeat",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodRawMeat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "15",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCanSham",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRottingFlesh"
+			},
+			{
+				"count": "5",
+				"name": "resourceBone"
+			},
+			{
+				"count": "5",
+				"name": "resourceAnimalFat"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodRottingFlesh,resourceBone,resourceAnimalFat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"name": "foodCharredMeat",
+		"tags": "perkMasterChef",
+		"ingredient": {
+			"count": "5",
+			"name": "foodRawMeat"
+		},
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodRawMeat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodChiliDog",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanChili"
+			},
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "1",
+				"name": "foodCornBread"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodRawMeat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCornBread",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"name": "foodCornMeal",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropCorn"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodCornOnTheCob",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropCorn"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodEggBoiled",
+		"tags": "perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodFishTacos",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanSalmon"
+			},
+			{
+				"count": "2",
+				"name": "foodCornMeal"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodGrilledMeat",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": {
+			"count": "5",
+			"name": "foodRawMeat"
+		},
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodRawMeat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "65",
+		"craft_tool": "toolCookingPot",
+		"name": "foodHoboStew",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "10",
+				"name": "foodRottingFlesh"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodRottingFlesh",
+				"value": "-2,-4"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodMeatStew",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodRawMeat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodGumboStew",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanBeef"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPeas"
+			},
+			{
+				"count": "1",
+				"name": "foodCanStock"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "resourceAnimalFat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodShepardsPie",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanLamb"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPeas"
+			},
+			{
+				"count": "1",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "foodCropPotato"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "resourceAnimalFat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodSpaghetti",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanBeef"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPasta"
+			},
+			{
+				"count": "1",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "resourceAnimalFat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodTunaFishGravyToast",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanTuna"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "2",
+				"name": "foodCornBread"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPeas"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "resourceAnimalFat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodShamChowder",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanSham"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodSteakAndPotato",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodRawMeat",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodVegetableStew",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "2",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	}
+]

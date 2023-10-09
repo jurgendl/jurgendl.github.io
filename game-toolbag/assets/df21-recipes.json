@@ -1,0 +1,4563 @@
+[
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "60",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarBoiledWater",
+		"ingredient": {
+			"count": "1",
+			"name": "drinkJarRiverWater"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarPureMineralWater",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "drinkJarRiverWater"
+			},
+			{
+				"count": "1",
+				"name": "resourceCoal"
+			},
+			{
+				"count": "1",
+				"name": "resourceCropGoldenrodPlant"
+			},
+			{
+				"count": "1",
+				"name": "resourceCropChrysanthemumPlant"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarCoffee",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropCoffeeBeans"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarBlackStrapCoffee",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropCoffeeBeans"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "5",
+				"name": "resourceGunPowder"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarGoldenRodTea",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropGoldenrodPlant"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolBeaker",
+		"name": "drinkJarGrainAlcohol",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarGrandpasAwesomeSauce",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "50",
+				"name": "casinoCoin"
+			},
+			{
+				"count": "5",
+				"name": "foodHoney"
+			},
+			{
+				"count": "5",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "10",
+				"name": "ammoGasCan"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarGrandpasLearningElixir",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "foodCanDogfood"
+			},
+			{
+				"count": "3",
+				"name": "drinkJarRedTea"
+			},
+			{
+				"count": "1",
+				"name": "resourceAcid"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBeer"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarGrandpasMoonshine",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarGrainAlcohol"
+			},
+			{
+				"count": "5",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "1",
+				"name": "resourceAcid"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarRedTea",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropChrysanthemumPlant"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarRiverWater",
+		"tags": "perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceSnowBall"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarEmpty"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarYuccaJuice",
+		"tags": "perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropYuccaFruit"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarEmpty"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drugHerbalAntibiotics",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "3",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "3",
+				"name": "resourceCropChrysanthemumPlant"
+			},
+			{
+				"count": "3",
+				"name": "resourcePotassiumNitratePowder"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"always_unlocked": "true",
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodBaconAndEggs",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			}
+		]
+	},
+	{
+		"always_unlocked": "true",
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFBaconAndEggSandwhich",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "2",
+				"name": "DFsliceOfBread"
+			}
+		]
+	},
+	{
+		"always_unlocked": "true",
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFEnglishBreakfast",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodEgg"
+			},
+			{
+				"count": "2",
+				"name": "DFTomato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropMushrooms"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"name": "foodBakedPotato",
+		"tags": "perkMasterChef",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropPotato"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodBlueberryPie",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodPumpkinPie",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropPumpkin"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodPumpkinCheesecake",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropPumpkin"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarGrainAlcohol"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodPumpkinBread",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropPumpkin"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "2",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodBoiledMeat",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodBoiledMeat",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCanSham",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodRottingFlesh"
+			},
+			{
+				"count": "5",
+				"name": "resourceBone"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "resourcePaint"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"name": "foodCharredMeat",
+		"tags": "perkMasterChef",
+		"ingredient": {
+			"count": "5",
+			"name": "foodRawMeat"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodChiliDog",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanChili"
+			},
+			{
+				"count": "1",
+				"name": "foodCornBread"
+			},
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCornBread",
+		"tags": "perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCornBread",
+		"tags": "perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"name": "foodCornMeal",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropCorn"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodCornOnTheCob",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropCorn"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodEggBoiled",
+		"tags": "perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodEggBoiled",
+		"tags": "perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"name": "DFfoodRawFish",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCanSalmon"
+		}
+	},
+	{
+		"count": "1",
+		"name": "DFfoodRawFish",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCanTuna"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodFishTacos",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFfoodRawFish"
+			},
+			{
+				"count": "2",
+				"name": "foodCornMeal"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodGrilledMeat",
+		"tags": "perkMasterChef",
+		"ingredient": {
+			"count": "5",
+			"name": "foodRawMeat"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "150",
+		"craft_tool": "toolCookingPot",
+		"name": "foodHoboStew",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "10",
+				"name": "foodRottingFlesh"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "150",
+		"craft_tool": "toolCookingPot",
+		"name": "foodHoboStew",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanCatfood"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "150",
+		"craft_tool": "toolCookingPot",
+		"name": "foodHoboStew",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanDogfood"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodMeatStew",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodGumboStew",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanBeef"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPeas"
+			},
+			{
+				"count": "1",
+				"name": "foodCanStock"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodShepardsPie",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanLamb"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPeas"
+			},
+			{
+				"count": "1",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "foodCropPotato"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodSpaghetti",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanBeef"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPasta"
+			},
+			{
+				"count": "1",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodTunaFishGravyToast",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanTuna"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "2",
+				"name": "foodCornBread"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPeas"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"name": "foodShamSandwich",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanSham"
+			},
+			{
+				"count": "1",
+				"name": "foodMoldyBread"
+			}
+		]
+	},
+	{
+		"count": "3",
+		"name": "foodMoldyBread",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodMoldyBread"
+			},
+			{
+				"count": "1",
+				"name": "DFsliceOfBread"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarRiverWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "chemistryStation",
+		"name": "foodMoldyBread",
+		"tags": "chemStationCrafting",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodShamSandwich"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarRiverWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodShamChowder",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodShamSandwich"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodSteakAndPotato",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodSteakAndPotato",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "DFCarrot"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodVegetableStew",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "2",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "foodVegetableStew",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "2",
+				"name": "DFCarrot"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"name": "medicalPlasterCast",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "resourceCloth"
+			},
+			{
+				"count": "8",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "4",
+				"name": "resourceCrushedSand"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarRiverWater"
+			}
+		]
+	},
+	{
+		"count": "2",
+		"craft_area": "PandM",
+		"craft_exp_gain": "0",
+		"name": "plantedtreeGrassSeed1",
+		"ingredient": {
+			"count": "2",
+			"name": "resourceYuccaFibers"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"name": "DFanimalFeed",
+		"scrapable": "False",
+		"ingredient": {
+			"count": "1",
+			"name": "DFApple"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"name": "DFanimalFeed",
+		"scrapable": "False",
+		"ingredient": {
+			"count": "1",
+			"name": "DFBanana"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkJarPureMineralWater",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "drinkJarRiverWater"
+			},
+			{
+				"count": "1",
+				"name": "resourceCoal"
+			},
+			{
+				"count": "1",
+				"name": "resourceCropGoldenrodPlant"
+			},
+			{
+				"count": "1",
+				"name": "resourceCropChrysanthemumPlant"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFbread",
+		"ingredient": {
+			"count": "2",
+			"name": "DFdough"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFbread",
+		"ingredient": {
+			"count": "1",
+			"name": "DFdough"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFvegetableSoup",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "5",
+				"name": "DFCarrot"
+			},
+			{
+				"count": "5",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFvegetableSoup",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "5",
+				"name": "DFCarrot"
+			},
+			{
+				"count": "5",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFRicePudding",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "DFRice"
+			},
+			{
+				"count": "1",
+				"name": "foodHoney"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFRicePudding",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "DFRice"
+			},
+			{
+				"count": "2",
+				"name": "foodHoney"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFCheese",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFRice"
+			},
+			{
+				"count": "1",
+				"name": "DFdrinkRiceMilk"
+			},
+			{
+				"count": "1",
+				"name": "DFYeast"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFCheese",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "DFRice"
+			},
+			{
+				"count": "2",
+				"name": "DFdrinkRiceMilk"
+			},
+			{
+				"count": "1",
+				"name": "DFYeast"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFCheesePizza",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFCheese"
+			},
+			{
+				"count": "1",
+				"name": "DFdough"
+			},
+			{
+				"count": "1",
+				"name": "DFTomato"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFCheesePizza",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFCheese"
+			},
+			{
+				"count": "2",
+				"name": "DFdough"
+			},
+			{
+				"count": "2",
+				"name": "DFTomato"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFMeatPizza",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFCheese"
+			},
+			{
+				"count": "1",
+				"name": "DFdough"
+			},
+			{
+				"count": "3",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "1",
+				"name": "DFTomato"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFMeatPizza",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFCheese"
+			},
+			{
+				"count": "2",
+				"name": "DFdough"
+			},
+			{
+				"count": "6",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "DFTomato"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFPhillyCheesesteak",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFCheese"
+			},
+			{
+				"count": "2",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "1",
+				"name": "DFdough"
+			},
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFPhillyCheesesteak",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "DFCheese"
+			},
+			{
+				"count": "4",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "2",
+				"name": "DFdough"
+			},
+			{
+				"count": "10",
+				"name": "foodRawMeat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFCoffeeCake",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "foodEgg"
+			},
+			{
+				"count": "2",
+				"name": "resourceCropCoffeeBeans"
+			},
+			{
+				"count": "1",
+				"name": "DFdrinkRiceMilk"
+			},
+			{
+				"count": "1",
+				"name": "foodHoney"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFCoffeeCake",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "6",
+				"name": "foodEgg"
+			},
+			{
+				"count": "4",
+				"name": "resourceCropCoffeeBeans"
+			},
+			{
+				"count": "2",
+				"name": "DFdrinkRiceMilk"
+			},
+			{
+				"count": "1",
+				"name": "foodHoney"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFMeatBurrito",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "10",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "4",
+				"name": "DFRice"
+			},
+			{
+				"count": "2",
+				"name": "DFtomatoJuice"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFMeatBurrito",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "DFRice"
+			},
+			{
+				"count": "1",
+				"name": "DFtomatoJuice"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFPorkPie",
+		"tags": "perkMasterChef",
+		"ingredient": [
+			{
+				"count": "10",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "1",
+				"name": "DFdough"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFPorkPie",
+		"tags": "perkMasterChef",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "1",
+				"name": "DFdough"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFroastDinner",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "3",
+				"name": "DFCarrot"
+			},
+			{
+				"count": "1",
+				"name": "foodGrilledMeat"
+			},
+			{
+				"count": "1",
+				"name": "DFbatter"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFapplePie",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFApple"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "DFFlour"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFapplePie",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFApple"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "DFFlour"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFblueberryPancakes",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFbatter"
+			},
+			{
+				"count": "2",
+				"name": "foodCropBlueberries"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFblueberryPancakes",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFbatter"
+			},
+			{
+				"count": "1",
+				"name": "foodCropBlueberries"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "10",
+		"name": "DFbakedApple",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFstick"
+			},
+			{
+				"count": "1",
+				"name": "DFApple"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "5",
+		"craft_tool": "carBattery",
+		"name": "DFbakedApple",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFstick"
+			},
+			{
+				"count": "1",
+				"name": "DFApple"
+			}
+		]
+	},
+	{
+		"count": "2",
+		"craft_area": "oven",
+		"craft_time": "5",
+		"craft_tool": "carBattery",
+		"name": "DFdriedOrange",
+		"ingredient": {
+			"count": "1",
+			"name": "DFOrange"
+		}
+	},
+	{
+		"count": "2",
+		"craft_area": "campfire",
+		"craft_time": "10",
+		"craft_tool": "toolCookingGrill",
+		"name": "DFdriedOrange",
+		"ingredient": {
+			"count": "1",
+			"name": "DFOrange"
+		}
+	},
+	{
+		"count": "2",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodJarBlueberryJam",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "4",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFstickyApple",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFstick"
+			},
+			{
+				"count": "1",
+				"name": "DFApple"
+			},
+			{
+				"count": "2",
+				"name": "DFbowlSap"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFstickyApple",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFstick"
+			},
+			{
+				"count": "1",
+				"name": "DFApple"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlSap"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFbananaBread",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "DFBanana"
+			},
+			{
+				"count": "2",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "DFCoconut"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFbananaBread",
+		"ingredient": [
+			{
+				"count": "6",
+				"name": "DFBanana"
+			},
+			{
+				"count": "4",
+				"name": "foodEgg"
+			},
+			{
+				"count": "2",
+				"name": "DFCoconut"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFbananaPancakes",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFbatter"
+			},
+			{
+				"count": "2",
+				"name": "DFBanana"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFbananaPancakes",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFbatter"
+			},
+			{
+				"count": "1",
+				"name": "DFBanana"
+			}
+		]
+	},
+	{
+		"count": "2",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DForangeMarmalade",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "DFOrange"
+			},
+			{
+				"count": "4",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "DFmarmaladeToast",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DForangeMarmalade"
+			},
+			{
+				"count": "1",
+				"name": "DFsliceOfBread"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFmarmaladeToast",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DForangeMarmalade"
+			},
+			{
+				"count": "1",
+				"name": "DFsliceOfBread"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "DFPearToast",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanPears"
+			},
+			{
+				"count": "1",
+				"name": "DFsliceOfBread"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFPearToast",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanPears"
+			},
+			{
+				"count": "1",
+				"name": "DFsliceOfBread"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFPearSmoothie",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanPears"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFPearSmoothie",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanPears"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFfoodTapioca",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropYuccaFruit"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFfoodTapioca",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCropYuccaFruit"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DForangeTea",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "DFOrange"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DForangeTea",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFOrange"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "60",
+		"name": "DFtomatoJuice",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "4",
+				"name": "DFTomato"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "60",
+		"name": "DFappleJuice",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "4",
+				"name": "DFApple"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFFruitSmoothie",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "DFOrange"
+			},
+			{
+				"count": "3",
+				"name": "DFBanana"
+			},
+			{
+				"count": "3",
+				"name": "DFCoconut"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFFruitSmoothie",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFOrange"
+			},
+			{
+				"count": "2",
+				"name": "DFBanana"
+			},
+			{
+				"count": "2",
+				"name": "DFCoconut"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "60",
+		"name": "DFdrinkRiceMilk",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "4",
+				"name": "DFRice"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "60",
+		"name": "DForangeJuice",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "4",
+				"name": "DFOrange"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkJarBlackStrapCoffee",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropCoffeeBeans"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "3",
+				"name": "resourceGunPowder"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFveggieBolognaise",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFpasta"
+			},
+			{
+				"count": "2",
+				"name": "DFtomatoJuice"
+			},
+			{
+				"count": "4",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "4",
+				"name": "DFCarrot"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFveggieBolognaise",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFpasta"
+			},
+			{
+				"count": "1",
+				"name": "DFtomatoJuice"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "2",
+				"name": "DFCarrot"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFmeatBolognaise",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFpasta"
+			},
+			{
+				"count": "2",
+				"name": "DFtomatoJuice"
+			},
+			{
+				"count": "4",
+				"name": "foodRawMeat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFmeatBolognaise",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFpasta"
+			},
+			{
+				"count": "1",
+				"name": "DFtomatoJuice"
+			},
+			{
+				"count": "2",
+				"name": "foodRawMeat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "10",
+		"craft_tool": "toolCookingGrill",
+		"name": "DFgrilledYucca",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropYuccaFruit"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "5",
+		"craft_tool": "carBattery",
+		"name": "DFgrilledYucca",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropYuccaFruit"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "10",
+		"craft_tool": "toolCookingGrill",
+		"name": "DFgrilledTomato",
+		"ingredient": {
+			"count": "1",
+			"name": "DFTomato"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "5",
+		"craft_tool": "carBattery",
+		"name": "DFgrilledTomato",
+		"ingredient": {
+			"count": "1",
+			"name": "DFTomato"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"name": "foodJarPeanutButter",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodBagOfPeanuts"
+			},
+			{
+				"count": "1",
+				"name": "foodHoney"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodBeansOnToast",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanBakedBeans"
+			},
+			{
+				"count": "1",
+				"name": "DFsliceOfBread"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodBeansOnToast",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanBakedBeans"
+			},
+			{
+				"count": "1",
+				"name": "DFsliceOfBread"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"name": "foodPeanutButterSandwich",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodJarPeanutButter"
+			},
+			{
+				"count": "2",
+				"name": "DFsliceOfBread"
+			}
+		]
+	},
+	{
+		"count": "4",
+		"name": "foodPBAndJSandwich",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodJarPeanutButter"
+			},
+			{
+				"count": "1",
+				"name": "foodJarBlueberryJam"
+			},
+			{
+				"count": "8",
+				"name": "DFsliceOfBread"
+			}
+		]
+	},
+	{
+		"count": "2",
+		"name": "foodBagTrailMix",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodBagOfPeanuts"
+			},
+			{
+				"count": "1",
+				"name": "foodBagOfDriedFruit"
+			}
+		]
+	},
+	{
+		"count": "2",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingGrill",
+		"name": "foodBagOfDriedFruit",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFApple"
+			},
+			{
+				"count": "1",
+				"name": "DFOrange"
+			},
+			{
+				"count": "1",
+				"name": "DFBanana"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPears"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "120",
+		"craft_tool": "toolCookingPot",
+		"name": "DFink",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodEgg"
+			},
+			{
+				"count": "2",
+				"name": "foodHoney"
+			},
+			{
+				"count": "12",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "12",
+				"name": "DFTomato"
+			},
+			{
+				"count": "12",
+				"name": "resourceCropGoldenrodPlant"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "120",
+		"craft_tool": "toolCookingPot",
+		"name": "DFink",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodEgg"
+			},
+			{
+				"count": "2",
+				"name": "foodHoney"
+			},
+			{
+				"count": "18",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "18",
+				"name": "resourceCropCoffeeBeans"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "120",
+		"craft_tool": "toolCookingPot",
+		"name": "DFink",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodEgg"
+			},
+			{
+				"count": "2",
+				"name": "foodHoney"
+			},
+			{
+				"count": "18",
+				"name": "DFTomato"
+			},
+			{
+				"count": "30",
+				"name": "resourceYuccaFibers"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "120",
+		"craft_tool": "toolCookingPot",
+		"name": "DFink",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodEgg"
+			},
+			{
+				"count": "2",
+				"name": "foodHoney"
+			},
+			{
+				"count": "18",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "18",
+				"name": "DFCarrot"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "120",
+		"craft_tool": "toolCookingPot",
+		"name": "DFink",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodEgg"
+			},
+			{
+				"count": "2",
+				"name": "foodHoney"
+			},
+			{
+				"count": "12",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "12",
+				"name": "DFTomato"
+			},
+			{
+				"count": "30",
+				"name": "resourceYuccaFibers"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedHop1",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "resourceCropHopsFlower"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedPumpkin1",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "foodCropPumpkin"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedCoffee1",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "resourceCropCoffeeBeans"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedWheat",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "DFWheat"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedCannabis",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "drugCannabisBud"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedRice",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "DFRice"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedCarrot",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "DFCarrot"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedTomato",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "DFTomato"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedOrange",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "DFOrange"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedBanana",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "DFBanana"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedCoconut",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "DFCoconut"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolBeaker",
+		"name": "drugAntibiotics",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodMoldyBread"
+			},
+			{
+				"count": "3",
+				"name": "resourcePotassiumNitratePowder"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "50",
+		"craft_area": "campfire",
+		"craft_tool": "toolBeaker",
+		"name": "ammoGasCan",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "resourceBioFuel"
+			},
+			{
+				"count": "2",
+				"name": "foodCornMeal"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkCanMegaCrush",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFbowlSap"
+			},
+			{
+				"count": "6",
+				"name": "DFApple"
+			},
+			{
+				"count": "6",
+				"name": "DFBanana"
+			},
+			{
+				"count": "6",
+				"name": "DFCoconut"
+			},
+			{
+				"count": "6",
+				"name": "foodCropBlueberries"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkCanMegaCrush",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFbowlSap"
+			},
+			{
+				"count": "3",
+				"name": "DFApple"
+			},
+			{
+				"count": "3",
+				"name": "DFBanana"
+			},
+			{
+				"count": "3",
+				"name": "DFCoconut"
+			},
+			{
+				"count": "3",
+				"name": "foodCropBlueberries"
+			}
+		]
+	},
+	{
+		"always_unlocked": "true",
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodBaconAndEggs",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodEgg"
+			},
+			{
+				"count": "2",
+				"name": "foodRawMeat"
+			}
+		]
+	},
+	{
+		"always_unlocked": "true",
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFBaconAndEggSandwhich",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodEgg"
+			},
+			{
+				"count": "2",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "DFsliceOfBread"
+			}
+		]
+	},
+	{
+		"always_unlocked": "true",
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFEnglishBreakfast",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "DFTomato"
+			},
+			{
+				"count": "1",
+				"name": "foodCropMushrooms"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodBakedPotato",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropPotato"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "10",
+		"name": "DFfoodBakedCarrot",
+		"ingredient": {
+			"count": "1",
+			"name": "DFCarrot"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "10",
+		"craft_tool": "carBattery",
+		"name": "DFfoodBakedCarrot",
+		"ingredient": {
+			"count": "1",
+			"name": "DFCarrot"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodBlueberryPie",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "60",
+		"craft_tool": "carBattery",
+		"name": "drinkJarBoiledWater",
+		"ingredient": {
+			"count": "1",
+			"name": "drinkJarRiverWater"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkJarRiverWater",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceSnowBall"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarEmpty"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodCharredMeat",
+		"ingredient": {
+			"count": "2",
+			"name": "foodRawMeat"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkJarCoffee",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropCoffeeBeans"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodCornBread",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodCornOnTheCob",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropCorn"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodEggBoiled",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodEggBoiled",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkJarGoldenRodTea",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropGoldenrodPlant"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodBoiledMeat",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodGrilledMeat",
+		"ingredient": {
+			"count": "2",
+			"name": "foodRawMeat"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drugHerbalAntibiotics",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "2",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "2",
+				"name": "resourceCropChrysanthemumPlant"
+			},
+			{
+				"count": "2",
+				"name": "resourcePotassiumNitratePowder"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodMeatStew",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodGumboStew",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanBeef"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPeas"
+			},
+			{
+				"count": "1",
+				"name": "foodCanStock"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodShepardsPie",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanLamb"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPeas"
+			},
+			{
+				"count": "1",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "foodCropPotato"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodSpaghetti",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanBeef"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPasta"
+			},
+			{
+				"count": "1",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodTunaFishGravyToast",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanTuna"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "2",
+				"name": "foodCornBread"
+			},
+			{
+				"count": "3",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "foodCanPeas"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkJarRedTea",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropChrysanthemumPlant"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodVegetableStew",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "1",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodVegetableStew",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "1",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "DFCarrot"
+			},
+			{
+				"count": "1",
+				"name": "DFbowlWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"name": "DFbowlWater",
+		"ingredient": {
+			"count": "1",
+			"name": "DFbowlRiverWater"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFbowlWater",
+		"ingredient": {
+			"count": "1",
+			"name": "DFbowlRiverWater"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFbowlRiverWater",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceSnowBall"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodSteakAndPotato",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropMushrooms"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodSteakAndPotato",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRawMeat"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "DFCarrot"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodFishTacos",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "DFfoodRawFish"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "DFfoodFishPie",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "DFfoodRawFish"
+			},
+			{
+				"count": "4",
+				"name": "foodCropPotato"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "DFfoodFishPie",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFfoodRawFish"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "150",
+		"craft_tool": "carBattery",
+		"name": "foodHoboStew",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodRottingFlesh"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "150",
+		"craft_tool": "carBattery",
+		"name": "foodHoboStew",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanCatfood"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "150",
+		"craft_tool": "carBattery",
+		"name": "foodHoboStew",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanDogfood"
+			},
+			{
+				"count": "2",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodShamChowder",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodShamSandwich"
+			},
+			{
+				"count": "1",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "1",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodChiliDog",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanChili"
+			},
+			{
+				"count": "1",
+				"name": "foodCornBread"
+			},
+			{
+				"count": "3",
+				"name": "foodRawMeat"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkJarGrandpasMoonshine",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarGrainAlcohol"
+			},
+			{
+				"count": "3",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "1",
+				"name": "resourceAcid"
+			},
+			{
+				"count": "1",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkJarGrandpasAwesomeSauce",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "30",
+				"name": "casinoCoin"
+			},
+			{
+				"count": "3",
+				"name": "foodHoney"
+			},
+			{
+				"count": "3",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "1",
+				"name": "ammoGasCan"
+			},
+			{
+				"count": "1",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkJarGrandpasLearningElixir",
+		"tags": "learnable,perkMasterChef",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanDogfood"
+			},
+			{
+				"count": "2",
+				"name": "drinkJarRedTea"
+			},
+			{
+				"count": "1",
+				"name": "resourceAcid"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBeer"
+			},
+			{
+				"count": "1",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drugRecog",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "resourceAcid"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarGrainAlcohol"
+			},
+			{
+				"count": "3",
+				"name": "resourceScrapPolymers"
+			},
+			{
+				"count": "1",
+				"name": "drugVitamins"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drugFortBites",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "3",
+				"name": "medicalBloodBag"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarGrainAlcohol"
+			},
+			{
+				"count": "10",
+				"name": "foodRottingFlesh"
+			},
+			{
+				"count": "1",
+				"name": "drugVitamins"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkJarYuccaJuice",
+		"tags": "perkMasterChef",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCropYuccaFruit"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarEmpty"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "drinkYuccaJuiceSmoothie",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropYuccaFruit"
+			},
+			{
+				"count": "2",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "1",
+				"name": "resourceSnowBall"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarEmpty"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodPumpkinPie",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropPumpkin"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodPumpkinCheesecake",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCropPumpkin"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "resourceAnimalFat"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarGrainAlcohol"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_tool": "carBattery",
+		"name": "foodPumpkinBread",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCropPumpkin"
+			},
+			{
+				"count": "1",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "1",
+				"name": "foodEgg"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedAloe1",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "resourceCropAloeLeaf"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedBlueberry1",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "foodCropBlueberries"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedChrysanthemum1",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "resourceCropChrysanthemumPlant"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedGraceCorn1",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "foodCropGraceCorn"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedCorn1",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "foodCropCorn"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedCotton1",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "resourceCropCottonPlant"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedGoldenrod1",
+		"ingredient": {
+			"count": "2",
+			"name": "resourceCropGoldenrodPlant"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "2",
+		"name": "plantedMushroom1",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "1",
+				"name": "resourceClayLump"
+			}
+		]
+	},
+	{
+		"always_unlocked": "true",
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedPotato1",
+		"ingredient": {
+			"count": "2",
+			"name": "foodCropPotato"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedYucca1",
+		"ingredient": {
+			"count": "2",
+			"name": "foodCropYuccaFruit"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"name": "medicalAloeCream",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "2",
+			"name": "resourceCropAloeLeaf"
+		}
+	},
+	{
+		"count": "2",
+		"craft_area": "PandM",
+		"name": "foodCornMeal",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropCorn"
+		}
+	},
+	{
+		"count": "4",
+		"craft_area": "PandM",
+		"name": "foodCornMeal",
+		"ingredient": {
+			"count": "1",
+			"name": "foodCropGraceCorn"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"name": "DFFlour",
+		"ingredient": {
+			"count": "1",
+			"name": "DFWheat"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"name": "DFFlour",
+		"ingredient": {
+			"count": "1",
+			"name": "DFfoodTapioca"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedApple",
+		"ingredient": {
+			"count": "2",
+			"name": "DFApple"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"name": "bucketRiverWater",
+		"ingredient": [
+			{
+				"count": "20",
+				"name": "resourceSnowBall"
+			},
+			{
+				"count": "1",
+				"name": "bucketEmpty"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "60",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCookedChili",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanChili"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "60",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCookedPasta",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanPasta"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "60",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCookedMiso",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanMiso"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "60",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCookedPeaSoup",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanPeas"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "60",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCookedChickenSoup",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanSoup"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "60",
+		"craft_tool": "toolCookingPot",
+		"name": "foodCookedShamSoup",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanSham"
+			},
+			{
+				"count": "1",
+				"name": "foodCanStock"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "30",
+		"craft_tool": "carBattery",
+		"name": "foodCookedChili",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanChili"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "30",
+		"craft_tool": "carBattery",
+		"name": "foodCookedPasta",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanPasta"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "30",
+		"craft_tool": "carBattery",
+		"name": "foodCookedMiso",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanMiso"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "30",
+		"craft_tool": "carBattery",
+		"name": "foodCookedPeaSoup",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanPeas"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "30",
+		"craft_tool": "carBattery",
+		"name": "foodCookedChickenSoup",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanSoup"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "oven",
+		"craft_time": "30",
+		"craft_tool": "carBattery",
+		"name": "foodCookedShamSoup",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCanSham"
+			},
+			{
+				"count": "1",
+				"name": "foodCanStock"
+			},
+			{
+				"count": "1",
+				"name": "DFemptyBowl"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_time": "60",
+		"craft_tool": "toolBeaker",
+		"name": "DFfertilizer",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "DFturd"
+			},
+			{
+				"count": "15",
+				"name": "resourcePotassiumNitratePowder"
+			},
+			{
+				"count": "3",
+				"name": "resourceClayLump"
+			},
+			{
+				"count": "10",
+				"name": "resourceYuccaFibers"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedAloe1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "resourceCropAloeLeaf"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedBlueberry1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedChrysanthemum1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "resourceCropChrysanthemumPlant"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedGraceCorn1Underground",
+		"tags": "learnable",
+		"ingredient": {
+			"count": "6",
+			"name": "foodCropGraceCorn"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedCorn1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodCropCorn"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedCotton1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "resourceCropCottonPlant"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedGoldenrod1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "resourceCropGoldenrodPlant"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedPotato1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodCropPotato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedYucca1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodCropYuccaFruit"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedHop1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "resourceCropHopsFlower"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedCoffee1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "resourceCropCoffeeBeans"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "plantedPumpkin1Underground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodCropPumpkin"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedWheatUnderground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "DFWheat"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedCarrotUnderground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "DFCarrot"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedTomatoUnderground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "DFTomato"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedCannabisUnderground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "drugCannabisBud"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "PandM",
+		"craft_time": "1",
+		"name": "DFseedRiceUnderground",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "DFRice"
+			},
+			{
+				"count": "2",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	}
+]

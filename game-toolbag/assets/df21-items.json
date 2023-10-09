@@ -1,0 +1,8070 @@
+[
+	{
+		"name": "foodHoney",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,medical,medicalSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCureInfection"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "80"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "Group",
+				"value": "Science,CFChemicals,Medical,TCMedical"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_drinking"
+					}
+				]
+			}
+		],
+		"effect_group": [
+			{
+				"tiered": "false",
+				"triggered_effect": [
+					{
+						"action": "ModifyCVar",
+						"cvar": "$foodAmountAdd",
+						"operation": "add",
+						"trigger": "onSelfPrimaryActionEnd",
+						"value": "8"
+					},
+					{
+						"action": "AddBuff",
+						"buff": "buffProcessConsumables",
+						"trigger": "onSelfPrimaryActionEnd"
+					}
+				],
+				"display_value": [
+					{
+						"name": "dCureInfection",
+						"value": ".05"
+					},
+					{
+						"name": "dFoodAmount",
+						"value": "8"
+					}
+				]
+			},
+			{
+				"tiered": "false",
+				"requirement": {
+					"min_max": "0,100",
+					"name": "RandomRoll",
+					"operation": "LTE",
+					"seed_type": "Random",
+					"value": "70"
+				},
+				"triggered_effect": [
+					{
+						"action": "ModifyCVar",
+						"cvar": "$buffInfectionAddCurePerc",
+						"operation": "add",
+						"trigger": "onSelfPrimaryActionEnd",
+						"value": "5"
+					},
+					{
+						"action": "AddBuff",
+						"buff": "buffInfectionAddCure",
+						"trigger": "onSelfPrimaryActionEnd"
+					}
+				]
+			},
+			{
+				"name": "Return Jar or Glass",
+				"tiered": "false",
+				"triggered_effect": {
+					"action": "CallGameEvent",
+					"event": "drink_return_jar",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "50"
+					}
+				}
+			}
+		]
+	},
+	{
+		"name": "foodCanBeef",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,dumpsterFood,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Mmetal"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "60"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "15"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "15"
+			}
+		}
+	},
+	{
+		"name": "foodCanChicken",
+		"property": {
+			"name": "Extends",
+			"value": "foodCanBeef"
+		},
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "15"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "15"
+			}
+		}
+	},
+	{
+		"name": "foodCanLamb",
+		"property": {
+			"name": "Extends",
+			"value": "foodCanBeef"
+		},
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "15"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "15"
+			}
+		}
+	},
+	{
+		"name": "foodCanCatfood",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "25"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".25"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanDogfood",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "40"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "25"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".25"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanChili",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "15"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "20"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".2"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "15"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanTuna",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "5"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".05"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanSham",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "foodCanShamSchematic"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "15"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "5"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".05"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "15"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanPasta",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "15"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "20"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".2"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "15"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanSalmon",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "20"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".2"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "15"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanMiso",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterCanned"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "20"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".2"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanPeas",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanMiso"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterCanned"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "10"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".1"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "5"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanPears",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanMiso"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterCanned"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "5"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".05"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "5"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanSoup",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanMiso"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterCanned"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "40"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "20"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".2"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanStock",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanMiso"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterCanned"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "40"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"target": "self",
+						"value": "20"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".2"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCornOnTheCob",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterNegative"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "5"
+			}
+		}
+	},
+	{
+		"name": "foodCornBread",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "4"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "4"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodMoldyBread",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "5"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "SellableToTrader",
+				"value": "false"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "30"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "4"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "-2"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "12"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodAmount",
+					"value": "4"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "-2"
+				},
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".12"
+				},
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".12"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodShamSandwich",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "5"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "SellableToTrader",
+				"value": "false"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "30"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "15"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "-5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "12"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodAmount",
+					"value": "15"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "-5"
+				},
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".12"
+				},
+				{
+					"name": "FoodPoisoningRisk",
+					"value": ".12"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCharredMeat",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterNegative"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "2.1"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "ModifyStats",
+					"operation": "add",
+					"stat": "water",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "-2"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWaterAmountAdd",
+					"value": "-2"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodGrilledMeat",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "52"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "2.1"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "8"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "8"
+			}
+		}
+	},
+	{
+		"name": "foodBoiledMeat",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWater"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "52"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "2.1"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "8"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWaterAmountAdd",
+					"value": "8"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodMeatStew",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWater"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "100"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef,foodMeatStewSchematic"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_drinking"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffAverageFood,buffWellnessTwo,buffStew",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffAverageFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "2"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "20"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "20"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodSteakAndPotato",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Mplants"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "100"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "10"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef,foodSteakAndPotatoSchematic"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffAverageFood,buffWellnessTwo",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffAverageFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "2"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "20"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodShamChowder",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanSham"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodShamChowder"
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef,foodShamChowderSchematic"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "40"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "30"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$buffShamChowderDuration",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "240",
+					"requirement": {
+						"cvar": "$buffShamChowderDuration",
+						"name": "CVarCompare",
+						"operation": "GT",
+						"value": "240"
+					}
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffGoodFood,buffWellnessFour,buffBloodDrawKitRecover,buffShamChowder2",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffGoodFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dDuration",
+					"value": "240"
+				},
+				{
+					"name": "dWellness",
+					"value": "4"
+				},
+				{
+					"name": "dStressReduction",
+					"value": "3"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "30"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "20"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "40"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodHoboStew",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWater"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef,foodHoboStewSchematic"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_drinking"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "30"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffGoodFood,buffWellnessFour,buffBloodDrawKitRecover,buffStew",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffGoodFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "4"
+				},
+				{
+					"name": "dStressReduction",
+					"value": "3"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "20"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "20"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "30"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodFishTacos",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Mplants"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "10"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef,foodFishTacosSchematic"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "40"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "15"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffGoodFood,buffWellnessFour,buffBloodDrawKitRecover,buffTaco",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffGoodFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "4"
+				},
+				{
+					"name": "dStressReduction",
+					"value": "3"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "20"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodChiliDog",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCornOnTheCob"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef,foodChiliDogSchematic"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "30"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "30"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffGoodFood,buffWellnessFour,buffBloodDrawKitRecover,buffChilli",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffGoodFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "4"
+				},
+				{
+					"name": "dStressReduction",
+					"value": "3"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "30"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "30"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodBakedPotato",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterNegative"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "8"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "8"
+			}
+		}
+	},
+	{
+		"name": "foodBlueberryPie",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "100"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef,foodBlueberryPieSchematic"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffAverageFood,buffWellnessTwo",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffAverageFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "2"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "20"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodPumpkinPie",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "250"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef,foodPumpkinPieSchematic"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "60"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "40"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffGoodFood,buffWellnessFive",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffGoodFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "5"
+				},
+				{
+					"name": "dStressReduction",
+					"value": "3"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "40"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "60"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodPumpkinCheesecake",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodPumpkinCheesecake"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "250"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": [
+			{
+				"tiered": "false",
+				"triggered_effect": [
+					{
+						"action": "ModifyCVar",
+						"cvar": "$foodAmountAdd",
+						"operation": "add",
+						"trigger": "onSelfPrimaryActionEnd",
+						"value": "30"
+					},
+					{
+						"action": "ModifyCVar",
+						"cvar": "foodHealthAmount",
+						"operation": "add",
+						"trigger": "onSelfPrimaryActionEnd",
+						"value": "5"
+					},
+					{
+						"action": "AddBuff",
+						"buff": "buffProcessConsumables",
+						"trigger": "onSelfPrimaryActionEnd"
+					},
+					{
+						"action": "ModifyCVar",
+						"cvar": ".foodStaminaBonusAdd",
+						"operation": "add",
+						"trigger": "onSelfPrimaryActionEnd",
+						"value": "20"
+					},
+					{
+						"action": "AddBuff",
+						"buff": "buffGoodFood,buffWellnessFive",
+						"target": "self",
+						"trigger": "onSelfPrimaryActionEnd",
+						"requirement": {
+							"buff": "buffGoodFood",
+							"name": "!HasBuff"
+						}
+					}
+				],
+				"display_value": [
+					{
+						"name": "dWellness",
+						"value": "5"
+					},
+					{
+						"name": "dStressReduction",
+						"value": "3"
+					},
+					{
+						"name": "dFoodStaminaBonus",
+						"value": "20"
+					},
+					{
+						"name": "dFoodAmount",
+						"value": "30"
+					},
+					{
+						"name": "dFoodHealthAmount",
+						"value": "5"
+					}
+				]
+			},
+			{
+				"tiered": "false",
+				"display_value": [
+					{
+						"name": "dBartering",
+						"value": ".05"
+					},
+					{
+						"name": "dDuration",
+						"value": "300"
+					}
+				],
+				"triggered_effect": [
+					{
+						"action": "ModifyCVar",
+						"cvar": "$buffPumpkinCheesecakeDuration",
+						"operation": "add",
+						"trigger": "onSelfPrimaryActionEnd",
+						"value": "303",
+						"requirement": [
+							{
+								"buff": "buffDrugSugarButts2",
+								"name": "!HasBuff"
+							},
+							{
+								"buff": "buffDrunkGrandpasAwesomeSauce2",
+								"name": "!HasBuff"
+							}
+						]
+					},
+					{
+						"action": "ModifyCVar",
+						"cvar": "$buffPumpkinCheesecakeDuration",
+						"operation": "set",
+						"trigger": "onSelfPrimaryActionEnd",
+						"value": "903",
+						"requirement": [
+							{
+								"cvar": "$buffPumpkinCheesecakeDuration",
+								"name": "CVarCompare",
+								"operation": "GT",
+								"value": "903"
+							},
+							{
+								"buff": "buffDrugSugarButts2",
+								"name": "!HasBuff"
+							},
+							{
+								"buff": "buffDrunkGrandpasAwesomeSauce2",
+								"name": "!HasBuff"
+							}
+						]
+					},
+					{
+						"action": "AddBuff",
+						"buff": "buffPumpkinCheesecake2",
+						"trigger": "onSelfPrimaryActionEnd",
+						"requirement": [
+							{
+								"buff": "buffDrugSugarButts2",
+								"name": "!HasBuff"
+							},
+							{
+								"buff": "buffDrunkGrandpasAwesomeSauce2",
+								"name": "!HasBuff"
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "foodPumpkinBread",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "250"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef,foodPumpkinBreadSchematic"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "60"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "40"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffGoodFood,buffWellnessFive",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffGoodFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "5"
+				},
+				{
+					"name": "dStressReduction",
+					"value": "3"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "40"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "60"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodGumboStew",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWater"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Mplants"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "300"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "10"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkMasterFarmer"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"name": "Food Tier 4",
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "60"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "30"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffFoodLimberUp2",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffExcellentFood,buffWellnessFive,buffBloodDrawKitRecover,buffStew",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffExcellentFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "5"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "30"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "20"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "60"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodShepardsPie",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Mplants"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "300"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "10"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkMasterFarmer"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "60"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "30"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffDrugHackers2",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffExcellentFood,buffWellnessFive,buffBloodDrawKitRecover",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffExcellentFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "5"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "30"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "60"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodSpaghetti",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Mplants"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "300"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "10"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkMasterFarmer"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "60"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "30"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffDrugSugarButts2",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": [
+						{
+							"buff": "buffPumpkinCheesecake2",
+							"name": "!HasBuff"
+						},
+						{
+							"buff": "buffDrunkGrandpasAwesomeSauce",
+							"name": "!HasBuff"
+						}
+					]
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffExcellentFood,buffWellnessFive,buffBloodDrawKitRecover",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffExcellentFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "5"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "30"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "60"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodTunaFishGravyToast",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Mplants"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "300"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "10"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkMasterFarmer"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "60"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "30"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffDrugSkullCrushers2",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffExcellentFood,buffWellnessFive,buffBloodDrawKitRecover",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffExcellentFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "5"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "30"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "60"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodEggBoiled",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "25"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "2.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "5"
+			}
+		}
+	},
+	{
+		"name": "foodBaconAndEggs",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterNegative"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "72"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "2.1"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Smell",
+				"value": "largeSmell"
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "15"
+				},
+				{
+					"action": "ModifyStats",
+					"operation": "add",
+					"stat": "water",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "-2"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWaterAmountAdd",
+					"value": "-2"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "15"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodVegetableStew",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWater"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "100"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef,foodVegetableStewSchematic"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_drinking"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffAverageFood,buffWellnessTwo,buffStew",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffAverageFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "2"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "20"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "20"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodRawMeat",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,dumpsterFood,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MfoodRawMeat"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "3"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Smell",
+				"value": "ExLargeSmell"
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "2"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "2"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodRottingFlesh",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MfoodRawMeat"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "5"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "SellableToTrader",
+				"value": "false"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "95"
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "-1"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "50"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".50"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "1"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "-1"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodEgg",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,dumpsterFood,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "15"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "7"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".07"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCornMeal",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterCanned"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "10"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "10"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "ModifyStats",
+					"operation": "add",
+					"stat": "water",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "-3"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "7"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".07"
+				},
+				{
+					"name": "dWaterAmountAdd",
+					"value": "-3"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCropBlueberries",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MresourceCrop"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "10"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "8"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".01"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "1"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCropCorn",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MresourceCrop"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "10"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "5"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "2"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "7"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".07"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "2"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCropGraceCorn",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodCropCorn"
+			},
+			{
+				"name": "CustomIconTint",
+				"value": "ff9f9f"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MresourceCrop"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "5"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "20"
+			}
+		}
+	},
+	{
+		"name": "foodCropPotato",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MresourceCrop"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "10"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "10"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "2"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "7"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".07"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "2"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCropMushrooms",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MresourceCrop"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "10"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "5"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "2"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "7"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".07"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "2"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCropYuccaFruit",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MresourceCrop"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "10"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "SellableToTrader",
+				"value": "false"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "7"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".07"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "1"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCropPumpkin",
+		"property": [
+			{
+				"name": "CustomIcon",
+				"value": "plantedPumpkin3Harvest"
+			},
+			{
+				"name": "Tags",
+				"value": "food,foodSkill"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MresourceCrop"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "125"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "10"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "SellableToTrader",
+				"value": "false"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "3"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "7"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodPoisoningRisk",
+					"value": ".07"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "3"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanShamSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodCanSham"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodCanSham"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodCanSham",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodBaconAndEggsSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodBaconAndEggs"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodBaconAndEggs"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodBaconAndEggs",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodBakedPotatoSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodBakedPotato"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodBakedPotato"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodBakedPotato",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodBlueberryPieSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodBlueberryPie"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodBlueberryPie"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodBlueberryPie",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodPumpkinPieSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodPumpkinPie"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodPumpkinPie"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodPumpkinPie",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodPumpkinCheesecakeSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodPumpkinCheesecake"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodPumpkinCheesecake"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodPumpkinCheesecake",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodPumpkinBreadSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodPumpkinBread"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodPumpkinBread"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodPumpkinBread",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodGumboStewSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodGumboStew"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodGumboStew"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodGumboStew",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodShepardsPieSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodShepardsPie"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodShepardsPie"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodShepardsPie",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodSpaghettiSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodSpaghetti"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodSpaghetti"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodSpaghetti",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodTunaFishGravyToastSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodTunaFishGravyToast"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodTunaFishGravyToast"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodTunaFishGravyToast",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodBoiledMeatSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodBoiledMeat"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodBoiledMeat"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodBoiledMeat",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodChiliDogSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodChiliDog"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodChiliDog"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodChiliDog",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCornBreadSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodCornBread"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodCornBread"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodCornBread",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCornOnTheCobSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodCornOnTheCob"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodCornOnTheCob"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodCornOnTheCob",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodFishTacosSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "600"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodFishTacos"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodFishTacos"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodFishTacos",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodGrilledMeatSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodGrilledMeat"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodGrilledMeat"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodGrilledMeat",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodHoboStewSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "600"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodHoboStew"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodHoboStew"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHoboStew",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodMeatStewSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "400"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodMeatStew"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodMeatStew"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodMeatStew",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodShamChowderSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "600"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodShamChowder"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodShamChowder"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodShamChowder",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodSteakAndPotatoSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "400"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodSteakAndPotato"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodSteakAndPotato"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodSteakAndPotato",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodVegetableStewSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "400"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "foodVegetableStew"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodVegetableStew"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodVegetableStew",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "questRewardT2FoodBundle",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "questRewardBundleMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "bundleFood"
+			},
+			{
+				"name": "CustomIconTint",
+				"value": "FFFFFF"
+			},
+			{
+				"name": "ItemTypeIcon",
+				"value": "bundle"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "questRewardFoodBundleDesc"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Create_item",
+						"value": "foodSkillMagazine"
+					},
+					{
+						"name": "Create_item_count",
+						"value": "3"
+					},
+					{
+						"name": "Random_item",
+						"value": "foodVegetableStew,foodMeatStew,foodBlueberryPie,foodSteakAndPotato,foodPumpkinPie,foodPumpkinCheesecake,foodPumpkinBread"
+					},
+					{
+						"name": "Random_item_count",
+						"value": "10,10,10,10,10,10,10"
+					},
+					{
+						"name": "Random_count",
+						"value": "1"
+					},
+					{
+						"name": "Unique_random_only",
+						"value": "true"
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "questRewardT3FoodBundle",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "questRewardBundleMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "bundleFood"
+			},
+			{
+				"name": "CustomIconTint",
+				"value": "FFFFFF"
+			},
+			{
+				"name": "ItemTypeIcon",
+				"value": "bundle"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "questRewardFoodBundleDesc"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Create_item",
+						"value": "foodSkillMagazine"
+					},
+					{
+						"name": "Create_item_count",
+						"value": "3"
+					},
+					{
+						"name": "Random_item",
+						"value": "foodShamChowder,foodHoboStew,foodChiliDog,foodFishTacos"
+					},
+					{
+						"name": "Random_item_count",
+						"value": "10,10,10,10"
+					},
+					{
+						"name": "Random_count",
+						"value": "1"
+					},
+					{
+						"name": "Unique_random_only",
+						"value": "true"
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "questRewardT4FoodBundle",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "questRewardBundleMaster"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "bundleFood"
+			},
+			{
+				"name": "CustomIconTint",
+				"value": "FFFFFF"
+			},
+			{
+				"name": "ItemTypeIcon",
+				"value": "bundle"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "questRewardFoodBundleDesc"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Create_item",
+						"value": "foodSkillMagazine"
+					},
+					{
+						"name": "Create_item_count",
+						"value": "3"
+					},
+					{
+						"name": "Random_item",
+						"value": "foodGumboStew,foodShepardsPie,foodSpaghetti,foodTunaFishGravyToast"
+					},
+					{
+						"name": "Random_item_count",
+						"value": "10,10,10,10"
+					},
+					{
+						"name": "Random_count",
+						"value": "1"
+					},
+					{
+						"name": "Unique_random_only",
+						"value": "true"
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "DFfoodBakedCarrot",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "carrot"
+			},
+			{
+				"name": "CustomIconTint",
+				"value": "BC8567"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "DFfoodBakedCarrotDesc"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "2"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "8"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "8"
+			}
+		}
+	},
+	{
+		"name": "DFfoodRawFish",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "grilledFish"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "rawFishDesc"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodRaw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MfoodRawMeat"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "250"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "5"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "3"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Smell",
+				"value": "ExLargeSmell"
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "5"
+			}
+		}
+	},
+	{
+		"name": "DFfoodTapioca",
+		"property": [
+			{
+				"name": "Tags",
+				"value": "food"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "Tapioca"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "DFfoodTapiocaDesc"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWater"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "134"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_drinking"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodStaminaBonus",
+				"value": "10"
+			}
+		}
+	},
+	{
+		"name": "foodJarBlueberryJam",
+		"property": [
+			{
+				"name": "CustomIcon",
+				"value": "blueberryJam"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "foodJarBlueberryJamDesc"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Food/bottled_waterPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Mglass"
+			},
+			{
+				"name": "HoldType",
+				"value": "3"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "25"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "100"
+			},
+			{
+				"name": "EconomicBundleSize",
+				"value": "1"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "8"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_drinking"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "15"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffWellnessTwo,buffAverageFood",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffAverageFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "2"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "15"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "DFfoodFishPie",
+		"property": [
+			{
+				"name": "CustomIcon",
+				"value": "fishPie"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "DFfoodFishPieDesc"
+			},
+			{
+				"name": "Tags",
+				"value": "food"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "10"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "150"
+			},
+			{
+				"name": "UnlockedBy",
+				"value": "perkSousChef"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "30"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffAverageFood,buffWellnessThree",
+					"target": "self",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffAverageFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "3"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "20"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "30"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "10"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodJarBlueberryJamSchematic",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "schematicNoQualityRecipeMaster"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "200"
+			},
+			{
+				"name": "CreativeMode",
+				"value": "Player"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "blueberryJam"
+			},
+			{
+				"name": "Unlocks",
+				"value": "foodJarBlueberryJam"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodJarBlueberryJam",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "1"
+				},
+				{
+					"action": "GiveExp",
+					"exp": "50",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCanBakedBeans",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "bakedBeans"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "foodCanBakedBeansDesc"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "10"
+			}
+		}
+	},
+	{
+		"name": "foodJarPeanutButter",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "peanutButter"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "foodJarPeanutButterDesc"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_drinking"
+					}
+				]
+			}
+		],
+		"effect_group": [
+			{
+				"tiered": "false",
+				"triggered_effect": [
+					{
+						"action": "ModifyCVar",
+						"cvar": "$foodAmountAdd",
+						"operation": "add",
+						"trigger": "onSelfPrimaryActionEnd",
+						"value": "10"
+					},
+					{
+						"action": "AddBuff",
+						"buff": "buffProcessConsumables",
+						"trigger": "onSelfPrimaryActionEnd"
+					}
+				],
+				"display_value": {
+					"name": "dFoodAmount",
+					"value": "10"
+				}
+			},
+			{
+				"name": "Return Jar or Glass",
+				"tiered": "false",
+				"triggered_effect": {
+					"action": "CallGameEvent",
+					"event": "drink_return_jar",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "0,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "50"
+					}
+				}
+			}
+		]
+	},
+	{
+		"name": "foodBagOfPeanuts",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "peanutBag"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "foodBagOfPeanutsDesc"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "5"
+			}
+		}
+	},
+	{
+		"name": "foodBagOfDriedFruit",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodCanned"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "driedFruitBag"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "foodBagOfDriedFruitDesc"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "5"
+			}
+		}
+	},
+	{
+		"name": "foodBagTrailMix",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodTrailMix"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "trailMixBag"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "foodBagTrailMixDesc"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffTrailMix",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dFoodAmount",
+					"value": "5"
+				},
+				{
+					"name": "dEfficientDigestion",
+					"value": ".15"
+				},
+				{
+					"name": "dDuration",
+					"value": "180"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodBeansOnToast",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanMiso"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWater"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "beansOnToast"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "foodBeansOnToastDesc"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "40"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "2"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWaterAmountAdd",
+					"value": "5"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "2"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodPeanutButterSandwich",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanMiso"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "PeanutButterSandwich"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "foodPeanutButterSandwichDesc"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "40"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": {
+				"name": "dFoodAmount",
+				"value": "20"
+			}
+		}
+	},
+	{
+		"name": "foodPBAndJSandwich",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanMiso"
+			},
+			{
+				"name": "Material",
+				"value": "Morganic"
+			},
+			{
+				"name": "DisplayType",
+				"value": "food"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "PeanutButterSandwich"
+			},
+			{
+				"name": "CustomIconTint",
+				"value": "106ae0"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "foodPBAndJSandwichDesc"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "40"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "30"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".foodStaminaBonusAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffWellnessTwo,buffAverageFood",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"buff": "buffAverageFood",
+						"name": "!HasBuff"
+					}
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWellness",
+					"value": "2"
+				},
+				{
+					"name": "dFoodStaminaBonus",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "30"
+				},
+				{
+					"name": "dFoodHealthAmount",
+					"value": "5"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCookedChili",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "warmbowlChili"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "DFcookedCannedFoodDesc"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterCanned"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					},
+					{
+						"name": "Create_item",
+						"value": "DFemptyBowl"
+					}
+				]
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWaterAmountAdd",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCookedShamSoup",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "warmsoupChunkyBeef"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "DFcookedCannedFoodDesc"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterCanned"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					},
+					{
+						"name": "Create_item",
+						"value": "DFemptyBowl"
+					}
+				]
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWaterAmountAdd",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCookedPasta",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "warmbowlPasta"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "DFcookedCannedFoodDesc"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterCanned"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					},
+					{
+						"name": "Create_item",
+						"value": "DFemptyBowl"
+					}
+				]
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWaterAmountAdd",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCookedMiso",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanBeef"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "warmbowlMiso"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "DFcookedCannedFoodDesc"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodWaterCanned"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					},
+					{
+						"name": "Create_item",
+						"value": "DFemptyBowl"
+					}
+				]
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWaterAmountAdd",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCookedPeaSoup",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanMiso"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "warmsoupPea"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "DFcookedCannedFoodDesc"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "20"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					},
+					{
+						"name": "Create_item",
+						"value": "DFemptyBowl"
+					}
+				]
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWaterAmountAdd",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				}
+			]
+		}
+	},
+	{
+		"name": "foodCookedChickenSoup",
+		"property": [
+			{
+				"name": "Extends",
+				"value": "foodCanMiso"
+			},
+			{
+				"name": "CustomIcon",
+				"value": "warmsoupChicken"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "DFcookedCannedFoodDesc"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "40"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					},
+					{
+						"name": "Create_item",
+						"value": "DFemptyBowl"
+					}
+				]
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "20"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "$waterAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				}
+			],
+			"display_value": [
+				{
+					"name": "dWaterAmountAdd",
+					"value": "10"
+				},
+				{
+					"name": "dFoodAmount",
+					"value": "20"
+				}
+			]
+		}
+	},
+	{
+		"name": "DFfoodFish",
+		"property": [
+			{
+				"name": "CustomIcon",
+				"value": "Fish"
+			},
+			{
+				"name": "DescriptionKey",
+				"value": "DFfoodFishDesc"
+			},
+			{
+				"name": "Tags",
+				"value": "food"
+			},
+			{
+				"name": "HoldType",
+				"value": "31"
+			},
+			{
+				"name": "DisplayType",
+				"value": "foodraw"
+			},
+			{
+				"name": "Meshfile",
+				"value": "@:Other/Items/Misc/parcelPrefab.prefab"
+			},
+			{
+				"name": "DropMeshfile",
+				"value": "@:Other/Items/Misc/sack_droppedPrefab.prefab"
+			},
+			{
+				"name": "Material",
+				"value": "MfoodRawMeat"
+			},
+			{
+				"name": "Stacknumber",
+				"value": "50"
+			},
+			{
+				"name": "EconomicValue",
+				"value": "7"
+			},
+			{
+				"name": "CraftingIngredientTime",
+				"value": "3"
+			},
+			{
+				"class": "Action0",
+				"property": [
+					{
+						"name": "Class",
+						"value": "Eat"
+					},
+					{
+						"name": "Delay",
+						"value": "1.0"
+					},
+					{
+						"name": "Use_time",
+						"value": "..."
+					},
+					{
+						"name": "Sound_start",
+						"value": "player_eating"
+					}
+				]
+			},
+			{
+				"name": "Smell",
+				"value": "ExLargeSmell"
+			},
+			{
+				"name": "Group",
+				"value": "Food/Cooking,CFFood/Cooking"
+			}
+		],
+		"effect_group": {
+			"tiered": "false",
+			"triggered_effect": [
+				{
+					"action": "ModifyCVar",
+					"cvar": "$foodAmountAdd",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": "foodHealthAmount",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "5"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffProcessConsumables",
+					"trigger": "onSelfPrimaryActionEnd"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "set",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "10"
+				},
+				{
+					"action": "ModifyCVar",
+					"cvar": ".DiseaseRoll",
+					"operation": "add",
+					"trigger": "onSelfPrimaryActionEnd",
+					"value": "@$MetabolismResist"
+				},
+				{
+					"action": "AddBuff",
+					"buff": "buffIllFoodPoisoning01",
+					"trigger": "onSelfPrimaryActionEnd",
+					"requirement": {
+						"min_max": "1,100",
+						"name": "RandomRoll",
+						"operation": "LTE",
+						"seed_type": "Random",
+						"value": "@.DiseaseRoll"
+					}
+				}
+			],
+			"display_value": {
+				"name": "dFoodPoisoningRisk",
+				"value": ".10"
+			}
+		}
+	}
+]
