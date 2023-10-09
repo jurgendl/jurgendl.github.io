@@ -3,6 +3,295 @@
 		"count": "1",
 		"craft_area": "campfire",
 		"craft_tool": "toolCookingPot",
+		"name": "drinkJarBoiledWater",
+		"tags": "perkMasterChef,perkChefBoiledWater,boiledWater",
+		"ingredient": {
+			"count": "1",
+			"name": "drinkJarRiverWater"
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarPureMineralWater",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "1",
+				"name": "resourceCoal"
+			},
+			{
+				"count": "1",
+				"name": "resourceCropGoldenrodPlant"
+			},
+			{
+				"count": "1",
+				"name": "resourceCropChrysanthemumPlant"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarCoffee",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropCoffeeBeans"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarBlackStrapCoffee",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropCoffeeBeans"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			},
+			{
+				"count": "5",
+				"name": "resourceGunPowder"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "resourceGunPowder",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarGoldenRodTea",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropGoldenrodPlant"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarGrandpasAwesomeSauce",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "50",
+				"name": "casinoCoin"
+			},
+			{
+				"count": "5",
+				"name": "foodHoney"
+			},
+			{
+				"count": "5",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "10",
+				"name": "ammoGasCan"
+			},
+			{
+				"count": "1",
+				"name": "foodCropGraceCorn"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "perc_add",
+				"tags": "casinoCoin,foodHoney,foodCropMushrooms,ammoGasCan",
+				"value": "-.2,-.4"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarGrandpasLearningElixir",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "2",
+				"name": "foodCanDogfood"
+			},
+			{
+				"count": "2",
+				"name": "drinkJarRedTea"
+			},
+			{
+				"count": "1",
+				"name": "resourceAcid"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBeer"
+			},
+			{
+				"count": "1",
+				"name": "foodCropGraceCorn"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarGrandpasMoonshine",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodCornMeal"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBeer"
+			},
+			{
+				"count": "5",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "1",
+				"name": "resourceAcid"
+			},
+			{
+				"count": "1",
+				"name": "foodCropGraceCorn"
+			}
+		],
+		"effect_group": {
+			"passive_effect": {
+				"level": "1,3",
+				"name": "CraftingIngredientCount",
+				"operation": "base_add",
+				"tags": "foodCornMeal,foodCropBlueberries",
+				"value": "-1,-2"
+			}
+		}
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarRedTea",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "resourceCropChrysanthemumPlant"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drinkJarYuccaJuice",
+		"tags": "perkMasterChef,learnable",
+		"ingredient": [
+			{
+				"count": "1",
+				"name": "foodCropYuccaFruit"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolBeaker",
+		"name": "drugAntibiotics",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "4",
+				"name": "foodShamSandwich"
+			},
+			{
+				"count": "3",
+				"name": "resourcePotassiumNitratePowder"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
+		"name": "drugHerbalAntibiotics",
+		"tags": "learnable",
+		"ingredient": [
+			{
+				"count": "5",
+				"name": "foodCropBlueberries"
+			},
+			{
+				"count": "3",
+				"name": "foodCropMushrooms"
+			},
+			{
+				"count": "3",
+				"name": "resourceCropChrysanthemumPlant"
+			},
+			{
+				"count": "3",
+				"name": "resourcePotassiumNitratePowder"
+			},
+			{
+				"count": "1",
+				"name": "drinkJarBoiledWater"
+			}
+		]
+	},
+	{
+		"count": "1",
+		"craft_area": "campfire",
+		"craft_tool": "toolCookingPot",
 		"name": "foodBaconAndEggs",
 		"tags": "perkMasterChef,learnable",
 		"ingredient": [
