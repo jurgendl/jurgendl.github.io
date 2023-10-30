@@ -33,14 +33,14 @@ link {
 	color: #1181B8;
 }
 
-a:link, a:visited {
+/*a:link, a:visited {
 	color: steelblue;
 	text-decoration: none;
 }
 
 a:hover {
 	color: #666;
-}
+}*/
 
 .node circle {
 	/*fill: #fff;
