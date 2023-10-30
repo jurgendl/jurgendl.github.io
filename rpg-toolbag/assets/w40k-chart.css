@@ -66,3 +66,23 @@ cirlce.node {
 path.link[depth="1"] {
 	stroke: #55555500;
 }
+
+
+.btn-group-toggle .btn {
+	width: 30px;
+	background-color: #f6c23e;
+	color: black;
+}
+.btn-group-toggle .btn.active {
+	width: 30px;
+	background-color: #1cc88a;
+	color: white;
+}
+.btn-group-toggle .btn::after {
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900;
+	content: '\f00d';
+}
+.btn-group-toggle .btn.active::after {
+	content: '\f00c';
+}
