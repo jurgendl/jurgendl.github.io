@@ -272,7 +272,8 @@
       "starred": false,
       "type": "mead",
       "eitr": 0,
-      "durationInMinutes": 0.16
+      "hpPerSecond": 5,
+      "durationInMinutes": 0.17
     },
     "minor stamina": {
       "resources": {
@@ -285,6 +286,7 @@
       "starred": false,
       "type": "mead",
       "eitr": 0,
+      "staminaPerSecond": 40,
       "durationInMinutes": 0.03
     },
     "poison resistance": {
@@ -312,7 +314,7 @@
       "starred": false,
       "type": "mead",
       "eitr": 0,
-      "durationInMinutes": 0.16
+      "durationInMinutes": 0.17
     },
     "turnip stew": {
       "resources": {
@@ -447,7 +449,8 @@
       "starred": false,
       "type": "mead",
       "eitr": 0,
-      "durationInMinutes": 0.16
+      "hpPerSecond": 7.5,
+      "durationInMinutes": 0.17
     },
     "onion": {
       "resources": {
@@ -649,6 +652,7 @@
       "starred": false,
       "type": "mead",
       "eitr": 0,
+      "staminaPerSecond": 80,
       "durationInMinutes": 0.03
     },
     "cooked egg": {
@@ -915,7 +919,8 @@
       "starred": false,
       "type": "mead",
       "eitr": 0,
-      "durationInMinutes": 0.16
+      "hpPerSecond": 12.5,
+      "durationInMinutes": 0.17
     },
     "minor eitr": {
       "resources": {
@@ -929,7 +934,8 @@
       "starred": false,
       "type": "mead",
       "eitr": 0,
-      "durationInMinutes": 0.16
+      "eitrPerSecond": 12.5,
+      "durationInMinutes": 0.17
     }
   }
 }
