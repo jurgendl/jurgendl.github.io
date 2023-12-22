@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+	https://www.chartjs.org/
+	https://www.chartjs.org/docs/2.9.4/
+	https://www.chartjs.org/docs/2.6.0/
+	https://www.jsdelivr.com/package/npm/chart.js?version=2.9.4
+	https://www.learnui.design/tools/data-color-picker.html
+	https://www.heavy.ai/blog/12-color-palettes-for-telling-better-stories-with-your-data
+	https://codepen.io/guzmonne/details/ZBamwb
+	https://observablehq.com/@d3/gallery?utm_source=d3js-org&utm_medium=hero&utm_campaign=try-observable
+	https://stackoverflow.com/questions/1575141/how-to-make-a-div-100-height-of-the-browser-window
+-->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<script src="
+	https://cdn.jsdelivr.net/npm/chart.js@2.7.0/dist/Chart.min.js
+	"></script>
+	<style>
+		/*
+/ Times New Roman-based stack /
+font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+
+/ Modern Georgia-based serif stack /
+font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+
+/ Traditional Garamond-based serif stack /
+font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+
+/ Helvetica/Arial-based sans serif stack /
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/ Verdana-based sans serif stack /
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+
+/ Trebuchet-based sans serif stack /
+font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+
+/ Impact-based sans serif stack /
+font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+
+/ Monospace stack /
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+		*/
+
+		body {
+			font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		#canvasContainer {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="canvasContainer">
+		<canvas id="chart"></canvas>
+	</div>
+
+	<script>
+		const ctx = document.getElementById("chart").getContext("2d");
+
+		const chartData = [
+			{ "round": 1, "common": 0.9, "rare": 0.1, "epic": 0, "legendary": 0, "godly": 0 },
+			{ "round": 2, "common": 0.84, "rare": 0.15, "epic": 0.01, "legendary": 0, "godly": 0 },
+			{ "round": 3, "common": 0.75, "rare": 0.2, "epic": 0.05, "legendary": 0, "godly": 0 },
+			{ "round": 4, "common": 0.64, "rare": 0.25, "epic": 0.1, "legendary": 0.01, "godly": 0 },
+			{ "round": 5, "common": 0.45, "rare": 0.35, "epic": 0.15, "legendary": 0.05, "godly": 0 },
+			{ "round": 6, "common": 0.29, "rare": 0.4, "epic": 0.2, "legendary": 0.1, "godly": 0.01 },
+			{ "round": 7, "common": 0.2, "rare": 0.35, "epic": 0.25, "legendary": 0.15, "godly": 0.05 },
+			{ "round": 8, "common": 0.2, "rare": 0.3, "epic": 0.25, "legendary": 0.15, "godly": 0.1 },
+			{ "round": 9, "common": 0.2, "rare": 0.28, "epic": 0.25, "legendary": 0.15, "godly": 0.12 },
+			{ "round": 10, "common": 0.2, "rare": 0.25, "epic": 0.25, "legendary": 0.15, "godly": 0.15 },
+			{ "round": 11, "common": 0.2, "rare": 0.23, "epic": 0.23, "legendary": 0.17, "godly": 0.17 },
+			{ "round": 12, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
+			{ "round": 13, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
+			{ "round": 14, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
+			{ "round": 15, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
+			{ "round": 16, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
+			{ "round": 17, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
+			{ "round": 18, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 }
+		];
+		//console.log('chartData', chartData);
+
+		const labels = chartData.map(x => `round ${x.round}`);
+		//console.log('labels', labels);
+
+		const categories = ["common", "rare", "epic", "legendary", "godly"];
+		//console.log('categories', categories);
+
+		const colors = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"];
+		//console.log('colors', colors);
+
+		const bars = categories.map(category => {
+			return {
+				label: category,
+				color: colors[categories.indexOf(category)]
+			};
+		});
+		//console.log('bars', bars);
+
+		const configure = ({ color, label }) => ({
+			label,
+			backgroundColor: color,
+			borderColor: color,
+			borderWidth: 1
+		});
+		const datasets = bars.map(
+			bar => Object.assign({}, configure(bar), {
+				data: chartData.map(x => x[bar.label])
+			}));
+		//console.log('datasets', datasets);
+
+		const data = {
+			labels,
+			datasets
+		};
+
+		const options = {
+			responsive: true,
+			maintainAspectRatio: false,
+			tooltips: {
+				displayColors: true,
+				callbacks: {
+					mode: 'x',
+					label: (item, { datasets }) => {
+						const fullColumnData = chartData[item.index];
+						return categories.map(category => {
+							const l = (fullColumnData[category] * 100).toFixed(0);
+							return `${category}: ${l}%`;
+						});
+					},
+					labelColor: function (tooltipItem, chart) {
+						const x = categories.map(category => {
+							return {
+								borderColor: 'white',
+								backgroundColor: colors[categories.indexOf(category)]
+							};
+						});
+						console.log('x', x);
+						return [{
+								borderColor: 'white',
+								backgroundColor: colors[0]
+							},{
+								borderColor: 'white',
+								backgroundColor: colors[1]
+							}];
+					}
+				}
+			},
+			scales: {
+				xAxes: [{
+					stacked: true,
+					gridLines: {
+						display: false
+					}
+				}],
+				yAxes: [{
+					stacked: true,
+					ticks: {
+						beginAtZero: true
+					},
+					type: 'linear'
+				}]
+			},
+			legend: {
+				position: 'bottom'
+			}
+		};
+
+		const barChart = new Chart(ctx, {
+			type: 'bar',
+			data: data,
+			options: options
+		});
+	</script>
+</body>
+
+</html>
