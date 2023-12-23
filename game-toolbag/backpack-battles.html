@@ -3,22 +3,22 @@
 <!--
 	https://www.chartjs.org/
 	https://www.chartjs.org/docs/2.9.4/
-	https://www.chartjs.org/docs/2.6.0/
 	https://www.jsdelivr.com/package/npm/chart.js?version=2.9.4
 	https://www.learnui.design/tools/data-color-picker.html
 	https://www.heavy.ai/blog/12-color-palettes-for-telling-better-stories-with-your-data
 	https://codepen.io/guzmonne/details/ZBamwb
 	https://observablehq.com/@d3/gallery?utm_source=d3js-org&utm_medium=hero&utm_campaign=try-observable
 	https://stackoverflow.com/questions/1575141/how-to-make-a-div-100-height-of-the-browser-window
+	https://chartjs-plugin-datalabels.netlify.app/samples/charts/bar.html
+	https://github.com/chartjs/chartjs-plugin-datalabels/tree/master
 -->
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title></title>
-	<script src="
-	https://cdn.jsdelivr.net/npm/chart.js@2.7.0/dist/Chart.min.js
-	"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 	<style>
 		/*
 / Times New Roman-based stack /
@@ -58,6 +58,7 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 			width: 100%;
 			height: 100%;
 			overflow: hidden;
+			padding: 1em;
 		}
 
 		body {
@@ -94,107 +95,102 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 			{ "round": 9, "common": 0.2, "rare": 0.28, "epic": 0.25, "legendary": 0.15, "godly": 0.12 },
 			{ "round": 10, "common": 0.2, "rare": 0.25, "epic": 0.25, "legendary": 0.15, "godly": 0.15 },
 			{ "round": 11, "common": 0.2, "rare": 0.23, "epic": 0.23, "legendary": 0.17, "godly": 0.17 },
-			{ "round": 12, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
+			{ "round": 12, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 }/*,
 			{ "round": 13, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
 			{ "round": 14, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
 			{ "round": 15, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
 			{ "round": 16, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
 			{ "round": 17, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
-			{ "round": 18, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 }
+			{ "round": 18, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 }*/
 		];
-		//console.log('chartData', chartData);
 
 		const labels = chartData.map(x => `round ${x.round}`);
-		//console.log('labels', labels);
 
 		const categories = ["common", "rare", "epic", "legendary", "godly"];
-		//console.log('categories', categories);
 
 		const colors = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"];
-		//console.log('colors', colors);
 
-		const bars = categories.map(category => {
-			return {
+		Chart.register(ChartDataLabels);
+
+		let datasets = [];
+
+		for (let i = 0; i < categories.length; i++) {
+			let category = categories[i];
+			let color = colors[i];
+			let dataset = {
 				label: category,
-				color: colors[categories.indexOf(category)]
+				backgroundColor: colors[i],
+				data: [],
+				datalabels: {
+					align: 'end',
+					anchor: 'start'
+				}
 			};
-		});
-		//console.log('bars', bars);
+			datasets.push(dataset);
+			for (let j = 0; j < chartData.length; j++) {
+				let data = chartData[j];
+				let value = data[category];
+				dataset.data.push(value);
+			}
+		}
 
-		const configure = ({ color, label }) => ({
-			label,
-			backgroundColor: color,
-			borderColor: color,
-			borderWidth: 1
-		});
-		const datasets = bars.map(
-			bar => Object.assign({}, configure(bar), {
-				data: chartData.map(x => x[bar.label])
-			}));
-		//console.log('datasets', datasets);
+		console.log('datasets', datasets);
 
-		const data = {
-			labels,
-			datasets
-		};
-
-		const options = {
-			responsive: true,
-			maintainAspectRatio: false,
-			tooltips: {
-				displayColors: true,
-				callbacks: {
-					mode: 'x',
-					label: (item, { datasets }) => {
-						const fullColumnData = chartData[item.index];
-						return categories.map(category => {
-							const l = (fullColumnData[category] * 100).toFixed(0);
-							return `${category}: ${l}%`;
-						});
+		var config = {
+			plugins: [ChartDataLabels],
+			type: 'bar',
+			data: {
+				labels,
+				datasets
+			},
+			options: {
+				plugins: {
+					title: {
+						display: true,
+						text: 'Backpack Battles Rarity Distribution'
 					},
-					labelColor: function (tooltipItem, chart) {
-						const x = categories.map(category => {
-							return {
-								borderColor: 'white',
-								backgroundColor: colors[categories.indexOf(category)]
-							};
-						});
-						console.log('x', x);
-						return [{
-								borderColor: 'white',
-								backgroundColor: colors[0]
-							},{
-								borderColor: 'white',
-								backgroundColor: colors[1]
-							}];
+					datalabels: {
+						color: 'white',
+						display: function (context) {
+							return context.dataset.data[context.dataIndex] >= 0.05;
+						},
+						font: {
+							weight: 'bold'
+						}
+					}
+				},
+				aspectRatio: 5 / 3,
+				layout: {
+					padding: {
+						top: 24,
+						right: 24,
+						bottom: 24,
+						left: 24
+					}
+				},
+				elements: {
+					line: {
+						fill: true
+					},
+					point: {
+						hoverRadius: 7,
+						radius: 5
+					}
+				},
+				scales: {
+					x: {
+						stacked: true
+					},
+					y: {
+						stacked: true
 					}
 				}
-			},
-			scales: {
-				xAxes: [{
-					stacked: true,
-					gridLines: {
-						display: false
-					}
-				}],
-				yAxes: [{
-					stacked: true,
-					ticks: {
-						beginAtZero: true
-					},
-					type: 'linear'
-				}]
-			},
-			legend: {
-				position: 'bottom'
 			}
 		};
 
-		const barChart = new Chart(ctx, {
-			type: 'bar',
-			data: data,
-			options: options
-		});
+
+		var chart = new Chart(ctx, config);
+
 	</script>
 </body>
 
