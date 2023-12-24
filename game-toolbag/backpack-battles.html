@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--https://apexcharts.com/javascript-chart-demos/bar-charts/stacked/-->
+<!--
+	https://apexcharts.com/javascript-chart-demos/bar-charts/stacked/
+-->
 
 <head>
 	<meta charset="UTF-8">
@@ -9,29 +11,29 @@
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	<style>
 		/*
-/ Times New Roman-based stack /
-font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+		/ Times New Roman-based stack /
+		font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
 
-/ Modern Georgia-based serif stack /
-font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+		/ Modern Georgia-based serif stack /
+		font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 
-/ Traditional Garamond-based serif stack /
-font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+		/ Traditional Garamond-based serif stack /
+		font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 
-/ Helvetica/Arial-based sans serif stack /
-font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		/ Helvetica/Arial-based sans serif stack /
+		font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-/ Verdana-based sans serif stack /
-font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+		/ Verdana-based sans serif stack /
+		font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
 
-/ Trebuchet-based sans serif stack /
-font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+		/ Trebuchet-based sans serif stack /
+		font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
 
-/ Impact-based sans serif stack /
-font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+		/ Impact-based sans serif stack /
+		font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
 
-/ Monospace stack /
-font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+		/ Monospace stack /
+		font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 		*/
 
 		body {
@@ -54,12 +56,19 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 			height: 100%;
 			overflow: hidden;
 		}
+
+		#chart1,
+		#chart2 {
+			border: 1px solid #ccc;
+			height: 45%;
+			margin: 1em 0;
+		}
 	</style>
 </head>
 
 <body>
-	<div id="chart">
-	</div>
+	<div id="chart1"></div>
+	<div id="chart2"></div>
 
 	<script>
 		const chartData = [
@@ -82,15 +91,10 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 			{ "round": 17, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 },
 			{ "round": 18, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 }*/
 		];
-
 		const labels = chartData.map(x => x.round);
-
 		const categories = ["common", "rare", "epic", "legendary", "godly"];
-
 		const colors = ["#a2a2a2", "#60bc52", "#7672ff", "#beab63", "#dc8f40"];
-
-		let series = [];
-
+		const series = [];
 		for (let i = 0; i < categories.length; i++) {
 			const category = categories[i];
 			const data = chartData.map(x => x[category]);
@@ -99,92 +103,176 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 				data: data
 			});
 		}
-		console.log(series);
+		//console.log(series);
 
 		Apex.colors = colors;
 
-		var options = {
-			series,
-			chart: {
-				type: 'bar',
-				height: 600,
-				stacked: true,
-				stackType: '100%'
-			},
-			plotOptions: {
-				bar: {
-					horizontal: false,
-					dataLabels: {
-						/*total: {
-							enabled: false,
-							offsetX: 0,
-							style: {
-								fontSize: '13px',
-								fontWeight: 900
-							}
-						}*/
-					}
+		{
+			var options = {
+				series,
+				chart: {
+					type: 'bar',
+					height: 350,
+					stacked: true,
+					stackType: '100%'
 				},
-			},
-			stroke: {
-				width: 1,
-				colors: ['#fff']
-			},
-			title: {
-				text: 'Backpack Battles Rarity Distribution'
-			},
-			xaxis: {
-				title: {
-					text: "round"
-				},
-				categories: labels,
-				labels: {
-					formatter: function (val) {
-						return val;
-					}
-				}
-			},
-			yaxis: {
-				title: {
-					text: undefined
-				},
-				labels: {
-					formatter: function (val) {
-						return val + "%";
-					}
-				}
-			},
-			tooltip: {
-				fillSeriesColor: false,
-				onDatasetHover: {
-					highlightDataSeries: true,
-				},
-				shared: true,
-				intersect: false,
-				x: {
-					show: true,
-					formatter: function (val) {
-						return "round " + val;
+				plotOptions: {
+					bar: {
+						horizontal: false,
+						dataLabels: {
+							/*total: {
+								enabled: false,
+								offsetX: 0,
+								style: {
+									fontSize: '13px',
+									fontWeight: 900
+								}
+							}*/
+						}
 					},
 				},
-				y: {
-					formatter: function (val) {
-						return (val * 100).toFixed(0) + "%";
+				stroke: {
+					width: 1,
+					colors: ['#fff']
+				},
+				title: {
+					text: 'Backpack Battles Rarity Distribution'
+				},
+				xaxis: {
+					title: {
+						text: "round"
+					},
+					categories: labels,
+					labels: {
+						formatter: function (val) {
+							return val;
+						}
 					}
 				},
-			},
-			fill: {
-				opacity: 1
-			},
-			legend: {
-				position: 'top',
-				horizontalAlign: 'left',
-				offsetX: 40
-			}
-		};
+				yaxis: {
+					title: {
+						text: undefined
+					},
+					labels: {
+						formatter: function (val) {
+							return val + "%";
+						}
+					},
+					min: 0,
+					max: 1
+				},
+				tooltip: {
+					fillSeriesColor: false,
+					onDatasetHover: {
+						highlightDataSeries: true,
+					},
+					shared: true,
+					intersect: false,
+					x: {
+						show: true,
+						formatter: function (val) {
+							return "round " + val;
+						},
+					},
+					y: {
+						formatter: function (val) {
+							return (val * 100).toFixed(0) + "%";
+						}
+					},
+				},
+				fill: {
+					opacity: 1
+				},
+				legend: {
+					position: 'top',
+					horizontalAlign: 'left',
+					offsetX: 40
+				}
+			};
+			new ApexCharts(document.querySelector("#chart1"), options).render();
+		}
 
-		var chart = new ApexCharts(document.querySelector("#chart"), options);
-		chart.render();
+		{
+			var options = {
+				series,
+				chart: {
+					height: 350,
+					type: 'line',
+					dropShadow: {
+						enabled: true,
+						color: '#000',
+						top: 18,
+						left: 7,
+						blur: 10,
+						opacity: 0.2
+					},
+					toolbar: {
+						show: false
+					}
+				},
+				//colors: ['#77B6EA', '#545454'],
+				dataLabels: {
+					enabled: true,
+					formatter: function (val, opts) {
+						return (val * 100).toFixed(0) + "%";
+					},
+					style: {
+						fontSize: '10px',
+					},
+					background: {
+						enabled: false,
+					},
+				},
+				stroke: {
+					curve: 'straight',//'stepline',// 'smooth',
+					width: 1
+				},
+				title: {
+					text: 'Backpack Battles Rarity Distribution'
+				},
+				grid: {
+					borderColor: '#e7e7e7',
+					row: {
+						colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+						opacity: 0.5
+					},
+				},
+				markers: {
+					size: 1
+				},
+				xaxis: {
+					categories: labels,
+					title: {
+						text: 'round'
+					},
+					labels: {
+						formatter: function (val) {
+							return val;
+						}
+					}
+				},
+				yaxis: {
+					title: {
+						text: undefined
+					},
+					labels: {
+						formatter: function (val) {
+							return (val * 100).toFixed(0) + "%";
+						}
+					},
+					min: 0,
+					max: 1
+				},
+				legend: {
+					position: 'top',
+					horizontalAlign: 'right',
+					floating: true,
+					offsetY: -25,
+					offsetX: -5
+				}
+			};
+			new ApexCharts(document.querySelector("#chart2"), options).render();
+		}
 	</script>
 </body>
 
