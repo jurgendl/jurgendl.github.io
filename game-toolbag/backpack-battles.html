@@ -83,7 +83,7 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 			{ "round": 18, "common": 0.2, "rare": 0.2, "epic": 0.2, "legendary": 0.2, "godly": 0.2 }*/
 		];
 
-		const labels = chartData.map(x => `round ${x.round}`);
+		const labels = chartData.map(x => x.round);
 
 		const categories = ["common", "rare", "epic", "legendary", "godly"];
 
@@ -115,14 +115,14 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 				bar: {
 					horizontal: false,
 					dataLabels: {
-						total: {
+						/*total: {
 							enabled: false,
 							offsetX: 0,
 							style: {
 								fontSize: '13px',
 								fontWeight: 900
 							}
-						}
+						}*/
 					}
 				},
 			},
@@ -134,6 +134,9 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 				text: 'Backpack Battles Rarity Distribution'
 			},
 			xaxis: {
+				title: {
+					text: "round"
+				},
 				categories: labels,
 				labels: {
 					formatter: function (val) {
@@ -145,13 +148,30 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 				title: {
 					text: undefined
 				},
-			},
-			tooltip: {
-				y: {
+				labels: {
 					formatter: function (val) {
-						return val;
+						return val + "%";
 					}
 				}
+			},
+			tooltip: {
+				fillSeriesColor: false,
+				onDatasetHover: {
+					highlightDataSeries: true,
+				},
+				shared: true,
+				intersect: false,
+				x: {
+					show: true,
+					formatter: function (val) {
+						return "round " + val;
+					},
+				},
+				y: {
+					formatter: function (val) {
+						return (val * 100).toFixed(0) + "%";
+					}
+				},
 			},
 			fill: {
 				opacity: 1
