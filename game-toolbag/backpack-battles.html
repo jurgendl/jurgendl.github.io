@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--
+	https://apexcharts.com/
+	https://apexcharts.com/javascript-chart-demos/
 	https://apexcharts.com/javascript-chart-demos/bar-charts/stacked/
+	https://apexcharts.com/javascript-chart-demos/line-charts/data-labels/
 -->
 
 <head>
@@ -114,7 +117,7 @@
 					type: 'bar',
 					height: 350,
 					stacked: true,
-					stackType: '100%'
+					stackType: '100%',
 				},
 				plotOptions: {
 					bar: {
@@ -198,16 +201,16 @@
 				chart: {
 					height: 350,
 					type: 'line',
-					dropShadow: {
+					/*dropShadow: {
 						enabled: true,
 						color: '#000',
 						top: 18,
 						left: 7,
 						blur: 10,
 						opacity: 0.2
-					},
+					},*/
 					toolbar: {
-						show: false
+						show: true
 					}
 				},
 				//colors: ['#77B6EA', '#545454'],
@@ -267,8 +270,7 @@
 					position: 'top',
 					horizontalAlign: 'right',
 					floating: true,
-					offsetY: -25,
-					offsetX: -5
+					offsetY: -15,
 				}
 			};
 			new ApexCharts(document.querySelector("#chart2"), options).render();
