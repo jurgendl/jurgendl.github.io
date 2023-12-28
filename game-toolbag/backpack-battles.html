@@ -17,40 +17,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	<style>
-		/*
-		/ Times New Roman-based stack /
-		font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
-
-		/ Modern Georgia-based serif stack /
-		font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
-
-		/ Traditional Garamond-based serif stack /
-		font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
-
-		/ Helvetica/Arial-based sans serif stack /
-		font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-		/ Verdana-based sans serif stack /
-		font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
-
-		/ Trebuchet-based sans serif stack /
-		font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
-
-		/ Impact-based sans serif stack /
-		font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
-
-		/ Monospace stack /
-		font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-		*/
-
-		body {
-			font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-		}
-
-		* {
-			box-sizing: border-box;
-		}
-
 		html {
 			width: 100%;
 			height: 100%;
@@ -70,57 +36,14 @@
 			height: 45%;
 			margin: 1em 0;
 		}
-
-		#darkmode-toggle-container {
-			position: fixed;
-			top: 5px;
-			right: 10px;
-			z-index: 1000
-		}
-
-		body div.darkmode {
-			display: inline-block;
-			cursor: pointer
-		}
-
-		body.dark .darkmode .light,
-		body:not(.dark) .darkmode .dark {
-			display: none
-		}
-
-		body[data-bs-theme="light"] {}
-
-		body[data-bs-theme="dark"] {}
 	</style>
 </head>
 
-<body data-bs-theme="light">
-	<div id="darkmode-toggle-container">
-		<div class="darkmode">
-			<div class="light fa-solid fa-sun"></div>
-			<div class="dark fa-regular fa-moon"></div>
-		</div>
-	</div>
+<body>
 	<div id="chart1"></div>
 	<div id="chart2"></div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-	<script>
-		function setDarkLightMode(isDarkMode) {
-			document.body.dataset.bsTheme = isDarkMode ? 'dark' : 'light';
-			localStorage.setItem("dark-mode", isDarkMode);
-			initCharts(isDarkMode);
-		}
-		function isDarkMode() {
-			return localStorage.getItem("dark-mode") === "true";
-		}
-		document.querySelector("#darkmode-toggle-container .darkmode").addEventListener("click", () => {
-			setDarkLightMode(!isDarkMode());
-		});
-		addEventListener("load", (event) => {
-			setDarkLightMode(isDarkMode());
-		});
-	</script>
 	<script>
 		const chartData = [
 			{ "round": 1, "common": 0.9, "rare": 0.1, "epic": 0, "legendary": 0, "godly": 0 },
@@ -342,6 +265,14 @@
 			}
 		}
 	</script>
+
+	<script>
+		function changeDarkMode(isDarkMode) {
+			initCharts(isDarkMode);
+		}
+	</script>
+	<script src="assets/theme-switch.js"></script>
+
 </body>
 
 </html>
