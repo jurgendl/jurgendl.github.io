@@ -4,6 +4,7 @@
 	https://apexcharts.com/
 	https://apexcharts.com/javascript-chart-demos/
 	https://apexcharts.com/javascript-chart-demos/bar-charts/stacked/
+	https://apexcharts.com/javascript-chart-demos/bar-charts/grouped/
 	https://apexcharts.com/javascript-chart-demos/line-charts/data-labels/
 	https://icons.getbootstrap.com/#install
 -->
@@ -21,17 +22,18 @@
 			width: 100%;
 			height: 100%;
 			overflow: hidden;
-			padding: 1em;
 		}
 
 		body {
+			overflow: scroll;
 			width: 100%;
 			height: 100%;
-			overflow: hidden;
+			padding: 1em;
 		}
 
-		#chart1,
-		#chart2 {
+		#chartStackedBars,
+		#chartLines,
+		#chartGroupedBars {
 			border: 1px solid #ccc;
 			height: 45%;
 			margin: 1em 0;
@@ -40,8 +42,9 @@
 </head>
 
 <body>
-	<div id="chart1"></div>
-	<div id="chart2"></div>
+	<div id="chartStackedBars"></div>
+	<div id="chartGroupedBars"></div>
+	<div id="chartLines"></div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 	<script>
@@ -79,10 +82,12 @@
 		//console.log(series);
 
 		function initCharts(isDarkMode) {
-			document.querySelector("#chart1").innerHTML = "";
-			document.querySelector("#chart2").innerHTML = "";
-			document.querySelector("#chart1").style = "";
-			document.querySelector("#chart2").style = "";
+			document.querySelector("#chartStackedBars").innerHTML = "";
+			document.querySelector("#chartLines").innerHTML = "";
+			document.querySelector("#chartGroupedBars").innerHTML = "";
+			document.querySelector("#chartStackedBars").style = "";
+			document.querySelector("#chartLines").style = "";
+			document.querySelector("#chartGroupedBars").style = "";
 
 			const colors = isDarkMode ? ["#333", "#60bc52", "#7672ff", "#beab63", "#dc8f40"] : ["#a2a2a2", "#60bc52", "#7672ff", "#beab63", "#dc8f40"];
 			Apex.colors = colors;
@@ -97,13 +102,15 @@
 				}
 			};
 
+			const height = 500;
+
 			{
 				var options = {
 					theme,
 					series,
 					chart: {
 						type: 'bar',
-						height: 350,
+						height,
 						stacked: true,
 						stackType: '100%',
 					},
@@ -146,7 +153,7 @@
 						},
 						labels: {
 							formatter: function (val) {
-								return val + "%";
+								return val + '%';
 							}
 						},
 						min: 0,
@@ -167,7 +174,7 @@
 						},
 						y: {
 							formatter: function (val) {
-								return (val * 100).toFixed(0) + "%";
+								return (val * 100).toFixed(0) + '%';
 							}
 						},
 					},
@@ -180,14 +187,14 @@
 						offsetX: 40
 					}
 				};
-				new ApexCharts(document.querySelector("#chart1"), options).render();
+				new ApexCharts(document.querySelector("#chartStackedBars"), options).render();
 			}
 			{
 				var options = {
 					theme,
 					series,
 					chart: {
-						height: 350,
+						height,
 						type: 'line',
 						/*dropShadow: {
 							enabled: true,
@@ -205,7 +212,7 @@
 					dataLabels: {
 						enabled: true,
 						formatter: function (val, opts) {
-							return (val * 100).toFixed(0) + "%";
+							return (val * 100).toFixed(0) + '%';
 						},
 						style: {
 							fontSize: '10px',
@@ -248,7 +255,7 @@
 						},
 						labels: {
 							formatter: function (val) {
-								return (val * 100).toFixed(0) + "%";
+								return (val * 100).toFixed(0) + '%';
 							}
 						},
 						min: 0,
@@ -261,7 +268,105 @@
 						offsetY: -15,
 					}
 				};
-				new ApexCharts(document.querySelector("#chart2"), options).render();
+				new ApexCharts(document.querySelector("#chartLines"), options).render();
+			}
+			{
+				var options = {
+					theme,
+					series,
+					chart: {
+						type: 'bar',
+						height,
+						stacked: false,
+					},
+					plotOptions: {
+						bar: {
+							horizontal: false,
+							dataLabels: {
+								/*total: {
+									enabled: false,
+									offsetX: 0,
+									style: {
+										fontSize: '13px',
+										fontWeight: 900
+									}
+								}*/
+							}
+						},
+					},
+					stroke: {
+						width: 1,
+						colors: ['#fff']
+					},
+					title: {
+						text: 'Backpack Battles Rarity Distribution'
+					},
+					xaxis: {
+						title: {
+							text: "round"
+						},
+						categories: labels,
+						labels: {
+							formatter: function (val) {
+								return val;
+							}
+						}
+					},
+					yaxis: {
+						title: {
+							text: undefined
+						},
+						labels: {
+							formatter: function (val) {
+								return (val * 100).toFixed(0) + '%';
+							}
+						},
+						min: 0,
+						max: 0.5
+					},
+					dataLabels: {
+						enabled: true,
+						formatter: function (val, opts) {
+							return val == 0 ? undefined : (val * 100).toFixed(0) + '%';
+						},
+						style: {
+							fontSize: '12px',
+							colors
+						},
+						background: {
+							enabled: true,
+							foreColor: '#fff'
+						}
+					},
+					tooltip: {
+						fillSeriesColor: false,
+						onDatasetHover: {
+							highlightDataSeries: true,
+						},
+						shared: true,
+						intersect: false,
+						x: {
+							show: true,
+							formatter: function (val) {
+								return "round " + val;
+							},
+						},
+						y: {
+							formatter: function (val) {
+								return (val * 100).toFixed(0) + '%';
+							}
+						},
+					},
+					fill: {
+						opacity: 1
+					},
+					legend: {
+						position: 'top',
+						horizontalAlign: 'left',
+						offsetX: 40
+					}
+				};
+				new ApexCharts(document.querySelector("#chartGroupedBars"), options).render();
 			}
 		}
 	</script>
