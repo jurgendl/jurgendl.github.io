@@ -148,21 +148,21 @@
 					}
 				}
 			};
-			const yaxis50 = {
-				title: {
-					text: undefined
-				},
-				labels: {
-					formatter: function (val) {
-						return (val * 100).toFixed(0) + '%';
-					}
-				},
-				min: 0,
-				max: 0.5
-			};
-			const yaxis100 = JSON.parse(JSON.stringify(yaxis50));
-			yaxis100.max = 1;
 
+			const dataLabels = {
+				enabled: true,
+				formatter: function (val, opts) {
+					return val == 0 ? undefined : (val * 100).toFixed(0) + '%';
+				},
+				style: {
+					fontSize: '12px',
+					colors
+				},
+				background: {
+					enabled: true,
+					foreColor: '#fff'
+				}
+			};
 
 			new ApexCharts(document.querySelector("#chartStackedBars"), {
 				theme,
@@ -184,9 +184,18 @@
 				},
 				title,
 				xaxis,
-				yaxis: yaxis100,
+				yaxis: {
+					title: {
+						text: 'Chance'
+					},
+					labels: {
+						formatter: function (val) {
+							return val + '%';
+						}
+					}
+				},
 				tooltip,
-				legend,
+				legend
 			}).render();
 
 
@@ -200,18 +209,7 @@
 						show: true
 					}
 				},
-				dataLabels: {
-					enabled: true,
-					formatter: function (val, opts) {
-						return (val * 100).toFixed(0) + '%';
-					},
-					style: {
-						fontSize: '10px'
-					},
-					background: {
-						enabled: true
-					}
-				},
+				dataLabels,
 				stroke: {
 					curve: 'straight',//'stepline',// 'smooth',
 					width: isDarkMode ? 3 : 1
@@ -221,9 +219,34 @@
 					size: 1
 				},
 				xaxis,
-				yaxis: yaxis50,
+				yaxis: {
+					title: {
+						text: 'Chance'
+					},
+					labels: {
+						formatter: function (val) {
+							return (val * 100).toFixed(0) + '%';
+						}
+					},
+					min: 0,
+					max: 0.5
+				},
 				legend,
-				tooltip
+				tooltip,
+				annotations: {
+					xaxis: [{
+						x: 8,
+						borderColor: '#00E396',
+						label: {
+							borderColor: '#00E396',
+							style: {
+								color: '#fff',
+								background: '#00E396',
+							},
+							text: 'Class Pick',
+						}
+					}]
+				}
 			}).render();
 
 
@@ -246,21 +269,19 @@
 				},
 				title,
 				xaxis,
-				yaxis: yaxis50,
-				dataLabels: {
-					enabled: true,
-					formatter: function (val, opts) {
-						return val == 0 ? undefined : (val * 100).toFixed(0) + '%';
+				yaxis: {
+					title: {
+						text: 'Chance'
 					},
-					style: {
-						fontSize: '12px',
-						colors
+					labels: {
+						formatter: function (val) {
+							return (val * 100).toFixed(0) + '%';
+						}
 					},
-					background: {
-						enabled: true,
-						foreColor: '#fff'
-					}
+					min: 0,
+					max: 0.5
 				},
+				dataLabels,
 				tooltip,
 				legend
 			}).render();
