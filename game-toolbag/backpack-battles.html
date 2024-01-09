@@ -105,270 +105,166 @@
 
 			const height = 500;
 
-			{
-				var options = {
-					theme,
-					series,
-					chart: {
-						type: 'bar',
-						height,
-						stacked: true,
-						stackType: '100%',
-					},
-					plotOptions: {
-						bar: {
-							horizontal: false,
-							dataLabels: {
-								/*total: {
-									enabled: false,
-									offsetX: 0,
-									style: {
-										fontSize: '13px',
-										fontWeight: 900
-									}
-								}*/
-							}
-						},
-					},
-					stroke: {
-						width: 1,
-						colors: ['#fff']
-					},
-					title: {
-						text: 'Backpack Battles Rarity Distribution'
-					},
-					xaxis: {
-						title: {
-							text: "round"
-						},
-						categories: labels,
-						labels: {
-							formatter: function (val) {
-								return val;
-							}
-						}
-					},
-					yaxis: {
-						title: {
-							text: undefined
-						},
-						labels: {
-							formatter: function (val) {
-								return val + '%';
-							}
-						},
-						min: 0,
-						max: 1
-					},
-					tooltip: {
-						fillSeriesColor: false,
-						onDatasetHover: {
-							highlightDataSeries: true,
-						},
-						shared: true,
-						intersect: false,
-						x: {
-							show: true,
-							formatter: function (val) {
-								return "round " + val;
-							},
-						},
-						y: {
-							formatter: function (val) {
-								return (val * 100).toFixed(0) + '%';
-							}
-						},
-					},
-					fill: {
-						opacity: 1
-					},
-					legend: {
-						position: 'top',
-						horizontalAlign: 'left',
-						offsetX: 40
+			const title = {
+				text: 'Backpack Battles Rarity Distribution'
+			};
+
+			const tooltip = {
+				fillSeriesColor: false,
+				onDatasetHover: {
+					highlightDataSeries: true
+				},
+				shared: true,
+				intersect: false,
+				x: {
+					show: true,
+					formatter: function (val) {
+						return "round " + val;
 					}
-				};
-				new ApexCharts(document.querySelector("#chartStackedBars"), options).render();
-			}
-			{
-				var options = {
-					theme,
-					series,
-					chart: {
-						height,
-						type: 'line',
-						/*dropShadow: {
-							enabled: true,
-							color: '#000',
-							top: 18,
-							left: 7,
-							blur: 10,
-							opacity: 0.2
-						},*/
-						toolbar: {
-							show: true
-						}
+				},
+				y: {
+					show: true,
+					formatter: function (val) {
+						return (val * 100).toFixed(0) + '%';
+					}
+				}
+			};
+
+			const legend = {
+				position: 'top',
+				horizontalAlign: 'right',
+				floating: true,
+				offsetY: -15,
+			};
+
+			const xaxis = {
+				title: {
+					text: "round"
+				},
+				categories: labels,
+				labels: {
+					formatter: function (val) {
+						return val;
+					}
+				}
+			};
+			const yaxis50 = {
+				title: {
+					text: undefined
+				},
+				labels: {
+					formatter: function (val) {
+						return (val * 100).toFixed(0) + '%';
+					}
+				},
+				min: 0,
+				max: 0.5
+			};
+			const yaxis100 = JSON.parse(JSON.stringify(yaxis50));
+			yaxis100.max = 1;
+
+
+			new ApexCharts(document.querySelector("#chartStackedBars"), {
+				theme,
+				series,
+				chart: {
+					type: 'bar',
+					height,
+					stacked: true,
+					stackType: '100%'
+				},
+				plotOptions: {
+					bar: {
+						horizontal: false
+					}
+				},
+				stroke: {
+					width: 1,
+					colors: ['#fff']
+				},
+				title,
+				xaxis,
+				yaxis: yaxis100,
+				tooltip,
+				legend,
+			}).render();
+
+
+			new ApexCharts(document.querySelector("#chartLines"), {
+				theme,
+				series,
+				chart: {
+					height,
+					type: 'line',
+					toolbar: {
+						show: true
+					}
+				},
+				dataLabels: {
+					enabled: true,
+					formatter: function (val, opts) {
+						return (val * 100).toFixed(0) + '%';
 					},
-					//colors: ['#77B6EA', '#545454'],
-					dataLabels: {
+					style: {
+						fontSize: '10px'
+					},
+					background: {
+						enabled: true
+					}
+				},
+				stroke: {
+					curve: 'straight',//'stepline',// 'smooth',
+					width: isDarkMode ? 3 : 1
+				},
+				title,
+				markers: {
+					size: 1
+				},
+				xaxis,
+				yaxis: yaxis50,
+				legend,
+				tooltip
+			}).render();
+
+
+			new ApexCharts(document.querySelector("#chartGroupedBars"), {
+				theme,
+				series,
+				chart: {
+					type: 'bar',
+					height,
+					stacked: false,
+				},
+				plotOptions: {
+					bar: {
+						horizontal: false
+					}
+				},
+				stroke: {
+					width: 1,
+					colors: ['#fff']
+				},
+				title,
+				xaxis,
+				yaxis: yaxis50,
+				dataLabels: {
+					enabled: true,
+					formatter: function (val, opts) {
+						return val == 0 ? undefined : (val * 100).toFixed(0) + '%';
+					},
+					style: {
+						fontSize: '12px',
+						colors
+					},
+					background: {
 						enabled: true,
-						formatter: function (val, opts) {
-							return (val * 100).toFixed(0) + '%';
-						},
-						style: {
-							fontSize: '10px',
-						},
-						background: {
-							enabled: true,
-						},
-					},
-					stroke: {
-						curve: 'straight',//'stepline',// 'smooth',
-						width: isDarkMode ? 3 : 1
-					},
-					title: {
-						text: 'Backpack Battles Rarity Distribution'
-					},
-					grid: {
-						borderColor: '#e7e7e7',
-						/*row: {
-							colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-							opacity: 0.5
-						},*/
-					},
-					markers: {
-						size: 1
-					},
-					xaxis: {
-						categories: labels,
-						title: {
-							text: 'round'
-						},
-						labels: {
-							formatter: function (val) {
-								return val;
-							}
-						}
-					},
-					yaxis: {
-						title: {
-							text: undefined
-						},
-						labels: {
-							formatter: function (val) {
-								return (val * 100).toFixed(0) + '%';
-							}
-						},
-						min: 0,
-						max: 0.5
-					},
-					legend: {
-						position: 'top',
-						horizontalAlign: 'right',
-						floating: true,
-						offsetY: -15,
+						foreColor: '#fff'
 					}
-				};
-				new ApexCharts(document.querySelector("#chartLines"), options).render();
-			}
-			{
-				var options = {
-					theme,
-					series,
-					chart: {
-						type: 'bar',
-						height,
-						stacked: false,
-					},
-					plotOptions: {
-						bar: {
-							horizontal: false,
-							dataLabels: {
-								/*total: {
-									enabled: false,
-									offsetX: 0,
-									style: {
-										fontSize: '13px',
-										fontWeight: 900
-									}
-								}*/
-							}
-						},
-					},
-					stroke: {
-						width: 1,
-						colors: ['#fff']
-					},
-					title: {
-						text: 'Backpack Battles Rarity Distribution'
-					},
-					xaxis: {
-						title: {
-							text: "round"
-						},
-						categories: labels,
-						labels: {
-							formatter: function (val) {
-								return val;
-							}
-						}
-					},
-					yaxis: {
-						title: {
-							text: undefined
-						},
-						labels: {
-							formatter: function (val) {
-								return (val * 100).toFixed(0) + '%';
-							}
-						},
-						min: 0,
-						max: 0.5
-					},
-					dataLabels: {
-						enabled: true,
-						formatter: function (val, opts) {
-							return val == 0 ? undefined : (val * 100).toFixed(0) + '%';
-						},
-						style: {
-							fontSize: '12px',
-							colors
-						},
-						background: {
-							enabled: true,
-							foreColor: '#fff'
-						}
-					},
-					tooltip: {
-						fillSeriesColor: false,
-						onDatasetHover: {
-							highlightDataSeries: true,
-						},
-						shared: true,
-						intersect: false,
-						x: {
-							show: true,
-							formatter: function (val) {
-								return "round " + val;
-							},
-						},
-						y: {
-							formatter: function (val) {
-								return (val * 100).toFixed(0) + '%';
-							}
-						},
-					},
-					fill: {
-						opacity: 1
-					},
-					legend: {
-						position: 'top',
-						horizontalAlign: 'left',
-						offsetX: 40
-					}
-				};
-				new ApexCharts(document.querySelector("#chartGroupedBars"), options).render();
-			}
+				},
+				tooltip,
+				legend
+			}).render();
+
 		}
 	</script>
 
