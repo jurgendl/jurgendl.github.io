@@ -21,7 +21,8 @@
 	<div style="height: 100vh; width: 100vw; display: flex; flex-direction: column; padding: 1em;">
 		<a style="display: block; margin-bottom: 1rem;" target="_blank" href="https://mathjs.org/docs/index.html">Help @ Math.js</a>
 		<div style="margin-bottom: 1rem; width: 100%;" class="input-group">
-			<input type="text" class="form-control" placeholder="input formula" id="input">
+			<!--<input type="text" class="form-control" placeholder="input formula" id="input">-->
+			<textarea style="resize: none; font-family: 'Courier New', Courier, monospace; font-size: 12px;" class="form-control" placeholder="input formula" id="input" rows="5" style="width: 100px;"></textarea>
 			<button class="btn btn-primary" type="button" onclick="calculate()"><i class="fa-fw fa-solid fa-calculator"></i></button>
 		</div>
 		<div id="output" style="width: 100%; flex-grow: 1; overflow-y: scroll; padding-right: 5px;">
@@ -32,12 +33,15 @@
 		function calculate() {
 			var input = document.getElementById('input').value;
 			var output = document.getElementById('output');
-			if (input == '') {
-				return;
-			}
+			if (input == '') return;
+			// replace newlines with semicolons except last line, skip empty lines
+			input = input.split('\n').map(line => line.trim()).filter(line => line != '').map((line, index, array) => line).join(' ; ');
+			if (input == '') return;
 			const id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 			try {
 				const evaluated = math.evaluate(input);
+				// replace ' ; ' with newlines
+				input = input.split(' ; ').map(line => line.trim()).filter(line => line != '').map((line, index, array) => line).join('\n');
 				output.innerHTML = `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>` + output.innerHTML;
 			} catch (e) {
 				output.innerHTML = `<pre><code id='id${id}' class="language-plain">${input} : ${e}</code></pre>` + output.innerHTML;
@@ -46,7 +50,8 @@
 			Prism.highlightElement(document.getElementById(`id${id}`));
 		}
 		document.getElementById('input').addEventListener('keyup', function (event) {
-			if (event.keyCode === 13) {
+			// on control + enter calculate
+			if (event.ctrlKey && event.keyCode === 13) {
 				event.preventDefault();
 				calculate();
 				this.select();
