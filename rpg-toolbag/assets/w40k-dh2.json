@@ -1485,7 +1485,7 @@
     },
     {
       "tier": 3,
-      "talent": "Favored by the Warp",
+      "talent": "Favoured by the Warp",
       "prerequisites": "Willpower 35",
       "apt1": "Willpower",
       "apt2": "Psyker",
@@ -1668,7 +1668,7 @@
     {
       "tier": 3,
       "talent": "Step Aside",
-      "prerequisites": "Agility 40, Dodge or Parry",
+      "prerequisites": "Agility 40, Dodge +0 or Parry +0",
       "apt1": "Agility",
       "apt2": "Defence",
       "benefit": "Can make additional Dodge or Parry attempt per round.",
