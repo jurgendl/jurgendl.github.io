@@ -23,14 +23,14 @@
 		<div style="margin-bottom: 1rem; width: 100%;" class="input-group">
 			<!--<input type="text" class="form-control" placeholder="input formula" id="input">-->
 			<textarea style="resize: none; font-family: 'Courier New', Courier, monospace; font-size: 12px;" class="form-control" placeholder="input formula" id="input" rows="5" style="width: 100px;"></textarea>
-			<button class="btn btn-primary" type="button" onclick="calculate()"><i class="fa-fw fa-solid fa-calculator"></i></button>
+			<button title="evaluate" class="btn btn-primary" type="button" onclick="_evaluate()"><i class="fa-fw fa-solid fa-calculator"></i></button>
 		</div>
 		<div id="output" style="width: 100%; flex-grow: 1; overflow-y: scroll; padding-right: 5px;">
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.3.0/math.js" integrity="sha512-TaKu3GlWLNU3fyPcvsSHSh44vX/Z43ePJDRTJr7IuUKVlUHHsHm7ODYNt5xffy75M6MOXsh7p+VyXCk5icuoxQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script>
-		function calculate() {
+		function _evaluate() {
 			var input = document.getElementById('input').value;
 			var output = document.getElementById('output');
 			if (input == '') return;
@@ -38,25 +38,73 @@
 			input = input.split('\n').map(line => line.trim()).filter(line => line != '').map((line, index, array) => line).join(' ; ');
 			if (input == '') return;
 			const id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-			try {
-				const evaluated = math.evaluate(input);
-				// replace ' ; ' with newlines
-				input = input.split(' ; ').map(line => line.trim()).filter(line => line != '').map((line, index, array) => line).join('\n');
-				output.innerHTML = `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>` + output.innerHTML;
-			} catch (e) {
+
+			function onError(e) {
 				output.innerHTML = `<pre><code id='id${id}' class="language-plain">${input} : ${e}</code></pre>` + output.innerHTML;
 			}
+
+			function _simplify(input) {
+				try {
+					const evaluated = math.simplify(input);
+					output.innerHTML = `<pre><code id='id${id}' class="language-matlab">${input} => simplified: ${evaluated}</code></pre>` + output.innerHTML;
+				} catch (e) {
+					onError(e);
+				}
+			}
+
+			function _derivative(input) {
+				try {
+					const evaluated = math.derivative(input, 'x');
+					output.innerHTML = `<pre><code id='id${id}' class="language-matlab">dx ( ${input} ) = ${evaluated}</code></pre>` + output.innerHTML;
+				} catch (e) {
+					onError(e);
+				}
+			}
+
+			function _calculate(input) {
+				try {
+					const evaluated = math.evaluate(input);
+					// replace ' ; ' with newlines
+					input = input.split(' ; ').map(line => line.trim()).filter(line => line != '').map((line, index, array) => line).join('\n');
+					output.innerHTML = `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>` + output.innerHTML;
+				} catch (e) {
+					onError(e);
+				}
+			}
+
+			if (input.startsWith('simplify') && !input.includes(';')) {
+				input = input.replace('simplify', '');
+				if (input.startsWith(':')) input = input.substring(1).trim();
+				_simplify(input);
+			} else if (input.startsWith('simplified') && !input.includes(';')) {
+				input = input.replace('simplified', '');
+				if (input.startsWith(':')) input = input.substring(1).trim();
+				_simplify(input);
+			} else if (input.startsWith('derivative') && !input.includes(';')) {
+				input = input.replace('derivative', '');
+				if (input.startsWith(':')) input = input.substring(1).trim();
+				_derivative(input);
+			} else if (input.startsWith('dx') && !input.includes(';')) {
+				input = input.replace('dx', '');
+				if (input.startsWith(':')) input = input.substring(1).trim();
+				_derivative(input);
+			} else {
+				_calculate(input);
+			}
+
 			// trigger prism highlight on element with id
 			Prism.highlightElement(document.getElementById(`id${id}`));
 		}
+
 		document.getElementById('input').addEventListener('keyup', function (event) {
 			// on control + enter calculate
 			if (event.ctrlKey && event.keyCode === 13) {
 				event.preventDefault();
-				calculate();
+				_evaluate();
 				this.select();
 			}
 		});
+
 		// input on focus select all
 		document.getElementById('input').addEventListener('focus', function (event) {
 			this.select();
