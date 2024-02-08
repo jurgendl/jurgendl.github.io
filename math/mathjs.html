@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+	TODO
+	https://mathjs.org/examples/browser/plot.html.html
+-->
 
 <head>
 	<meta charset="UTF-8">
@@ -15,6 +19,28 @@
 	<script src="assets/prism-1.29.0-custom.js"></script>
 	<link rel="stylesheet" href="scrollbars-but-nice.css">
 	<link rel="stylesheet" href="assets/scrollbars-but-nice.css">
+	<style>
+		pre[class*="language-"] {
+			margin: 5px 0 !important;
+		}
+
+		.MathJax {
+			display: block;
+		}
+
+		.pretty {
+			padding: 16px;
+			margin: 5px 0;
+		}
+
+		.pretty {
+			background-color: #f5f2f0;
+		}
+
+		[data-bs-theme="dark"] .pretty {
+			background-color: #272822;
+		}
+	</style>
 </head>
 
 <body>
@@ -29,6 +55,19 @@
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.3.0/math.js" integrity="sha512-TaKu3GlWLNU3fyPcvsSHSh44vX/Z43ePJDRTJr7IuUKVlUHHsHm7ODYNt5xffy75M6MOXsh7p+VyXCk5icuoxQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/numbers.js/0.7.0/numbers.min.js" integrity="sha512-hHEKLAt8s4e7l5V3H0kQwmwdxLdpgZko1howt4O85amKNlVuwVNjIsw6CfLoSgRY2fdLAKN6Mck0Le8AssWRrA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		math.import(numbers, { wrap: true, silent: true });
+	</script>
+	<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js" integrity="sha512-BK/c8SKG4PMGMg8wo/56FdGMkgQFJgFl8rnVdF1wqIZW73Vw6M/Tde9GmwibV8MoBSBJcwurXGg6B9yvd/Fvcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	-->
+	<script>
+		//math.import(numeric, { wrap: true, silent: true });
+	</script>
+	<script src="https://cdn.plot.ly/plotly-1.35.2.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 	<script>
 		function _evaluate() {
 			var input = document.getElementById('input').value;
@@ -40,22 +79,43 @@
 			const id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
 			function onError(e) {
-				output.innerHTML = `<pre><code id='id${id}' class="language-plain">${input} : ${e}</code></pre>` + output.innerHTML;
+				console.error(e);
+				output.innerHTML = ''
+					+ `<pre><code id='id${id}' class="language-plain">${input} : ${e}</code></pre>`
+					+ '<hr>'
+					+ output.innerHTML;
 			}
 
+			// simplify: 2x + x
 			function _simplify(input) {
 				try {
 					const evaluated = math.simplify(input);
-					output.innerHTML = `<pre><code id='id${id}' class="language-matlab">${input} => simplified: ${evaluated}</code></pre>` + output.innerHTML;
+					const prettyId = `pretty-${id}`;
+					output.innerHTML = ''
+						+ `<pre><code id='id${id}' class="language-matlab">${input} ==> ${evaluated}</code></pre>`
+						+ `<div class="pretty" id='${prettyId}'></div>`
+						+ '<hr>'
+						+ output.innerHTML;
+					_pretty('' + evaluated, document.getElementById(prettyId));
 				} catch (e) {
 					onError(e);
 				}
 			}
 
+			// derivative: 4 * x^3 + 3 * x^2 + 2 * x + 1
 			function _derivative(input) {
 				try {
 					const evaluated = math.derivative(input, 'x');
-					output.innerHTML = `<pre><code id='id${id}' class="language-matlab">dx ( ${input} ) = ${evaluated}</code></pre>` + output.innerHTML;
+					const prettyInputId = `pretty-in-${id}`;
+					const prettyOutputId = `pretty-out-${id}`;
+					output.innerHTML = ''
+						+ `<pre><code id='id${id}' class="language-matlab">dx ( ${input} ) = ${evaluated}</code></pre>`
+						+ `<div class="pretty" id='${prettyInputId}'></div>`
+						+ `<div class="pretty" id='${prettyOutputId}'></div>`
+						+ '<hr>'
+						+ output.innerHTML;
+					_pretty(input, document.getElementById(prettyInputId));
+					_pretty('' + evaluated, document.getElementById(prettyOutputId));
 				} catch (e) {
 					onError(e);
 				}
@@ -66,29 +126,155 @@
 					const evaluated = math.evaluate(input);
 					// replace ' ; ' with newlines
 					input = input.split(' ; ').map(line => line.trim()).filter(line => line != '').map((line, index, array) => line).join('\n');
-					output.innerHTML = `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>` + output.innerHTML;
+					output.innerHTML = ''
+						+ `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>`
+						+ '<hr>'
+						+ output.innerHTML;
 				} catch (e) {
 					onError(e);
 				}
 			}
 
-			if (input.startsWith('simplify') && !input.includes(';')) {
+			// fraction: 0.75
+			function _fraction(input) {
+				try {
+					const evaluated = math.format(math.fraction(input), { fraction: 'ratio' });
+					const prettyId = `pretty-${id}`;
+					output.innerHTML = ''
+						+ `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>`
+						+ `<div class="pretty" id='${prettyId}'></div>`
+						+ '<hr>'
+						+ output.innerHTML;
+					_pretty('' + evaluated, document.getElementById(prettyId));
+				} catch (e) {
+					onError(e);
+				}
+			}
+
+			function _pretty(input, pretty) {
+				try {
+					const mj = function (tex) { return MathJax.tex2svg(tex, { em: 16, ex: 6, display: false }); };
+					let node = math.parse(input);
+					const latex = node ? node.toTex({ parenthesis: 'keep', implicit: 'hide' }) : ''
+					console.log('LaTeX expression:', latex);
+					// display and re-render the expression
+					MathJax.typesetClear();
+					pretty.appendChild(mj(latex));
+				} catch (e) {
+					console.error(e);
+					// remove pretty from parent
+					pretty.parentNode.removeChild(pretty);
+				}
+			}
+
+			// https://plot.ly/javascript/
+			// plot: 4 * sin(x) + 5 * cos(x/2) ; -10 ; 10 ; 0.1
+			function _plot(input) {
+				try {
+					console.log('plot');
+					input = input.replace('plot', '');
+					if (input.startsWith(':')) input = input.substring(1);
+					input = input.trim();
+					console.log(input);
+					const args = input.split(';').map(arg => arg.trim());
+					const formula = args[0].trim();
+					const from = args[1].trim();
+					const to = args[2].trim();
+					const step = args.length < 4 ? 1 : args[3].trim();
+					console.log(formula, from, to, step);
+					const expr = math.compile(formula)
+					const xValues = math.range(from, to, step).toArray();
+					const yValues = xValues.map((x) => expr.evaluate({ x: x }));
+					/*const chart = new Chart(document.getElementById('id' + id), {
+						type: 'line',
+						data: {
+							labels: xValues,
+							datasets: [{
+								label: formula,
+								data: yValues,
+								fill: false,
+								borderColor: 'rgb(75, 192, 192)',
+								tension: 0.1
+							}]
+						},
+						options: {
+							scales: {
+								x: {
+									type: 'linear',
+									position: 'bottom'
+								},
+								y: {
+									type: 'linear',
+									position: 'left'
+								}
+							}
+						}
+					});*/
+
+
+					const plotId = `plot-${id}`;
+					const prettyId = `pretty-${id}`;
+					output.innerHTML = ''
+						+ `<pre><code id='id${id}' class="language-matlab">${input}</code></pre>`
+						+ `<div class='pretty' id='${prettyId}'></div>`
+						+ `<div style='margin-bottom: 10px' id='${plotId}'></div>`
+						+ '<hr>'
+						+ output.innerHTML;
+					Plotly.newPlot(plotId, [{
+						x: xValues,
+						y: yValues,
+						type: 'scatter'
+					}]);
+					_pretty(formula, document.getElementById(prettyId));
+				} catch (e) {
+					onError(e);
+				}
+			}
+
+			if (input.startsWith('plot')) {
+				console.log('plot');
+				input = input.trim();
+				console.log(input);
+				_plot(input);
+			} else if (input.startsWith('simplify') && !input.includes(';')) {
+				console.log('simplify');
 				input = input.replace('simplify', '');
-				if (input.startsWith(':')) input = input.substring(1).trim();
+				if (input.startsWith(':')) input = input.substring(1);
+				input = input.trim();
+				console.log(input);
 				_simplify(input);
 			} else if (input.startsWith('simplified') && !input.includes(';')) {
+				console.log('simplified');
 				input = input.replace('simplified', '');
-				if (input.startsWith(':')) input = input.substring(1).trim();
+				if (input.startsWith(':')) input = input.substring(1);
+				input = input.trim();
+				console.log(input);
 				_simplify(input);
 			} else if (input.startsWith('derivative') && !input.includes(';')) {
+				console.log('derivative');
 				input = input.replace('derivative', '');
-				if (input.startsWith(':')) input = input.substring(1).trim();
+				if (input.startsWith(':')) input = input.substring(1);
+				input = input.trim();
+				console.log(input);
 				_derivative(input);
 			} else if (input.startsWith('dx') && !input.includes(';')) {
+				console.log('dx');
 				input = input.replace('dx', '');
-				if (input.startsWith(':')) input = input.substring(1).trim();
+				if (input.startsWith(':')) input = input.substring(1);
+				input = input.trim();
+				console.log(input);
 				_derivative(input);
+			} else if (input.startsWith('fraction') && !input.includes(';')) {
+				console.log('fraction');
+				input = input.replace('fraction', '');
+				if (input.startsWith(':')) input = input.substring(1);
+				input = input.trim();
+				console.log(input);
+				_fraction(input);
 			} else {
+				console.log('calculate');
+				input = input.trim();
+				console.log(input);
 				_calculate(input);
 			}
 
