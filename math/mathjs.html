@@ -44,17 +44,27 @@
 </head>
 
 <body>
+
+
 	<div style="height: 100vh; width: 100vw; display: flex; flex-direction: column; padding: 1em;">
-		<a style="display: block; margin-bottom: 1rem;" target="_blank" href="https://mathjs.org/docs/index.html">Help @ Math.js</a>
+		<div style="margin-bottom: 1rem; width: 100%;">
+			<a style="display: inline;" title="Examples" href="#" id="helpBtn"><i class="fa-fw fa-solid fa-circle-info"></i></a>
+			<a style="display: inline;" title="Documentation" style="display: block; margin-bottom: 1rem;" target="_blank" href="https://mathjs.org/docs/index.html">Help @ Math.js</a>
+		</div>
 		<div style="margin-bottom: 1rem; width: 100%;" class="input-group">
 			<!--<input type="text" class="form-control" placeholder="input formula" id="input">-->
 			<textarea style="resize: none; font-family: 'Courier New', Courier, monospace; font-size: 12px;" class="form-control" placeholder="input formula" id="input" rows="5" style="width: 100px;"></textarea>
 			<button title="evaluate" class="btn btn-primary" type="button" onclick="_evaluate()"><i class="fa-fw fa-solid fa-calculator"></i></button>
 		</div>
-		<div id="output" style="width: 100%; flex-grow: 1; overflow-y: scroll; padding-right: 5px;">
-		</div>
+		<div id="output" style="width: 100%; flex-grow: 1; overflow-y: scroll; padding-right: 5px;"></div>
 	</div>
+
+
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.3.0/math.js" integrity="sha512-TaKu3GlWLNU3fyPcvsSHSh44vX/Z43ePJDRTJr7IuUKVlUHHsHm7ODYNt5xffy75M6MOXsh7p+VyXCk5icuoxQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		math.import({ ln: math.log });
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/numbers.js/0.7.0/numbers.min.js" integrity="sha512-hHEKLAt8s4e7l5V3H0kQwmwdxLdpgZko1howt4O85amKNlVuwVNjIsw6CfLoSgRY2fdLAKN6Mck0Le8AssWRrA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script>
 		math.import(numbers, { wrap: true, silent: true });
@@ -65,9 +75,13 @@
 	<script>
 		//math.import(numeric, { wrap: true, silent: true });
 	</script>
+
 	<script src="https://cdn.plot.ly/plotly-1.35.2.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+	<!-- https://jojozhuang.github.io/tutorial/mathjax-cheat-sheet-for-mathematical-notation/ -->
 	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
 	<script>
 		function _evaluate() {
 			var input = document.getElementById('input').value;
@@ -109,13 +123,13 @@
 					const prettyInputId = `pretty-in-${id}`;
 					const prettyOutputId = `pretty-out-${id}`;
 					output.innerHTML = ''
-						+ `<pre><code id='id${id}' class="language-matlab">dx ( ${input} ) = ${evaluated}</code></pre>`
+						+ `<pre><code id='id${id}' class="language-matlab">Dx( ${input} ) = ${evaluated}</code></pre>`
 						+ `<div class="pretty" id='${prettyInputId}'></div>`
 						+ `<div class="pretty" id='${prettyOutputId}'></div>`
 						+ '<hr>'
 						+ output.innerHTML;
-					_pretty(input, document.getElementById(prettyInputId));
-					_pretty('' + evaluated, document.getElementById(prettyOutputId));
+					_pretty('' + input + '', document.getElementById(prettyInputId), "D_x(", ")");
+					_pretty('' + evaluated + '', document.getElementById(prettyOutputId));
 				} catch (e) {
 					onError(e);
 				}
@@ -151,12 +165,12 @@
 				}
 			}
 
-			function _pretty(input, pretty) {
+			function _pretty(input, pretty, prefix = '', suffix = '') {
 				try {
 					const mj = function (tex) { return MathJax.tex2svg(tex, { em: 16, ex: 6, display: false }); };
 					let node = math.parse(input);
-					const latex = node ? node.toTex({ parenthesis: 'keep', implicit: 'hide' }) : ''
-					console.log('LaTeX expression:', latex);
+					const latex = node ? prefix + node.toTex({ parenthesis: 'keep', implicit: 'hide' }) + suffix : ''
+					console.log('LaTeX expression:', input, latex);
 					// display and re-render the expression
 					MathJax.typesetClear();
 					pretty.appendChild(mj(latex));
@@ -210,7 +224,6 @@
 							}
 						}
 					});*/
-
 
 					const plotId = `plot-${id}`;
 					const prettyId = `pretty-${id}`;
@@ -296,6 +309,8 @@
 			this.select();
 		});
 	</script>
+
+
 	<script>
 		function changeDarkMode(isDarkMode) {
 			document.getElementById("prismtheme").href = isDarkMode ? "assets/prism-1.29.0-custom-oikaida.css" : "assets/prism-1.29.0-custom.css";
@@ -307,6 +322,18 @@
 		}
 	</style>
 	<script src="assets/theme-switch.js"></script>
+
+
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script src="https://unpkg.com/tippy.js@6"></script>
+	<script>
+		tippy('#helpBtn', {
+			allowHTML: true,
+			trigger: 'click',
+			content: `Examples:<br>2 + 2<br>2 inch to cm<br>plot: 4 * sin(x) + 5 * cos(x/2) ; -10 ; 10 ; 0.1<br>simplify: 2x + x<br>derivative: 4 * x^3 + 3 * x^2 + 2 * x + 1<br>fraction: 0.75<br><br>Shortcuts:<br>Ctrl + Enter: evaluate`,
+		});
+	</script>
+
 </body>
 
 </html>
