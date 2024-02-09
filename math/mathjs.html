@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--
-	TODO
-	https://mathjs.org/examples/browser/plot.html.html
--->
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title></title>
+	<title>MathJS, Plotting, ...</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<!--<script src=" https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js "></script>-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-	<!--<link href=" https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.css " rel="stylesheet">-->
 	<link id="prismtheme" rel="stylesheet" href="assets/prism-1.29.0-custom.css">
 	<script src="assets/prism-1.29.0-custom.js"></script>
 	<link rel="stylesheet" href="scrollbars-but-nice.css">
-	<link rel="stylesheet" href="assets/scrollbars-but-nice.css">
+	<!--icon-->
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
 	<style>
 		pre[class*="language-"] {
 			margin: 5px 0 !important;
@@ -33,59 +29,81 @@
 			margin: 5px 0;
 		}
 
+		.plotted {
+			margin-bottom: 10px;
+			border: 1px solid #333;
+		}
+
 		.pretty {
 			background-color: #f5f2f0;
 		}
 
-		[data-bs-theme="dark"] .pretty {
-			background-color: #272822;
+		[data-bs-theme="dark"] .pretty,
+		[data-bs-theme="dark"] pre[class*="language-"] {
+			background-color: #2d2c38;
 		}
 	</style>
 </head>
+<!-- ////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ////////////////////////////////////////////////////////////////////////////////// -->
 
 <body>
 
-
 	<div style="height: 100vh; width: 100vw; display: flex; flex-direction: column; padding: 1em;">
 		<div style="margin-bottom: 1rem; width: 100%;">
-			<a style="display: inline;" title="Examples" href="#" id="helpBtn"><i class="fa-fw fa-solid fa-circle-info"></i></a>
-			<a style="display: inline;" title="Documentation" style="display: block; margin-bottom: 1rem;" target="_blank" href="https://mathjs.org/docs/index.html">Help @ Math.js</a>
+			<a title="Examples" href="#" id="helpBtn">Examples <i class="fa-fw fa-solid fa-circle-info"></i></a>
+			--
+			<a rel="noopener" title="Documentation" target="_blank" href="https://mathjs.org/docs/index.html">Help @ Math.js</a>
+			--
+			<a rel="noopener" target="_blank" href="https://www.wolframalpha.com/">Wolframalpha</a>
 		</div>
 		<div style="margin-bottom: 1rem; width: 100%;" class="input-group">
 			<!--<input type="text" class="form-control" placeholder="input formula" id="input">-->
 			<textarea style="resize: none; font-family: 'Courier New', Courier, monospace; font-size: 12px;" class="form-control" placeholder="input formula" id="input" rows="5" style="width: 100px;"></textarea>
-			<button title="evaluate" class="btn btn-primary" type="button" onclick="_evaluate()"><i class="fa-fw fa-solid fa-calculator"></i></button>
+			<button title="clear (Ctrl+Del)" class="btn btn-secondary" type="button" onclick="_clear()"><i class="fa-fw fa-solid fa-trash"></i></button>
+			<button title="evaluate (Ctrl+Enter)" class="btn btn-primary" type="button" onclick="_evaluate()"><i class="fa-fw fa-solid fa-calculator"></i></button>
 		</div>
 		<div id="output" style="width: 100%; flex-grow: 1; overflow-y: scroll; padding-right: 5px;"></div>
 	</div>
-
-
-
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.3.0/math.js" integrity="sha512-TaKu3GlWLNU3fyPcvsSHSh44vX/Z43ePJDRTJr7IuUKVlUHHsHm7ODYNt5xffy75M6MOXsh7p+VyXCk5icuoxQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script>
 		math.import({ ln: math.log });
 	</script>
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/numbers.js/0.7.0/numbers.min.js" integrity="sha512-hHEKLAt8s4e7l5V3H0kQwmwdxLdpgZko1howt4O85amKNlVuwVNjIsw6CfLoSgRY2fdLAKN6Mck0Le8AssWRrA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script>
 		math.import(numbers, { wrap: true, silent: true });
 	</script>
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
 	<!--
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js" integrity="sha512-BK/c8SKG4PMGMg8wo/56FdGMkgQFJgFl8rnVdF1wqIZW73Vw6M/Tde9GmwibV8MoBSBJcwurXGg6B9yvd/Fvcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	-->
 	<script>
 		//math.import(numeric, { wrap: true, silent: true });
 	</script>
-
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
+	<!--
+		https://mathjs.org/examples/browser/plot.html.html
+		https://plotly.com/javascript/configuration-options/
+	-->
 	<script src="https://cdn.plot.ly/plotly-1.35.2.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
 	<!-- https://jojozhuang.github.io/tutorial/mathjax-cheat-sheet-for-mathematical-notation/ -->
 	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
 	<script>
+		function _clear() {
+			const outputElement = document.getElementById('output');
+			outputElement.innerHTML = '';
+		}
+
 		function _evaluate() {
-			var input = document.getElementById('input').value;
-			var output = document.getElementById('output');
+			const inputElement = document.getElementById('input');
+			const outputElement = document.getElementById('output');
+			let input = inputElement.value;
 			if (input == '') return;
 			// replace newlines with semicolons except last line, skip empty lines
 			input = input.split('\n').map(line => line.trim()).filter(line => line != '').map((line, index, array) => line).join(' ; ');
@@ -94,77 +112,13 @@
 
 			function onError(e) {
 				console.error(e);
-				output.innerHTML = ''
+				outputElement.innerHTML = ''
 					+ `<pre><code id='id${id}' class="language-plain">${input} : ${e}</code></pre>`
 					+ '<hr>'
-					+ output.innerHTML;
+					+ outputElement.innerHTML;
 			}
 
-			// simplify: 2x + x
-			function _simplify(input) {
-				try {
-					const evaluated = math.simplify(input);
-					const prettyId = `pretty-${id}`;
-					output.innerHTML = ''
-						+ `<pre><code id='id${id}' class="language-matlab">${input} ==> ${evaluated}</code></pre>`
-						+ `<div class="pretty" id='${prettyId}'></div>`
-						+ '<hr>'
-						+ output.innerHTML;
-					_pretty('' + evaluated, document.getElementById(prettyId));
-				} catch (e) {
-					onError(e);
-				}
-			}
-
-			// derivative: 4 * x^3 + 3 * x^2 + 2 * x + 1
-			function _derivative(input) {
-				try {
-					const evaluated = math.derivative(input, 'x');
-					const prettyInputId = `pretty-in-${id}`;
-					const prettyOutputId = `pretty-out-${id}`;
-					output.innerHTML = ''
-						+ `<pre><code id='id${id}' class="language-matlab">Dx( ${input} ) = ${evaluated}</code></pre>`
-						+ `<div class="pretty" id='${prettyInputId}'></div>`
-						+ `<div class="pretty" id='${prettyOutputId}'></div>`
-						+ '<hr>'
-						+ output.innerHTML;
-					_pretty('' + input + '', document.getElementById(prettyInputId), "D_x(", ")");
-					_pretty('' + evaluated + '', document.getElementById(prettyOutputId));
-				} catch (e) {
-					onError(e);
-				}
-			}
-
-			function _calculate(input) {
-				try {
-					const evaluated = math.evaluate(input);
-					// replace ' ; ' with newlines
-					input = input.split(' ; ').map(line => line.trim()).filter(line => line != '').map((line, index, array) => line).join('\n');
-					output.innerHTML = ''
-						+ `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>`
-						+ '<hr>'
-						+ output.innerHTML;
-				} catch (e) {
-					onError(e);
-				}
-			}
-
-			// fraction: 0.75
-			function _fraction(input) {
-				try {
-					const evaluated = math.format(math.fraction(input), { fraction: 'ratio' });
-					const prettyId = `pretty-${id}`;
-					output.innerHTML = ''
-						+ `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>`
-						+ `<div class="pretty" id='${prettyId}'></div>`
-						+ '<hr>'
-						+ output.innerHTML;
-					_pretty('' + evaluated, document.getElementById(prettyId));
-				} catch (e) {
-					onError(e);
-				}
-			}
-
+			/* https://github.com/mathjax/MathJax-demos-node/tree/master */
 			function _pretty(input, pretty, prefix = '', suffix = '') {
 				try {
 					const mj = function (tex) { return MathJax.tex2svg(tex, { em: 16, ex: 6, display: false }); };
@@ -181,8 +135,93 @@
 				}
 			}
 
+			// simplify: 2x + x
+			function _simplify(input) {
+				try {
+					const evaluated = math.simplify(input);
+					const prettyId = `pretty-${id}`;
+					outputElement.innerHTML = ''
+						+ `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>`
+						+ `<div class="pretty" id='${prettyId}'></div>`
+						+ '<hr>'
+						+ outputElement.innerHTML;
+					_pretty('' + evaluated, document.getElementById(prettyId));
+				} catch (e) {
+					onError(e);
+				}
+				return true;
+			}
+
+			// derivative: 4 * x^3 + 3 * x^2 + 2 * x + 1
+			function _derivative(input) {
+				try {
+					const evaluated = math.derivative(input, 'x');
+					const prettyInputId = `pretty-in-${id}`;
+					const prettyOutputId = `pretty-out-${id}`;
+					outputElement.innerHTML = ''
+						+ `<pre><code id='id${id}' class="language-matlab">Dx( ${input} ) = ${evaluated}</code></pre>`
+						+ `<div class="pretty" id='${prettyInputId}'></div>`
+						+ `<div class="pretty" id='${prettyOutputId}'></div>`
+						+ '<hr>'
+						+ outputElement.innerHTML;
+					_pretty('' + input + '', document.getElementById(prettyInputId), "D_x(", ")");
+					_pretty('' + evaluated + '', document.getElementById(prettyOutputId));
+				} catch (e) {
+					onError(e);
+				}
+				return true;
+			}
+
+			function _calculate(input) {
+				try {
+					const evaluated = math.evaluate(input);
+					const prettyId = `pretty-${id}`;
+					// replace ' ; ' with newlines
+					input = input.split(' ; ').map(line => line.trim()).filter(line => line != '').map((line, index, array) => line).join('\n');
+					outputElement.innerHTML = ''
+						+ `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>`
+						+ `<div class="pretty" id='${prettyId}'></div>`
+						+ '<hr>'
+						+ outputElement.innerHTML;
+					_pretty('' + evaluated, document.getElementById(prettyId));
+				} catch (e) {
+					onError(e);
+				}
+				return true;
+			}
+
+			// fraction: 0.75
+			function _fraction(input) {
+				try {
+					const evaluated = math.evaluate(input);
+					console.log(evaluated);
+					const fraction = math.fraction(evaluated);
+					console.log(fraction);
+					const formatted = math.format(fraction, { fraction: 'ratio' });
+					console.log(formatted);
+					const prettyId = `pretty-${id}`;
+					outputElement.innerHTML = ''
+						+ `<pre><code id='id${id}' class="language-matlab">${input} = ${formatted}</code></pre>`
+						+ `<div class="pretty" id='${prettyId}'></div>`
+						+ '<hr>'
+						+ outputElement.innerHTML;
+					_pretty('' + formatted, document.getElementById(prettyId));
+				} catch (e) {
+					onError(e);
+				}
+				return true;
+			}
+
+			function simplyEval(value, defaultValue) {
+				if (!value) return defaultValue;
+				let _val = value.trim();
+				if (_val === '') return defaultValue;
+				return math.evaluate(_val);
+			}
+
 			// https://plot.ly/javascript/
 			// plot: 4 * sin(x) + 5 * cos(x/2) ; -10 ; 10 ; 0.1
+			// plot: tan(x) ; -10*pi ; 10*pi ; .01 ; -10 ; 10
 			function _plot(input) {
 				try {
 					console.log('plot');
@@ -191,14 +230,17 @@
 					input = input.trim();
 					console.log(input);
 					const args = input.split(';').map(arg => arg.trim());
+					console.log('args=', args);
 					const formula = args[0].trim();
-					const from = args[1].trim();
-					const to = args[2].trim();
-					const step = args.length < 4 ? 1 : args[3].trim();
-					console.log(formula, from, to, step);
+					const xFrom = args.length < 2 ? -10 : simplyEval(args[1], -10);
+					const xTo = args.length < 3 ? 10 : simplyEval(args[2], 10);
+					const xStep = args.length < 4 ? 0.1 : simplyEval(args[3], .1);
+					const yFrom = args.length < 5 ? - (Number.MAX_VALUE - 1) : simplyEval(args[4], - (Number.MAX_VALUE - 1));
+					const yTo = args.length < 6 ? Number.MAX_VALUE : simplyEval(args[5], Number.MAX_VALUE);
+					const params = { formula: formula, xFrom: xFrom, xTo: xTo, xStep: xStep, yFrom: yFrom, yTo: yTo };
 					const expr = math.compile(formula)
-					const xValues = math.range(from, to, step).toArray();
-					const yValues = xValues.map((x) => expr.evaluate({ x: x }));
+					const xValues = math.range(xFrom, xTo, xStep).toArray();
+					const yValues = xValues.map((xValue) => math.min(yTo, math.max(yFrom, expr.evaluate({ x: xValue }))));
 					/*const chart = new Chart(document.getElementById('id' + id), {
 						type: 'line',
 						data: {
@@ -227,80 +269,102 @@
 
 					const plotId = `plot-${id}`;
 					const prettyId = `pretty-${id}`;
-					output.innerHTML = ''
-						+ `<pre><code id='id${id}' class="language-matlab">${input}</code></pre>`
+					const paramsId = `params-${id}`;
+					outputElement.innerHTML = ''
+						+ `<pre><code id='${paramsId}' class="language-json">${input}</code></pre>`
 						+ `<div class='pretty' id='${prettyId}'></div>`
-						+ `<div style='margin-bottom: 10px' id='${plotId}'></div>`
+						+ `<div class="plotted"><div id='${plotId}'></div></div>`
 						+ '<hr>'
-						+ output.innerHTML;
+						+ outputElement.innerHTML;
 					Plotly.newPlot(plotId, [{
 						x: xValues,
 						y: yValues,
-						type: 'scatter'
-					}]);
+						type: 'scatter',
+					}], {
+						displaylogo: false,
+					});
 					_pretty(formula, document.getElementById(prettyId));
+					if (args.length < 5) params.yFrom = '-&infin;';
+					if (args.length < 6) params.yTo = '&infin;';
+					document.getElementById(paramsId).innerHTML = JSON.stringify(params, null, 2);
+					Prism.highlightElement(document.getElementById(paramsId));
+					return params;
 				} catch (e) {
 					onError(e);
+					return false;
 				}
 			}
 
+			let doPrism = true;
 			if (input.startsWith('plot')) {
 				console.log('plot');
 				input = input.trim();
-				console.log(input);
 				_plot(input);
+				doPrism = false;
 			} else if (input.startsWith('simplify') && !input.includes(';')) {
 				console.log('simplify');
-				input = input.replace('simplify', '');
-				if (input.startsWith(':')) input = input.substring(1);
-				input = input.trim();
+				input = input.replace('simplify', '').trim();
+				if (input.startsWith(':')) input = input.substring(1).trim();
 				console.log(input);
-				_simplify(input);
+				doPrism = true === _simplify(input);
 			} else if (input.startsWith('simplified') && !input.includes(';')) {
 				console.log('simplified');
-				input = input.replace('simplified', '');
-				if (input.startsWith(':')) input = input.substring(1);
-				input = input.trim();
+				input = input.replace('simplified', '').trim();
+				if (input.startsWith(':')) input = input.substring(1).trim();
 				console.log(input);
-				_simplify(input);
+				doPrism = true === _simplify(input);
 			} else if (input.startsWith('derivative') && !input.includes(';')) {
 				console.log('derivative');
-				input = input.replace('derivative', '');
-				if (input.startsWith(':')) input = input.substring(1);
-				input = input.trim();
+				input = input.replace('derivative', '').trim();
+				if (input.startsWith(':')) input = input.substring(1).trim();
 				console.log(input);
-				_derivative(input);
+				doPrism = true === _derivative(input);
 			} else if (input.startsWith('dx') && !input.includes(';')) {
 				console.log('dx');
-				input = input.replace('dx', '');
-				if (input.startsWith(':')) input = input.substring(1);
-				input = input.trim();
+				input = input.replace('dx', '').trim();
+				if (input.startsWith(':')) input = input.substring(1).trim();
 				console.log(input);
-				_derivative(input);
+				doPrism = true === _derivative(input);
 			} else if (input.startsWith('fraction') && !input.includes(';')) {
 				console.log('fraction');
-				input = input.replace('fraction', '');
-				if (input.startsWith(':')) input = input.substring(1);
-				input = input.trim();
+				input = input.replace('fraction', '').trim();
+				if (input.startsWith(':')) input = input.substring(1).trim();
 				console.log(input);
-				_fraction(input);
+				doPrism = true === _fraction(input);
+			} else if (input.startsWith('ratio') && !input.includes(';')) {
+				console.log('fraction');
+				input = input.replace('ratio', '').trim();
+				if (input.startsWith(':')) input = input.substring(1).trim();
+				console.log(input);
+				doPrism = true === _fraction(input);
 			} else {
 				console.log('calculate');
 				input = input.trim();
 				console.log(input);
-				_calculate(input);
+				doPrism = true === _calculate(input);
 			}
 
-			// trigger prism highlight on element with id
-			Prism.highlightElement(document.getElementById(`id${id}`));
+			if (doPrism) {
+				try {
+					// trigger prism highlight on element with id
+					Prism.highlightElement(document.getElementById(`id${id}`));
+				} catch (e) {
+					//
+				}
+			}
 		}
 
 		document.getElementById('input').addEventListener('keyup', function (event) {
 			// on control + enter calculate
-			if (event.ctrlKey && event.keyCode === 13) {
+			if (event.ctrlKey && event.keyCode === KeyEvent.DOM_VK_RETURN) {
 				event.preventDefault();
 				_evaluate();
 				this.select();
+			}
+			// on control + delete clear
+			if (event.ctrlKey && event.keyCode === KeyEvent.DOM_VK_DELETE) {
+				event.preventDefault();
+				_clear();
 			}
 		});
 
@@ -309,8 +373,8 @@
 			this.select();
 		});
 	</script>
-
-
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
 	<script>
 		function changeDarkMode(isDarkMode) {
 			document.getElementById("prismtheme").href = isDarkMode ? "assets/prism-1.29.0-custom-oikaida.css" : "assets/prism-1.29.0-custom.css";
@@ -322,18 +386,30 @@
 		}
 	</style>
 	<script src="assets/theme-switch.js"></script>
-
-
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
 	<script src="https://unpkg.com/@popperjs/core@2"></script>
 	<script src="https://unpkg.com/tippy.js@6"></script>
 	<script>
 		tippy('#helpBtn', {
 			allowHTML: true,
 			trigger: 'click',
-			content: `Examples:<br>2 + 2<br>2 inch to cm<br>plot: 4 * sin(x) + 5 * cos(x/2) ; -10 ; 10 ; 0.1<br>simplify: 2x + x<br>derivative: 4 * x^3 + 3 * x^2 + 2 * x + 1<br>fraction: 0.75<br><br>Shortcuts:<br>Ctrl + Enter: evaluate`,
+			content: `Examples:<br>
+				2 + 2<br>
+				2 inch to cm<br>
+				plot: 4 * sin(x) + 5 * cos(x/2) ; -10 ; 10 ; 0.1<br>
+				plot: tan(x) ; -10*pi ; 10*pi ; .01 ; -10 ; 10<br>
+				simplify: 2x + x<br>
+				derivative: 4 * x^3 + 3 * x^2 + 2 * x + 1<br>
+				fraction: 0.75<br>
+				<br>
+				Shortcuts:<br>
+				Ctrl + Enter: evaluate<br>
+				Ctrl + Delete: clear`,
 		});
 	</script>
-
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- ////////////////////////////////////////////////////////////////////////////////// -->
 </body>
 
 </html>
