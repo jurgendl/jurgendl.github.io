@@ -42,6 +42,14 @@
 		[data-bs-theme="dark"] pre[class*="language-"] {
 			background-color: #2d2c38;
 		}
+
+		.pretty-in {
+			margin-right: 2em;
+		}
+
+		.pretty-out {
+			margin-left: 2em;
+		}
 	</style>
 </head>
 <!-- ////////////////////////////////////////////////////////////////////////////////// -->
@@ -122,7 +130,7 @@
 			function _pretty(input, pretty, prefix = '', suffix = '') {
 				try {
 					const mj = function (tex) { return MathJax.tex2svg(tex, { em: 16, ex: 6, display: false }); };
-					let node = math.parse(input);
+					const node = math.parse(input);
 					const latex = node ? prefix + node.toTex({ parenthesis: 'keep', implicit: 'hide' }) + suffix : ''
 					console.log('LaTeX expression:', input, latex);
 					// display and re-render the expression
@@ -139,20 +147,23 @@
 			function _simplify(input) {
 				try {
 					const evaluated = math.simplify(input);
-					const prettyId = `pretty-${id}`;
+					const prettyInputId = `pretty-in-${id}`;
+					const prettyOutputId = `pretty-out-${id}`;
 					outputElement.innerHTML = ''
 						+ `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>`
-						+ `<div class="pretty" id='${prettyId}'></div>`
+						+ `<div class="pretty pretty-in" id='${prettyInputId}'></div>`
+						+ `<div class="pretty pretty-out" id='${prettyOutputId}'></div>`
 						+ '<hr>'
 						+ outputElement.innerHTML;
-					_pretty('' + evaluated, document.getElementById(prettyId));
+					_pretty('' + input + '', document.getElementById(prettyInputId));
+					_pretty('' + evaluated + '', document.getElementById(prettyOutputId));
 				} catch (e) {
 					onError(e);
 				}
 				return true;
 			}
 
-			// derivative: 4 * x^3 + 3 * x^2 + 2 * x + 1
+			// derivative x^4 sin( x )
 			function _derivative(input) {
 				try {
 					const evaluated = math.derivative(input, 'x');
@@ -160,8 +171,8 @@
 					const prettyOutputId = `pretty-out-${id}`;
 					outputElement.innerHTML = ''
 						+ `<pre><code id='id${id}' class="language-matlab">Dx( ${input} ) = ${evaluated}</code></pre>`
-						+ `<div class="pretty" id='${prettyInputId}'></div>`
-						+ `<div class="pretty" id='${prettyOutputId}'></div>`
+						+ `<div class="pretty pretty-in" id='${prettyInputId}'></div>`
+						+ `<div class="pretty pretty-out" id='${prettyOutputId}'></div>`
 						+ '<hr>'
 						+ outputElement.innerHTML;
 					_pretty('' + input + '', document.getElementById(prettyInputId), "D_x(", ")");
@@ -172,40 +183,56 @@
 				return true;
 			}
 
+			// 2 + 2
+			// 2 inch to cm
+			// [[4,6],[7,1]] * [7,5]
 			function _calculate(input) {
 				try {
 					const evaluated = math.evaluate(input);
-					const prettyId = `pretty-${id}`;
-					// replace ' ; ' with newlines
+					const prettyInputId = `pretty-in-${id}`;
+					const prettyOutputId = `pretty-out-${id}`;
 					input = input.split(' ; ').map(line => line.trim()).filter(line => line != '').map((line, index, array) => line).join('\n');
 					outputElement.innerHTML = ''
 						+ `<pre><code id='id${id}' class="language-matlab">${input} = ${evaluated}</code></pre>`
-						+ `<div class="pretty" id='${prettyId}'></div>`
+						+ `<div class="pretty pretty-in" id='${prettyInputId}'></div>`
+						+ `<div class="pretty pretty-out" id='${prettyOutputId}'></div>`
 						+ '<hr>'
 						+ outputElement.innerHTML;
-					_pretty('' + evaluated, document.getElementById(prettyId));
+					_pretty('' + input + '', document.getElementById(prettyInputId));
+					_pretty('' + evaluated + '', document.getElementById(prettyOutputId));
 				} catch (e) {
 					onError(e);
 				}
 				return true;
 			}
 
-			// fraction: 0.75
+			// fraction: sqrt(45)
 			function _fraction(input) {
 				try {
-					const evaluated = math.evaluate(input);
-					console.log(evaluated);
-					const fraction = math.fraction(evaluated);
-					console.log(fraction);
-					const formatted = math.format(fraction, { fraction: 'ratio' });
-					console.log(formatted);
-					const prettyId = `pretty-${id}`;
+					let formatted;
+					try {
+						const fraction = math.fraction(input);
+						console.log(fraction);
+						formatted = math.format(fraction, { fraction: 'ratio' });
+						console.log(formatted);
+					} catch (error) {
+						const evaluated = math.evaluate(input);
+						console.log(evaluated);
+						const fraction = math.fraction(evaluated);
+						console.log(fraction);
+						formatted = math.format(fraction, { fraction: 'ratio' });
+						console.log(formatted);
+					}
+					const prettyInputId = `pretty-in-${id}`;
+					const prettyOutputId = `pretty-out-${id}`;
 					outputElement.innerHTML = ''
 						+ `<pre><code id='id${id}' class="language-matlab">${input} = ${formatted}</code></pre>`
-						+ `<div class="pretty" id='${prettyId}'></div>`
+						+ `<div class="pretty pretty-in" id='${prettyInputId}'></div>`
+						+ `<div class="pretty pretty-out" id='${prettyOutputId}'></div>`
 						+ '<hr>'
 						+ outputElement.innerHTML;
-					_pretty('' + formatted, document.getElementById(prettyId));
+					_pretty('' + input + '', document.getElementById(prettyInputId));
+					_pretty('' + formatted + '', document.getElementById(prettyOutputId));
 				} catch (e) {
 					onError(e);
 				}
@@ -220,8 +247,9 @@
 			}
 
 			// https://plot.ly/javascript/
-			// plot: 4 * sin(x) + 5 * cos(x/2) ; -10 ; 10 ; 0.1
-			// plot: tan(x) ; -10*pi ; 10*pi ; .01 ; -10 ; 10
+			// plot: 4 * sin(x) + 5 * cos(x/2) ; -10 ; 10 ; 0.1<br>
+			// plot: tan(x) ; -10*pi ; 10*pi ; .01 ; -10 ; 10<br>
+			// plot 1/(atan(x^3 - 6 x^2 + 4 x + 12)) ; -20 ; 20 ; .01; -3; 3<br>
 			function _plot(input) {
 				try {
 					console.log('plot');
@@ -397,11 +425,13 @@
 			content: `Examples:<br>
 				2 + 2<br>
 				2 inch to cm<br>
+				[[4,6],[7,1]] * [7,5]<br>
 				plot: 4 * sin(x) + 5 * cos(x/2) ; -10 ; 10 ; 0.1<br>
 				plot: tan(x) ; -10*pi ; 10*pi ; .01 ; -10 ; 10<br>
+				plot 1/(atan(x^3 - 6 x^2 + 4 x + 12)) ; -20 ; 20 ; .01; -3; 3<br>
 				simplify: 2x + x<br>
-				derivative: 4 * x^3 + 3 * x^2 + 2 * x + 1<br>
-				fraction: 0.75<br>
+				derivative x^4 sin( x )<br>
+				fraction: sqrt(45)<br>
 				<br>
 				Shortcuts:<br>
 				Ctrl + Enter: evaluate<br>
