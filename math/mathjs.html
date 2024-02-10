@@ -384,13 +384,13 @@
 
 		document.getElementById('input').addEventListener('keyup', function (event) {
 			// on control + enter calculate
-			if (event.ctrlKey && event.keyCode === KeyEvent.DOM_VK_RETURN) {
+			if (event.ctrlKey && event.keyCode === 13) {
 				event.preventDefault();
 				_evaluate();
 				this.select();
 			}
 			// on control + delete clear
-			if (event.ctrlKey && event.keyCode === KeyEvent.DOM_VK_DELETE) {
+			if (event.ctrlKey && event.keyCode === 46) {
 				event.preventDefault();
 				_clear();
 			}
