@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="icon" href="data:;base64,=">
+	<link rel="stylesheet" href="reset.css">
+	<style>
+		html {
+			padding: 10px;
+			font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+			font-size: 18px;
+			line-height: 1.3em;
+		}
+
+		svg {
+			border: 1pt solid #ccc;
+			background-color: #4682B4;
+			margin: 10px;
+		}
+
+		/* center svg in pre tag */
+		pre {
+			display: flex;
+			justify-content: center;
+		}
+
+		.edgeLabel {
+			color: #c700ff !important;
+			font-weight: bold;
+			font-size: small;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<pre id="output"></pre>
+
+	<script src=" https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js "></script>
+	<script>
+		const pageParam = 's';
+		const urlParams = new URLSearchParams(window.location.search);
+		let s = urlParams.get(pageParam);
+		if (!s) s = '0.md';
+
+		const url = new URL(window.location.href);
+		url.search = '';
+		url.hash = '';
+		if (url.hostname === '127.0.0.1')
+			url.hostname = 'localhost';
+
+		mermaid.initialize({ startOnLoad: false });
+
+		function visualize(mmd, outputId) {
+			mmd += '\n';
+			for (let i = 0; i <= 15; i++) {
+				if (i > 0) {
+					mmd += 'click start' + i + ' href "' + url + '?' + pageParam + '=' + (i - 1) + '.md" "previous"\n';
+				}
+				if (i < 15) {
+					mmd += 'click end' + i + ' href "' + url + '?' + pageParam + '=' + (i + 1) + '.md" "previous"\n';
+				}
+			}
+			mmd += 'click sHF href "' + url + '?' + pageParam + '=hf4.md" "previous"\n';
+			mmd += 'click starthf4 href "' + url + '?' + pageParam + '=3.md" "previous"\n';
+			for (let i = 4; i <= 16; i++) {
+				if (i > 4) {
+					mmd += 'click starthf' + i + ' href "' + url + '?' + pageParam + '=hf' + (i - 1) + '.md" "previous"\n';
+				}
+				if (i < 16) {
+					mmd += 'click endhf' + i + ' href "' + url + '?' + pageParam + '=hf' + (i + 1) + '.md" "previous"\n';
+				}
+			}
+			mmd += 'click sUBW href "' + url + '?' + pageParam + '=ubw3.md" "previous"\n';
+			mmd += 'click s2UBW href "' + url + '?' + pageParam + '=ubw4.md" "previous"\n';
+			mmd += 'click startubw4 href "' + url + '?' + pageParam + '=3.md" "previous"\n';
+			for (let i = 3; i <= 16; i++) {
+				if (i > 4) {
+					mmd += 'click startubw' + i + ' href "' + url + '?' + pageParam + '=ubw' + (i - 1) + '.md" "previous"\n';
+				}
+				if (i < 16) {
+					mmd += 'click endubw' + i + ' href "' + url + '?' + pageParam + '=ubw' + (i + 1) + '.md" "previous"\n';
+				}
+			}
+			console.log(mmd);
+			const output = document.getElementById(outputId);
+			output.removeAttribute('data-processed');
+			output.innerHTML = mmd;
+			return mermaid.run({
+				suppressErrors: false,
+				theme: 'forest',
+				nodes: [
+					output
+				]
+			});
+		}
+
+		function openPage(page) {
+			console.log('openPage', page);
+			fetch(page)
+				.then(response => response.text())
+				.then(text => {
+					text = text.replace(/```mermaid/g, '');
+					text = text.replace(/```/g, '');
+					text = text.replace(/\(/g, '[');
+					text = text.replace(/\)/g, ']');
+					text = text.replace(/\{\{/g, '>');
+					text = text.replace(/\}\}/g, ']');
+					visualize(text, 'output');
+				});
+		};
+
+		openPage(s);
+	</script>
+
+</body>
+
+</html>
