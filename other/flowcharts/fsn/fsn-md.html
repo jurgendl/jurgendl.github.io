@@ -14,6 +14,7 @@
 			font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 			font-size: 18px;
 			line-height: 1.3em;
+			background-color: #1b1f22;
 		}
 
 		svg {
@@ -67,28 +68,28 @@
 					mmd += 'click start' + i + ' href "' + url + '?' + pageParam + '=' + (i - 1) + '.md" "previous"\n';
 				}
 				if (i < 15) {
-					mmd += 'click end' + i + ' href "' + url + '?' + pageParam + '=' + (i + 1) + '.md" "previous"\n';
+					mmd += 'click end' + i + ' href "' + url + '?' + pageParam + '=' + (i + 1) + '.md" "next"\n';
 				}
 			}
-			mmd += 'click sHF href "' + url + '?' + pageParam + '=hf4.md" "previous"\n';
+			mmd += 'click sHF href "' + url + '?' + pageParam + '=hf4.md" "next"\n';
 			mmd += 'click starthf4 href "' + url + '?' + pageParam + '=3.md" "previous"\n';
 			for (let i = 4; i <= 16; i++) {
 				if (i > 4) {
 					mmd += 'click starthf' + i + ' href "' + url + '?' + pageParam + '=hf' + (i - 1) + '.md" "previous"\n';
 				}
 				if (i < 16) {
-					mmd += 'click endhf' + i + ' href "' + url + '?' + pageParam + '=hf' + (i + 1) + '.md" "previous"\n';
+					mmd += 'click endhf' + i + ' href "' + url + '?' + pageParam + '=hf' + (i + 1) + '.md" "next"\n';
 				}
 			}
-			mmd += 'click sUBW href "' + url + '?' + pageParam + '=ubw3.md" "previous"\n';
-			mmd += 'click s2UBW href "' + url + '?' + pageParam + '=ubw4.md" "previous"\n';
+			mmd += 'click sUBW href "' + url + '?' + pageParam + '=ubw3.md" "next"\n';
+			mmd += 'click s2UBW href "' + url + '?' + pageParam + '=ubw4.md" "next"\n';
 			mmd += 'click startubw4 href "' + url + '?' + pageParam + '=3.md" "previous"\n';
 			for (let i = 3; i <= 16; i++) {
 				if (i > 4) {
 					mmd += 'click startubw' + i + ' href "' + url + '?' + pageParam + '=ubw' + (i - 1) + '.md" "previous"\n';
 				}
 				if (i < 16) {
-					mmd += 'click endubw' + i + ' href "' + url + '?' + pageParam + '=ubw' + (i + 1) + '.md" "previous"\n';
+					mmd += 'click endubw' + i + ' href "' + url + '?' + pageParam + '=ubw' + (i + 1) + '.md" "next"\n';
 				}
 			}
 			console.log(mmd);
