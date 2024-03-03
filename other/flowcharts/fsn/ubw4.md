@@ -1,7 +1,7 @@
 ```mermaid
 flowchart TD
-classDef red stroke:#f00
-classDef exp color:#fff,fill:#f00
+classDef red stroke:#f00,stroke-width:3
+classDef exp color:#fff,fill:#900
 
 startubw4(Unlimited Blade Works start day 4):::exp-->z1(Awakening-My room Separation with Rin-Talk with Saber)
 z1-.No self-healing==1.->z2(ConversationFlawless blindspot)

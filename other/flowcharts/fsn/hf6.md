@@ -1,7 +1,7 @@
 ```mermaid
 flowchart TD
-classDef red stroke:#f00
-classDef exp color:#fff,fill:#f00
+classDef red stroke:#f00,stroke-width:3
+classDef exp color:#fff,fill:#900
 
 starthf6(Heavens Feel start day 6):::exp-->e1(Awakening-Morning Nurse Sakura)
 e1-->e2(Nurse Sakura A simple question)

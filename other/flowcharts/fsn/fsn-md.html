@@ -3,8 +3,9 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title></title>
+	<title>FSN</title>
 	<link rel="icon" href="data:;base64,=">
 	<link rel="stylesheet" href="reset.css">
 	<style>
@@ -28,7 +29,7 @@
 		}
 
 		.edgeLabel {
-			color: #c700ff !important;
+			color: #03ffd1 !important;
 			font-weight: bold;
 			font-size: small;
 		}
@@ -36,7 +37,7 @@
 
 </head>
 
-<body>
+<body data-bs-theme="dark">
 
 	<pre id="output"></pre>
 
@@ -53,7 +54,11 @@
 		if (url.hostname === '127.0.0.1')
 			url.hostname = 'localhost';
 
-		mermaid.initialize({ startOnLoad: false });
+		mermaid.initialize({
+			startOnLoad: false,
+			securityLevel: 'loose',
+			theme: 'dark', //forest, dark, default, neutral, base
+		});
 
 		function visualize(mmd, outputId) {
 			mmd += '\n';
@@ -92,7 +97,6 @@
 			output.innerHTML = mmd;
 			return mermaid.run({
 				suppressErrors: false,
-				theme: 'forest',
 				nodes: [
 					output
 				]
@@ -117,6 +121,7 @@
 		openPage(s);
 	</script>
 
+	<script src="theme-switch.js"></script>
 </body>
 
 </html>

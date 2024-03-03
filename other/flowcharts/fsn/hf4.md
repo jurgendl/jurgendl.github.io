@@ -1,7 +1,7 @@
 ```mermaid
 flowchart TD
-classDef red stroke:#f00
-classDef exp color:#fff,fill:#f00
+classDef red stroke:#f00,stroke-width:3
+classDef exp color:#fff,fill:#900
 
 starthf4(Heavens Feel start day 4):::exp-->a1(Morning Rin`s Proposal)
 a1-->a2(Morning Rin leaves)

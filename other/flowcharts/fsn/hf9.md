@@ -1,7 +1,7 @@
 ```mermaid
 flowchart TD
-classDef red stroke:#f00
-classDef exp color:#fff,fill:#f00
+classDef red stroke:#f00,stroke-width:3
+classDef exp color:#fff,fill:#900
 
 starthf9(Heavens Feel start day 9):::exp-->s1(Awakening-Morning Sakura collapses)
 s1-->s2(School-Rooftop Report Rin)

@@ -1,7 +1,7 @@
 ```mermaid
 flowchart TD
-classDef red stroke:#f00
-classDef exp color:#fff,fill:#f00
+classDef red stroke:#f00,stroke-width:3
+classDef exp color:#fff,fill:#900
 
 startubw3(Unlimited Blade Works start day 3):::exp-->a1(Night First Command Spell)
 a1-->a2(Night-Rin-Church Master Registration)

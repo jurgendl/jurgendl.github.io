@@ -1,7 +1,7 @@
 ```mermaid
 flowchart TD
-classDef red stroke:#f00
-classDef exp color:#fff,fill:#f00
+classDef red stroke:#f00,stroke-width:3
+classDef exp color:#fff,fill:#900
 
 starthf5(Heavens Feel start day 5):::exp-->z1(Morning, awakening A usual morning?)
 z1-->z2(Breakfast Shinji`s viciousness)
