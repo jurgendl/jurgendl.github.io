@@ -9,8 +9,7 @@
 	<link rel="icon" href="data:;base64,=">
 	<link rel="stylesheet" href="reset.css">
 	<style>
-		html {
-			padding: 10px;
+		html, body {
 			font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 			font-size: 18px;
 			line-height: 1.3em;
@@ -111,8 +110,8 @@
 				.then(text => {
 					text = text.replace(/```mermaid/g, '');
 					text = text.replace(/```/g, '');
-					text = text.replace(/\(/g, '[');
-					text = text.replace(/\)/g, ']');
+					text = text.replace(/\(/g, '([');
+					text = text.replace(/\)/g, '])');
 					text = text.replace(/\{\{/g, '>');
 					text = text.replace(/\}\}/g, ']');
 					visualize(text, 'output');
