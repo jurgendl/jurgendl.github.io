@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mermaid Editor</title>
+	<link rel="icon" href="data:;base64,=">
+	<link rel="stylesheet" href="reset.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+	<script src="assets/theme-switch.js"></script>
+	<style>
+		html {
+			padding: 10px;
+			font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+			font-size: 18px;
+			line-height: 1.3em;
+			background-color: #1b1f22;
+		}
+
+		textarea {
+			border: 1px solid #ccc;
+			padding: 5px;
+			width: 100%;
+			resize: vertical;
+			min-height: 400px;
+			font-size: 18px;
+			line-height: 1.3em;
+		}
+
+		svg {
+			border: 1pt solid #ccc;
+			background-color: #4682B4;
+			margin: 10px;
+		}
+
+		.container__lines {
+			padding: 5px;
+		}
+
+		.container {
+			margin: 10px;
+		}
+
+		.edgeLabel {
+			color: #03ffd1 !important;
+			font-weight: bold;
+			font-size: small;
+		}
+
+		[data-bs-theme="dark"] #line-numbers {
+			background-color: white;
+			color: black;
+		}
+	</style>
+
+	<!-- https://phuoc.ng/collection/mirror-a-text-area/display-the-line-numbers-in-a-text-area/ -->
+	<style>
+		.container {
+			display: flex;
+			border: 1px solid rgb(203 213 225);
+			border-radius: 0.5rem;
+			overflow: hidden;
+			max-height: 32rem;
+		}
+
+		.container__textarea {
+			border: none;
+			outline: none;
+			padding: 0.5rem;
+			width: 100%;
+		}
+
+		.container__lines {
+			border-right: 1px solid rgb(203 213 225);
+			padding: 0.5rem;
+			text-align: right;
+			overflow: hidden;
+		}
+
+		.btn {
+			margin: 10px;
+			background-color: #4CAF50;
+			border: 1pt solid #4CAF50;
+			border-radius: 5px;
+			padding: 5px;
+			color: white;
+			cursor: pointer;
+		}
+
+		.btn:hover,
+		.btn:active {
+			background-color: #45a049;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container" class="container">
+		<div id="line-numbers" class="container__lines"></div>
+		<textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="textarea" class="container__textarea">
+flowchart TD
+classDef red stroke:#f00,stroke-width:3
+classDef exp color:#fff,fill:#900
+
+start1(start 1):::exp-->x1(a)
+</textarea>
+	</div>
+	<div>
+		<button class="btn" id="visualize">Visualize</button>
+		<button class="btn" id="export">Export</button>
+	</div>
+	<span>
+		<pre id="output"></pre>
+	</span>
+
+	<script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js "></script>
+	<script>
+		mermaid.initialize({
+			startOnLoad: false,
+			securityLevel: 'loose',
+			theme: 'dark', //forest, dark, default, neutral, base
+		});
+
+		function visualize(outputId, inputId) {
+			const output = document.getElementById(outputId);
+			output.removeAttribute('data-processed');
+			output.innerHTML = document.getElementById(inputId).value;
+			if (output.innerHTML.trim() === '') {
+				return null;
+			}
+			const prom = mermaid.run({
+				suppressErrors: false,
+				nodes: [
+					output
+				]
+			});
+			// promise on error
+			prom.catch((error) => {
+				//alert(JSON.stringify(error));
+				alert(error.str);
+			})
+			return prom;
+		}
+
+		function visualizeBinder(actionId, outputId, inputId) {
+			document.getElementById(actionId).addEventListener('click', (event) => visualize(outputId, inputId));
+
+			// when alt+enter in textfield inputId, trigger click on actionId
+			document.getElementById(inputId).addEventListener('keydown', (event) => {
+				//console.log(event, actionId, outputId, inputId);
+				if (event.ctrlKey && event.key === 'Enter') {
+					visualize(outputId, inputId);
+				}
+			});
+			document.getElementById(inputId).addEventListener('keyup', (event) => {
+
+				if (event.key === '(') {
+					const input = document.getElementById(inputId);
+					const start = input.selectionStart;
+					const end = input.selectionEnd;
+					const text = input.value;
+					input.value = text.substring(0, start) + ')' + text.substring(end);
+					input.selectionStart = input.selectionEnd = start;
+					event.preventDefault();
+				}
+
+				if (event.key === '{') {
+					const input = document.getElementById(inputId);
+					const start = input.selectionStart;
+					const end = input.selectionEnd;
+					const text = input.value;
+					input.value = text.substring(0, start) + '}' + text.substring(end);
+					input.selectionStart = input.selectionEnd = start;
+					event.preventDefault();
+				}
+
+				if (event.key === '-') {
+					const input = document.getElementById(inputId);
+					const start = input.selectionStart;
+					const end = input.selectionEnd;
+					const text = input.value;
+					input.value = text.substring(0, start) + '->' + text.substring(end);
+					input.selectionStart = input.selectionEnd = start + 2;
+					event.preventDefault();
+				}
+
+				if (event.key === ':') {
+					const input = document.getElementById(inputId);
+					const start = input.selectionStart;
+					const end = input.selectionEnd;
+					const text = input.value;
+					input.value = text.substring(0, start) + '::' + text.substring(end);
+					input.selectionStart = input.selectionEnd = start + 2;
+					event.preventDefault();
+				}
+
+				// on F1 open https://mermaid.js.org/syntax/flowchart.html in another tab
+				if (event.key === 'F1') {
+					window.open('https://mermaid.js.org/syntax/flowchart.html', '_blank');
+				}
+			});
+		}
+
+		document.addEventListener('DOMContentLoaded', (event) => {
+			visualizeBinder('visualize', 'output', 'textarea');
+		});
+	</script>
+
+	<!-- https://phuoc.ng/collection/mirror-a-text-area/display-the-line-numbers-in-a-text-area/ -->
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const textarea = document.getElementById('textarea');
+			const lineNumbersEle = document.getElementById('line-numbers');
+
+			const textareaStyles = window.getComputedStyle(textarea);
+			[
+				'fontFamily',
+				'fontSize',
+				'fontWeight',
+				'letterSpacing',
+				'lineHeight',
+				'padding',
+			].forEach((property) => {
+				lineNumbersEle.style[property] = textareaStyles[property];
+			});
+
+			const parseValue = (v) => v.endsWith('px') ? parseInt(v.slice(0, -2), 10) : 0;
+
+			const font = `${textareaStyles.fontSize} ${textareaStyles.fontFamily}`;
+			const paddingLeft = parseValue(textareaStyles.paddingLeft);
+			const paddingRight = parseValue(textareaStyles.paddingRight);
+
+			const canvas = document.createElement('canvas');
+			const context = canvas.getContext('2d');
+			context.font = font;
+
+			const calculateNumLines = (str) => {
+				const textareaWidth = textarea.getBoundingClientRect().width - paddingLeft - paddingRight;
+				const words = str.split(' ');
+				let lineCount = 0;
+				let currentLine = '';
+				for (let i = 0; i < words.length; i++) {
+					const wordWidth = context.measureText(words[i] + ' ').width;
+					const lineWidth = context.measureText(currentLine).width;
+
+					if (lineWidth + wordWidth > textareaWidth) {
+						lineCount++;
+						currentLine = words[i] + ' ';
+					} else {
+						currentLine += words[i] + ' ';
+					}
+				}
+
+				if (currentLine.trim() !== '') {
+					lineCount++;
+				}
+
+				return lineCount;
+			};
+
+			const calculateLineNumbers = () => {
+				const lines = textarea.value.split('\n');
+				const numLines = lines.map((line) => calculateNumLines(line));
+
+				let lineNumbers = [];
+				let i = 1;
+				while (numLines.length > 0) {
+					const numLinesOfSentence = numLines.shift();
+					lineNumbers.push(i);
+					if (numLinesOfSentence > 1) {
+						Array(numLinesOfSentence - 1)
+							.fill('')
+							.forEach((_) => lineNumbers.push(''));
+					}
+					i++;
+				}
+
+				return lineNumbers;
+			};
+
+			const displayLineNumbers = () => {
+				const lineNumbers = calculateLineNumbers();
+				lineNumbersEle.innerHTML = Array.from({
+					length: lineNumbers.length
+				}, (_, i) => `<div>${lineNumbers[i] || '&nbsp;'}</div>`).join('');
+			};
+
+			textarea.addEventListener('input', () => {
+				displayLineNumbers();
+			});
+
+			displayLineNumbers();
+
+			const ro = new ResizeObserver(() => {
+				const rect = textarea.getBoundingClientRect();
+				lineNumbersEle.style.height = `${rect.height}px`;
+				displayLineNumbers();
+			});
+			ro.observe(textarea);
+
+			textarea.addEventListener('scroll', () => {
+				lineNumbersEle.scrollTop = textarea.scrollTop;
+			});
+		});
+	</script>
+
+	<!-- http://pablojs.com -->
+	<!-- https://github.com/premasagar/pablo -->
+	<script src="assets/pablo.min.js"></script>
+	<script>
+		function saveMermaid(mermaid_id, toPng = true) {
+			const mermaidTag = document.querySelector(`#${mermaid_id}`);
+			console.log(mermaidTag.parentElement.innerHTML);
+			const svgImage = document.querySelector(`#${mermaid_id} svg`);
+			const oldStyle = svgImage.getAttribute('style');
+			svgImage.setAttribute('style', '');
+
+			//http://pablojs.com/
+			//https://github.com/premasagar/pablo
+			//https://stackoverflow.com/questions/3975499/convert-svg-to-image-jpeg-png-etc-in-the-browser
+			svgImage.setAttribute('style', oldStyle);
+
+			const extraStyles = `.label {
+									display:inline-block; 
+									padding:.25em .4em; 
+									font-size:75%; 
+									font-weight:700; 
+									line-height:1; 
+									text-align:center; 
+									white-space:nowrap; 
+									vertical-align: baseline;
+									border-radius: .25rem;
+								}`;
+			let svgHtml = mermaidTag.innerHTML;
+			svgHtml = svgHtml.replace(/<style>(.*)<\/style>/, `<style>$1${extraStyles}</style>`);
+			if (toPng) {
+				Pablo(svgHtml)/*.toImage()*/.download('png', `mermaid.png`, function (result) {
+					if (result.error) {
+						console.error(result.error);
+					} else {
+						console.log('Pablo!');
+					}
+					svgImage.setAttribute('style', oldStyle);
+					console.log(mermaidTag.parentElement.innerHTML);
+				});
+			} else {
+				var element = document.createElement('a');
+				element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(svgHtml));
+				element.setAttribute('download', `mermaid.svg`);
+				element.style.display = 'none';
+				document.body.appendChild(element);
+				element.click();
+				document.body.removeChild(element);
+				svgImage.setAttribute('style', oldStyle);
+			}
+		}
+
+		document.getElementById('export').addEventListener('click', (event) => saveMermaid('output'));
+	</script>
+
+</body>
+
+</html>
