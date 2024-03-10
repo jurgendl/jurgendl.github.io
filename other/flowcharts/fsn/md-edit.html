@@ -12,7 +12,6 @@
 	<script src="assets/theme-switch.js"></script>
 	<style>
 		html {
-			padding: 10px;
 			font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 			font-size: 18px;
 			line-height: 1.3em;
@@ -23,7 +22,8 @@
 			border: 1px solid #ccc;
 			padding: 5px;
 			width: 100%;
-			resize: vertical;
+			/*resize: vertical; */
+			resize: none;
 			min-height: 400px;
 			font-size: 18px;
 			line-height: 1.3em;
@@ -62,7 +62,6 @@
 			border: 1px solid rgb(203 213 225);
 			border-radius: 0.5rem;
 			overflow: hidden;
-			max-height: 32rem;
 		}
 
 		.container__textarea {
@@ -94,235 +93,290 @@
 			background-color: #45a049;
 		}
 	</style>
+	<style>
+		#app {
+			display: grid;
+			/* 2 rows equal height */
+			grid-template-rows: 1.5fr 2fr;
+			height: 100vh;
+			width: 100vw;
+		}
+
+		#top {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#top> :first-child {
+			/* textarea grows to fill available space */
+			flex-grow: 1;
+		}
+
+		#bottom {
+			overflow: auto;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
 </head>
 
 <body data-bs-theme="dark">
-	<div id="container" class="container">
-		<div id="line-numbers" class="container__lines"></div>
-		<textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="textarea" class="container__textarea">
-flowchart TD
-classDef red stroke:#f00,stroke-width:3
-classDef exp color:#fff,fill:#900
-
-start1(start 1):::exp-->x1(a)
-</textarea>
+	<div id="app">
+		<div id="top">
+			<div id="container" class="container">
+				<div id="line-numbers" class="container__lines"></div>
+				<textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="textarea" class="container__textarea"></textarea>
+			</div>
+			<div>
+				<button class="btn" id="visualize">Visualize</button>
+				<button class="btn" id="export">Export</button>
+			</div>
+		</div>
+		<div id="bottom">
+			<pre id="output"></pre>
+		</div>
 	</div>
-	<div>
-		<button class="btn" id="visualize">Visualize</button>
-		<button class="btn" id="export">Export</button>
-	</div>
-	<span>
-		<pre id="output"></pre>
-	</span>
+</body>
 
-	<script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js "></script>
-	<script>
-		mermaid.initialize({
-			startOnLoad: false,
-			securityLevel: 'loose',
-			theme: 'dark', //forest, dark, default, neutral, base
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js "></script>
+<script>
+	// https://www.syncfusion.com/blogs/post/javascript-debounce-vs-throttle.aspx
+	// on edit save to local storage, use debounce and throttle
+	function debounce(callback, delay = 1000) {
+		var time;
+		return (...args) => {
+			clearTimeout(time);
+			time = setTimeout(() => {
+				callback(...args);
+			}, delay);
+		};
+	};
+	const saveToLocalStorage = debounce(() => {
+		console.log('debounce');
+		const tostore = document.getElementById('textarea').value;
+		console.log('save', tostore);
+		localStorage.setItem('mermaid', tostore);
+	}, 1000);
+	/*document.getElementById('textarea').addEventListener('input', (event) => {
+		console.log('input');
+		saveToLocalStorage();
+	});*/
+
+	mermaid.initialize({
+		startOnLoad: false,
+		securityLevel: 'loose',
+		theme: 'dark', //forest, dark, default, neutral, base
+	});
+
+	function visualize(outputId, inputId) {
+		const output = document.getElementById(outputId);
+		output.removeAttribute('data-processed');
+		output.innerHTML = document.getElementById(inputId).value;
+		if (output.innerHTML.trim() === '') {
+			return null;
+		}
+
+		saveToLocalStorage();
+
+		const prom = mermaid.run({
+			suppressErrors: false,
+			nodes: [
+				output
+			]
 		});
+		// promise on error
+		prom.catch((error) => {
+			//alert(JSON.stringify(error));
+			alert(error.str);
+		})
+		return prom;
+	}
 
-		function visualize(outputId, inputId) {
-			const output = document.getElementById(outputId);
-			output.removeAttribute('data-processed');
-			output.innerHTML = document.getElementById(inputId).value;
-			if (output.innerHTML.trim() === '') {
-				return null;
+	function visualizeBinder(actionId, outputId, inputId) {
+		document.getElementById(actionId).addEventListener('click', (event) => visualize(outputId, inputId));
+
+		// when alt+enter in textfield inputId, trigger click on actionId
+		document.getElementById(inputId).addEventListener('keydown', (event) => {
+			//console.log(event, actionId, outputId, inputId);
+			if (event.ctrlKey && event.key === 'Enter') {
+				visualize(outputId, inputId);
+				saveToLocalStorage();
 			}
-			const prom = mermaid.run({
-				suppressErrors: false,
-				nodes: [
-					output
-				]
-			});
-			// promise on error
-			prom.catch((error) => {
-				//alert(JSON.stringify(error));
-				alert(error.str);
-			})
-			return prom;
-		}
-
-		function visualizeBinder(actionId, outputId, inputId) {
-			document.getElementById(actionId).addEventListener('click', (event) => visualize(outputId, inputId));
-
-			// when alt+enter in textfield inputId, trigger click on actionId
-			document.getElementById(inputId).addEventListener('keydown', (event) => {
-				//console.log(event, actionId, outputId, inputId);
-				if (event.ctrlKey && event.key === 'Enter') {
-					visualize(outputId, inputId);
-				}
-			});
-			document.getElementById(inputId).addEventListener('keyup', (event) => {
-
-				if (event.key === '(') {
-					const input = document.getElementById(inputId);
-					const start = input.selectionStart;
-					const end = input.selectionEnd;
-					const text = input.value;
-					input.value = text.substring(0, start) + ')' + text.substring(end);
-					input.selectionStart = input.selectionEnd = start;
-					event.preventDefault();
-				}
-
-				if (event.key === '{') {
-					const input = document.getElementById(inputId);
-					const start = input.selectionStart;
-					const end = input.selectionEnd;
-					const text = input.value;
-					input.value = text.substring(0, start) + '}' + text.substring(end);
-					input.selectionStart = input.selectionEnd = start;
-					event.preventDefault();
-				}
-
-				if (event.key === '-') {
-					const input = document.getElementById(inputId);
-					const start = input.selectionStart;
-					const end = input.selectionEnd;
-					const text = input.value;
-					input.value = text.substring(0, start) + '->' + text.substring(end);
-					input.selectionStart = input.selectionEnd = start + 2;
-					event.preventDefault();
-				}
-
-				if (event.key === ':') {
-					const input = document.getElementById(inputId);
-					const start = input.selectionStart;
-					const end = input.selectionEnd;
-					const text = input.value;
-					input.value = text.substring(0, start) + '::' + text.substring(end);
-					input.selectionStart = input.selectionEnd = start + 2;
-					event.preventDefault();
-				}
-
-				// on F1 open https://mermaid.js.org/syntax/flowchart.html in another tab
-				if (event.key === 'F1') {
-					window.open('https://mermaid.js.org/syntax/flowchart.html', '_blank');
-				}
-			});
-		}
-
-		document.addEventListener('DOMContentLoaded', (event) => {
-			visualizeBinder('visualize', 'output', 'textarea');
 		});
-	</script>
+		document.getElementById(inputId).addEventListener('keyup', (event) => {
 
-	<!-- https://phuoc.ng/collection/mirror-a-text-area/display-the-line-numbers-in-a-text-area/ -->
-	<script>
-		document.addEventListener('DOMContentLoaded', () => {
-			const textarea = document.getElementById('textarea');
-			const lineNumbersEle = document.getElementById('line-numbers');
+			if (event.key === '(') {
+				const input = document.getElementById(inputId);
+				const start = input.selectionStart;
+				const end = input.selectionEnd;
+				const text = input.value;
+				input.value = text.substring(0, start) + ')' + text.substring(end);
+				input.selectionStart = input.selectionEnd = start;
+				event.preventDefault();
+			}
 
-			const textareaStyles = window.getComputedStyle(textarea);
-			[
-				'fontFamily',
-				'fontSize',
-				'fontWeight',
-				'letterSpacing',
-				'lineHeight',
-				'padding',
-			].forEach((property) => {
-				lineNumbersEle.style[property] = textareaStyles[property];
-			});
+			if (event.key === '{') {
+				const input = document.getElementById(inputId);
+				const start = input.selectionStart;
+				const end = input.selectionEnd;
+				const text = input.value;
+				input.value = text.substring(0, start) + '}' + text.substring(end);
+				input.selectionStart = input.selectionEnd = start;
+				event.preventDefault();
+			}
 
-			const parseValue = (v) => v.endsWith('px') ? parseInt(v.slice(0, -2), 10) : 0;
+			if (event.key === '-') {
+				const input = document.getElementById(inputId);
+				const start = input.selectionStart;
+				const end = input.selectionEnd;
+				const text = input.value;
+				input.value = text.substring(0, start) + '->' + text.substring(end);
+				input.selectionStart = input.selectionEnd = start + 2;
+				event.preventDefault();
+			}
 
-			const font = `${textareaStyles.fontSize} ${textareaStyles.fontFamily}`;
-			const paddingLeft = parseValue(textareaStyles.paddingLeft);
-			const paddingRight = parseValue(textareaStyles.paddingRight);
+			if (event.key === ':') {
+				const input = document.getElementById(inputId);
+				const start = input.selectionStart;
+				const end = input.selectionEnd;
+				const text = input.value;
+				input.value = text.substring(0, start) + '::' + text.substring(end);
+				input.selectionStart = input.selectionEnd = start + 2;
+				event.preventDefault();
+			}
 
-			const canvas = document.createElement('canvas');
-			const context = canvas.getContext('2d');
-			context.font = font;
+			// on F1 open https://mermaid.js.org/syntax/flowchart.html in another tab
+			if (event.key === 'F1') {
+				window.open('https://mermaid.js.org/syntax/flowchart.html', '_blank');
+			}
+		});
+	}
 
-			const calculateNumLines = (str) => {
-				const textareaWidth = textarea.getBoundingClientRect().width - paddingLeft - paddingRight;
-				const words = str.split(' ');
-				let lineCount = 0;
-				let currentLine = '';
-				for (let i = 0; i < words.length; i++) {
-					const wordWidth = context.measureText(words[i] + ' ').width;
-					const lineWidth = context.measureText(currentLine).width;
+	document.addEventListener('DOMContentLoaded', (event) => {
+		const stored = localStorage.getItem('mermaid')
+		if (stored != null && stored != undefined && stored != '' && stored.trim() != '') {
+			document.getElementById('textarea').value = stored;
+			console.log('restore', stored);
+		}
+		visualizeBinder('visualize', 'output', 'textarea');
+	});
+</script>
 
-					if (lineWidth + wordWidth > textareaWidth) {
-						lineCount++;
-						currentLine = words[i] + ' ';
-					} else {
-						currentLine += words[i] + ' ';
-					}
-				}
+<!-- https://phuoc.ng/collection/mirror-a-text-area/display-the-line-numbers-in-a-text-area/ -->
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const textarea = document.getElementById('textarea');
+		const lineNumbersEle = document.getElementById('line-numbers');
 
-				if (currentLine.trim() !== '') {
+		const textareaStyles = window.getComputedStyle(textarea);
+		[
+			'fontFamily',
+			'fontSize',
+			'fontWeight',
+			'letterSpacing',
+			'lineHeight',
+			'padding',
+		].forEach((property) => {
+			lineNumbersEle.style[property] = textareaStyles[property];
+		});
+
+		const parseValue = (v) => v.endsWith('px') ? parseInt(v.slice(0, -2), 10) : 0;
+
+		const font = `${textareaStyles.fontSize} ${textareaStyles.fontFamily}`;
+		const paddingLeft = parseValue(textareaStyles.paddingLeft);
+		const paddingRight = parseValue(textareaStyles.paddingRight);
+
+		const canvas = document.createElement('canvas');
+		const context = canvas.getContext('2d');
+		context.font = font;
+
+		const calculateNumLines = (str) => {
+			const textareaWidth = textarea.getBoundingClientRect().width - paddingLeft - paddingRight;
+			const words = str.split(' ');
+			let lineCount = 0;
+			let currentLine = '';
+			for (let i = 0; i < words.length; i++) {
+				const wordWidth = context.measureText(words[i] + ' ').width;
+				const lineWidth = context.measureText(currentLine).width;
+
+				if (lineWidth + wordWidth > textareaWidth) {
 					lineCount++;
+					currentLine = words[i] + ' ';
+				} else {
+					currentLine += words[i] + ' ';
 				}
+			}
 
-				return lineCount;
-			};
+			if (currentLine.trim() !== '') {
+				lineCount++;
+			}
 
-			const calculateLineNumbers = () => {
-				const lines = textarea.value.split('\n');
-				const numLines = lines.map((line) => calculateNumLines(line));
+			return lineCount;
+		};
 
-				let lineNumbers = [];
-				let i = 1;
-				while (numLines.length > 0) {
-					const numLinesOfSentence = numLines.shift();
-					lineNumbers.push(i);
-					if (numLinesOfSentence > 1) {
-						Array(numLinesOfSentence - 1)
-							.fill('')
-							.forEach((_) => lineNumbers.push(''));
-					}
-					i++;
+		const calculateLineNumbers = () => {
+			const lines = textarea.value.split('\n');
+			const numLines = lines.map((line) => calculateNumLines(line));
+
+			let lineNumbers = [];
+			let i = 1;
+			while (numLines.length > 0) {
+				const numLinesOfSentence = numLines.shift();
+				lineNumbers.push(i);
+				if (numLinesOfSentence > 1) {
+					Array(numLinesOfSentence - 1)
+						.fill('')
+						.forEach((_) => lineNumbers.push(''));
 				}
+				i++;
+			}
 
-				return lineNumbers;
-			};
+			return lineNumbers;
+		};
 
-			const displayLineNumbers = () => {
-				const lineNumbers = calculateLineNumbers();
-				lineNumbersEle.innerHTML = Array.from({
-					length: lineNumbers.length
-				}, (_, i) => `<div>${lineNumbers[i] || '&nbsp;'}</div>`).join('');
-			};
+		const displayLineNumbers = () => {
+			const lineNumbers = calculateLineNumbers();
+			lineNumbersEle.innerHTML = Array.from({
+				length: lineNumbers.length
+			}, (_, i) => `<div>${lineNumbers[i] || '&nbsp;'}</div>`).join('');
+		};
 
-			textarea.addEventListener('input', () => {
-				displayLineNumbers();
-			});
-
+		textarea.addEventListener('input', () => {
 			displayLineNumbers();
-
-			const ro = new ResizeObserver(() => {
-				const rect = textarea.getBoundingClientRect();
-				lineNumbersEle.style.height = `${rect.height}px`;
-				displayLineNumbers();
-			});
-			ro.observe(textarea);
-
-			textarea.addEventListener('scroll', () => {
-				lineNumbersEle.scrollTop = textarea.scrollTop;
-			});
 		});
-	</script>
 
-	<!-- http://pablojs.com -->
-	<!-- https://github.com/premasagar/pablo -->
-	<script src="assets/pablo.min.js"></script>
-	<script>
-		function saveMermaid(mermaid_id, toPng = true) {
-			const mermaidTag = document.querySelector(`#${mermaid_id}`);
-			console.log(mermaidTag.parentElement.innerHTML);
-			const svgImage = document.querySelector(`#${mermaid_id} svg`);
-			const oldStyle = svgImage.getAttribute('style');
-			svgImage.setAttribute('style', '');
+		displayLineNumbers();
 
-			//http://pablojs.com/
-			//https://github.com/premasagar/pablo
-			//https://stackoverflow.com/questions/3975499/convert-svg-to-image-jpeg-png-etc-in-the-browser
-			svgImage.setAttribute('style', oldStyle);
+		const ro = new ResizeObserver(() => {
+			const rect = textarea.getBoundingClientRect();
+			lineNumbersEle.style.height = `${rect.height}px`;
+			displayLineNumbers();
+		});
+		ro.observe(textarea);
 
-			const extraStyles = `.label {
+		textarea.addEventListener('scroll', () => {
+			lineNumbersEle.scrollTop = textarea.scrollTop;
+		});
+	});
+</script>
+
+<!-- http://pablojs.com -->
+<!-- https://github.com/premasagar/pablo -->
+<script src="assets/pablo.min.js"></script>
+<script>
+	function saveMermaid(mermaid_id, toPng = true) {
+		const mermaidTag = document.querySelector(`#${mermaid_id}`);
+		console.log(mermaidTag.parentElement.innerHTML);
+		const svgImage = document.querySelector(`#${mermaid_id} svg`);
+		const oldStyle = svgImage.getAttribute('style');
+		svgImage.setAttribute('style', '');
+
+		//http://pablojs.com/
+		//https://github.com/premasagar/pablo
+		//https://stackoverflow.com/questions/3975499/convert-svg-to-image-jpeg-png-etc-in-the-browser
+		svgImage.setAttribute('style', oldStyle);
+
+		const extraStyles = `.label {
 									display:inline-block; 
 									padding:.25em .4em; 
 									font-size:75%; 
@@ -333,33 +387,34 @@ start1(start 1):::exp-->x1(a)
 									vertical-align: baseline;
 									border-radius: .25rem;
 								}`;
-			let svgHtml = mermaidTag.innerHTML;
-			svgHtml = svgHtml.replace(/<style>(.*)<\/style>/, `<style>$1${extraStyles}</style>`);
-			if (toPng) {
-				Pablo(svgHtml)/*.toImage()*/.download('png', `mermaid.png`, function (result) {
-					if (result.error) {
-						console.error(result.error);
-					} else {
-						console.log('Pablo!');
-					}
-					svgImage.setAttribute('style', oldStyle);
-					console.log(mermaidTag.parentElement.innerHTML);
-				});
-			} else {
-				var element = document.createElement('a');
-				element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(svgHtml));
-				element.setAttribute('download', `mermaid.svg`);
-				element.style.display = 'none';
-				document.body.appendChild(element);
-				element.click();
-				document.body.removeChild(element);
+		let svgHtml = mermaidTag.innerHTML;
+		svgHtml = svgHtml.replace(/<style>(.*)<\/style>/, `<style>$1${extraStyles}</style>`);
+		if (toPng) {
+			Pablo(svgHtml)/*.toImage()*/.download('png', `mermaid.png`, function (result) {
+				if (result.error) {
+					console.error(result.error);
+				} else {
+					console.log('Pablo!');
+				}
 				svgImage.setAttribute('style', oldStyle);
-			}
+				console.log(mermaidTag.parentElement.innerHTML);
+			});
+		} else {
+			var element = document.createElement('a');
+			element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(svgHtml));
+			element.setAttribute('download', `mermaid.svg`);
+			element.style.display = 'none';
+			document.body.appendChild(element);
+			element.click();
+			document.body.removeChild(element);
+			svgImage.setAttribute('style', oldStyle);
 		}
+	}
 
-		document.getElementById('export').addEventListener('click', (event) => saveMermaid('output'));
-	</script>
+	document.getElementById('export').addEventListener('click', (event) => {
+		saveMermaid('output');
+	});
+</script>
 
-</body>
 
 </html>
