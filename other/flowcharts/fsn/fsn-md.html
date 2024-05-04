@@ -60,25 +60,49 @@
 			background-color: transparent !important;
 		}
 	</style>
+	<style>
+		.home {
+			position: fixed;
+			top: 0;
+			left: 0;
+			padding: .25em;
+			cursor: pointer;
+		}
+	</style>
 </head>
 
 <body data-bs-theme="dark">
 
+	<div id="home" class="home">
+		<i class="fa-solid fa-house"></i>
+	</div>
+
 	<pre id="output"></pre>
 
+	<script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
 	<script src="assets/theme-switch.js"></script>
+
 	<script>
 		function changeDarkMode(isDarkMode) {
-			openPage(s);
+			openPage(fsnPage);
 		}
-	</script>
 
-	<script src=" https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js "></script>
-	<script>
+		document.getElementById('home').addEventListener('click', () => {
+			fsnPage = '0.md';
+			localStorage.setItem('fsnPage', fsnPage);
+			openPage(fsnPage);
+		});
+
 		const pageParam = 's';
+		let fsnPage = localStorage.getItem('fsnPage');
 		const urlParams = new URLSearchParams(window.location.search);
 		let s = urlParams.get(pageParam);
+		if (!s) s = localStorage.getItem('fsnPage');
 		if (!s) s = '0.md';
+		fsnPage = s;
+		localStorage.setItem('fsnPage', fsnPage);
+
+		document.title = "FSN: " + fsnPage;
 
 		const url = new URL(window.location.href);
 		url.search = '';
@@ -152,7 +176,7 @@
 		};
 
 		document.addEventListener('DOMContentLoaded', () => {
-			openPage(s);
+			openPage(fsnPage);
 		});
 	</script>
 </body>
