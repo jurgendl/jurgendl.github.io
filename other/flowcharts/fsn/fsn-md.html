@@ -9,19 +9,15 @@
 	<link rel="icon" href="data:;base64,=">
 	<link rel="stylesheet" href="reset.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
-	<script src="assets/theme-switch.js"></script>
 	<style>
 		html,
 		body {
 			font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 			font-size: 18px;
 			line-height: 1.3em;
-			background-color: #1b1f22;
 		}
 
 		svg {
-			border: 1pt solid #ccc;
-			background-color: #4682B4;
 			margin: 10px;
 		}
 
@@ -32,17 +28,50 @@
 		}
 
 		.edgeLabel {
-			color: #03ffd1 !important;
 			font-weight: bold;
 			font-size: small;
 		}
-	</style>
 
+		body {
+			background-color: #d2e4f2;
+		}
+
+		svg {
+			border: 0pt solid #464646;
+			background-color: #d2e4f2;
+		}
+
+		.edgeLabel {
+			color: #18b296 !important;
+			background-color: #fff !important;
+		}
+
+		body[data-bs-theme="dark"] {
+			background-color: #4682B4;
+		}
+
+		body[data-bs-theme="dark"] svg {
+			border: 0pt solid #ccc;
+			background-color: #4682B4;
+		}
+
+		body[data-bs-theme="dark"] .edgeLabel {
+			color: #03ffd1 !important;
+			background-color: transparent !important;
+		}
+	</style>
 </head>
 
 <body data-bs-theme="dark">
 
 	<pre id="output"></pre>
+
+	<script src="assets/theme-switch.js"></script>
+	<script>
+		function changeDarkMode(isDarkMode) {
+			openPage(s);
+		}
+	</script>
 
 	<script src=" https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js "></script>
 	<script>
@@ -57,13 +86,14 @@
 		if (url.hostname === '127.0.0.1')
 			url.hostname = 'localhost';
 
-		mermaid.initialize({
-			startOnLoad: false,
-			securityLevel: 'loose',
-			theme: 'dark', //forest, dark, default, neutral, base
-		});
-
 		function visualize(mmd, outputId) {
+			const theme = isDarkMode() ? 'dark' : 'default'; //forest, dark, default, neutral, base
+			mermaid.initialize({
+				startOnLoad: false,
+				securityLevel: 'loose',
+				theme: theme
+			});
+
 			mmd += '\n';
 			for (let i = 0; i <= 15; i++) {
 				if (i > 0) {
@@ -84,7 +114,7 @@
 				}
 			}
 			mmd += 'click sUBW href "' + url + '?' + pageParam + '=ubw3.md" "next"\n';
-			mmd += 'click s2UBW href "' + url + '?' + pageParam + '=ubw4.md" "next"\n'; 			
+			mmd += 'click s2UBW href "' + url + '?' + pageParam + '=ubw4.md" "next"\n';
 			mmd += 'click startubw3 href "' + url + '?' + pageParam + '=3.md" "previous"\n';
 			for (let i = 3; i <= 16; i++) {
 				if (i > 4) {
@@ -121,10 +151,10 @@
 				});
 		};
 
-		openPage(s);
+		document.addEventListener('DOMContentLoaded', () => {
+			openPage(s);
+		});
 	</script>
-
-	<script src="theme-switch.js"></script>
 </body>
 
 </html>
