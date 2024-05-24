@@ -1079,7 +1079,7 @@
 		{
 			"tier": 1,
 			"talent": "Warp Sense",
-			"prerequisites": "Psy Rating, Psyniscience, Perception 30",
+			"prerequisites": "Psy Rating, Psyniscience +0, Perception 30",
 			"apt1": "Perception",
 			"apt2": "Psyker",
 			"benefit": "Allows Psyniscience Test as Free Action."
