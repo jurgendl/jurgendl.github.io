@@ -1,1 +1,1 @@
-[Deployed to:](https://jurgendl.github.io/)
+[Deployed here](https://jurgendl.github.io/)
