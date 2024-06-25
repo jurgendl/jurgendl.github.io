@@ -5,7 +5,8 @@
     "swamp",
     "mountain",
     "plains",
-    "mistlands"
+    "mistlands",
+    "ashlands"
   ],
   "resourceTiers": [
     [
@@ -54,6 +55,15 @@
       "sap",
       "royal jelly",
       "anglerfish"
+    ],
+    [
+      "fiddlehead",
+      "smoke puff",
+      "vineberry cluster",
+      "asksvin tail",
+      "volture meat",
+      "volture egg",
+      "bonemaw meat"
     ]
   ],
   "food": {
@@ -936,6 +946,236 @@
       "eitr": 0,
       "eitrPerSecond": 12.5,
       "durationInMinutes": 0.17
+    },
+    "fiddlehead": {
+      "resources": {
+        "fiddlehead": 1
+      },
+      "name": "fiddlehead",
+      "tier": 7,
+      "starred": false,
+      "hp": 30,
+      "stamina": 30,
+      "type": "white",
+      "eitr": 0,
+      "hpPerSecond": 1,
+      "durationInMinutes": 15
+    },
+    "smoke puff": {
+      "resources": {
+        "smoke puff": 1
+      },
+      "name": "smoke puff",
+      "tier": 7,
+      "starred": false,
+      "hp": 15,
+      "stamina": 15,
+      "type": "white",
+      "eitr": 0,
+      "hpPerSecond": 1,
+      "durationInMinutes": 15
+    },
+    "vineberry cluster": {
+      "resources": {
+        "vineberry cluster": 1
+      },
+      "name": "vineberry cluster",
+      "tier": 7,
+      "starred": false,
+      "hp": 30,
+      "stamina": 30,
+      "type": "blue",
+      "eitr": 30,
+      "hpPerSecond": 1,
+      "durationInMinutes": 15
+    },
+    "cooked asksvin tail": {
+      "resources": {
+        "asksvin tail": 1
+      },
+      "name": "cooked asksvin tail",
+      "tier": 7,
+      "starred": false,
+      "hp": 70,
+      "stamina": 24,
+      "type": "red",
+      "eitr": 0,
+      "hpPerSecond": 6,
+      "durationInMinutes": 20
+    },
+    "cooked volture meat": {
+      "resources": {
+        "volture meat": 1
+      },
+      "name": "cooked volture meat",
+      "tier": 7,
+      "starred": false,
+      "hp": 70,
+      "stamina": 24,
+      "type": "red",
+      "eitr": 0,
+      "hpPerSecond": 6,
+      "durationInMinutes": 20
+    },
+    "cooked bonemaw meat": {
+      "resources": {
+        "bonemaw meat": 1
+      },
+      "name": "cooked bonemaw meat",
+      "tier": 7,
+      "starred": false,
+      "hp": 90,
+      "stamina": 30,
+      "type": "red",
+      "eitr": 0,
+      "hpPerSecond": 6,
+      "durationInMinutes": 25
+    },
+    "fiery svinstew": {
+      "resources": {
+        "smoke puff": 1,
+        "vineberry cluster": 2,
+        "asksvin tail": 1
+      },
+      "name": "fiery svinstew",
+      "tier": 7,
+      "starred": true,
+      "hp": 95,
+      "stamina": 32,
+      "type": "red",
+      "eitr": 0,
+      "hpPerSecond": 6,
+      "durationInMinutes": 25
+    },
+    "mashed meat": {
+      "resources": {
+        "fiddlehead": 1,
+        "volture meat": 1,
+        "asksvin tail": 1
+      },
+      "name": "mashed meat",
+      "tier": 7,
+      "starred": false,
+      "hp": 100,
+      "stamina": 34,
+      "type": "red",
+      "eitr": 0,
+      "hpPerSecond": 6,
+      "durationInMinutes": 25
+    },
+    "piquant pie": {
+      "resources": {
+        "barley": 4,
+        "vineberry cluster": 2,
+        "asksvin tail": 2
+      },
+      "name": "piquant pie",
+      "tier": 7,
+      "starred": true,
+      "hp": 105,
+      "stamina": 35,
+      "type": "red",
+      "eitr": 0,
+      "hpPerSecond": 6,
+      "durationInMinutes": 30
+    },
+    "spicy marmalade": {
+      "resources": {
+        "honey": 1,
+        "fiddlehead": 1,
+        "vineberry cluster": 3
+      },
+      "name": "spicy marmalade",
+      "tier": 7,
+      "starred": true,
+      "hp": 30,
+      "stamina": 90,
+      "type": "yellow",
+      "eitr": 0,
+      "hpPerSecond": 4,
+      "durationInMinutes": 25
+    },
+    "scorching medley": {
+      "resources": {
+        "onion": 3,
+        "jotun puffs ": 3,
+        "fiddlehead": 3
+      },
+      "name": "scorching medley",
+      "tier": 7,
+      "starred": true,
+      "hp": 32,
+      "stamina": 95,
+      "type": "yellow",
+      "eitr": 0,
+      "hpPerSecond": 4,
+      "durationInMinutes": 25
+    },
+    "roasted crust pie": {
+      "resources": {
+        "barley": 4,
+        "vineberry cluster": 2,
+        "volture egg": 1
+      },
+      "name": "roasted crust pie",
+      "tier": 7,
+      "starred": false,
+      "hp": 34,
+      "stamina": 100,
+      "type": "yellow",
+      "eitr": 0,
+      "hpPerSecond": 4,
+      "durationInMinutes": 30
+    },
+    "sizzling berry broth": {
+      "resources": {
+        "sap": 3,
+        "fiddlehead": 2,
+        "vineberry cluster": 2
+      },
+      "name": "sizzling berry broth",
+      "tier": 7,
+      "starred": true,
+      "hp": 28,
+      "stamina": 14,
+      "type": "blue",
+      "eitr": 85,
+      "hpPerSecond": 4,
+      "durationInMinutes": 25
+    },
+    "sparkling shroomshake": {
+      "resources": {
+        "magecap ": 2,
+        "sap": 4,
+        "smoke puff": 2,
+        "vineberry cluster": 2
+      },
+      "name": "sparkling shroomshake",
+      "tier": 7,
+      "starred": true,
+      "hp": 30,
+      "stamina": 15,
+      "type": "blue",
+      "eitr": 90,
+      "hpPerSecond": 4,
+      "durationInMinutes": 25
+    },
+    "marinated greens": {
+      "resources": {
+        "magecap ": 2,
+        "sap": 3,
+        "fiddlehead": 2,
+        "smoke puff": 2
+      },
+      "name": "marinated greens",
+      "tier": 7,
+      "starred": true,
+      "hp": 32,
+      "stamina": 16,
+      "type": "blue",
+      "eitr": 95,
+      "hpPerSecond": 4,
+      "durationInMinutes": 30
     }
   }
 }

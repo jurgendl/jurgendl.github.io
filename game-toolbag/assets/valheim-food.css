@@ -138,3 +138,31 @@
 .tabulator-col[tabulator-field="anglerfish"] .tabulator-col-title::before {
 	background-image: url('images/anglerfish.png');
 }
+
+.tabulator-col[tabulator-field="fiddlehead"] .tabulator-col-title::before {
+	background-image: url('images/fiddlehead.png');
+}
+
+.tabulator-col[tabulator-field="smoke puff"] .tabulator-col-title::before {
+	background-image: url('images/smoke puff.png');
+}
+
+.tabulator-col[tabulator-field="vineberry cluster"] .tabulator-col-title::before {
+	background-image: url('images/vineberry cluster.png');
+}
+
+.tabulator-col[tabulator-field="asksvin tail"] .tabulator-col-title::before {
+	background-image: url('images/asksvin tail.png');
+}
+
+.tabulator-col[tabulator-field="volture meat"] .tabulator-col-title::before {
+	background-image: url('images/volture meat.png');
+}
+
+.tabulator-col[tabulator-field="volture egg"] .tabulator-col-title::before {
+	background-image: url('images/volture egg.png');
+}
+
+.tabulator-col[tabulator-field="bonemaw meat"] .tabulator-col-title::before {
+	background-image: url('images/bonemaw meat.png');
+}
