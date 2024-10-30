@@ -19,20 +19,35 @@
       "greydwarf eye",
       "mushroom",
       "dandelion",
-      "coal"
+      "coal",
+      "feathers",
+      "perch"
     ],
     [
       "blueberries",
       "carrot",
       "yellow mushroom",
-      "thistle"
+      "thistle",
+      "trollfish"
     ],
     [
       "turnip",
       "ooze",
       "entrails",
       "bloodbag",
-      "serpent meat"
+      "serpent meat",
+      "toadstool",
+      "cured squirrel hamstring",
+      "fresh seaweed",
+      "powdered dragon eggshells",
+      "pungent pebbles",
+      "fragrant bundle",
+      "fiery spice powder",
+      "herbs of the hidden hills",
+      "grasslands herbalist harvest",
+      "mountain peak pepper",
+      "seafarer's herbs",
+      "woodland herb blend"
     ],
     [
       "onion",
@@ -42,7 +57,8 @@
     [
       "cloudberries",
       "lox meat",
-      "barley"
+      "barley",
+      "grouper"
     ],
     [
       "egg",
@@ -54,1128 +70,1361 @@
       "blood clot",
       "sap",
       "royal jelly",
-      "anglerfish"
+      "anglerfish",
+      "scale hide"
     ],
     [
       "fiddlehead",
       "smoke puff",
       "vineberry cluster",
-      "asksvin tail",
-      "volture meat",
       "volture egg",
+      "volture meat",
+      "asksvin tail",
       "bonemaw meat"
     ]
   ],
   "food": {
     "raspberries": {
-      "resources": {
-        "raspberries": 1
-      },
       "name": "raspberries",
       "tier": 1,
       "starred": false,
       "hp": 7,
       "stamina": 20,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 1,
-      "durationInMinutes": 10
+      "durationInMinutes": 10,
+      "resources": {
+        "raspberries": 1
+      }
     },
     "honey": {
-      "resources": {
-        "honey": 1
-      },
       "name": "honey",
       "tier": 1,
       "starred": true,
       "hp": 8,
       "stamina": 35,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "honey": 1
+      }
     },
     "grilled neck tail": {
-      "resources": {
-        "neck tail": 1
-      },
       "name": "grilled neck tail",
       "tier": 1,
       "starred": false,
       "hp": 25,
       "stamina": 8,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 2,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "neck tail": 1
+      }
     },
     "cooked boar meat": {
-      "resources": {
-        "boar meat": 1
-      },
       "name": "cooked boar meat",
       "tier": 1,
       "starred": true,
       "hp": 30,
       "stamina": 10,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 2,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "boar meat": 1
+      }
     },
     "cooked deer meat": {
-      "resources": {
-        "deer meat": 1
-      },
       "name": "cooked deer meat",
       "tier": 1,
       "starred": false,
       "hp": 35,
       "stamina": 12,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 2,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "deer meat": 1
+      }
     },
     "boar jerky": {
-      "resources": {
-        "honey": 0.5,
-        "boar meat": 0.5
-      },
       "name": "boar jerky",
       "tier": 1,
       "starred": true,
       "hp": 23,
       "stamina": 23,
-      "type": "white",
       "eitr": 0,
+      "type": "white",
       "hpPerSecond": 2,
-      "durationInMinutes": 30
+      "durationInMinutes": 30,
+      "resources": {
+        "honey": 0.5,
+        "boar meat": 0.5
+      }
     },
     "cooked fish": {
-      "resources": {
-        "fish": 1
-      },
       "name": "cooked fish",
       "tier": 1,
       "starred": false,
       "hp": 45,
       "stamina": 15,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 2,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "fish": 1
+      }
     },
     "mushroom": {
-      "resources": {
-        "mushroom": 1
-      },
       "name": "mushroom",
       "tier": 1,
       "starred": false,
       "hp": 15,
       "stamina": 15,
-      "type": "white",
       "eitr": 0,
+      "type": "white",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "mushroom": 1
+      }
+    },
+    "whole roasted meadow boar": {
+      "name": "whole roasted meadow boar",
+      "tier": 1,
+      "starred": true,
+      "hp": 35,
+      "stamina": 35,
+      "eitr": 0,
+      "type": "feast",
+      "hpPerSecond": 2,
+      "durationInMinutes": 50,
+      "resources": {
+        "deer meat": 0.7,
+        "dandelion": 0.4,
+        "woodland herb blend": 0.1
+      }
     },
     "blueberries": {
-      "resources": {
-        "blueberries": 1
-      },
       "name": "blueberries",
       "tier": 2,
       "starred": false,
       "hp": 8,
       "stamina": 25,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 1,
-      "durationInMinutes": 10
+      "durationInMinutes": 10,
+      "resources": {
+        "blueberries": 1
+      }
     },
     "carrot": {
-      "resources": {
-        "carrot": 1
-      },
       "name": "carrot",
       "tier": 2,
       "starred": false,
       "hp": 10,
       "stamina": 32,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "carrot": 1
+      }
     },
     "carrot soup": {
-      "resources": {
-        "mushroom": 1,
-        "carrot": 3
-      },
       "name": "carrot soup",
       "tier": 2,
       "starred": true,
       "hp": 15,
       "stamina": 45,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 2,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "mushroom": 1,
+        "carrot": 3
+      }
     },
     "queens jam": {
-      "resources": {
-        "raspberries": 2,
-        "blueberries": 1.5
-      },
       "name": "queens jam",
       "tier": 2,
       "starred": true,
       "hp": 14,
       "stamina": 40,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 2,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "raspberries": 2,
+        "blueberries": 1.5
+      }
     },
     "deer stew": {
-      "resources": {
-        "deer meat": 1,
-        "blueberries": 1,
-        "carrot": 1
-      },
       "name": "deer stew",
       "tier": 2,
       "starred": true,
       "hp": 45,
       "stamina": 15,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 3,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "deer meat": 1,
+        "blueberries": 1,
+        "carrot": 1
+      }
     },
     "minced meat sauce": {
-      "resources": {
-        "neck tail": 1,
-        "boar meat": 1,
-        "carrot": 1
-      },
       "name": "minced meat sauce",
       "tier": 2,
       "starred": true,
       "hp": 40,
       "stamina": 13,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 3,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "neck tail": 1,
+        "boar meat": 1,
+        "carrot": 1
+      }
     },
     "minor healing": {
+      "name": "minor healing",
+      "tier": 2,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "hpPerSecond": 5,
+      "durationInMinutes": 0.17,
       "resources": {
         "raspberries": 10,
         "honey": 10,
         "dandelion": 1,
         "blueberries": 5
-      },
-      "name": "minor healing",
-      "tier": 2,
-      "starred": false,
-      "type": "mead",
-      "eitr": 0,
-      "hpPerSecond": 5,
-      "durationInMinutes": 0.17
+      }
     },
     "minor stamina": {
+      "name": "minor stamina",
+      "tier": 2,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 0.03,
       "resources": {
         "raspberries": 10,
         "honey": 10,
         "yellow mushroom": 10
-      },
-      "name": "minor stamina",
-      "tier": 2,
-      "starred": false,
-      "type": "mead",
-      "eitr": 0,
-      "staminaPerSecond": 40,
-      "durationInMinutes": 0.03
+      }
     },
     "poison resistance": {
+      "name": "poison resistance",
+      "tier": 2,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 10,
       "resources": {
         "honey": 10,
         "neck tail": 1,
         "coal": 10,
         "thistle": 5
-      },
-      "name": "poison resistance",
-      "tier": 2,
-      "starred": false,
-      "type": "mead",
-      "eitr": 0,
-      "durationInMinutes": 10
+      }
     },
     "tasty": {
+      "name": "tasty",
+      "tier": 2,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 0.17,
       "resources": {
         "raspberries": 10,
         "honey": 10,
         "blueberries": 5
-      },
-      "name": "tasty",
+      }
+    },
+    "black forest buffet platter": {
+      "name": "black forest buffet platter",
       "tier": 2,
-      "starred": false,
-      "type": "mead",
+      "starred": true,
+      "hp": 35,
+      "stamina": 35,
       "eitr": 0,
-      "durationInMinutes": 0.17
+      "type": "feast",
+      "hpPerSecond": 3,
+      "durationInMinutes": 50,
+      "resources": {
+        "raspberries": 0.8,
+        "deer meat": 0.3,
+        "blueberries": 0.9,
+        "carrot": 0.3,
+        "thistle": 0.5,
+        "woodland herb blend": 0.1
+      }
     },
     "turnip stew": {
-      "resources": {
-        "boar meat": 1,
-        "turnip": 1
-      },
       "name": "turnip stew",
       "tier": 3,
       "starred": true,
       "hp": 18,
       "stamina": 55,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 2,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "boar meat": 1,
+        "turnip": 1
+      }
     },
     "yellow mushroom": {
-      "resources": {
-        "yellow mushroom": 1
-      },
       "name": "yellow mushroom",
       "tier": 3,
       "starred": false,
       "hp": 10,
       "stamina": 30,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 1,
-      "durationInMinutes": 10
+      "durationInMinutes": 10,
+      "resources": {
+        "yellow mushroom": 1
+      }
     },
     "muckshake": {
-      "resources": {
-        "raspberries": 2,
-        "blueberries": 2,
-        "ooze": 1
-      },
       "name": "muckshake",
       "tier": 3,
       "starred": false,
       "hp": 16,
       "stamina": 50,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 1,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "raspberries": 2,
+        "blueberries": 2,
+        "ooze": 1
+      }
     },
     "sausages": {
-      "resources": {
-        "boar meat": 0.25,
-        "thistle": 0.25,
-        "entrails": 1
-      },
       "name": "sausages",
       "tier": 3,
       "starred": true,
       "hp": 55,
       "stamina": 18,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 3,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "boar meat": 0.25,
+        "thistle": 0.25,
+        "entrails": 1
+      }
     },
     "black soup": {
-      "resources": {
-        "honey": 1,
-        "turnip": 1,
-        "bloodbag": 1
-      },
       "name": "black soup",
       "tier": 3,
       "starred": false,
       "hp": 50,
       "stamina": 17,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 3,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "honey": 1,
+        "turnip": 1,
+        "bloodbag": 1
+      }
     },
     "cooked serpent meat": {
-      "resources": {
-        "serpent meat": 1
-      },
       "name": "cooked serpent meat",
       "tier": 3,
       "starred": false,
       "hp": 70,
       "stamina": 23,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 3,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "serpent meat": 1
+      }
     },
     "serpent stew": {
-      "resources": {
-        "honey": 2,
-        "mushroom": 1,
-        "serpent meat": 1
-      },
       "name": "serpent stew",
       "tier": 3,
       "starred": false,
       "hp": 80,
       "stamina": 26,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 4,
-      "durationInMinutes": 30
+      "durationInMinutes": 30,
+      "resources": {
+        "honey": 2,
+        "mushroom": 1,
+        "serpent meat": 1
+      }
     },
     "frost resistance": {
+      "name": "frost resistance",
+      "tier": 3,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 10,
       "resources": {
         "honey": 10,
         "greydwarf eye": 1,
         "thistle": 5,
         "bloodbag": 2
-      },
-      "name": "frost resistance",
-      "tier": 3,
-      "starred": false,
-      "type": "mead",
-      "eitr": 0,
-      "durationInMinutes": 10
+      }
     },
     "medium healing": {
+      "name": "medium healing",
+      "tier": 3,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 0.17,
       "resources": {
         "raspberries": 10,
         "honey": 10,
         "dandelion": 1,
         "bloodbag": 4
-      },
-      "name": "medium healing",
+      }
+    },
+    "berserkir mead": {
+      "name": "berserkir mead",
       "tier": 3,
       "starred": false,
-      "type": "mead",
       "eitr": 0,
-      "hpPerSecond": 7.5,
-      "durationInMinutes": 0.17
+      "type": "mead",
+      "durationInMinutes": 0.33,
+      "resources": {
+        "mushroom": 3.33,
+        "yellow mushroom": 3.3,
+        "toadstool": 0.33
+      }
+    },
+    "tonic of ratatosk": {
+      "name": "tonic of ratatosk",
+      "tier": 3,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 10,
+      "resources": {
+        "honey": 1.66,
+        "blueberries": 1.66,
+        "cured squirrel hamstring": 0.16
+      }
+    },
+    "draught of vananidir": {
+      "name": "draught of vananidir",
+      "tier": 3,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 5,
+      "resources": {
+        "dandelion": 1.66,
+        "perch": 0.33,
+        "fresh seaweed": 0.16
+      }
+    },
+    "mead of troll endurance": {
+      "name": "mead of troll endurance",
+      "tier": 3,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 5,
+      "resources": {
+        "honey": 1.66,
+        "trollfish": 0.33,
+        "powdered dragon eggshells": 0.16
+      }
+    },
+    "swamp dweller's delight": {
+      "name": "swamp dweller's delight",
+      "tier": 3,
+      "starred": true,
+      "hp": 35,
+      "stamina": 35,
+      "eitr": 0,
+      "type": "feast",
+      "hpPerSecond": 3,
+      "durationInMinutes": 50,
+      "resources": {
+        "boar meat": 0.4,
+        "thistle": 0.2,
+        "turnip": 0.6,
+        "entrails": 0.8,
+        "bloodbag": 0.4,
+        "woodland herb blend": 0.1
+      }
+    },
+    "sailor's bounty": {
+      "name": "sailor's bounty",
+      "tier": 3,
+      "starred": false,
+      "hp": 45,
+      "stamina": 45,
+      "eitr": 0,
+      "type": "feast",
+      "hpPerSecond": 3,
+      "durationInMinutes": 50,
+      "resources": {
+        "fish": 0.5,
+        "thistle": 0.4,
+        "serpent meat": 0.2,
+        "seafarer's herbs": 0.1
+      }
     },
     "onion": {
-      "resources": {
-        "onion": 1
-      },
       "name": "onion",
       "tier": 4,
       "starred": false,
       "hp": 15,
       "stamina": 40,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "onion": 1
+      }
     },
     "onion soup": {
-      "resources": {
-        "onion": 3
-      },
       "name": "onion soup",
       "tier": 4,
       "starred": true,
       "hp": 20,
       "stamina": 60,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 1,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "onion": 3
+      }
     },
     "cooked wolf meat": {
-      "resources": {
-        "wolf meat": 1
-      },
       "name": "cooked wolf meat",
       "tier": 4,
       "starred": false,
       "hp": 45,
       "stamina": 15,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 3,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "wolf meat": 1
+      }
     },
     "wolf jerky": {
-      "resources": {
-        "honey": 0.5,
-        "wolf meat": 0.5
-      },
       "name": "wolf jerky",
       "tier": 4,
       "starred": false,
       "hp": 33,
       "stamina": 33,
-      "type": "white",
       "eitr": 0,
+      "type": "white",
       "hpPerSecond": 3,
-      "durationInMinutes": 30
+      "durationInMinutes": 30,
+      "resources": {
+        "honey": 0.5,
+        "wolf meat": 0.5
+      }
     },
     "wolf skewer": {
-      "resources": {
-        "mushroom": 2,
-        "onion": 1,
-        "wolf meat": 1
-      },
       "name": "wolf skewer",
       "tier": 4,
       "starred": true,
       "hp": 65,
       "stamina": 21,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 3,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "mushroom": 2,
+        "onion": 1,
+        "wolf meat": 1
+      }
     },
     "eyescream": {
-      "resources": {
-        "greydwarf eye": 3,
-        "freeze gland": 1
-      },
       "name": "eyescream",
       "tier": 4,
       "starred": false,
       "hp": 21,
       "stamina": 65,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 1,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "greydwarf eye": 3,
+        "freeze gland": 1
+      }
+    },
+    "brew of animal whispers": {
+      "name": "brew of animal whispers",
+      "tier": 4,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 10,
+      "resources": {
+        "carrot": 1.66,
+        "pungent pebbles": 0.16,
+        "onion": 0.83
+      }
+    },
+    "hearty mountain logger's stew": {
+      "name": "hearty mountain logger's stew",
+      "tier": 4,
+      "starred": true,
+      "hp": 45,
+      "stamina": 45,
+      "eitr": 0,
+      "type": "feast",
+      "hpPerSecond": 3,
+      "durationInMinutes": 50,
+      "resources": {
+        "mushroom": 0.4,
+        "carrot": 0.4,
+        "mountain peak pepper": 0.1,
+        "onion": 1.4,
+        "wolf meat": 0.2
+      }
     },
     "cloudberries": {
-      "resources": {
-        "cloudberries ": 1
-      },
       "name": "cloudberries",
       "tier": 5,
       "starred": false,
       "hp": 13,
       "stamina": 40,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "cloudberries ": 1
+      }
     },
     "cooked lox meat": {
-      "resources": {
-        "lox meat": 1
-      },
       "name": "cooked lox meat",
       "tier": 5,
       "starred": false,
       "hp": 50,
       "stamina": 16,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 4,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "lox meat": 1
+      }
     },
     "fish wraps": {
-      "resources": {
-        "fish": 2,
-        "barley": 4
-      },
       "name": "fish wraps",
       "tier": 5,
       "starred": true,
       "hp": 70,
       "stamina": 23,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 4,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "fish": 2,
+        "barley": 4
+      }
     },
     "lox meat pie": {
-      "resources": {
-        "cloudberries ": 2,
-        "lox meat": 2,
-        "barley": 4
-      },
       "name": "lox meat pie",
       "tier": 5,
       "starred": true,
       "hp": 75,
       "stamina": 24,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 4,
-      "durationInMinutes": 30
+      "durationInMinutes": 30,
+      "resources": {
+        "cloudberries ": 2,
+        "lox meat": 2,
+        "barley": 4
+      }
     },
     "blood pudding": {
-      "resources": {
-        "thistle": 2,
-        "bloodbag": 2,
-        "barley": 4
-      },
       "name": "blood pudding",
       "tier": 5,
       "starred": false,
       "hp": 25,
       "stamina": 75,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 2,
-      "durationInMinutes": 30
+      "durationInMinutes": 30,
+      "resources": {
+        "thistle": 2,
+        "bloodbag": 2,
+        "barley": 4
+      }
     },
     "bread": {
-      "resources": {
-        "barley": 5
-      },
       "name": "bread",
       "tier": 5,
       "starred": true,
       "hp": 23,
       "stamina": 70,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 2,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "barley": 5
+      }
     },
     "barley wine": {
-      "resources": {
-        "cloudberries ": 10,
-        "barley": 10
-      },
       "name": "barley wine",
       "tier": 5,
       "starred": false,
-      "type": "mead",
       "eitr": 0,
-      "durationInMinutes": 10
+      "type": "mead",
+      "durationInMinutes": 10,
+      "resources": {
+        "cloudberries ": 10,
+        "barley": 10
+      }
     },
     "medium stamina": {
+      "name": "medium stamina",
+      "tier": 5,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 0.03,
       "resources": {
         "raspberries": 10,
         "yellow mushroom": 10,
         "cloudberries ": 10
-      },
-      "name": "medium stamina",
+      }
+    },
+    "anti-sting concoction": {
+      "name": "anti-sting concoction",
       "tier": 5,
       "starred": false,
-      "type": "mead",
       "eitr": 0,
-      "staminaPerSecond": 80,
-      "durationInMinutes": 0.03
+      "type": "mead",
+      "durationInMinutes": 10,
+      "resources": {
+        "fragrant bundle": 0.16,
+        "cloudberries ": 1.66,
+        "grouper": 0.5
+      }
+    },
+    "plains pie picnic": {
+      "name": "plains pie picnic",
+      "tier": 5,
+      "starred": true,
+      "hp": 55,
+      "stamina": 55,
+      "eitr": 0,
+      "type": "feast",
+      "hpPerSecond": 4,
+      "durationInMinutes": 50,
+      "resources": {
+        "grasslands herbalist harvest": 0.1,
+        "cloudberries ": 0.9,
+        "lox meat": 0.4,
+        "barley": 2.3
+      }
     },
     "cooked egg": {
-      "resources": {
-        "egg": 1
-      },
       "name": "cooked egg",
       "tier": 6,
       "starred": false,
       "hp": 35,
       "stamina": 12,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 1,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "egg": 1
+      }
     },
     "cooked chicken meat": {
-      "resources": {
-        "chicken meat": 1
-      },
       "name": "cooked chicken meat",
       "tier": 6,
       "starred": false,
       "hp": 60,
       "stamina": 20,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 5,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "chicken meat": 1
+      }
     },
     "magecap": {
-      "resources": {
-        "magecap ": 1
-      },
       "name": "magecap",
       "tier": 6,
       "starred": false,
       "hp": 25,
       "stamina": 25,
-      "type": "blue",
       "eitr": 25,
+      "type": "blue",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "magecap ": 1
+      }
     },
     "jotun puffs": {
-      "resources": {
-        "jotun puffs ": 1
-      },
       "name": "jotun puffs",
       "tier": 6,
       "starred": false,
       "hp": 23,
       "stamina": 25,
-      "type": "white",
       "eitr": 0,
+      "type": "white",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "jotun puffs ": 1
+      }
     },
     "royal jelly": {
-      "resources": {
-        "royal jelly": 1
-      },
       "name": "royal jelly",
       "tier": 6,
       "starred": false,
       "hp": 15,
       "stamina": 15,
-      "type": "white",
       "eitr": 0,
+      "type": "white",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "royal jelly": 1
+      }
     },
     "cooked seeker meat": {
-      "resources": {
-        "seeker meat ": 1
-      },
       "name": "cooked seeker meat",
       "tier": 6,
       "starred": false,
       "hp": 60,
       "stamina": 20,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 5,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "seeker meat ": 1
+      }
     },
     "cooked hare meat": {
-      "resources": {
-        "hare meat": 1
-      },
       "name": "cooked hare meat",
       "tier": 6,
       "starred": false,
       "hp": 60,
       "stamina": 20,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 5,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "hare meat": 1
+      }
     },
     "meat platter": {
-      "resources": {
-        "lox meat": 1,
-        "seeker meat ": 1,
-        "hare meat": 1
-      },
       "name": "meat platter",
       "tier": 6,
       "starred": true,
       "hp": 80,
       "stamina": 26,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 5,
-      "durationInMinutes": 30
+      "durationInMinutes": 30,
+      "resources": {
+        "lox meat": 1,
+        "seeker meat ": 1,
+        "hare meat": 1
+      }
     },
     "honey glazed chicken": {
-      "resources": {
-        "honey": 3,
-        "chicken meat": 1,
-        "jotun puffs ": 1
-      },
       "name": "honey glazed chicken",
       "tier": 6,
       "starred": true,
       "hp": 80,
       "stamina": 26,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 5,
-      "durationInMinutes": 30
+      "durationInMinutes": 30,
+      "resources": {
+        "honey": 3,
+        "chicken meat": 1,
+        "jotun puffs ": 1
+      }
     },
     "misthare supreme": {
-      "resources": {
-        "carrot": 2,
-        "jotun puffs ": 3,
-        "hare meat": 1
-      },
       "name": "misthare supreme",
       "tier": 6,
       "starred": true,
       "hp": 85,
       "stamina": 28,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 5,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "carrot": 2,
+        "jotun puffs ": 3,
+        "hare meat": 1
+      }
     },
     "salad": {
-      "resources": {
-        "onion": 1,
-        "cloudberries ": 1,
-        "jotun puffs ": 1
-      },
       "name": "salad",
       "tier": 6,
       "starred": true,
       "hp": 26,
       "stamina": 80,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 3,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "onion": 1,
+        "cloudberries ": 1,
+        "jotun puffs ": 1
+      }
     },
     "mushroom omelette": {
-      "resources": {
-        "egg": 3,
-        "jotun puffs ": 3
-      },
       "name": "mushroom omelette",
       "tier": 6,
       "starred": true,
       "hp": 28,
       "stamina": 85,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 3,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "egg": 3,
+        "jotun puffs ": 3
+      }
     },
     "fish and bread": {
-      "resources": {
-        "barley": 10,
-        "anglerfish": 1
-      },
       "name": "fish and bread",
       "tier": 6,
       "starred": false,
       "hp": 30,
       "stamina": 90,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 3,
-      "durationInMinutes": 30
+      "durationInMinutes": 30,
+      "resources": {
+        "barley": 10,
+        "anglerfish": 1
+      }
     },
     "stuffed mushroom": {
-      "resources": {
-        "turnip": 2,
-        "magecap ": 3,
-        "blood clot": 1
-      },
       "name": "stuffed mushroom",
       "tier": 6,
       "starred": true,
       "hp": 25,
       "stamina": 12,
-      "type": "blue",
       "eitr": 75,
+      "type": "blue",
       "hpPerSecond": 3,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "turnip": 2,
+        "magecap ": 3,
+        "blood clot": 1
+      }
     },
     "yggdrasil porridge": {
-      "resources": {
-        "barley": 3,
-        "sap": 4,
-        "royal jelly": 2
-      },
       "name": "yggdrasil porridge",
       "tier": 6,
       "starred": false,
       "hp": 27,
       "stamina": 13,
-      "type": "blue",
       "eitr": 80,
+      "type": "blue",
       "hpPerSecond": 3,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "barley": 3,
+        "sap": 4,
+        "royal jelly": 2
+      }
     },
     "seeker aspic": {
-      "resources": {
-        "magecap ": 1,
-        "seeker meat ": 1,
-        "royal jelly": 1
-      },
       "name": "seeker aspic",
       "tier": 6,
       "starred": true,
       "hp": 28,
       "stamina": 14,
-      "type": "blue",
       "eitr": 85,
+      "type": "blue",
       "hpPerSecond": 3,
-      "durationInMinutes": 30
+      "durationInMinutes": 30,
+      "resources": {
+        "magecap ": 1,
+        "seeker meat ": 1,
+        "royal jelly": 1
+      }
     },
     "lingering stamina": {
+      "name": "lingering stamina",
+      "tier": 6,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 5,
       "resources": {
         "cloudberries ": 10,
         "jotun puffs ": 10,
         "blood clot": 10
-      },
-      "name": "lingering stamina",
-      "tier": 6,
-      "starred": false,
-      "type": "mead",
-      "eitr": 0,
-      "durationInMinutes": 5
+      }
     },
     "major healing": {
+      "name": "major healing",
+      "tier": 6,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 0.17,
       "resources": {
         "honey": 10,
         "blood clot": 4,
         "royal jelly": 5
-      },
-      "name": "major healing",
-      "tier": 6,
-      "starred": false,
-      "type": "mead",
-      "eitr": 0,
-      "hpPerSecond": 12.5,
-      "durationInMinutes": 0.17
+      }
     },
     "minor eitr": {
+      "name": "minor eitr",
+      "tier": 6,
+      "starred": false,
+      "eitr": 0,
+      "type": "mead",
+      "durationInMinutes": 0.17,
       "resources": {
         "honey": 10,
         "magecap ": 5,
         "jotun puffs ": 2,
         "sap": 5
-      },
-      "name": "minor eitr",
+      }
+    },
+    "lightfoot mead": {
+      "name": "lightfoot mead",
       "tier": 6,
       "starred": false,
-      "type": "mead",
       "eitr": 0,
-      "eitrPerSecond": 12.5,
-      "durationInMinutes": 0.17
+      "type": "mead",
+      "durationInMinutes": 10,
+      "resources": {
+        "feathers": 0.83,
+        "magecap ": 0.83,
+        "scale hide": 0.33
+      }
+    },
+    "mushrooms galore à la mistlands": {
+      "name": "mushrooms galore à la mistlands",
+      "tier": 6,
+      "starred": true,
+      "hp": 65,
+      "stamina": 65,
+      "eitr": 35,
+      "type": "feast",
+      "hpPerSecond": 5,
+      "durationInMinutes": 50,
+      "resources": {
+        "carrot": 0.2,
+        "herbs of the hidden hills": 0.1,
+        "barley": 0.3,
+        "jotun puffs ": 0.3,
+        "seeker meat ": 0.3,
+        "hare meat": 0.1,
+        "sap": 0.4,
+        "royal jelly": 0.2
+      }
     },
     "fiddlehead": {
-      "resources": {
-        "fiddlehead": 1
-      },
       "name": "fiddlehead",
       "tier": 7,
       "starred": false,
       "hp": 30,
       "stamina": 30,
-      "type": "white",
       "eitr": 0,
+      "type": "white",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "fiddlehead": 1
+      }
     },
     "smoke puff": {
-      "resources": {
-        "smoke puff": 1
-      },
       "name": "smoke puff",
       "tier": 7,
       "starred": false,
       "hp": 15,
       "stamina": 15,
-      "type": "white",
       "eitr": 0,
+      "type": "white",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "smoke puff": 1
+      }
     },
     "vineberry cluster": {
-      "resources": {
-        "vineberry cluster": 1
-      },
       "name": "vineberry cluster",
       "tier": 7,
       "starred": false,
       "hp": 30,
       "stamina": 30,
-      "type": "blue",
       "eitr": 30,
+      "type": "blue",
       "hpPerSecond": 1,
-      "durationInMinutes": 15
+      "durationInMinutes": 15,
+      "resources": {
+        "vineberry cluster": 1
+      }
     },
     "cooked asksvin tail": {
-      "resources": {
-        "asksvin tail": 1
-      },
       "name": "cooked asksvin tail",
       "tier": 7,
       "starred": false,
       "hp": 70,
       "stamina": 24,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 6,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "asksvin tail": 1
+      }
     },
     "cooked volture meat": {
-      "resources": {
-        "volture meat": 1
-      },
       "name": "cooked volture meat",
       "tier": 7,
       "starred": false,
       "hp": 70,
       "stamina": 24,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 6,
-      "durationInMinutes": 20
+      "durationInMinutes": 20,
+      "resources": {
+        "volture meat": 1
+      }
     },
     "cooked bonemaw meat": {
-      "resources": {
-        "bonemaw meat": 1
-      },
       "name": "cooked bonemaw meat",
       "tier": 7,
       "starred": false,
       "hp": 90,
       "stamina": 30,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 6,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "bonemaw meat": 1
+      }
     },
     "fiery svinstew": {
+      "name": "fiery svinstew",
+      "tier": 7,
+      "starred": false,
+      "hp": 95,
+      "stamina": 32,
+      "eitr": 0,
+      "type": "red",
+      "hpPerSecond": 6,
+      "durationInMinutes": 25,
       "resources": {
         "smoke puff": 1,
         "vineberry cluster": 2,
         "asksvin tail": 1
-      },
-      "name": "fiery svinstew",
-      "tier": 7,
-      "starred": true,
-      "hp": 95,
-      "stamina": 32,
-      "type": "red",
-      "eitr": 0,
-      "hpPerSecond": 6,
-      "durationInMinutes": 25
+      }
     },
     "mashed meat": {
-      "resources": {
-        "fiddlehead": 1,
-        "volture meat": 1,
-        "asksvin tail": 1
-      },
       "name": "mashed meat",
       "tier": 7,
       "starred": false,
       "hp": 100,
       "stamina": 34,
-      "type": "red",
       "eitr": 0,
+      "type": "red",
       "hpPerSecond": 6,
-      "durationInMinutes": 25
+      "durationInMinutes": 25,
+      "resources": {
+        "fiddlehead": 1,
+        "volture meat": 1,
+        "asksvin tail": 1
+      }
     },
     "piquant pie": {
+      "name": "piquant pie",
+      "tier": 7,
+      "starred": false,
+      "hp": 105,
+      "stamina": 35,
+      "eitr": 0,
+      "type": "red",
+      "hpPerSecond": 6,
+      "durationInMinutes": 30,
       "resources": {
         "barley": 4,
         "vineberry cluster": 2,
         "asksvin tail": 2
-      },
-      "name": "piquant pie",
-      "tier": 7,
-      "starred": true,
-      "hp": 105,
-      "stamina": 35,
-      "type": "red",
-      "eitr": 0,
-      "hpPerSecond": 6,
-      "durationInMinutes": 30
+      }
     },
     "spicy marmalade": {
+      "name": "spicy marmalade",
+      "tier": 7,
+      "starred": false,
+      "hp": 30,
+      "stamina": 90,
+      "eitr": 0,
+      "type": "yellow",
+      "hpPerSecond": 4,
+      "durationInMinutes": 25,
       "resources": {
         "honey": 1,
         "fiddlehead": 1,
         "vineberry cluster": 3
-      },
-      "name": "spicy marmalade",
-      "tier": 7,
-      "starred": true,
-      "hp": 30,
-      "stamina": 90,
-      "type": "yellow",
-      "eitr": 0,
-      "hpPerSecond": 4,
-      "durationInMinutes": 25
+      }
     },
     "scorching medley": {
+      "name": "scorching medley",
+      "tier": 7,
+      "starred": false,
+      "hp": 32,
+      "stamina": 95,
+      "eitr": 0,
+      "type": "yellow",
+      "hpPerSecond": 4,
+      "durationInMinutes": 25,
       "resources": {
         "onion": 3,
         "jotun puffs ": 3,
         "fiddlehead": 3
-      },
-      "name": "scorching medley",
-      "tier": 7,
-      "starred": true,
-      "hp": 32,
-      "stamina": 95,
-      "type": "yellow",
-      "eitr": 0,
-      "hpPerSecond": 4,
-      "durationInMinutes": 25
+      }
     },
     "roasted crust pie": {
-      "resources": {
-        "barley": 4,
-        "vineberry cluster": 2,
-        "volture egg": 1
-      },
       "name": "roasted crust pie",
       "tier": 7,
       "starred": false,
       "hp": 34,
       "stamina": 100,
-      "type": "yellow",
       "eitr": 0,
+      "type": "yellow",
       "hpPerSecond": 4,
-      "durationInMinutes": 30
+      "durationInMinutes": 30,
+      "resources": {
+        "barley": 4,
+        "vineberry cluster": 2,
+        "volture egg": 1
+      }
     },
     "sizzling berry broth": {
+      "name": "sizzling berry broth",
+      "tier": 7,
+      "starred": false,
+      "hp": 28,
+      "stamina": 14,
+      "eitr": 85,
+      "type": "blue",
+      "hpPerSecond": 4,
+      "durationInMinutes": 25,
       "resources": {
         "sap": 3,
         "fiddlehead": 2,
         "vineberry cluster": 2
-      },
-      "name": "sizzling berry broth",
-      "tier": 7,
-      "starred": true,
-      "hp": 28,
-      "stamina": 14,
-      "type": "blue",
-      "eitr": 85,
-      "hpPerSecond": 4,
-      "durationInMinutes": 25
+      }
     },
     "sparkling shroomshake": {
+      "name": "sparkling shroomshake",
+      "tier": 7,
+      "starred": false,
+      "hp": 30,
+      "stamina": 15,
+      "eitr": 90,
+      "type": "blue",
+      "hpPerSecond": 4,
+      "durationInMinutes": 25,
       "resources": {
         "magecap ": 2,
         "sap": 4,
         "smoke puff": 2,
         "vineberry cluster": 2
-      },
-      "name": "sparkling shroomshake",
-      "tier": 7,
-      "starred": true,
-      "hp": 30,
-      "stamina": 15,
-      "type": "blue",
-      "eitr": 90,
-      "hpPerSecond": 4,
-      "durationInMinutes": 25
+      }
     },
     "marinated greens": {
+      "name": "marinated greens",
+      "tier": 7,
+      "starred": false,
+      "hp": 32,
+      "stamina": 16,
+      "eitr": 95,
+      "type": "blue",
+      "hpPerSecond": 4,
+      "durationInMinutes": 30,
       "resources": {
         "magecap ": 2,
         "sap": 3,
         "fiddlehead": 2,
         "smoke puff": 2
-      },
-      "name": "marinated greens",
+      }
+    },
+    "ashlands gourmet bowl": {
+      "name": "ashlands gourmet bowl",
       "tier": 7,
       "starred": true,
-      "hp": 32,
-      "stamina": 16,
-      "type": "blue",
-      "eitr": 95,
-      "hpPerSecond": 4,
-      "durationInMinutes": 30
+      "hp": 75,
+      "stamina": 75,
+      "eitr": 38,
+      "type": "feast",
+      "hpPerSecond": 6,
+      "durationInMinutes": 50,
+      "resources": {
+        "fiery spice powder": 0.1,
+        "onion": 0.6,
+        "jotun puffs ": 0.6,
+        "fiddlehead": 0.6,
+        "vineberry cluster": 0.5,
+        "asksvin tail": 0.3
+      }
     }
   }
 }
