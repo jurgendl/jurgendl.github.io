@@ -1507,7 +1507,7 @@
       "prerequisites": "Fellowship 40, Willpower 40",
       "apt1": "Fellowship",
       "apt2": "Leadership",
-      "benefit": "Affect NPCs within 100xFelB metres with Social skills.",
+      "benefit": "Affect NPCs within 100 x Fellowship bonus metres with Social skills.",
       "ref": "PG 127 CB"
     },
     {
