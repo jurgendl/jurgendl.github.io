@@ -1,0 +1,1510 @@
+{
+	"items": [
+		{
+			"name": "health potion",
+			"type": "potion",
+			"effect": "+200 health",
+			"duration": "instant",
+			"requirements": [
+				"alchemist"
+			],
+			"ingredients": [
+				{
+					"name": "red mushroom"
+				},
+				{
+					"name": "purple berries"
+				},
+				{
+					"name": "water"
+				}
+			]
+		},
+		{
+			"name": "greater health potion",
+			"type": "potion",
+			"effect": "+400 health",
+			"duration": "instant",
+			"requirements": [
+				"alchemist",
+				"mortar"
+			],
+			"ingredients": [
+				{
+					"name": "honey"
+				},
+				{
+					"name": "water"
+				},
+				{
+					"name": "purple berries"
+				},
+				{
+					"name": "chamomile"
+				}
+			]
+		},
+		{
+			"name": "revitalizing health potion",
+			"type": "potion",
+			"effect": "+800 health",
+			"duration": "instant",
+			"requirements": [
+				"alchemist",
+				"laboratory"
+			],
+			"ingredients": [
+				{
+					"name": "honey"
+				},
+				{
+					"name": "aloe"
+				},
+				{
+					"name": "alchemical base"
+				},
+				{
+					"name": "chamomile"
+				}
+			]
+		},
+		{
+			"name": "alchemical base",
+			"requirements": [
+				"alchemy station"
+			],
+			"ingredients": [
+				{
+					"name": "shroud liquid"
+				},
+				{
+					"name": "mycelium"
+				},
+				{
+					"name": "water"
+				},
+				{
+					"name": "shroud spores"
+				}
+			]
+		},
+		{
+			"name": "superior health potion",
+			"type": "potion",
+			"effect": "+1000 health",
+			"duration": "instant",
+			"requirements": [
+				"alchemist",
+				"laboratory"
+			],
+			"ingredients": [
+				{
+					"name": "honey"
+				},
+				{
+					"name": "gentian"
+				},
+				{
+					"name": "alchemical base"
+				},
+				{
+					"name": "chamomile"
+				}
+			]
+		},
+		{
+			"name": "mana potion",
+			"type": "potion",
+			"effect": "+80 mana",
+			"duration": "instant",
+			"requirements": [
+				"alchemist",
+				"mortar"
+			],
+			"ingredients": [
+				{
+					"name": "azure russula",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "greater mana potion",
+			"type": "potion",
+			"effect": "+150 mana",
+			"duration": "instant",
+			"requirements": [
+				"alchemist",
+				"alchemy station"
+			],
+			"ingredients": [
+				{
+					"name": "azure russula",
+					"count": 4
+				},
+				{
+					"name": "alchemical base"
+				}
+			]
+		},
+		{
+			"name": "superior mana potion",
+			"type": "potion",
+			"effect": "+250 mana",
+			"duration": "instant",
+			"requirements": [
+				"alchemist",
+				"laboratory"
+			],
+			"ingredients": [
+				{
+					"name": "gentian",
+					"count": 4
+				},
+				{
+					"name": "alchemical base"
+				},
+				{
+					"name": "moss"
+				}
+			]
+		},
+		{
+			"name": "shroud survival flask",
+			"type": "potion",
+			"effect": "+2m of max time in the shroud",
+			"duration": "45m",
+			"requirements": [
+				"alchemist"
+			],
+			"ingredients": [
+				{
+					"name": "charcoal"
+				},
+				{
+					"name": "shroud liquid"
+				},
+				{
+					"name": "wood acid"
+				}
+			]
+		},
+		{
+			"name": "wood acid",
+			"requirements": [
+				"charcoal kiln"
+			],
+			"count": 10,
+			"ingredients": [
+				{
+					"name": "wood logs",
+					"count": 15
+				},
+				{
+					"name": "dirt",
+					"count": 3
+				}
+			]
+		},
+		{
+			"name": "charcoal",
+			"requirements": [
+				"charcoal kiln"
+			],
+			"count": 15,
+			"ingredients": [
+				{
+					"name": "wood logs",
+					"count": 17
+				},
+				{
+					"name": "dirt",
+					"count": 3
+				}
+			]
+		},
+		{
+			"name": "greater shroud survival flask",
+			"type": "potion",
+			"effect": "+4m of max time in the shroud",
+			"duration": "45m",
+			"requirements": [
+				"alchemist",
+				"alchemy station"
+			],
+			"ingredients": [
+				{
+					"name": "alchemical base"
+				},
+				{
+					"name": "shroud liquid"
+				},
+				{
+					"name": "antiseptic"
+				}
+			]
+		},
+		{
+			"name": "antiseptic",
+			"type": "potion",
+			"effect": "cures poison effect",
+			"requirements": [
+				"alchemy station"
+			],
+			"duration": "instant",
+			"ingredients": [
+				{
+					"name": "wood acid"
+				},
+				{
+					"name": "aloe"
+				}
+			]
+		},
+		{
+			"name": "greater antidote",
+			"type": "potion",
+			"effect": "cures poison effect, negates next poisoning",
+			"duration": "instant",
+			"requirements": [
+				"alchemist",
+				"laboratory"
+			],
+			"count": 3,
+			"ingredients": [
+				{
+					"name": "poison sack"
+				},
+				{
+					"name": "alchemical base"
+				},
+				{
+					"name": "wolfsbane"
+				},
+				{
+					"name": "coal powder"
+				}
+			]
+		},
+		{
+			"name": "antidote",
+			"type": "potion",
+			"effect": "cures poison effect",
+			"duration": "instant",
+			"requirements": [
+				"alchemist",
+				"mortar"
+			],
+			"ingredients": [
+				{
+					"name": "poison sack"
+				},
+				{
+					"name": "milk",
+					"count": 3
+				},
+				{
+					"name": "coal powder"
+				}
+			]
+		},
+		{
+			"name": "coal powder",
+			"requirements": [
+				"grinding stones"
+			],
+			"count": 5,
+			"ingredients": [
+				{
+					"name": "charcoal",
+					"count": 5
+				}
+			]
+		},
+		{
+			"name": "wisp of light",
+			"type": "potion",
+			"requirements": [
+				"alchemist"
+			],
+			"duration": "5m",
+			"effect": "provides a light source",
+			"ingredients": [
+				{
+					"name": "bug dust",
+					"count": 3
+				},
+				{
+					"name": "glow dust",
+					"count": 2
+				},
+				{
+					"name": "resin"
+				}
+			]
+		},
+		{
+			"name": "bug dust",
+			"requirements": [
+				"alchemist",
+				"mortar"
+			],
+			"ingredients": [
+				{
+					"name": "critter parts",
+					"count": 3
+				}
+			]
+		},
+		{
+			"name": "glow dust",
+			"requirements": [
+				"alchemist",
+				"mortar"
+			],
+			"ingredients": [
+				{
+					"name": "fire fly"
+				}
+			]
+		},
+		{
+			"name": "flask of the fell",
+			"type": "potion",
+			"requirements": [
+				"alchemist",
+				"mortar"
+			],
+			"effect": "+20 stamina",
+			"duration": "30m",
+			"ingredients": [
+				{
+					"name": "shroud liquid"
+				},
+				{
+					"name": "strawberry"
+				},
+				{
+					"name": "forest beet"
+				}
+			]
+		},
+		{
+			"name": "ice protection lotion",
+			"type": "potion",
+			"requirements": [
+				"collector"
+			],
+			"effect": "blazing skin",
+			"duration": "30m",
+			"ingredients": [
+				{
+					"name": "salt",
+					"count": 5
+				},
+				{
+					"name": "bonemeal",
+					"count": 5
+				},
+				{
+					"name": "ectoplasm",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "bonemeal",
+			"requirements": [
+				"grinding stones"
+			],
+			"count": 2,
+			"ingredients": [
+				{
+					"name": "bones"
+				}
+			]
+		},
+		{
+			"name": "ectoplasm",
+			"requirements": [
+				"ectoplasm press"
+			],
+			"count": 10,
+			"ingredients": [
+				{
+					"name": "ectoplasm fragment",
+					"count": 10
+				},
+				{
+					"name": "torn cloth",
+					"count": 5
+				},
+				{
+					"name": "charcoal"
+				}
+			]
+		},
+		{
+			"name": "ectoplasm soup",
+			"type": "ectoplasm_soup",
+			"requirements": [
+				"collector"
+			],
+			"effect": "-50 health, +10% damage against hollow, +8% life leech against hollow",
+			"duration": "35m",
+			"ingredients": [
+				{
+					"name": "honey"
+				},
+				{
+					"name": "ectoplasm"
+				}
+			]
+		},
+		{
+			"name": "greater ectoplasm soup",
+			"type": "ectoplasm_soup",
+			"requirements": [
+				"collector"
+			],
+			"effect": "-100 health, +12% damage against hollow, +9% life leech against hollow",
+			"duration": "50m",
+			"ingredients": [
+				{
+					"name": "sugar"
+				},
+				{
+					"name": "greater ectoplasm"
+				}
+			]
+		},
+		{
+			"name": "greater ectoplasm",
+			"requirements": [
+				"ectoplasm press"
+			],
+			"count": 10,
+			"ingredients": [
+				{
+					"name": "ectoplasm shard",
+					"count": 10
+				},
+				{
+					"name": "torn cloth",
+					"count": 10
+				},
+				{
+					"name": "charcoal",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "excellent ectoplasm soup",
+			"type": "ectoplasm_soup",
+			"requirements": [
+				"collector"
+			],
+			"effect": "-150 health, +15% damage against hollow, +10% life leech against hollow",
+			"duration": "60m",
+			"ingredients": [
+				{
+					"name": "yucca fruit"
+				},
+				{
+					"name": "excellent ectoplasm"
+				}
+			]
+		},
+		{
+			"name": "excellent ectoplasm",
+			"requirements": [
+				"collector",
+				"ectoplasm press"
+			],
+			"count": 10,
+			"ingredients": [
+				{
+					"name": "ectoplasm shard",
+					"count": 10
+				},
+				{
+					"name": "torn cloth",
+					"count": 10
+				},
+				{
+					"name": "fabric"
+				},
+				{
+					"name": "coal powder",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "fabric",
+			"requirements": [
+				"loom"
+			],
+			"ingredients": [
+				{
+					"name": "linen",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "linen",
+			"requirements": [
+				"hand spindle"
+			],
+			"ingredients": [
+				{
+					"name": "flax",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "bandage",
+			"type": "bandage",
+			"effect": "+4% hp/s",
+			"duration": "10s",
+			"ingredients": [
+				{
+					"name": "torn cloth",
+					"count": 2
+				},
+				{
+					"name": "string"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"requirements": [
+				"spinning wheel"
+			],
+			"ingredients": [
+				{
+					"name": "plant fiber",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "cleaned bandage",
+			"type": "bandage",
+			"effect": "+6% hp/s",
+			"duration": "10s",
+			"requirements": [
+				"hunter"
+			],
+			"ingredients": [
+				{
+					"name": "torn cloth"
+				},
+				{
+					"name": "string"
+				},
+				{
+					"name": "antiseptic"
+				}
+			]
+		},
+		{
+			"name": "improved bandage",
+			"type": "bandage",
+			"effect": "+8% hp/s",
+			"duration": "10s",
+			"requirements": [
+				"hunter"
+			],
+			"count": 5,
+			"ingredients": [
+				{
+					"name": "linen"
+				},
+				{
+					"name": "wound ointment"
+				},
+				{
+					"name": "fabric"
+				},
+				{
+					"name": "moss",
+					"count": 5
+				}
+			]
+		},
+		{
+			"name": "fabric",
+			"requirements": [
+				"loom"
+			],
+			"ingredients": [
+				{
+					"name": "linen",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "wound ointment",
+			"requirements": [
+				"laboratory"
+			],
+			"ingredients": [
+				{
+					"name": "antiseptic"
+				},
+				{
+					"name": "chamomile",
+					"count": 2
+				},
+				{
+					"name": "gentian",
+					"count": 2
+				},
+				{
+					"name": "silver dust"
+				}
+			]
+		},
+		{
+			"name": "silver dust",
+			"requirements": [
+				"grinding stones"
+			],
+			"ingredients": [
+				{
+					"name": "silver bars"
+				}
+			]
+		},
+		{
+			"name": "silver bars",
+			"requirements": [
+				"blast furnace"
+			],
+			"count": 20,
+			"ingredients": [
+				{
+					"name": "silver ore",
+					"count": 20
+				},
+				{
+					"name": "coal",
+					"count": 10
+				}
+			]
+		},
+		{
+			"name": "beef stew",
+			"type": "meat_food",
+			"requirements": [
+				"farmer"
+			],
+			"duration": "40m",
+			"effect": "+4 strength, +4 health regen, +4 constitution, +3 frost resistance",
+			"ingredients": [
+				{
+					"name": "eggs"
+				},
+				{
+					"name": "raw fatty meat"
+				},
+				{
+					"name": "tomato"
+				},
+				{
+					"name": "fizzy goat milk"
+				}
+			]
+		},
+		{
+			"name": "grilled fatty meat",
+			"type": "meat_food",
+			"requirements": [
+				"farmer",
+				"oven"
+			],
+			"duration": "25m",
+			"effect": "+5 constitution, +1 frost resistance",
+			"ingredients": [
+				{
+					"name": "raw fatty meat"
+				}
+			]
+		},
+		{
+			"name": "meat wrap",
+			"type": "meat_food",
+			"requirements": [
+				"farmer",
+				"oven"
+			],
+			"duration": "45m",
+			"effect": "+5 constitution, +1 intelligence",
+			"ingredients": [
+				{
+					"name": "water"
+				},
+				{
+					"name": "red mushroom"
+				},
+				{
+					"name": "raw dune armadillo meat"
+				},
+				{
+					"name": "flour"
+				}
+			]
+		},
+		{
+			"name": "flour",
+			"type": "grain_product",
+			"requirements": [
+				"grinding stones"
+			],
+			"duration": "45m",
+			"effect": "+5 constitution, +1 intelligence",
+			"ingredients": [
+				{
+					"name": "wheat grains",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "chicken soup",
+			"type": "meat_food",
+			"requirements": [
+				"farmer,",
+				"fireplace",
+				"almanac of plants and seedlings",
+				"cooking station"
+			],
+			"duration": "40m",
+			"count": 5,
+			"effect": "+4 constitution, +1 dexterity",
+			"ingredients": [
+				{
+					"name": "forest beet",
+					"count": 3
+				},
+				{
+					"name": "water",
+					"count": 5
+				},
+				{
+					"name": "salt"
+				},
+				{
+					"name": "raw bird meat",
+					"count": 3
+				},
+				{
+					"name": "bell pepper",
+					"count": 3
+				}
+			]
+		},
+		{
+			"name": "grilled dune armadillo",
+			"type": "meat_food",
+			"requirements": [
+				"fireplace",
+				"cooking station"
+			],
+			"duration": "12m30s",
+			"count": 5,
+			"effect": "+4 constitution",
+			"ingredients": [
+				{
+					"name": "raw dune armadillo meat"
+				}
+			]
+		},
+		{
+			"name": "grilled bird meat",
+			"type": "meat_food",
+			"requirements": [
+				"fireplace",
+				"cooking station"
+			],
+			"duration": "30m",
+			"effect": "+3 constitution",
+			"ingredients": [
+				{
+					"name": "raw bird meat"
+				}
+			]
+		},
+		{
+			"name": "grilled game",
+			"type": "meat_food",
+			"requirements": [
+				"fireplace",
+				"cooking station"
+			],
+			"duration": "25m",
+			"effect": "+3 constitution",
+			"ingredients": [
+				{
+					"name": "raw game"
+				}
+			]
+		},
+		{
+			"name": "grilled wolf meat",
+			"type": "meat_food",
+			"requirements": [
+				"fireplace",
+				"cooking station"
+			],
+			"duration": "20m",
+			"effect": "+2 constitution",
+			"ingredients": [
+				{
+					"name": "raw wolf meat"
+				}
+			]
+		},
+		{
+			"name": "grilled lean meat",
+			"type": "meat_food",
+			"requirements": [
+				"fireplace",
+				"cooking station"
+			],
+			"duration": "20m",
+			"effect": "+1 constitution",
+			"ingredients": [
+				{
+					"name": "raw lean meat"
+				}
+			]
+		},
+		{
+			"name": "stir-fried vegetables",
+			"type": "vegetable",
+			"requirements": [
+				"farmer",
+				"oven"
+			],
+			"duration": "45m",
+			"count": 5,
+			"effect": "+5 dexterity",
+			"ingredients": [
+				{
+					"name": "corncob",
+					"count": 3
+				},
+				{
+					"name": "forest beet",
+					"count": 3
+				},
+				{
+					"name": "tomato",
+					"count": 3
+				},
+				{
+					"name": "bell pepper",
+					"count": 3
+				},
+				{
+					"name": "spice"
+				}
+			]
+		},
+		{
+			"name": "spice",
+			"requirements": [
+				"laboratory"
+			],
+			"count": 10,
+			"ingredients": [
+				{
+					"name": "saffron"
+				},
+				{
+					"name": "alchemical base"
+				},
+				{
+					"name": "chamomile"
+				},
+				{
+					"name": "rooibos"
+				},
+				{
+					"name": "kindlewastes flower",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "vegetable soup",
+			"type": "vegetable",
+			"requirements": [
+				"farmer",
+				"cooking station",
+				"almanac of plants and seedlings"
+			],
+			"duration": "40m",
+			"count": 5,
+			"effect": "+4 dexterity",
+			"ingredients": [
+				{
+					"name": "forest beet",
+					"count": 3
+				},
+				{
+					"name": "water",
+					"count": 5
+				},
+				{
+					"name": "salt"
+				},
+				{
+					"name": "bell pepper",
+					"count": 3
+				},
+				{
+					"name": "tomato",
+					"count": 3
+				}
+			]
+		},
+		{
+			"name": "vegetable puree",
+			"type": "vegetable",
+			"requirements": [
+				"farmer",
+				"cooking station"
+			],
+			"duration": "35m",
+			"count": 5,
+			"effect": "+3 dexterity",
+			"ingredients": [
+				{
+					"name": "forest beet",
+					"count": 5
+				},
+				{
+					"name": "water",
+					"count": 5
+				},
+				{
+					"name": "salt"
+				}
+			]
+		},
+		{
+			"name": "grilled yucca fruit",
+			"type": "sweet",
+			"requirements": [
+				"farmer",
+				"cooking station"
+			],
+			"duration": "7m",
+			"effect": "+20 stamina regen",
+			"ingredients": [
+				{
+					"name": "yucca fruit"
+				}
+			]
+		},
+		{
+			"name": "suggar",
+			"type": "sweet",
+			"requirements": [
+				"farmer",
+				"almanac of plants and seedlings"
+			],
+			"duration": "5m",
+			"effect": "+20 stamina regen",
+			"ingredients": [
+				{
+					"name": "sugar cane",
+					"count": 2
+				}
+			]
+		},
+		{
+			"name": "popcorn",
+			"type": "sweet",
+			"requirements": [
+				"farmer",
+				"cooking station"
+			],
+			"count": 5,
+			"duration": "5m",
+			"effect": "+7 stamina regen",
+			"ingredients": [
+				{
+					"name": "corncob",
+					"count": 5
+				},
+				{
+					"name": "honey"
+				}
+			]
+		},
+		{
+			"name": "pumpkin soup",
+			"type": "fruit",
+			"requirements": [
+				"farmer"
+			],
+			"duration": "35m",
+			"effect": "+6 health regen, +4 stamina regen, +2 frost resistance",
+			"ingredients": [
+				{
+					"name": "pumpkin",
+					"count": 3
+				},
+				{
+					"name": "gentian"
+				},
+				{
+					"name": "fizzy goat milk"
+				},
+				{
+					"name": "purple berries"
+				}
+			]
+		},
+		{
+			"name": "fruit bowl",
+			"type": "fruit",
+			"requirements": [
+				"farmer"
+			],
+			"duration": "45m",
+			"effect": "+6 health regen, +3 stamina regen",
+			"count": 2,
+			"ingredients": [
+				{
+					"name": "honey"
+				},
+				{
+					"name": "strawberries",
+					"count": 2
+				},
+				{
+					"name": "purple berries",
+					"count": 2
+				},
+				{
+					"name": "yucca fruit"
+				}
+			]
+		},
+		{
+			"name": "dried purple berries",
+			"type": "fruit",
+			"requirements": [
+				"hunter",
+				"drying rack"
+			],
+			"duration": "5m",
+			"effect": "+1 health regen",
+			"ingredients": [
+				{
+					"name": "purple berries"
+				}
+			]
+		},
+		{
+			"name": "open sandwich",
+			"type": "grain_product",
+			"requirements": [
+				"farmer",
+				"oven"
+			],
+			"duration": "45m",
+			"effect": "+4 strength, +2 constitution",
+			"ingredients": [
+				{
+					"name": "saffron"
+				},
+				{
+					"name": "grilled wolf meat"
+				},
+				{
+					"name": "flat bread"
+				}
+			]
+		},
+		{
+			"name": "flat bread",
+			"type": "grain_product",
+			"requirements": [
+				"oven"
+			],
+			"duration": "40m",
+			"effect": "+4 strength",
+			"ingredients": [
+				{
+					"name": "salt"
+				},
+				{
+					"name": "water"
+				},
+				{
+					"name": "flour"
+				}
+			]
+		},
+		{
+			"name": "roasted corncob",
+			"type": "grain_product",
+			"requirements": [
+				"fireplace"
+			],
+			"duration": "20m",
+			"effect": "+2 strength",
+			"ingredients": [
+				{
+					"name": "corncob"
+				}
+			]
+		},
+		{
+			"name": "yellow glow soup",
+			"type": "mushroom",
+			"requirements": [
+				"farmer"
+			],
+			"duration": "40m",
+			"effect": "+5 spirit, +5 intelligence, +2 mana regen",
+			"ingredients": [
+				{
+					"name": "yellow shroud mushroom",
+					"count": 3
+				},
+				{
+					"name": "gentian"
+				},
+				{
+					"name": "water"
+				}
+			]
+		},
+		{
+			"name": "glow soup",
+			"type": "mushroom",
+			"requirements": [
+				"farmer",
+				"fireplace",
+				"almanac of plants and seedlings"
+			],
+			"duration": "45m",
+			"count": 3,
+			"effect": "+5 intelligence, +60s of shroud time",
+			"ingredients": [
+				{
+					"name": "spice",
+					"count": 2
+				},
+				{
+					"name": "azure russula",
+					"count": 9
+				},
+				{
+					"name": "water",
+					"count": 3
+				}
+			]
+		},
+		{
+			"name": "mushroom omelette",
+			"type": "mushroom",
+			"requirements": [
+				"farmer",
+				"oven"
+			],
+			"duration": "40m",
+			"effect": "+4 intelligence",
+			"ingredients": [
+				{
+					"name": "red mushroom",
+					"count": 3
+				},
+				{
+					"name": "eggs",
+					"count": 3
+				}
+			]
+		},
+		{
+			"name": "roasted azure russula",
+			"type": "mushroom",
+			"requirements": [
+				"cooking station"
+			],
+			"duration": "25m",
+			"effect": "+3 intelligence",
+			"ingredients": [
+				{
+					"name": "azure russula"
+				}
+			]
+		},
+		{
+			"name": "grilled red russula",
+			"type": "mushroom",
+			"requirements": [
+				"cooking station"
+			],
+			"duration": "20m",
+			"effect": "+2 intelligence",
+			"ingredients": [
+				{
+					"name": "red russula"
+				}
+			]
+		},
+		{
+			"name": "milkshake",
+			"type": "liquid",
+			"requirements": [
+				"farmer"
+			],
+			"duration": "30m",
+			"effect": "+5 endurance, +5 stamina regen, +4 dexterity",
+			"ingredients": [
+				{
+					"name": "strawberry"
+				},
+				{
+					"name": "fizzy goat milk"
+				},
+				{
+					"name": "snow"
+				}
+			]
+		},
+		{
+			"name": "spiced tea",
+			"type": "liquid",
+			"requirements": [
+				"farmer",
+				"fireplace",
+				"almanac of plants and seedlings"
+			],
+			"duration": "45m",
+			"effect": "+5 endurance",
+			"ingredients": [
+				{
+					"name": "saffron"
+				},
+				{
+					"name": "water"
+				}
+			]
+		},
+		{
+			"name": "herbal mountain tea",
+			"type": "liquid",
+			"requirements": [
+				"farmer"
+			],
+			"duration": "40m",
+			"effect": "+4 endurance, +4 stamina regen",
+			"ingredients": [
+				{
+					"name": "gentian"
+				},
+				{
+					"name": "water"
+				}
+			]
+		},
+		{
+			"name": "rooibos tea",
+			"type": "liquid",
+			"requirements": [
+				"farmer",
+				"fireplace",
+				"almanac of plants and seedlings"
+			],
+			"duration": "30m",
+			"effect": "+3 endurance, +7 stamina regen",
+			"ingredients": [
+				{
+					"name": "rooibos"
+				},
+				{
+					"name": "water"
+				}
+			]
+		},
+		{
+			"name": "cooked fae deer milk",
+			"type": "liquid",
+			"requirements": [
+				"farmer",
+				"cooking station"
+			],
+			"duration": "15m",
+			"effect": "+3 endurance, +4 stamina regen",
+			"ingredients": [
+				{
+					"name": "uncooked fae deer milk"
+				}
+			]
+		},
+		{
+			"name": "chamomile tea",
+			"type": "liquid",
+			"requirements": [
+				"farmer",
+				"cooking station"
+			],
+			"duration": "35m",
+			"effect": "+4 health regen, +2 endurance",
+			"ingredients": [
+				{
+					"name": "chamomile"
+				},
+				{
+					"name": "water"
+				}
+			]
+		},
+		{
+			"name": "boiled eggs",
+			"type": "eggs",
+			"requirements": [
+				"farmer",
+				"cooking station"
+			],
+			"duration": "40m",
+			"effect": "+3 stamina regen, +3 health regen, +2 mana regen",
+			"ingredients": [
+				{
+					"name": "eggs"
+				},
+				{
+					"name": "water"
+				}
+			]
+		},
+		{
+			"name": "tomato",
+			"type": "vegetable",
+			"duration": "10m",
+			"effect": "+3 dexterity"
+		},
+		{
+			"name": "bell pepper",
+			"type": "vegetable",
+			"duration": "10m",
+			"effect": "+3 dexterity"
+		},
+		{
+			"name": "forest beet",
+			"type": "vegetable",
+			"duration": "15m",
+			"effect": "+1 dexterity"
+		},
+		{
+			"name": "honey",
+			"type": "sweet",
+			"duration": "3m",
+			"effect": "+15 stamina regen"
+		},
+		{
+			"name": "yucca fruit",
+			"type": "fruit",
+			"duration": "25m",
+			"effect": "+2 health regen, +1 stamina regen"
+		},
+		{
+			"name": "strawberry",
+			"type": "fruit",
+			"duration": "30s",
+			"effect": "+3 health regen"
+		},
+		{
+			"name": "purple berries",
+			"type": "fruit",
+			"duration": "30s",
+			"effect": "+2 health regen"
+		},
+		{
+			"name": "hazelnut",
+			"type": "grain_product",
+			"duration": "15m",
+			"effect": "+3 strength"
+		},
+		{
+			"name": "corncob",
+			"type": "grain_product",
+			"duration": "10m",
+			"effect": "+1 strength"
+		},
+		{
+			"name": "red mushroom",
+			"type": "mushroom",
+			"duration": "10m",
+			"effect": "+1 intelligence"
+		},
+		{
+			"name": "gentian",
+			"type": "herb",
+			"duration": "25m",
+			"effect": "+5 spirit"
+		},
+		{
+			"name": "grapple plant",
+			"type": "herb",
+			"duration": "25m",
+			"effect": "+5 spirit"
+		},
+		{
+			"name": "sage leaves",
+			"type": "herb",
+			"duration": "10m",
+			"effect": "+4 spirit"
+		},
+		{
+			"name": "stinging nettle",
+			"type": "herb",
+			"duration": "15m",
+			"effect": "+3 spirit"
+		},
+		{
+			"name": "aureolin flower",
+			"type": "herb",
+			"duration": "10m",
+			"effect": "+2 spirit"
+		},
+		{
+			"name": "frizzy goat milk",
+			"type": "liquid",
+			"duration": "20m",
+			"effect": "+4 endurance"
+		},
+		{
+			"name": "milk",
+			"type": "liquid",
+			"duration": "15m",
+			"effect": "+2 endurance, +2 stamina regen"
+		},
+		{
+			"name": "water",
+			"type": "liquid",
+			"duration": "10m",
+			"effect": "+1 endurance, +2 stamina regen"
+		},
+		{
+			"name": "eggs",
+			"type": "eggs",
+			"duration": "10m",
+			"effect": "+2 endurance"
+		}
+	]
+}
