@@ -1,4 +1,241 @@
 {
+	"biomes": [
+		{
+			"name": "Springlands",
+			"requirements": [
+				{
+					"flame level": "1 - 2",
+					"level": "1 - 10"
+				}
+			],
+			"ingredients": [
+				"aureolin flower",
+				"corncob",
+				"fire fly",
+				"honey",
+				"plant fiber",
+				"purple berries",
+				"red mushroom",
+				"resin",
+				"shroud liquid",
+				"shroud wood",
+				"tomato",
+				"twigs",
+				"wax",
+				"wood logs",
+				"animal fur",
+				"bones",
+				"critter parts",
+				"fur patch",
+				"raw lean meat",
+				"raw wolf meat",
+				"string",
+				"dirt",
+				"farm soil",
+				"flintstone",
+				"flower soil",
+				"luminous growth",
+				"mycelium",
+				"rubble",
+				"salt",
+				"stone",
+				"water",
+				"shroud spores",
+				"torn cloth",
+				"milk"
+			]
+		},
+		{
+			"name": "Revelwood",
+			"requirements": [
+				{
+					"flame level": "3",
+					"level": "10 - 15"
+				}
+			],
+			"ingredients": [
+				"azure russula",
+				"chamomile",
+				"flax",
+				"forest beet",
+				"hazelnut",
+				"hardwood",
+				"honey",
+				"indigo plant",
+				"plant fiber",
+				"purple berries",
+				"red mushroom",
+				"resin",
+				"shroud liquid",
+				"shroud wood",
+				"stinging nettle",
+				"strawberry",
+				"twigs",
+				"wax",
+				"wood logs",
+				"animal fur",
+				"bones",
+				"critter parts",
+				"fur patch",
+				"poison sack",
+				"raw game",
+				"raw lean meat",
+				"reptile hide",
+				"shroud sack",
+				"string",
+				"amber",
+				"blackmire bark",
+				"blackmire heartwood",
+				"copper ore",
+				"dirt",
+				"farm soil",
+				"foliage",
+				"luminous growth",
+				"lump of clay",
+				"mushroom flesh",
+				"mycelium",
+				"rubble",
+				"stone",
+				"vukah nesting material",
+				"uncooked fae deer milk"
+			]
+		},
+		{
+			"name": "Hollow Halls",
+			"requirements": [],
+			"ingredients": [
+				"ectoplasm fragment",
+				"ectoplasm shard"
+			]
+		},
+		{
+			"name": "Nomad Highlands",
+			"requirements": [
+				{
+					"flame level": "4",
+					"level": "15 - 20"
+				}
+			],
+			"ingredients": [
+				"aloe",
+				"azure russula",
+				"bell pepper",
+				"mint mushroom meat",
+				"plant fiber",
+				"red mushroom",
+				"resin",
+				"rooibos",
+				"sage leaves",
+				"shroud liquid",
+				"shroud wood",
+				"straw",
+				"sugar cane",
+				"twigs",
+				"wheat grains",
+				"wood logs",
+				"ammonia gland",
+				"animal fur",
+				"bones",
+				"critter parts",
+				"eggs",
+				"feather",
+				"fur patch",
+				"raw bird meat",
+				"raw game",
+				"raw lean meat",
+				"shroud sack",
+				"string",
+				"dirt",
+				"fossilized bone",
+				"limestone",
+				"luminous growth",
+				"mycelium",
+				"rubble",
+				"stone",
+				"tin ore"
+			]
+		},
+		{
+			"name": "Kindlewastes",
+			"requirements": [
+				{
+					"flame level": "5",
+					"level": "20 - 30"
+				}
+			],
+			"ingredients": [
+				"aloe",
+				"bell pepper",
+				"grapple plant",
+				"kindlewastes flower",
+				"mint mushroom meat",
+				"palm wood logs",
+				"plant fiber",
+				"resin",
+				"saffron",
+				"shroud liquid",
+				"twigs",
+				"yucca fruit",
+				"ammonia gland",
+				"bones",
+				"critter parts",
+				"eggs",
+				"feather",
+				"fur patch",
+				"poison sack",
+				"raw bird meat",
+				"raw lean meat",
+				"raw dune armadillo meat",
+				"scales",
+				"shroud sack",
+				"string",
+				"fossilized bone",
+				"lapislazuli",
+				"luminous growth",
+				"iron ore",
+				"mycelium",
+				"rubble",
+				"sand",
+				"sandstone",
+				"stone",
+				"sulfur"
+			]
+		},
+		{
+			"name": "Albaneve Summits",
+			"requirements": [
+				{
+					"flame level": "6 - 8",
+					"level": "30 - 40"
+				}
+			],
+			"ingredients": [
+				"conifer logs",
+				"gentian",
+				"wolfsbane",
+				"plant fiber",
+				"ammonia gland",
+				"animal fur",
+				"bones",
+				"raw fatty meat",
+				"raw wool",
+				"amethyst",
+				"coal",
+				"ice",
+				"iron ore",
+				"granite",
+				"moss",
+				"obsidian",
+				"red marble fragment",
+				"silver ore",
+				"snow",
+				"yellow shroud mushroom",
+				"pumpkin",
+
+				"fizzy goat milk"
+			]
+		}
+	],
 	"items": [
 		{
 			"name": "health potion",
@@ -780,7 +1017,7 @@
 			"name": "chicken soup",
 			"type": "meat_food",
 			"requirements": [
-				"farmer,",
+				"farmer",
 				"fireplace",
 				"almanac of plants and seedlings",
 				"cooking station"
@@ -1016,7 +1253,7 @@
 			]
 		},
 		{
-			"name": "suggar",
+			"name": "sugar",
 			"type": "sweet",
 			"requirements": [
 				"farmer",
@@ -1089,7 +1326,7 @@
 					"name": "honey"
 				},
 				{
-					"name": "strawberries",
+					"name": "strawberry",
 					"count": 2
 				},
 				{
@@ -1253,7 +1490,7 @@
 			]
 		},
 		{
-			"name": "grilled red russula",
+			"name": "grilled red mushroom",
 			"type": "mushroom",
 			"requirements": [
 				"cooking station"
@@ -1262,7 +1499,7 @@
 			"effect": "+2 intelligence",
 			"ingredients": [
 				{
-					"name": "red russula"
+					"name": "red mushroom"
 				}
 			]
 		},
@@ -1483,7 +1720,7 @@
 			"effect": "+2 spirit"
 		},
 		{
-			"name": "frizzy goat milk",
+			"name": "fizzy goat milk",
 			"type": "liquid",
 			"duration": "20m",
 			"effect": "+4 endurance"
