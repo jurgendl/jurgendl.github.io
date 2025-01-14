@@ -1,7 +1,7 @@
 {
 	"biomes": [
 		{
-			"name": "Springlands",
+			"name": "Springlands & Low Meadows",
 			"requirements": [
 				{
 					"flame level": "1 - 2",
@@ -46,7 +46,7 @@
 			]
 		},
 		{
-			"name": "Revelwood",
+			"name": "Revelwood & Blackmire",
 			"requirements": [
 				{
 					"flame level": "3",
@@ -156,7 +156,7 @@
 			]
 		},
 		{
-			"name": "Kindlewastes",
+			"name": "Kindlewastes (Northern & Southern)",
 			"requirements": [
 				{
 					"flame level": "5",
@@ -232,7 +232,7 @@
 				"yellow shroud mushroom",
 				"pumpkin",
 
-				"fizzy goat milk"
+				"frizzy goat milk"
 			]
 		}
 	],
@@ -955,7 +955,7 @@
 					"name": "tomato"
 				},
 				{
-					"name": "fizzy goat milk"
+					"name": "frizzy goat milk"
 				}
 			]
 		},
@@ -1305,7 +1305,7 @@
 					"name": "gentian"
 				},
 				{
-					"name": "fizzy goat milk"
+					"name": "frizzy goat milk"
 				},
 				{
 					"name": "purple berries"
@@ -1516,7 +1516,7 @@
 					"name": "strawberry"
 				},
 				{
-					"name": "fizzy goat milk"
+					"name": "frizzy goat milk"
 				},
 				{
 					"name": "snow"
@@ -1720,7 +1720,7 @@
 			"effect": "+2 spirit"
 		},
 		{
-			"name": "fizzy goat milk",
+			"name": "frizzy goat milk",
 			"type": "liquid",
 			"duration": "20m",
 			"effect": "+4 endurance"
